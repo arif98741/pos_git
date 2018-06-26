@@ -9,11 +9,11 @@ if (isset($_POST['addpurchase'])) {
 
     if($inv->saveInvoice($_POST)){
 
-        echo "<script>alert('Purchase Added Successfully');</script>";
+        echo "<script>alert('Invoice Added Successfully');</script>";
 
     }else{
 
-        echo "<script>alert('Purchase Added Failed!');</script>";
+        echo "<script>alert('Invoice Added Failed!');</script>";
 
     }
 
@@ -32,7 +32,7 @@ if ( isset($_POST['updateinvoice'])) {
         //echo "<script>window.loction='';</script>";
     }else{
 
-        echo "<script>alert('Purchase Updated Failed!');</script>";
+        echo "<script>alert('Invoice Updated Failed!');</script>";
     }
 
 }
@@ -56,45 +56,51 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
 }
 
 ?>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>SALES/INVOICE LIST</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+      </ol>
+    </section>
 
-<!-- //header-ends -->
+    <!-- Main content -->
+    <section class="content">
+     <div class="row">
+       <div class="col-xs-12">
+         
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                <thead>
+                <tr role="row">
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Date</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Inv. No</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">Customer</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Subtotal</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Discount</th>
 
-<div id="page-wrapper">
-
-    <div class="graphs">
-
-        <div class="breadcrumb">
-
-            <h3><i class="lnr lnr-list"></i> &nbsp;Sales/Invoice List</h3>
-
-        </div>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">DL</th>
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Vat</th>
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Balance</th>
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Payable</th>
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Paid</th>
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Due</th>
 
 
-        <div class="xs tabls">
-            <div class="bs-example4">
-                <div class="table-responsive">
-                    <table class="table table-bordered invoice_table" id="invoice_product_data_table">
-                        <thead>
-                        <tr>
 
-                            <th width="8%">Date</th>
-                            <th width="9%">Inv. No</th>
-                            <th width="18%">Customer</th>
-                            <th width="7%">Subtotal</th>
-                            <th width="6%">Discount</th>
-                            <th width="7%">DL.</th>
-                            <th width="7%">Vat</th>
-                            <th width="10%">Pre-Balance</th>
-                            <th width="4%">Payable</th>
-                            <th width="7%">Paid</th>
-                            <th width="6%">Due</th>
-                            <th width="11%">Action</th>
+                  
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
 
-                        </tr>
-
-                        </thead>
-
-                        <tbody>
+                </tr>
+                </thead>
+                <tbody>
 
                         <?php
 
@@ -155,12 +161,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                         ?>
 
                         </tbody>
-                    </table>
-                </div>
+              </table>
             </div>
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-    </div>
-</div>
+      </div>
 
-<?php include 'lib/footer.php'; ?>
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
 
+ <?php include 'lib/footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 ob_start();
 date_default_timezone_set('Asia/Dhaka');
-define("BASE_URL", 'http://localhost/pos_v1/');
+define("BASE_URL", 'http://localhost/pos_v2/');
 //case control
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -43,286 +43,337 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 }
 
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Point of Sale Management Service</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Point of Sale Management" />
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <!-- Bootstrap Core CSS -->
-        <link href="<?php echo BASE_URL; ?>assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-        <!-- Custom CSS -->
-        <link href="<?php echo BASE_URL; ?>assets/css/style.css" rel="stylesheet"/>
-        <link href="<?php echo BASE_URL; ?>assets/css/custom.css" rel="stylesheet"/>
-        <!-- Graph CSS -->
-        <link href="<?php echo BASE_URL; ?>assets/css/font-awesome.css" rel="stylesheet">
-        <!--datatables-->
-		
-        <link href="<?php echo BASE_URL; ?>assets/css/datatables.css" rel="stylesheet">
-        <!-- jQuery -->
-        <!-- lined-icons -->
-        <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/icon-font.min.css">
-        <!-- //lined-icons -->
-        <!-- chart -->
-        <script src="<?php echo BASE_URL; ?>assets/js/Chart.js"></script>
-        <!-- //chart -->
-        <!--animate-->
-        <link href="<?php echo BASE_URL; ?>assets/css/animate.css" rel="stylesheet" type="text/css" media="all">
-        <script>
-            //new WOW().init();
-		</script>
-        <!--//end-animate-->
-        <!----webfonts--->
-        <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-        <!---//webfonts---> 
-        <!-- Meters graphs -->
-        <!-- Placed js at the end of the document so the pages load faster -->
-	</head> 
-    <body class="sticky-header left-side-collapsed"  onload="initMap()">
-        <section>
-            <!-- left side start-->
-            <div class="left-side sticky-left-side">
-                <!--logo and iconic logo start-->
-                <div class="logo-icon text-center">
-                    <a href="index.php"><i class="lnr lnr-home"></i> </a>
-				</div>
-                <!--logo and iconic logo end-->
-                <div class="left-side-inner">
-                    <!--sidebar nav start-->
-                    <ul class="nav nav-pills nav-stacked custom-nav">
-                        <li class="active"><a href="index.php"><i class="lnr lnr-power-switch"></i><span>Dashboard</span></a></li>
-                      <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-database"></i>
-                                <span>Products</span></a>
-                            <ul class="sub-menu-list">
-                            <?php if(Session::get('status') == 'admin'): ?>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Point of Sale Management System</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="assets/dist/css/skins/_all-skins.min.css">
 
-                                <li><a href="<?php echo BASE_URL; ?>addproduct.php">Add Product</a> </li>
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-                            <?php endif; ?>
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
 
-                                <li><a href="<?php echo BASE_URL; ?>products.php">Products List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>product_report.php">Products Report</a> </li>
-                            </ul>
-                        </li>
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="index.php" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b><i class="fa fa-ist"></i></b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>pos</b> explore</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
 
-                        <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-car"></i>
-                                <span>Purchase</span></a>
-                            <ul class="sub-menu-list">
-                                <?php if(Session::get('status') == 'admin'): ?>
-                                    
-                                   <li><a href="<?php echo BASE_URL; ?>addpurchase.php">Add Purchase</a></li>
-                                   
-                                 <?php endif; ?>
-                                <li><a href="<?php echo BASE_URL; ?>purchaselist.php">Purchase List</a></li>
-                                <li><a href="<?php echo BASE_URL; ?>purchasereport.php">Purchase Report</a></li>
-
-                            </ul>
-                        </li>
-
-                        <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-cart"></i>
-                                <span>Sales</span></a>
-                            <ul class="sub-menu-list">
-                                <li><a href="<?php echo BASE_URL; ?>addinvoice.php">Sale Product</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>invoicelist.php">Sales List</a> </li>
-                                 <?php if(Session::get('status') == 'admin'): ?>
-
-                                     <li><a href="<?php echo BASE_URL; ?>profitreport.php">Profit Report</a> </li>
-
-                                 <?php endif; ?>
-                                <li><a href="<?php echo BASE_URL; ?>invoice_report.php">Invoice Report</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>sale_report.php">Sales Report</a> </li>
-                            </ul>
-                        </li>
-
-
-                        <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-briefcase"></i>
-                                <span>Payment</span></a>
-                            <ul class="sub-menu-list">
-                                <li><a href="<?php echo BASE_URL; ?>billpay.php">Add Payment</a></li>
-                                <?php if(Session::get('status') == 'admin'): ?>
-                                      <li><a href="<?php echo BASE_URL; ?>paymentlist.php">Payment Record</a></li>
-                                 <?php endif; ?>
-                               <li><a href="<?php echo BASE_URL; ?>paymentreport.php">Payment Report</a></li>
-                            </ul>
-                        </li>
-
-
-
-                        
-                        <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-store"></i>
-                                <span>Stock</span></a>
-                            <ul class="sub-menu-list">
-                                <li><a href="<?php echo BASE_URL; ?>stocklist.php">Stock List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>stock_report.php">Stock Report</a> </li>
-
-                            </ul>
-                        </li>
-
-                         <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-pie-chart"></i>
-                                <span>General Account</span></a>
-                            <ul class="sub-menu-list">
-                                
-                                <?php if (Session::get('status') == 'admin'): ?>
-
-                                <li><a href="<?php echo BASE_URL; ?>addlaser.php">Add Transaction </a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>laserlist.php">Transaction List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>laserreport.php">Transaction Report</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>addtranscategory.php">Add Trans. Category</a></li>
-                                
-                                <?php else: ?>
-                                    
-                                    <li><a href="<?php echo BASE_URL; ?>transcategorylist.php">Trans. Categories</a></li>    
-
-                                <?php  endif; ?>    
-                               
-
-                            </ul>
-                        </li>
-
-                        <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-users"></i>
-                                <span>Customers</span></a>
-                            <ul class="sub-menu-list">
-
-                                <?php if (Session::get('status') == 'admin'): ?>
-
-                                <li><a href="<?php echo BASE_URL; ?>addcustomer.php">Add Customer</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>customerlist.php">Customer List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>customer_statement.php">Customer Statement</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>printfiles/customer/print.php">Customer Report</a></li>
-
-                            <?php else: ?>
-                                <li><a href="<?php echo BASE_URL; ?>customerlist.php">Customer List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>printfiles/customer/print.php">Customer Report</a></li>    
-                                 <?php  endif; ?>    
-                            </ul>
-                        </li>
-
-                        <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-user"></i>
-                                <span>Supplier</span></a>
-                            <ul class="sub-menu-list">
-                                <?php if(Session::get('status') == 'admin'): ?>
-
-                                <li><a href="<?php echo BASE_URL; ?>addsupplier.php">Add Supplier</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>supplierlist.php">Supplier List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>printfiles/supplier/print.php">Supplier Report</a> </li>
-                                 <?php else: ?>
-                                    <li><a href="<?php echo BASE_URL; ?>supplierlist.php">Supplier List</a> </li>
-                                    <li><a href="<?php echo BASE_URL; ?>printfiles/supplier/print.php">Supplier Report</a> </li>
-                                <?php  endif; ?>    
-
-                            </ul>
-                        </li>
-
-                         <li class="menu-list">
-                            <a href="#"><i class="lnr lnr-cog"></i>
-                                <span>Sittings</span></a>
-                            <ul class="sub-menu-list">
-                                 <?php if(Session::get('status') == 'admin'): ?>
-
-                                <li><a href="<?php echo BASE_URL; ?>addgroup.php">Add Product Group</a> </li>
-                                 <li><a href="<?php echo BASE_URL; ?>addtype.php">Add Product Unit</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>grouplist.php">Group List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>typelist.php">Unit List</a> </li>
-                            <?php else: ?>
-                                <li><a href="<?php echo BASE_URL; ?>grouplist.php">Group List</a> </li>
-                                <li><a href="<?php echo BASE_URL; ?>typelist.php">Unit List</a> </li>
-
-
-                                 <?php  endif; ?>    
-                            </ul>
-                        </li>
-
-
-
-
-
-                    </ul>
-                    <!--sidebar nav end-->
-                </div>
-            </div>
-            <!-- left side end-->
-
-            <!-- main content start-->
-            <div class="main-content">
-                <!-- header-starts -->
-                <div class="header-section">
-
-                    <!--toggle button start-->
-                    <a class="toggle-btn  menu-collapsed"><i class="fa fa-bars"></i> explore POS</a>
-                    <!--toggle button end-->
-
-                    <!--notification menu start -->
-                    <div class="menu-right">
-                        <div class="user-panel-top">
-                            <div class="profile_details_left">
-                                <ul class="nofitications-dropdown">
-                                    
-                                    <li class="login_box" id="loginContainer">
-
-                                        <!-- search-scripts -->
-                                        <script src="<?php echo BASE_URL; ?>assets/js/classie.js"></script>
-
-                                        <!-- //search-scripts -->
-                                    </li>
-                                  
-                                  		   							   		
-                                    <div class="clearfix"></div>	
-                                </ul>
-                            </div>
-                            <div class="profile_details">		
-                                <ul>
-                                    <li class="dropdown profile_details_drop">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <div class="profile_img">	
-                                                <span style="background-image: url(<?php echo Session::get('userid'); ?>);"> </span>
-                                                <div class="user-name">
-                                                    <?php if (Session::get("login") == true): ?>
-                                                    <p><?php echo Session::get("name"); ?><span><?php echo Session::get("status"); ?></span></p>
-                                                    <?php endif; ?>
-                                                </div>
-                                                <i class="lnr lnr-chevron-down"></i>
-                                                <i class="lnr lnr-chevron-up"></i>
-                                                <div class="clearfix"></div>	
-                                            </div>	
-                                        </a>
-                                        <ul class="dropdown-menu drp-mnu">
-
-                                            <?php if (Session::get("login") == true): ?>
-                                            <li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
-                                                <li> <a href="profile.php?id=<?php echo Session::get('userid'); ?>"><i class="fa fa-user"></i>Profile</a> </li> 
-
-                                                <?php if(Session::get("status") == 'admin'): ?>
-                                                    <li> <a href="<?php echo BASE_URL; ?>users.php"><i class="lnr lnr-list"></i> Users</a> </li> 
-
-                                                    <li> <a href="<?php echo BASE_URL; ?>adduser.php"><i class="lnr lnr-user"></i> Add User</a> </li> 
-
-                                                <?php endif; ?>    
-
-                                                
-
-                                                <li> <a href="<?php echo BASE_URL; ?>logout.php?action=logout"><i class="fa fa-sign-out"></i> Logout</a> </li>
-                                            <?php else: ?>
-                                                <li> <a href="<?php echo BASE_URL; ?>login.php"><i class="fa fa-sign-out"></i>Login</a> </li>
-                                            <?php endif; ?>
-                                        </ul>
-                                    </li>
-                                    <div class="clearfix"> </div>
-                                </ul>
-                            </div>		
-
-                            <div class="clearfix"></div>
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-envelope-o"></i>
+              <span class="label label-success">4</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 4 messages</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li><!-- start message -->
+                    <a href="#">
+                      <div class="pull-left">
+                        <img src="<?php echo Session::get('logo'); ?>" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Support Team
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <!-- end message -->
+                  
+                  
+                </ul>
+              </li>
+              <li class="footer"><a href="#">See All Messages</a></li>
+            </ul>
+          </li>
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                 
+                  
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
+          <!-- Tasks: style can be found in dropdown.less -->
+          <li class="dropdown tasks-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-flag-o"></i>
+              <span class="label label-danger">9</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">You have 9 tasks</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <h3>
+                        Design some buttons
+                        <small class="pull-right">20%</small>
+                      </h3>
+                      <div class="progress xs">
+                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">20% Complete</span>
                         </div>
-                    </div>
-                    <!--notification menu end -->
-                </div>	
-               
+                      </div>
+                    </a>
+                  </li>
+                  
+                  <!-- end task item -->
+                </ul>
+              </li>
+              <li class="footer">
+                <a href="#">View all tasks</a>
+              </li>
+            </ul>
+          </li>
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="<?php echo Session::get('logo'); ?>" class="user-image" alt="User Image">
+              <span class="hidden-xs">Admin</span>
+            </a>
+            <ul class="dropdown-menu">
+             
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="profile.php?id=<?php echo Session::get('userid'); ?>" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="logout.php?action=logout" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+         
+        </ul>
+      </div>
+    </nav>
+  </header>
+    <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="<?php echo Session::get('logo'); ?>" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Administrator</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+      
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu" data-widget="tree">
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-database"></i> <span>Products</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            <li><a href="addproduct.php"><i class="fa fa-plus"></i>Add Product</a></li>
+            <li><a href="products.php"><i class="fa fa-list"></i>Product List</a></li>
+            <li><a href="product_report.php"><i class="fa fa-tag"></i>Products Report</a></li>
+            
+          </ul>
+        </li>
+
+
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-car"></i> <span>Purchase</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            <li><a href="addpurchase.php"><i class="fa fa-plus"></i>Add Purchase</a></li>
+            <li><a href="purchaselist.php"><i class="fa fa-list"></i>Purchase List</a></li>
+            <li><a href="purchasereport.php"><i class="fa fa-tag"></i>Purchase Report</a></li>
+            
+          </ul>
+        </li>
+        <li class="treeview">
+      
+          <a href="#">
+            <i class="fa fa-handshake-o"></i> <span>Sales</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            <li><a href="addinvoice.php"><i class="fa fa-plus"></i>Sale Product</a></li>
+            <li><a href="invoicelist.php"><i class="fa fa-list"></i>Sales List</a></li>
+            <li><a href="profitreport.php"><i class="fa fa-tag"></i>Profit Report</a></li>
+            <li><a href="invoice_report.php"><i class="fa fa-tag"></i>Invoice Report</a></li>
+            <li><a href="sale_report.php"><i class="fa fa-tag"></i>Sales Report</a></li>
+            
+          </ul>
+        </li>
+
+
+        <li class="treeview">
+      
+          <a href="#">
+            <i class="fa fa-briefcase"></i> <span>Payment</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            <li><a href="billpay.php"><i class="fa fa-plus"></i>Add Payment</a></li>
+            <li><a href="paymentlist.php"><i class="fa fa-list"></i>Payment Record</a></li>
+            <li><a href="paymentreport.php"><i class="fa fa-tag"></i>Payment Report</a></li>
+            
+          </ul>
+        </li>
+
+
+        
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-university"></i> <span>Stock</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="stocklist.php"><i class="fa fa-list"></i>Stock List</a></li>
+            <li><a href="stock_report.php"><i class="fa fa-tag"></i>Stock Report</a></li>
+          </ul>
+        </li>
+
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-money"></i> <span>General Account</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="addlaser.php"><i class="fa fa-plus"></i>Add Transaction</a></li>
+            <li><a href="laserlist.php"><i class="fa fa-list"></i>Transaction List </a></li>
+            <li><a href="laserreport.php"><i class="fa fa-tag"></i>Transaction Report </a></li>
+            <li><a href="addtranscategory.php"><i class="fa fa-plus"></i>Add Trans. Category</a></li>
+          </ul>
+        </li>
+
+
+         <li class="treeview">
+          <a href="#">
+            <i class="fa fa-users"></i> <span>Customer</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="addcustomer.php"><i class="fa fa-plus"></i>Add Customer</a></li>
+            <li><a href="customerlist.php"><i class="fa fa-list"></i>Customer List </a></li>
+            <li><a href="customer_statement.php"><i class="fa fa-exchange"></i>Customer Statement </a></li>
+            <li><a href="printfiles/customer/print.php"><i class="fa fa-tag"></i>Customer Report</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user"></i> <span>Supplier</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="addsupplier.php"><i class="fa fa-plus"></i>Add Supplier</a></li>
+            <li><a href="supplierlist.php"><i class="fa fa-list"></i>Supplier List </a></li>
+            <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>Supplier Report</a></li>
+          </ul>
+        </li>
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-cog"></i> <span>Sitting</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="addgroup.php"><i class="fa fa-plus"></i>Add Product Group</a></li>
+            <li><a href="addtype.php"><i class="fa fa-plus"></i>Add Product Unit</a></li>
+            <li><a href="grouplist.php"><i class="fa fa-list"></i>Group List </a></li>
+            <li><a href="typelist.php"><i class="fa fa-list"></i>Unit List </a></li>
+            
+          </ul>
+        </li>
+
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>

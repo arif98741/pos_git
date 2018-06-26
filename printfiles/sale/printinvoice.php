@@ -6,6 +6,11 @@ $path = realpath(dirname(__DIR__));
 include_once $path.'/../classes/DB.php';
 include  $path.'/../classes/Session.php';
 include_once  $path.'/../classes/Extra.php';
+if (!isset($_SESSION['login'])) {
+    header('location: ../../');
+} 
+
+
 $db = new Database();
 $ext = new Extra();
 $help = new Helper();
@@ -51,7 +56,7 @@ if (isset($_POST['sell_id'])) {
         
         $sell_query_st = $db->link->query($sell_query);
 
-       $ext->sendMessageAfterSale($cus_id,$sell_id,$paid); //send to user customer mobile
+       $ext->sendMessageAfterSale($cus_id,$sell_id,$payable); //send to user customer mobile
     }
 
 

@@ -151,11 +151,14 @@ class Extra {
         $balstmt = $this->dbObj->link->query("select * from customer_balance where customer_id='$customer_id'") or die($this->dbObj->link->error)." ".__LINE__;
         if ($balstmt) {
            $balarray = $balstmt->fetch_assoc();
-           $current_balance = $balarray['balance'];
+           $current_balance = number_format((float)$balarray['balance'], 2, '.', '');
+           
              
         }
 
-        $message = 'Dear '.$customer_name.', your payment '.$amount.'tk for invoice '.$sell_id.' has successfully recieved. Your current balance is '.$current_balance.'-----------------'.Session::get('company_name');
+        /*$message = 'Dear '.$customer_name.', your payment '.$amount.'tk for invoice '.$sell_id.' has successfully recieved. Your current balance is '.$current_balance.'-----------------'.Session::get('company_name'); */
+
+        $message = 'Dear '.$customer_name.', your bill  is '.$amount.' for invoice '.$sell_id.'. Current balance is '.$current_balance;
 
         $token = "77f9a4d2c5ea51913e1cd7624705239c";
         $url = "http://sms.greenweb.com.bd/api.php";

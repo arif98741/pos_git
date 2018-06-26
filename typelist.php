@@ -25,26 +25,40 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
     }
 }
 ?>
-<!-- //header-ends -->
-<div id="page-wrapper">
-    <div class="graphs">
-        <div class="breadcrumb">
-            <h3><i class="lnr lnr-list"></i> &nbsp;Unit List</h3>
-        </div>
 
-        <div class="xs tabls">
-            <div class="bs-example4">
-                <div class="table-responsive">
-                    <table class="table table-bordered invoice_table" id="invoice_product_data_table">
-                        <thead >
-                        <tr>
-                            <th>Serial</th>
-                            <th>Unit Name</th>
-                            <th>Unit No</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>UNIT LIST</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+     <div class="row">
+       <div class="col-xs-12">
+         
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                <thead>
+                <tr role="row">
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="20">Serial</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="30%">Unit Name</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="20%">Group No</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
                         <?php
                         $status = $pro->showType();
                         if ($status) {
@@ -78,11 +92,20 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
                         <?php }
                         ?>
                         </tbody>
-
-                    </table>
-                </div>
+              </table>
             </div>
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-    </div>
-</div>
-<?php include 'lib/footer.php'; ?>
+      </div>
+
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+
+ <?php include 'lib/footer.php'; ?>

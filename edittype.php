@@ -2,17 +2,25 @@
 <?php if (Session::get('status') !== 'admin') {
     header("Location: index.php");
 }?>
-    <!-- //header-ends -->
-    <div id="page-wrapper">
-        <div class="graphs">
-            <div class="breadcrumb">
-                <h3><i class="lnr lnr-plus-circle"></i> &nbsp;Edit Product Type</h3>
-            </div>
-            <br/>
-            <div class="tab-content">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1><i class="lnr lnr-pencil"></i>&nbsp;UPDATE PRODUCT UNIT</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
 
-
-                <?php
+    <!-- Main content -->
+    <section class="content">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <div class="row">
+                <div class="col-md-12"> 
+                  <?php
                     
                     //get typedata
 
@@ -24,7 +32,8 @@
                     }
                 ?>
                 <form action="typelist.php" method="post">
-                    <div class="col-md-4">
+                  
+                  <div class="col-md-4">
                         <div class="form-group">
                             <input name="typename" class="form-control" type="text" value="<?php echo $typedata['typename']; ?>" required="">
                         </div>
@@ -46,11 +55,17 @@
                     <?php endif; ?>
 
                     </div>
-
-                    
                 </form>
+
+              </div>
             </div>
+          </div>
         </div>
-
-
-<?php include 'lib/footer.php'; ?>
+      </div>
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+ <?php include 'lib/footer.php'; ?>

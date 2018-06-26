@@ -5,102 +5,87 @@ include_once 'classes/Login.php';
 Session::checkLogin();
 $log = new Login();
 ?>
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Point Of Sale Management</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="Easy Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-              Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <!-- Bootstrap Core CSS -->
-        <link href="assets/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-        <!-- Custom CSS -->
-        <link href="assets/css/style.css" rel='stylesheet' type='text/css' />
-        <!-- Graph CSS -->
-        <link href="assets/css/font-awesome.css" rel="stylesheet"> 
-        <!-- jQuery -->
-        <!-- lined-icons -->
-        <link rel="stylesheet" href="assets/css/icon-font.min.css" type='text/css' />
-        <!-- //lined-icons -->
-        <!-- chart -->
-        <script src="assets/js/Chart.js"></script>
-        <!-- //chart -->
-        <!--animate-->
-        <link href="assets/css/animate.css" rel="stylesheet" type="text/css" media="all">
-        <script src="assets/js/wow.min.js"></script>
-        <script>
-            new WOW().init();
-        </script>
-        <!--//end-animate-->
-        <!----webfonts--->
-        <link href='//fonts.googleapis.com/css?family=Cabin:400,400italic,500,500italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-        <!---//webfonts---> 
-        <!-- Meters graphs -->
-        <script src="assets/js/jquery-1.10.2.min.js"></script>
-        <!-- Placed js at the end of the document so the pages load faster -->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Explore POS | Log in</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="assets/plugins/iCheck/square/blue.css">
 
-    </head> 
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
-    <body class="sign-in-up">
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $status = $log->login($_POST);
-        }
-        ?>
-        <section>
-            <div id="page-wrapper" class="sign-in-wrapper">
-                <div class="graphs">
-                    <div class="sign-in-form">
-                        <div class="sign-in-form-top">
-                            <p><span>Login </span> <a href="index.php">Panel</a></p>
-                        </div>
-                        <div class="signin">
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>Admin</b>Panel</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <?php
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+          $status = $log->login($_POST);
+      }
+      ?>
+    <form action="" method="post">
+      <div class="form-group has-feedback">
+        <input type="username" name="username" class="form-control" placeholder="Username">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" name="password" class="form-control" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+       
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+    <br>Technical Support | 
+    <a href="http://www.exploreit.com.bd/">exploreit.com.bd</a><br>
 
-                            <form role="form" action="" method="POST">
-                                <div class="log-input">
-                                    <div class="log-input-left">
-                                        <input type="text" name="username" class="user" value="username" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Username';
-                                                }"/>
-                                    </div>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
 
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="log-input">
-                                    <div class="log-input-left">
-                                        <input type="password" name="password" class="lock" value="password" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                                    this.value = 'Email address:';
-                                                }"/>
-                                    </div>
-
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <input type="submit" value="Login to your account">
-                            </form>
-                            <div class="card text-center">
-                                <br/>
-                                <?php
-                                if (isset($status))
-                                    echo $status;
-                                ?>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--footer section start-->
-            <footer>
-                <p>&copy Copyright-explore-it 2018. All Rights Reserved</p>
-            </footer>
-            <!--footer section end-->
-        </section>
-
-        <script src="assets/js/jquery.nicescroll.js"></script>
-        <script src="assets/js/scripts.js"></script>
-        <!-- Bootstrap Core JavaScript -->
-        <script src="assets/js/bootstrap.min.js"></script>
-    </body>
+<!-- jQuery 3 -->
+<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="assets/plugins/iCheck/icheck.min.js"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' /* optional */
+    });
+  });
+</script>
+</body>
 </html>

@@ -15,19 +15,35 @@
             
 ?>
 
-<!-- //header-ends -->
-<div id="page-wrapper">
-    <div class="graphs">
-           <ul class="nav nav-tabs">
-              <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
-              <li><a data-toggle="tab" href="#menu1">Invoice</a></li>
-              <li><a data-toggle="tab" href="#menu2">Payments</a></li>
-          </ul>
 
-        <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1><i class="lnr lnr-eye"></i> VIEW CUSTOMER</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <div class="row">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
+                  <li><a data-toggle="tab" href="#menu1">Invoice</a></li>
+                  <li><a data-toggle="tab" href="#menu2">Payments</a></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="tab-content">
+          <div id="home" class="tab-pane fade-in active">
             <h3>User Profile</h3>
-            <div class="well">
+            
               <ul >
                 <li>Name: <?php echo $customer_data['customer_name']; ?></li>
                 <li>ID: <?php echo $customer_data['customer_id']; ?></li>
@@ -36,7 +52,7 @@
                 <li>Email: <?php echo $customer_data['email']; ?></li>
                 <li><strong>Current Balance: <?php echo round($customer_data['balance'])." tk"; ?></strong></li>
               </ul>
-            </div>
+           
           </div>
           <div id="menu1" class="tab-pane fade">
             <h3>Invoice</h3>
@@ -123,38 +139,14 @@
             <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
           </div>
         </div>
-    </div>
-</div>
-<!--body wrapper end-->
-
-<!--Bootstrap Modal-->
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header bg-danger">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Customer Payment</h4>
+            </div>
+        </div>
+        </div>
       </div>
-      <div class="modal-body">
-       
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">Previous Due</label>
-            <input type="text" id="previous_due_amount" class="form-control" value="<?php echo round($customer_data['due']);?>" style="text-align: right;" readonly>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Payment Amount</label>
-            <input type="number" id="paid_amount" style="text-align: right;" class="form-control">
-            <input type="hidden" id="cus_account_id" value="<?php echo $customer_data['customer_id']; ?>" class="form-control"  style="text-align: right;">
-          </div>
-       
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default btn-warning" data-dismiss="modal">&times;</button>
-        <button type="button" id="paid_action_btn" class="btn btn-primary">Pay Now</button>
-      </div>
-    </div>
+      
+    </section>
+    <!-- /.content -->
   </div>
-</div>
-<?php include 'lib/footer.php'; ?>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+ <?php include 'lib/footer.php'; ?>

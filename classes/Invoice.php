@@ -131,12 +131,15 @@ class Invoice {
             $stmt = $this->dbObj->update($updateInvoice_query);
             if ($stmt) {
                 for ($j = 0; $j <= count($data['quantity']) - 1; $j++) {
+                    $serial_no = $data['serial_no'][$j];
                     $pid = $data['product_id'][$j];
                     $q = $data['quantity'][$j];
                     $pur = $data['purchase'][$j];
                     $subt = $data['subtotalforsave'][$j];
-                    $query = "update tbl_invoice_products set quantity = '$q',purchase='$pur',subtotal='$subt' where product_id='$pid' and invoice_id='$inv_no'";
-                    $stmt1 = $this->dbObj->update($query);
+                    
+                    $query = "update tbl_invoice_products set product_id='$pid', quantity = '$q',purchase='$pur',subtotal='$subt' where serial_no='$serial_no'";
+
+                    $stmt1 = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." at line no ".__LINE__;
                 }
                 if ($stmt1) {
                     return "<p class='alert alert-success fadeout'>Invoice Updated Successful<p>";
@@ -166,7 +169,7 @@ class Invoice {
 
     public function getInvoiceProducts($inv_no) {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
-        $q = "select * from  tbl_invoice_products,tbl_product where invoice_id ='$inv_no' and tbl_product.product_id=tbl_invoice_products.product_id";
+        $q = "select * from tbl_invoice_products tip ,tbl_product tp where tip.invoice_id ='$inv_no' and tp.product_id = tip.product_id order by tip.product_id";
         $st = $this->dbObj->select($q);
         if ($st) {
             return $st;

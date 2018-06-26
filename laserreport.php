@@ -1,15 +1,26 @@
-<?php include 'lib/header.php'; ?>
-<!-- //header-ends -->
-<div class="container">
-	<div class="breadcrumb">
-		<h3><i class="lnr lnr-plus-circle"></i> &nbsp;Transaction Report</h3>
-	</div>
-	<div class="bs-example4">
-        <form action="printfiles/ledger/ledger_report.php" method="POST">
-            
-           
-    	<div class="row">
-				<div class="col-md-12"> 
+<?php include 'lib/header.php'; ?> 
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1><i class="lnr lnr-chart-bars"></i>  TRANSACTION REPORT</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <form action="printfiles/ledger/ledger_report.php" method="post">
+             <div class="row">
+        
+              <div class="col-md-12"> 
               <div class="col-md-6">
 
 
@@ -66,12 +77,17 @@
                     <input type="submit" class="btn btn-warning" name="ledgerreportbypayar" value="Payar Wise">
                     <input type="submit" class="btn btn-danger " name="ledgerreportbyreceiver" value="Reciever Wise">
                     <input type="submit" class="btn btn-primary " name="accountsummary" value="Account Summary">
- 			</div>
-				</div>
-			</div>
-		</div>
-	</form>
-</div>
-</div>
-
-<?php include 'lib/footer.php'; ?>
+      </div>
+        </div>
+      </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+ <?php include 'lib/footer.php'; ?>
