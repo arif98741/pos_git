@@ -22,8 +22,8 @@ date_default_timezone_set('Asia/Dhaka');
         </script>
         <meta charset="utf-8">
         <title>Transaction Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
-        <link rel="stylesheet" href="../../assets/css/print.css" type="text/css" media="screen">
-        <link rel="stylesheet " href="../../assets/css/print.css">
+        <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
+        <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>

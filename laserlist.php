@@ -37,32 +37,45 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
 }
 ?>
 
-<!-- //header-ends -->
-<div id="page-wrapper">
- 
-        <div class="breadcrumb">
-            <h3><i class="lnr lnr-list"></i> &nbsp;Transaction List</h3>
-        </div>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>TRANSACTION LIST</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+      </ol>
+    </section>
 
-        <div class="xs tabls">
-            <div class="bs-example4">
-                <div class="table-responsive ">
+    <!-- Main content -->
+    <section class="content">
+     <div class="row">
+       <div class="col-xs-12">
+         
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                <thead>
+                <tr role="row">
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="5%">SL</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Date</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="10%">Category</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Payar</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Receiver</th>
 
-                    <table class="table table-striped table-bordered table-hover" cellspacing="4" id="product_table" class="order-column" width="100%">
-                        <thead>
-                            <tr>
-                                <th>SL</th>
-                                <th>Date</th>
-                                <th>Category</th>
-                                <th>Payar</th>
-                                <th>Receiver</th>
-                                <th>Description</th>
-                                <th>Debit</th>
-                                <th>Credit</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Description</th>
+
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Debit</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Credit</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
                             <?php
                             $status = $las->showLaser();
 
@@ -99,11 +112,21 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
 
                                     <?php } ?>
                         </tbody>
-
-                    </table>
-                </div>
+              
+              </table>
             </div>
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
- 
-</div>
-<?php include 'lib/footer.php'; ?>
+      </div>
+
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+
+ <?php include 'lib/footer.php'; ?>

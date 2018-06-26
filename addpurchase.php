@@ -1,18 +1,25 @@
-<?php include 'lib/header.php'; ?>
-<?php if (Session::get('status') !== 'admin') {
-    header("Location: index.php");
-}?>
-<!-- //header-ends -->
-<!-- //header-ends -->
-<div class="container">
-	<div class="breadcrumb">
-		<h3><i class="lnr lnr-plus-circle"></i> &nbsp; Product Purchase</h3>
-	</div>
-	<div class="bs-example4">
-        <form action="purchaselist.php" method="post">
-       
-	<div class="row">
-				<div class="col-md-12"> 
+<?php include 'lib/header.php'; ?> 
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1><i class="lnr lnr-plus-circle"></i> &nbsp;PRODUCT PURCHASE</h1>
+      <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <form  action="purchaselist.php" method="post"  enctype="multipart/form-data">
+             <div class="row">
+                <div class="row">
+        <div class="col-md-12"> 
                 <div class="col-md-4">
                     <div class="form-group">
                         <input name="invoice_no" class="form-control" placeholder="Purchase Number" required="">
@@ -103,11 +110,19 @@
                     </table>
                     <button class="btn btn-success add_new_invoice_table_row" title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button>
                 </div>
-				</div>
-			</div>
-		</div>
-	</form>
-</div>
-</div>
+        </div>
+      </div>
+            </div>
+            
+            </form>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
 
-<?php include 'lib/footer.php'; ?>
+ <?php include 'lib/footer.php'; ?>

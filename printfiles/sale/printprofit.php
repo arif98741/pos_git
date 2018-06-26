@@ -26,8 +26,8 @@ date_default_timezone_set("Asia/Dhaka");
         </script>
         <meta charset="utf-8">
         <title>Profit List Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
-        <link rel="stylesheet" href="../../assets/css/print.css" type="text/css" media="screen">
-        <link rel="stylesheet " href="../../assets/css/print.css">
+        <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
+        <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>
@@ -89,7 +89,8 @@ date_default_timezone_set("Asia/Dhaka");
                                     <td><?php echo $row['sell_id']; ?></td>
                                     <td><?php echo $row['name']; ?></td>
                                     <td><?php echo $row['customer_name']; ?></td>
-                                    <td><?php echo $row['profit']; ?></td>           
+                                    <td><?php echo number_format((float)$row['profit'], 2, '.', ''); ?></td>    
+
                             </tr>
 
                         <?php } } ?>
@@ -151,7 +152,7 @@ date_default_timezone_set("Asia/Dhaka");
                                     <td><?php echo $help->formatDate($row['date'],'d-m-y'); ?></td>
                                     <td><?php echo $row['sell_id']; ?></td>
                                     <td><?php echo $row['customer_name']; ?></td>
-                                    <td><?php echo $row['profit']; ?></td>           
+                                    <td><?php echo number_format((float)$row['profit'], 2, '.', ''); ?></td>            
                             </tr>
 
                         <?php } } ?>

@@ -12,14 +12,25 @@ if (isset($_GET['product_id'])) {
     echo "<script>window.location = 'products.php';</script>";
 }
 ?>
-<!-- //header-ends -->
-<div class="container">
-    <div class="breadcrumb">
-        <h3><i class="lnr lnr-plus-circle"></i> &nbsp;Edit Product</h3>
-    </div>
-    <div class="bs-example4">
-        <form action="products.php" method="post">
-            <div class="row">
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>EDIT PRODUCT</h1>
+      <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <form  action="products.php" method="post"  enctype="multipart/form-data">
+             <div class="row">
                 <div class="col-md-12"> 
                     <div class="col-md-4">
                         <div class="form-group">
@@ -96,8 +107,16 @@ if (isset($_GET['product_id'])) {
                     </div>
                 </div>
             </div>
+            
+            </form>
+          </div>
         </div>
-    </form>
-</div>
-</div>
-<?php include 'lib/footer.php'; ?>       
+      </div>
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+
+ <?php include 'lib/footer.php'; ?>

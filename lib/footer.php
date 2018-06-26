@@ -1,49 +1,44 @@
+ <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      
+    </div>
+    <strong>Copyright &copy; 2018 <a href="http://exploreit.com.bd/" target="_blank">explore-it</a>.</strong> All rights
+    reserved.
+  </footer>
 
+  <div class="control-sidebar-bg"></div>
 </div>
-<!--footer section start-->
-<footer>
-    <p>&copy Copyright: explore-it 2018. All Rights Reserved</p>
-</footer>
-<!--footer section end-->
+<!-- ./wrapper -->
 
-<!-- main content end-->
-</section>
-<script src="<?php echo BASE_URL; ?>assets/js/jquery-1.10.2.min.js"></script>
-<script src="<?php echo BASE_URL; ?>https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="<?php echo BASE_URL; ?>assets/js/wow.min.js"></script>
-<script src="<?php echo BASE_URL; ?>assets/js/jquery.nicescroll.js"></script>
-<script src="<?php echo BASE_URL; ?>assets/js/scripts.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- Datatable JavaScript -->
-<script src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
-
-<!-- Custom JavaScript -->
-<script src="assets/js/custom.js"></script>
+<!-- jQuery 3 -->
+<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="assets/bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="assets/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="assets/dist/js/demo.js"></script>
+<script src="assets/dist/js/custom.js"></script>
+<!-- page script -->
 <script>
-	$(document).ready(function() {
-		assigndataTable('invoice_product_data_table',10);
-		assigndataTable('customer_table');
-        assigndataTable('supplier_table');
-		assigndataTable('stock_table',6);
-        assigndataTable('product_table',10);
-		assigndataTable('use_pro_invoice_table',3);
-        assigndataTable('customer_statement_table',8);
-        assigndataTable('customer_payment_table',8);
-
-		//data table assign table
-    	function assigndataTable(id,perpage = 5)
-    	{
-    		$('#'+id).DataTable({
-    			 "pageLength": perpage,
-                "order": [[ 1, "desc" ]]
-    		});
-    	}
-
-    	
-	});
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false,
+      "order": [[ 1, "desc" ]]
+    })
+  })
 </script>
-
 </body>
 </html>

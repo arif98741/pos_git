@@ -59,7 +59,7 @@ $pro = new Product();
                     <table class="TFtable" id="datatable" >
                          <tr>
                             <th>Serial</th>
-                            <th>Invoice Number</th>
+                            <th>Inv. No</th>
                             <th>Group</th>
                             <th>Product Name</th>
                             <th>Supplier</th>
@@ -68,7 +68,7 @@ $pro = new Product();
                             <th>Subtotal</th>
                             <th>Date</th>
                         </tr>
-                        <tbody style='text-align:center'>
+                        <tbody >
                             <?php echo $pri->ShowAllPurchase($_POST['starting'],$_POST['ending']); ?>
                         </tbody>
                         
@@ -117,7 +117,7 @@ $pro = new Product();
                             <th>Subtotal</th>
                             <th>Date</th>
                         </tr>
-                        <tbody style='text-align:center'>
+                        <tbody>
                             <?php echo $pri->ShowPurchaseByGroup($_POST['starting'],$_POST['ending'],$_POST['groupid']); ?>
                         </tbody>
                         
@@ -162,7 +162,7 @@ $pro = new Product();
                             <th>Subtotal</th>
                             <th>Date</th>
                         </tr>
-                        <tbody style='text-align:center'>
+                        <tbody>
                             <?php echo $pri->ShowPurchaseByBrand($_POST['starting'],$_POST['ending'],$_POST['brandid']); ?>
                         </tbody>
                         

@@ -72,7 +72,7 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sho
                         <td>".$row['quantity']." </td>
                         <td>".$row['subtotal']."</td>
                        <td>
-                            <i class=\"lnr lnr-trash delete_sale_product\" title=\"click to remove from sales list\" style=\"cursor: pointer\" invoice_id='".$row['sell_id']."' cus_id='".$row['customer_id']."' product_id='".$row['product_id']."'></i>
+                            <i class=\"fa fa-trash delete_sale_product\" title=\"click to remove from sales list\" style=\"cursor: pointer\" invoice_id='".$row['sell_id']."' cus_id='".$row['customer_id']."' product_id='".$row['product_id']."'></i>
                         </td> 
                     </tr>";
         }

@@ -37,8 +37,8 @@ $help = new Helper();
         </script>
         <meta charset="utf-8">
         <title>::: Report of :::</title>
-        <link rel="stylesheet" href="../../assets/css/print.css" type="text/css" media="screen">
-        <link rel="stylesheet " href="../../assets/css/print.css">
+        <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
+        <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>
