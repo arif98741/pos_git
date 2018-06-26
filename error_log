@@ -1,0 +1,513 @@
+[16-May-2018 21:36:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[16-May-2018 21:46:24 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[16-May-2018 21:53:22 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[16-May-2018 21:57:52 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[16-May-2018 21:57:52 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[16-May-2018 21:57:52 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[16-May-2018 21:58:04 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[16-May-2018 23:03:10 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[18-May-2018 13:21:58 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[18-May-2018 13:21:58 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[18-May-2018 13:21:58 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/DB.php on line 39
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/DB.php on line 39
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/Dashboard.php on line 94
+[18-May-2018 22:49:21 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/Dashboard.php on line 76
+[19-May-2018 15:22:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[19-May-2018 15:22:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[19-May-2018 21:27:33 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[19-May-2018 21:27:33 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[19-May-2018 21:27:33 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[19-May-2018 21:27:38 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[19-May-2018 21:27:38 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[20-May-2018 23:22:21 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[21-May-2018 00:07:37 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[21-May-2018 00:55:46 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[22-May-2018 19:25:25 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[22-May-2018 19:25:25 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[23-May-2018 09:50:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[23-May-2018 09:51:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[23-May-2018 13:34:31 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[23-May-2018 13:34:31 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[23-May-2018 15:19:05 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[23-May-2018 15:21:07 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[23-May-2018 15:21:07 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[23-May-2018 15:38:40 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 04:38:40 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 04:38:40 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 04:38:40 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 04:38:40 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/DB.php on line 39
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/DB.php on line 39
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/Dashboard.php on line 94
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/Dashboard.php on line 76
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 15:39:08 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 06:30:45 America/Chicago] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/aladinpos/public_html/classes/Session.php on line 39
+[23-May-2018 06:30:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/aladinpos/public_html/classes/Session.php:39) in /home/aladinpos/public_html/classes/Session.php on line 40
+[23-May-2018 06:30:45 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/aladinpos/public_html/classes/Session.php:39) in /home/aladinpos/public_html/logout.php on line 7
+[23-May-2018 06:31:57 America/Chicago] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/aladinpos/public_html/classes/Session.php on line 39
+[23-May-2018 06:31:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/aladinpos/public_html/classes/Session.php:39) in /home/aladinpos/public_html/classes/Session.php on line 40
+[23-May-2018 06:31:57 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/aladinpos/public_html/classes/Session.php:39) in /home/aladinpos/public_html/logout.php on line 7
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[23-May-2018 23:30:11 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[24-May-2018 04:02:43 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[24-May-2018 04:02:43 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[24-May-2018 04:28:35 Asia/Dhaka] PHP Notice:  Undefined index: groupid in /home/aladinpos/public_html/transcategorylist.php on line 70
+[24-May-2018 04:29:26 Asia/Dhaka] PHP Notice:  Undefined index: groupid in /home/aladinpos/public_html/transcategorylist.php on line 70
+[24-May-2018 04:29:26 Asia/Dhaka] PHP Notice:  Undefined index: groupid in /home/aladinpos/public_html/transcategorylist.php on line 70
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[25-May-2018 19:39:49 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[26-May-2018 11:05:21 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[26-May-2018 11:05:21 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[26-May-2018 11:05:28 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[26-May-2018 11:05:28 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:44:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:47:25 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 11:53:14 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:25:57 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 12:28:34 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:25:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:25:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:25:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:25:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:25:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:25:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:37 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:37 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:37 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:37 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:37 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:37 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:43:45 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:49:18 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:56:32 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 13:58:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:35:53 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:35:53 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:35:53 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:35:53 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:35:53 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:35:53 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:36 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:54 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:54 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:54 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:54 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:54 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:37:54 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:41:41 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:41:41 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:41:41 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:41:41 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:41:41 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:41:41 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:42:46 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:42:46 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:42:46 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:42:46 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:42:46 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:42:46 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:43:13 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:44:20 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:44:20 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:44:20 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:44:20 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:44:20 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:44:20 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:46:06 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:46:06 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:46:06 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:46:06 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:46:06 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 14:46:06 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:09 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:07:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 15:42:29 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 16:26:59 Asia/Dhaka] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/aladinpos/public_html/editproduct.php on line 9
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:17 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:40 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:29:43 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:35:55 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:35:55 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:35:55 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:35:55 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:35:55 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 22:49:44 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:19:21 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:19:21 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:19:21 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:19:21 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:19:21 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:21:47 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:21:47 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[26-May-2018 23:21:47 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[27-May-2018 02:33:25 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[26-May-2018 23:33:57 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[26-May-2018 23:33:57 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[26-May-2018 23:33:57 America/Chicago] PHP Warning:  mysqli_real_escape_string(): Couldn't fetch mysqli in /home/aladinpos/public_html/helper/Helper.php on line 21
+[26-May-2018 23:33:57 America/Chicago] PHP Warning:  mysqli_real_escape_string(): Couldn't fetch mysqli in /home/aladinpos/public_html/helper/Helper.php on line 21
+[26-May-2018 23:33:57 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[28-May-2018 23:51:32 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[28-May-2018 23:51:32 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[29-May-2018 13:15:08 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[29-May-2018 13:15:08 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[29-May-2018 22:29:06 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[31-May-2018 22:16:39 Asia/Dhaka] PHP Notice:  Undefined index: serial in /home/aladinpos/public_html/viewpurchase.php on line 77
+[31-May-2018 22:52:10 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[31-May-2018 22:52:10 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 00:48:12 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 01:03:41 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/DB.php on line 39
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/DB.php on line 39
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/DB.php on line 39
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/aladinpos/public_html/classes/Dashboard.php on line 116
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[31-May-2018 15:24:54 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[31-May-2018 15:24:54 America/Chicago] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[01-Jun-2018 02:24:54 Asia/Dhaka] PHP Warning:  mysqli::mysqli(): (42000/1203): User aladinpos already has more than 'max_user_connections' active connections in /home/aladinpos/public_html/classes/DB.php on line 26
+[02-Jun-2018 12:46:59 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
+[02-Jun-2018 12:46:59 Asia/Dhaka] PHP Notice:  Undefined variable: result in /home/aladinpos/public_html/users.php on line 74
