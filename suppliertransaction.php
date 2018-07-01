@@ -45,7 +45,8 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="index.php">Dashboard</a></li>
-        <li><a href="addsuppliertransaction.php">Add New Transaction</a></li>
+        <!-- <li><a href="addsuppliertransaction.php">Add New Transaction</a></li> -->
+        <li><a type="button" href="#" class="" data-toggle="modal" data-target="#add-supplier-transaction">Add New Transaction</a></li>
       </ol>
     </section>
 
