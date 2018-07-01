@@ -39,7 +39,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
       <h1>SUPPLIERS</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li class="active"><a href="index.php">Dashboard</a></li>
+        <li class="active"><a href="addsupplier.php">Add New Supplier</a></li>
       </ol>
     </section>
 
@@ -83,19 +84,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                         <td style="text-align: left;"><?php echo $r['contact_no']; ?></td>
                                         <td style="text-align: left;"><?php echo $r['email']; ?></td>
 
-                                        <?php if(Session::get('status') == 'admin'): ?>
+                                       
 
                                         <td>
                                             <a href="viewsupplier.php?action=view&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i class="fa fa-ey" title="view supplier information"></i></a>&nbsp;
                                             <a href="editsupplier.php?action=edit&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
-                                            <a href="?action=delete&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i id="deleterow"   class="lnr lnr-trash" style="color:red;" title="click to delete" onclick="return confirm('are you sure to delete?')" ></i></a>
+                                            <a href="?action=delete&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i id="deleterow"   class="fa fa-trash" style="color:red;" title="click to delete" onclick="return confirm('are you sure to delete?')" ></i></a>
 
                                         </td>
-                                         <?php else: ?>
-
-                                        <td><a href="viewsupplier.php?action=view&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i class="fa fa-eye" title="view supplier information"></i></a>&nbsp;</td>
-
-                                      <?php endif; ?>
+                                        
+                                    
+                                     
 
                                             </tr>
                                         <?php endwhile; ?>

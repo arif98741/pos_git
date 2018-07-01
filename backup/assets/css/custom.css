@@ -1,0 +1,38 @@
+.form-control{
+    border-radius: 0px !important;
+   height: 40px;
+}
+
+.delete_purchase{
+    cursor: pointer;
+}
+
+.profile_section{
+
+}
+
+.profile_section .pro_pic{
+	display: block;
+}
+.profile_section .pro_pic form input{
+	border: none;
+}
+
+
+
+.profile_section .pro_details{
+
+}
+
+.profile_section .pro_details ul{
+	list-style: none;
+	display: block;
+	padding: 4px;
+}
+
+.profile_section .pro_details ul li{
+
+}
+.profile_content{
+
+}

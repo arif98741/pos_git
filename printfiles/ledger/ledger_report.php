@@ -67,8 +67,6 @@ date_default_timezone_set('Asia/Dhaka');
                          <tr>
                             <th>Date</th>
                             <th>Category</th>
-                            <th>Payar</th>
-                            <th>Receiver</th>
                             <th>Debit</th>
                             <th>Credit</th>
                             
@@ -116,8 +114,6 @@ date_default_timezone_set('Asia/Dhaka');
                     <table class="TFtable" id="datatable" >
                          <tr>
                             <th>Date</th>
-                            <th>Payar</th>
-                            <th>Receiver</th>
                             <th>Debit</th>
                             <th>Credit</th>
                             

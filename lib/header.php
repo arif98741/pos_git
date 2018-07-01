@@ -320,10 +320,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="addlaser.php"><i class="fa fa-plus"></i>Add Transaction</a></li>
+            
+            
+            <li><a href="transcategorylist.php"><i class="fa fa-list"></i>Transaction Category</a></li>
             <li><a href="laserlist.php"><i class="fa fa-list"></i>Transaction List </a></li>
             <li><a href="laserreport.php"><i class="fa fa-tag"></i>Transaction Report </a></li>
-            <li><a href="addtranscategory.php"><i class="fa fa-plus"></i>Add Trans. Category</a></li>
+            
           </ul>
         </li>
 
@@ -351,8 +353,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="addsupplier.php"><i class="fa fa-plus"></i>Add Supplier</a></li>
             <li><a href="supplierlist.php"><i class="fa fa-list"></i>Supplier List </a></li>
+            <li><a href="suppliertransaction.php"><i class="fa fa-list"></i>Supplier Transaction</a></li>
+            <li><a href="supplier_transaction_report.php"><i class="fa fa-tag"></i>Supplier Transaction Report</a></li>
             <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>Supplier Report</a></li>
           </ul>
         </li>

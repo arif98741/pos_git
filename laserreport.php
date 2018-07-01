@@ -55,17 +55,7 @@
                        <?php  } } ?>
                       </select>
                  </div> 
-
-                  <div class="form-group">
-                    <label for=""><strong>By Payar</strong></label>
-                    <input type="text" name="payar" class="form-control">
-                 </div> 
-
-
-                  <div class="form-group">
-                    <label for=""><strong>By Receiver</strong></label>
-                    <input type="text" name="receiver" class="form-control">
-                 </div> 
+ 
                 
               </div>  
 
@@ -74,8 +64,7 @@
                   
                     <input type="submit" class="btn btn-success " name="showalledgerreport" value="All Transaction">
                     <input type="submit" class="btn btn-primary " name="ledgerreportbycategory" value="Category Wise">
-                    <input type="submit" class="btn btn-warning" name="ledgerreportbypayar" value="Payar Wise">
-                    <input type="submit" class="btn btn-danger " name="ledgerreportbyreceiver" value="Reciever Wise">
+                    
                     <input type="submit" class="btn btn-primary " name="accountsummary" value="Account Summary">
       </div>
         </div>

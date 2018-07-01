@@ -15,8 +15,6 @@ class News {
         date_default_timezone_set('Asia/Dhaka');
     }
 
-
-
     /*
     @ add news  in addnews.php
     @ table = news

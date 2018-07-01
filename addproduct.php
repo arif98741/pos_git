@@ -41,8 +41,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <select name="product_group" class="form-control" required="">
-                            <option disabled="">Select Group</option>
+                            <select name="product_group" class="form-control">
+                            <option>Select Group</option>
                              <?php 
                                 if ($stmt = $db->link->query("select * from tbl_group order by groupname asc")){
                                     while ($row = $stmt->fetch_assoc()) { ?>

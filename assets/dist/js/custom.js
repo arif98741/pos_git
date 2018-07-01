@@ -8,7 +8,7 @@ $(document).ready(function () {
      //invoice management
 
      //edit invoice calcaluation function in editsales.php
-      
+
 
     $(function () { //invoice management
 

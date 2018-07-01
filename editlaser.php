@@ -1,92 +1,88 @@
-<?php include 'lib/header.php'; ?>
-<?php if (Session::get('status') !== 'admin') {
-    header("Location: index.php");
-}?>
+<?php include 'lib/header.php'; ?> 
 <?php 
-
-    if (isset($_GET['action']) && $_GET['action'] =='edit') {
-    $sta = $las->getSingleLaserdetails($_GET['serial']);
-    if($sta)
-    {
-         $data = $sta->fetch_assoc();
-
+  if (isset($_GET['action']) && isset($_GET['serial'])) {
+    $serial = $_GET['serial'];
+    $status = $db->link->query("SELECT * from tbl_laser tl join tbl_transactioncat tt on tl.category = tt.id where tl.serial='$serial'") or die($db->link->error . __LINE__);
+    if ($status) {
+      $transdata = $status->fetch_assoc();
     }
-   
-    
-    } else {
-        echo "<script>window.location = 'laserlist.php';</script>";
-    }
+  }
+
 ?>
-<!-- //header-ends -->
-<div class="container">
-    <div class="breadcrumb">
-        <h3><i class="lnr lnr-plus-circle"></i> &nbsp;Edit Transaction</h3>
-    </div>
-    <div class="bs-example4">
-        <form action="laserlist.php" method="post">
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1><i class="fa fa-pencil"></i> EDIT TRANSACTION</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="col-sm-12">
+        <div class="box">
+          <div class="box-body">
+            <form action="laserlist.php" method="post">
             <div class="row">
                 <div class="col-md-12"> 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input name="category" class="form-control" type="text" value="<?php echo $help->formatDate($data['date']); ?>" required="" tabindex="1">
-                            <input name="laserid" class="form-control" type="hidden" value="<?php echo $data['serial']; ?>">
+                            <input name="date" class="form-control" type="date" tabindex="1" value="<?php echo $help->formatDate($transdata['date'],'Y-m-d'); ?>">
+                            <input name="laserid" class="form-control" type="hidden"  value="<?php echo $transdata['serial']; ?>">
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="form-group">
+                             <input name="debit" id="debit" class="form-control" type="number" value="<?php echo $transdata['debit']; ?>" placeholder="Debit/Cash Out"  tabindex="5">
+                        </div>
+                    </div>
+                    
+                    
+                    
+                   <div class="col-md-4">
+                        <div class="form-group">
+                            <input  name="credit" id="credit" class="form-control" type="number" value="<?php echo $transdata['credit']; ?>"  placeholder="Credit/Cash In" tabindex="6">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                             <input name="donor" class="form-control" type="text" value="<?php echo $data['donor']; ?>" required="" tabindex="3">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                             <input name="debit" class="form-control" type="number" value="<?php echo $data['debit']; ?>"  required="" tabindex="5">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <select name="category" class="form-control" tabindex="2">
-                                <option>Select Category</option>
+                            <select name="category" class="form-control" id="transcategory" tabindex="2">
+                                <option disabled="" selected="" required>Select Category</option>
                                 <?php
                                     $status = $las->showCategory();
                                    
                                     if ($status) {
                                         while ($result = $status->fetch_assoc()) { ?>
 
-                                        <?php if($result['id'] == $data['category']): ?>
-                                            <option value="<?php echo $result['id']; ?>" selected=""><?php echo $result['category_name']; ?></option>
-                                        <?php else: ?>
-                                             <option value="<?php echo $result['id']; ?>"><?php echo $result['category_name']; ?></option>
-                                        <?php endif; ?>
+                                        <?php if($result['id'] == $transdata['category']): ?>
+                                         <option value="<?php echo $result['id']; ?>" type="<?php echo $result['category_type']; ?>" selected=""><?php echo $result['category_name']; ?></option>
 
-                                        
+                                         <?php else: ?>
+                                          <option value="<?php echo $result['id']; ?>" type="<?php echo $result['category_type']; ?>" ><?php echo $result['category_name']; ?></option>
+
+                                         <?php endif; ?>
+
+
                                   <?php  } } ?>
                                    
-                                
                             </select>
-                    </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input  name="receiver" class="form-control" type="text" value="<?php echo $data['receiver']; ?>"  required="" tabindex="4">
                         </div>
                     </div>
                     
-                   
-                    
-                   <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="form-group">
-                            <input  name="credit" class="form-control" type="number" value="<?php echo $data['credit']; ?>"  required="" tabindex="6">
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <textarea name="description" id="" cols="30" rows="10" class="form-control" style="text-align: left;" tabindex="7"><?php echo $data['description']; ?></textarea>
+                            <input name="description" id="" class="form-control" value="<?php echo $transdata['description']; ?>" placeholder="Description" tabindex="7">
                         </div>
                     </div>
                     <div class="col-md-6 submit-buttom">
-                        <hr>
+                        
                         <input type="submit" value="Update" name="updatelaser" class="btn btn-success" tabindex="8">
                         <input type="reset" value="Reset" class="btn btn-warning">
                     </div>
@@ -94,6 +90,66 @@
             </div>
         </div>
     </form>
-</div>
-</div>
-<?php include 'lib/footer.php'; ?>                      
+             
+          </div>
+
+            
+          </div>
+        </div>
+      
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#transcategory').change(function(){
+        var catid = $(this).val();
+        $.ajax({
+          url: 'functions.php',
+          type: 'POST',
+          data: {
+              gettranscattype : 'gettranscattype',
+              catid : catid
+          },
+          dataType: 'json',
+          success: function (response) {
+              if (response.category_type == 'Debit') {
+
+                $('#credit').attr({
+                  readonly: ''
+                });
+
+                $('#debit').attr({
+                  required: ''
+                });
+                
+
+                $('#debit').removeAttr('readonly');
+                $('#credit').removeAttr('required');
+
+
+              }else if(response.category_type == 'Credit'){
+                $('#debit').attr({
+                  readonly: ''
+                });
+
+                $('#credit').attr({
+                  required: ''
+                });
+
+                $('#credit').removeAttr('readonly');
+                $('#debit').removeAttr('required');
+              }
+          }, error: function (error_data) {
+             // console.log(error_data);
+          }
+      });
+
+    });
+  });
+</script>
+ <?php include 'lib/footer.php'; ?>

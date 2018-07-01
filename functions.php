@@ -148,4 +148,20 @@ if (isset($_POST['aim']) && $_POST['aim'] == 'getsingleprodetails') {
 }
 
 
+//get transaction type for single transaction category
+if (isset($_POST['gettranscattype']) && $_POST['gettranscattype'] == 'gettranscattype') {
+
+    $catid = $help->validAndEscape($_POST['catid']);
+    if ($catid == null || $catid == "") {
+        return false;
+    }else{
+        $stmt = $db->link->query("select * from tbl_transactioncat where id ='$catid'");
+        if ($stmt) {
+            echo json_encode($stmt->fetch_assoc());
+        }
+    }
+}
+
+
+
 

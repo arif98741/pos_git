@@ -1,99 +1,118 @@
 <?php include 'lib/header.php'; ?>
 <?php
-    if(isset($_POST['addtransactioncat'])){
-        $msg = "";
-        $transactioncat = $help->validAndEscape($_POST['transactioncat']);
-        $checkstmt = $db->select("select * from  tbl_transactioncat WHERE  category_name ='$transactioncat'");
-        if(!$checkstmt){
-            $stmt = $db->insert("insert into  tbl_transactioncat(category_name) VALUES ('$transactioncat')");
-            if($stmt){
-                $msg = "<script>alert('Transaction Category Added Successully');</script>";
-            }else{
-                 $msg = "<script>alert('Transaction Category Added Failed');</script>";
-            }
-        }else{
-             $msg = "<script>alert('Transaction Category Already Exist');</script>";
-        }
-        echo $msg;
-    }
+//add supplier
+if (isset($_POST['addtransactioncat'])) {
 
-//update group
-if ( isset($_POST['updatetransactioncat'])) {
-    $transactioncatname = mysqli_real_escape_string($db->link,$_POST['transactioncatname']);
-    $trans_category_id = mysqli_real_escape_string($db->link,$_POST['trans_category_id']);
+    $result = $las->addtranscat($_POST);
+    if ($result) {
+        echo $result;
+    } 
+}
 
-    $stmt = $db->link->query("update tbl_transactioncat set category_name ='$transactioncatname' where id ='$trans_category_id'");
-    if ($stmt) {
+
+//update supplier
+if (isset($_POST['updatetransactioncat'])) {
+    $update = $las->updatetranscat($_POST);
+    if ($update) {
         echo "<script>alert('Transaction Category Updated Successfully');</script>";
     } else {
-        echo "<script>alert('Transaction Category Update Failed');</script>";
+        echo "<script>alert('Transaction Category Updated Failed');</script>";
     }
 }
 
-//delete type
-if (isset($_GET['action']) && $_GET['action']=='delete') {
-    $id = mysqli_real_escape_string($db->link, $_GET['id']);
-    if($db->link->query("delete from tbl_transactioncat where id='$id'")){
-        echo "<script>alert('Transaction Category Deleted Successfully');</script>";
-    }else{
-        echo "<script>alert('Transaction Category Deleted Failed!');</script>";
+//delete supplier
+if (isset($_GET['action']) && $_GET['action'] == 'delete') {
+    $sta = $las->deletetranscat($_GET['id']);
+    if ($sta) {
+        echo "<script>alert('Transaction Category Deleted Successful');</script>";
+    } else {
+        echo "<script>alert('Transaction Category to Deleted Product');</script>";
     }
 }
 ?>
 
-<!-- //header-ends -->
-<div id="page-wrapper">
-    <div class="graphs">
-        <div class="breadcrumb">
-            <h3><i class="lnr lnr-list"></i> &nbsp;Transaction Category List</h3>
-        </div>
 
-        <div class="xs tabls">
-            <div class="bs-example4">
-                <div class="table-responsive">
-                    <table class="table table-bordered invoice_table" id="invoice_product_data_table">
-                        <thead>
-                        <tr>
-                            <th>Serial</th>
-                            <th>Transaction Category Name</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $status = $db->link->query("select * from tbl_transactioncat order by category_name asc");
-                        if ($status) {
-                            $i = 0;
-                            while ($result = $status->fetch_assoc()) {
-                                $i++;
-                                ?>
-                                <tr style="text-align: center;" id="rowid-<?php echo $result['groupid']; ?>">
-                                    <td><?php echo $i; ?></td>
-                                    <td style="text-align: left;"><?php echo $result['category_name']; ?></td>
-                                     <?php if(Session::get('status') == 'admin'): ?>
-                                      <td>
-                                        
-                                        <a href="edittranscategory.php?action=edit&id=<?php echo $result['id'] ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
-                                        <a href="?action=delete&id=<?php echo $result['id'] ?>" style="border-radius: 3px;" title="click to delete" onclick="return confirm('are you sure to delete?')" ><i class="lnr lnr-trash"></i></a>
-                                    </td>
-                                <?php else: ?>
-                                    <td>-</td>
-                                     <?php endif; ?>
-                                </tr>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>TRANSACTION CATEGORIES</h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li ><a href="index.php">Dashboard</a></li>
+        <li ><a href="addtranscategory.php">Add Transaction Category</a></li>
+      </ol>
+    </section>
 
-                                <?php
-                            }
-                        } else {
-                            ?>
-
-                        <?php }
-                        ?>
-                        </tbody>
-
-                    </table>
-                </div>
+    <!-- Main content -->
+    <section class="content">
+     <div class="row">
+       <div class="col-xs-12">
+         
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"></h3>
             </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                <thead>
+                <tr role="row">
+                  
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="20%">Serial</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="30%">Transaction Category Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">Type</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="30%">Action</th>
+
+                </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                            <?php
+                            $cust_stmt = $db->select("select * from tbl_transactioncat order by category_name desc");
+                            ?>
+                            <?php
+                            $i = 0;
+                            if ($cust_stmt):
+                                ?>
+                                <?php while ($r = $cust_stmt->fetch_assoc()): ?>
+                                    <tr>
+                                        <td><?php echo ++$i; ?></td>
+                                        <td style="text-align: left;"><?php echo $r['category_name']; ?></td>
+                                        <td style="text-align: left;"><?php echo $r['category_type']; ?></td>
+
+                                        
+
+                                        <td>
+                                            
+                                            <a href="edittranscat.php?action=edit&id=<?php echo $r['id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
+                                            <a href="?action=delete&id=<?php echo $r['id']; ?>"><i id="deleterow"   class="fa fa-trash" style="color:red;" title="click to delete" onclick="return confirm('are you sure to delete?')" ></i></a>
+
+                                        </td>
+                                        
+
+                                            </tr>
+                                        <?php endwhile; ?>
+
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="9" style="text-align: center;">No Data Found</td>
+                                        </tr>
+                                    <?php endif; ?>
+                        </tbody>
+              
+              </table>
+            </div>
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
-    </div>
-</div>
-<?php include 'lib/footer.php'; ?>
+      </div>
+
+      
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+ <!-- footer -->
+
+ <?php include 'lib/footer.php'; ?>

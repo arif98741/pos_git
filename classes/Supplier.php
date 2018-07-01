@@ -130,4 +130,82 @@ class Supplier {
         }
     }
 
+
+
+    
+    /* add supplier transaction
+    * param array
+    * return boolen
+     * */
+    public function addSupplierTransaction($data) {
+        date_default_timezone_set('Asia/Dhaka');
+        
+        $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
+        $purchase = $this->helpObj->validAndEscape($data['purchase']);
+        $payment = $this->helpObj->validAndEscape($data['payment']);
+        $description = $this->helpObj->validAndEscape($data['description']);
+        $date = date('Y-m-d H:i:s');
+        $query = "insert into  tbl_supplier_transaction(
+            supplier, description, purchase,payment,date) values('$supplier_id','$description', '$purchase', '$payment', '$date')";
+
+        $sta = $this->dbObj->link->query($query) or die( $this->dbObj->link->error) .". at line number ".__LINE__;
+        if ($sta) {
+            return true;
+        } else {
+            return false;
+        }    
+
+    }
+
+
+     /* update supplier transaction
+    * param array
+    * return boolen
+     * */
+    public function updateSupplierTransaction($data) {
+        date_default_timezone_set('Asia/Dhaka');
+        $suppliertransid = $this->helpObj->validAndEscape($data['suppliertransid']);
+        $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
+        $purchase = $this->helpObj->validAndEscape($data['purchase']);
+        $payment = $this->helpObj->validAndEscape($data['payment']);
+        $description = $this->helpObj->validAndEscape($data['description']);
+        $date =  $this->helpObj->validAndEscape($data['date']);
+        $query = "update tbl_supplier_transaction set
+            supplier ='$supplier_id', description='$description', purchase='$purchase',payment='$payment',date='$date' where id='$suppliertransid'";
+
+
+        $sta = $this->dbObj->link->query($query) or die( $this->dbObj->link->error) .". at line number ".__LINE__;
+        if ($sta) {
+            return true;
+        } else {
+            return false;
+        }    
+
+    }
+
+
+
+    /*
+     * delete Supplier transaction 
+     *
+     * */
+    public function deleteSupplierTransaction($id) {
+        $id = $this->helpObj->validAndEscape($id);
+        //$supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
+        $query = "delete from tbl_supplier_transaction where id='$id'";
+        $sta = $this->dbObj->delete($query);
+        if ($sta) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
+    
+
+
+
 }
+
