@@ -44,7 +44,8 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
       <h1>TRANSACTION LIST</h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li class="active"><a href="index.php">Dashboard</a></li>
+        <li class="active"><a href="addlaser.php">Add New Transaction</a></li>
       </ol>
     </section>
 
@@ -62,15 +63,19 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
               <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                 <thead>
                 <tr role="row">
-                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="5%">SL</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Date</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="10%">Category</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Payar</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Receiver</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">SL</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Description</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Date</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Debit</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Credit</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">Category</th>
+                  
+
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Description</th>
+
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Credit/Cash In</th>
+
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Debit/Cash Out</th>
+                  
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
 
                 </tr>
@@ -85,13 +90,13 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
                                     ?>
                             <tr style="text-align: center;" id="rowid-<?php echo $result['serial']; ?>">
                                         <td><?php echo $i; ?></td>
-                                        <td><?php echo $help->formatDate($result['date'], 'd-m-Y h:iA'); ?></td>
+                                        <td><?php echo $help->formatDate($result['date'], 'd-m-Y'); ?></td>
                                         <td style="text-align: left;"><?php echo $result['category_name']; ?></td>
-                                        <td><?php echo $result['donor']; ?></td>
-                                        <td><?php echo $result['receiver']; ?></td>
+                                        
                                          <td><?php echo substr($result['description'], 0,20); ?></td>
+                                         <td><?php echo round($result['credit']); ?></td>
                                         <td><?php echo round($result['debit']); ?></td>
-                                        <td><?php echo round($result['credit']); ?></td>
+                                        
                                        
                                         
                                         <td>

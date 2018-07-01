@@ -175,7 +175,8 @@ class Customer {
            $data =  $stmt->fetch_assoc();
            $customer_name = $data['customer_name'];
            $customer_mobile = $data['contact_no'];
-           $balance = $data['balance']; //current balance
+           //$balance = $data['balance']; //current balance
+            $balance = number_format((float)$data['balance'], 2, '.', '');
         }
 
         $message = 'Dear '.$customer_name.', your payment '.$amount.'tk was successfully recieved by '.$method.'. Your current balance is '.$balance.'------------------'.Session::get('company_name');

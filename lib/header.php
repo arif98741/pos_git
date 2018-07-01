@@ -1,7 +1,7 @@
 <?php
 ob_start();
 date_default_timezone_set('Asia/Dhaka');
-define("BASE_URL", 'http://localhost/pos_git/');
+define("BASE_URL", 'http://localhost/pos_v2/');
 //case control
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -320,10 +320,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="addlaser.php"><i class="fa fa-plus"></i>Add Transaction</a></li>
+            
+            
+            <li><a href="transcategorylist.php"><i class="fa fa-list"></i>Transaction Category</a></li>
             <li><a href="laserlist.php"><i class="fa fa-list"></i>Transaction List </a></li>
             <li><a href="laserreport.php"><i class="fa fa-tag"></i>Transaction Report </a></li>
-            <li><a href="addtranscategory.php"><i class="fa fa-plus"></i>Add Trans. Category</a></li>
+            
           </ul>
         </li>
 
@@ -351,8 +353,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="addsupplier.php"><i class="fa fa-plus"></i>Add Supplier</a></li>
             <li><a href="supplierlist.php"><i class="fa fa-list"></i>Supplier List </a></li>
+            <li><a href="suppliertransaction.php"><i class="fa fa-list"></i>Supplier Transaction</a></li>
+            <li><a href="supplier_transaction_report.php"><i class="fa fa-tag"></i>Supplier Transaction Report</a></li>
             <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>Supplier Report</a></li>
           </ul>
         </li>

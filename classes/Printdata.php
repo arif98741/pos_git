@@ -862,14 +862,12 @@ class Printdata {
                 $this->table_content .= "<tr>"
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d-m-Y')
                         . "<td>" . $row['category_name'] . "</td>"
-                        . "<td>" . $row['donor'] . "</td>"
-                        . "<td>" . $row['receiver'] . "</td>"
                         . "<td>" . round($row['debit']). "</td>"
                         . "<td>" . round($row['credit']). "</td>";
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='4'><strong></td>"
+                                . "<td colspan='2'><strong></td>"
                                 . "<td ><strong>".$debit."</strong></td>"
                                 . "<td ><strong>".$credit."</strong></td>";
 
@@ -904,14 +902,12 @@ class Printdata {
                 
                 $this->table_content .= "<tr>"
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d-m-Y')
-                        . "<td>" . $row['donor'] . "</td>"
-                        . "<td>" . $row['receiver'] . "</td>"
                         . "<td>" . round($row['debit']). "</td>"
                         . "<td>" . round($row['credit']). "</td>";
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='3'><strong>Total</strong></td>"
+                                . "<td colspan='1'><strong>Total</strong></td>"
                                 . "<td ><strong>".$debit."</strong></td>"
                                 . "<td ><strong>".$credit."</strong></td>";
 
@@ -972,8 +968,8 @@ class Printdata {
 
     public function ledgerReportbyReceiver($starting,$ending,$receiver) {
        
-        $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
+        $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
         $receiver = $this->helpObj->validAndEscape($receiver);
 
         $stmt = $this->dbObj->select("select * from tbl_laser where receiver = '$receiver' and date  BETWEEN '$starting' AND '$ending'  order by serial asc
@@ -1006,6 +1002,90 @@ class Printdata {
         }
         
     }
+
+
+    /*
+     * Supplier Transaction Report from date to date
+     * @return table data with html
+     * */
+
+    public function ShowAllSupplierTransaction($starting,$ending) {
+       
+        $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
+        $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
+
+        $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.date BETWEEN '$starting' and '$ending'");
+        
+        if ($stmt) {
+           $i = 0;
+           $purchase = $payment =  0;
+
+            while ($row = $stmt->fetch_assoc()) {
+                $i++;
+                $purchase += round($row['purchase']);
+                $payment += round($row['payment']);
+                
+                $this->table_content .= "<tr>"
+                        . "<td >" . $this->helpObj->formatDate($row['date'],'d-m-Y')
+                        . "<td style='text-align: left;'>" . $row['supplier_name'] . "</td>"
+                        . "<td style='text-align: left;'>" . substr($row['description'], 0,45) . "</td>"
+                        . "<td>" . round($row['purchase']). "</td>"
+                        . "<td>" . round($row['payment']). "</td>";
+            }
+            
+           $this->table_content .="<tr>"
+                                . "<td colspan='3'><strong>Total</strong></td>"
+                                . "<td ><strong>".$purchase."</strong></td>"
+                                . "<td ><strong>".$payment."</strong></td>";
+
+            return $this->table_content;
+           
+        }
+        
+    }
+
+
+    /*
+     * Supplier Transaction Report from date to date
+     * @return table data with html
+     * */
+
+    public function ShowAllSupplierTransactionByCat($starting,$ending,$supplier) {
+       
+        
+        $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
+        $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
+
+
+        $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.supplier='$supplier' and tst.date BETWEEN '$starting' and '$ending'");
+        
+        if ($stmt) {
+           $i = 0;
+           $purchase = $payment =  0;
+
+            while ($row = $stmt->fetch_assoc()) {
+                $i++;
+                $purchase += round($row['purchase']);
+                $payment += round($row['payment']);
+                
+                $this->table_content .= "<tr>"
+                        . "<td >" . $this->helpObj->formatDate($row['date'],'d-m-Y')
+                        . "<td style='text-align: left;'>" . substr($row['description'], 0,45) . "</td>"
+                        . "<td>" . round($row['purchase']). "</td>"
+                        . "<td>" . round($row['payment']). "</td>";
+            }
+            
+           $this->table_content .="<tr>"
+                                . "<td colspan='2'><strong>Total</strong></td>"
+                                . "<td ><strong>".$purchase."</strong></td>"
+                                . "<td ><strong>".$payment."</strong></td>";
+
+            return $this->table_content;
+           
+        }
+        
+    }
+
 
 
 }

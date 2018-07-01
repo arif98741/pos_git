@@ -1,10 +1,16 @@
-products.php
-addpurchase.php
-assets/js/custom.js
-print/stock/stockreport.php
-printfiles/product/print.php
-classes/Printdata
+change 
+
+database
+i. add column tbl_transactioncat(category_type)
+ii. delete colum tbl_laser(donor,receiver)
+iii. default value tbl_laser(debit(0), credit(0))
+iv. new table tbl_supplier_transaction
 
 
-20/04/2018
-change in 
+lib/header
+transcategorylist.php
+js/custom.js
+
+
+problem in suppliertransaction edit
+
