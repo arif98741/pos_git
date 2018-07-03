@@ -295,8 +295,8 @@ if (isset($_POST['sell_id'])) {
                             <th>SERIAL</th>
                             <th>PROUDCT ID</th>
                             <th>PRODUCT NAME</th>
-                            <th>PRICE</th>
                             <th>QUANTITY</th>
+                            <th>PRICE</th>
                             <th>SUBTOTAL</th>
                         </tr>	
                     </thead>
@@ -304,19 +304,6 @@ if (isset($_POST['sell_id'])) {
                         <?php
                             $update_q = "update tbl_sell_products set status = '1' where sell_id='$sell_id' and customer_id='$cus_id'";
                             $update_q_st = $db->link->query($update_q);
-
-                             /*$q = "SELECT
-                                        *
-                                    FROM
-                                        tbl_sell
-                                    JOIN tbl_sell_products ON tbl_sell.sell_id = tbl_sell_products.sell_id
-                                    JOIN tbl_product ON tbl_sell_products.product_id = tbl_product.product_id
-                                    JOIN tbl_group  on tbl_product.product_group = tbl_group.groupid
-                                    JOIN tbl_supplier ON tbl_product.product_brand = tbl_supplier.supplier_id
-                                    JOIN tbl_type on tbl_product.product_type = tbl_type.typeid
-                                    WHERE
-                                        tbl_sell.sell_id = '$sell_id' AND tbl_sell_products.status = '1' order by tbl_sell_products.serial_no ASC";*/
-
 
                              $q = "SELECT tsp.subtotal,tsp.unit_price,tsp.purchase_price,tsp.quantity,tp.product_id,tp.product_name FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id where tsp.sell_id='$sell_id' and tsp.status='1' order by tsp.serial_no asc";           
 
@@ -336,9 +323,9 @@ if (isset($_POST['sell_id'])) {
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $result['product_id']; ?></td>
                                     <td><?php echo $result['product_name']; ?></td>
-                                    <td><?php echo $result['unit_price']; ?></td>
                                     <td><?php echo $result['quantity']; ?></td>
-                                    <td><?php echo $result['subtotal']; ?></td>
+                                    <td><?php echo  number_format((float)$result['unit_price'], 2, '.', ''); ?></td>
+                                    <td><?php echo  number_format((float)$result['subtotal'], 2, '.', ''); ?></td>
                                 </tr>
                             <?php endwhile; ?>
                         <?php endif; ?>

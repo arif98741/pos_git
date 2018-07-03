@@ -168,44 +168,45 @@
                 <table class="table table-bordered">
                                 
                                 
-                                <tbody>
-                                    <tr>
-                                        <td>    <a class="btn btn-success" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
-                                        <td><input type="text" class="form-control" id="product_id" placeholder="Product ID"  tabindex="2"></td>
-                                        <td>
-                                            <select class="form-control" id="product_group_dropdown_add_sale" >
-                                                <option id="reset_inv_product_group" value="">Select Group</option>
-                                                <?php
-                                                    $grstmt = $db->select("select * from tbl_group order by groupname asc");
-                                                    if($grstmt){
-                                                        while ($row = $grstmt->fetch_assoc()) { ?>
-                                                        <option value="<?php echo ucfirst($row['groupid']); ?>"><?php echo $row['groupname']; ?></option>
-                                                        
-                                                        <?php  }
-                                                    }
-                                                ?>
-                                            </select>
-                                        </td>
-                                        <td>
+                    <tbody>
+                        <tr>
+                            <td>    <a class="btn btn-success" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
+                            <td><input type="text" class="form-control" id="product_id" placeholder="Product ID"  tabindex="2"></td>
+                            <td>
+                                <select class="form-control" id="product_group_dropdown_add_sale" >
+                                    <option id="reset_inv_product_group" value="">Select Group</option>
+                                    <?php
+                                        $grstmt = $db->select("select * from tbl_group order by groupname asc");
+                                        if($grstmt){
+                                            while ($row = $grstmt->fetch_assoc()) { ?>
+                                            <option value="<?php echo ucfirst($row['groupid']); ?>"><?php echo $row['groupname']; ?></option>
                                             
-                                            <select class="form-control" id="product_group_list_dropdown_add_sale">
-                                                <option value="">Select Product</option>
-                                            </select>
-                                            
-                                        </td>
-                                        <td>
-                                            <input type="" class="form-control"  id="sale_price" placeholder="Sale Price"/>
-                                            <input type="hidden" class="form-control"  id="purchase_price" placeholder="Sale Price"/>
-                                        </td>
-                                        
-                                        <td>
-                                            <input type="number" class="form-control" id="product_quantity" placeholder="Quantity"/>
-                                            <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="Quantity"/>
-                                        </td>
-                                        
-                                        
-                                    </tr>
-                                </tbody>
+                                            <?php  }
+                                        }
+                                    ?>
+                                </select>
+                            </td>
+                            <td>
+                                
+                                <select class="form-control" id="product_group_list_dropdown_add_sale">
+                                    <option value="">Select Product</option>
+                                </select>
+                                
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" id="product_quantity" placeholder="Quantity"/>
+                                <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="Quantity"/>
+                            </td>
+                            <td>
+                                <input type="" class="form-control"  id="sale_price" placeholder="Sale Price"/>
+                                <input type="hidden" class="form-control"  id="purchase_price" placeholder="Sale Price"/>
+                            </td>
+                            
+                            
+                            
+                            
+                        </tr>
+                    </tbody>
                             </table>
                              </form>
             </div>
