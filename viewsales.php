@@ -14,7 +14,6 @@ $db = new Database();
 $ext = new Extra();
 $help = new Helper();
 
-
 if($_GET['sell_id']){
     $sell_id = $_GET['sell_id'];
     $seller = Session::get('userid');
@@ -372,17 +371,11 @@ if($_GET['sell_id']){
                     <thead>
 
                         <tr>
-
                             <th>SERIAL</th>
-
                             <th>PROUDCT ID</th>
-
                             <th>PRODUCT NAME</th>
-
-                            <th>PRICE</th>
-
                             <th>QUANTITY</th>
-
+                            <th>PRICE</th>
                             <th>SUBTOTAL</th>
 
                         </tr>   
@@ -428,19 +421,14 @@ if($_GET['sell_id']){
                                 ?>
 
                                 <tr>   
-
                                     <td><?php echo $i; ?></td>
-
                                     <td><?php echo $result['product_id']; ?></td>
-
                                     <td><?php echo $result['product_name']; ?></td>
-
-                                    <td><?php echo $result['unit_price']; ?></td>
-
                                     <td><?php echo $result['quantity']; ?></td>
+                                    <td><?php echo  number_format((float)$result['unit_price'], 2, '.', ''); ?></td>
+                                    <td><?php echo  number_format((float)$result['subtotal'], 2, '.', ''); ?></td>
 
-                                    <td><?php echo $result['subtotal']; ?></td>
-
+                                   
                                 </tr>
 
                             <?php endwhile; ?>
