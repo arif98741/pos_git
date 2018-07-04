@@ -281,7 +281,7 @@ $(document).ready(function () {
 			
 		});
 
-		//get products for a single group by selecting product group
+		/*//get products for a single group by selecting product group
         $('#product_group_dropdown_add_sale').change(function(){
             var gid = $(this).val();
             $.ajax({
@@ -325,8 +325,10 @@ $(document).ready(function () {
                 }, error: function (e) {
                     //console.log(e);
                 }
+
+
             });
-        });
+        }); */
 
         var x = 0;
         //search product details by id in addinvoice.php

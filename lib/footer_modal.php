@@ -31,7 +31,7 @@
           </div>
           <div class="col-md-12">
               <div class="form-group">
-                  <input name="description" id="" class="form-control" placeholder="Description" tabindex="7">
+                  <input name="description"  class="form-control" placeholder="Description" tabindex="7">
               </div>
           </div>
           
@@ -111,7 +111,7 @@
               
           <div class="col-md-12">
             <div class="form-group">
-                <input name="description" id="" class="form-control" placeholder="Description" tabindex="7">
+                <input name="description" class="form-control" placeholder="Description" tabindex="7">
             </div>
           </div>
           <div class="col-md-6 submit-buttom">       
