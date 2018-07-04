@@ -1,0 +1,4 @@
+1. search option addinvoice pos
+2. user add in pos
+3. update ts according to pos
+4. within 11pm today
