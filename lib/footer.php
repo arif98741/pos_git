@@ -10,6 +10,7 @@
 </div>
 <!-- ./wrapper -->
 <?php include "lib/js/scripts.php"; //scripts file put at lib/js/scripts/js ?>
+
 <?php include("lib/footer_modal.php"); //all modal content and design in footer_modal.php ?>
 
 </body>
