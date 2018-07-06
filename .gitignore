@@ -1,3 +1,4 @@
 .phpintel
 .idea
-uploads
+uploads/
+node_modules/
