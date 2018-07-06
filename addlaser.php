@@ -1,6 +1,5 @@
 <?php include 'lib/header.php'; ?> 
 
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -87,7 +86,7 @@
 <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
-    $('#transcategory').change(function(){
+    $('#transcategory').change(function(){ //one change dropdown
         var catid = $(this).val();
         $.ajax({
           url: 'functions.php',
