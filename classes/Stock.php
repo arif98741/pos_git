@@ -10,8 +10,7 @@ class Stock {
     private $dbObj;
     private $helpObj;
 
-    public function __construct() {
-        $this->loginObj = new Helper();
+    public function __construct() { //initialization of several class objects
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
     }
