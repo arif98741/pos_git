@@ -1,6 +1,7 @@
 <?php
 
 class Database {
+    //this is file is no longer maintained
 
     public $link;
     private $username = 'aladinpos';
