@@ -56,7 +56,7 @@ class Login {
 
 
 
-     /**
+    /**
     @ save user as stuff to database
     */
 
@@ -65,7 +65,6 @@ class Login {
         $name = $this->helpObj->validAndEscape($data['name']);
         $username = $this->helpObj->validAndEscape($data['username']);
         $password = $this->helpObj->validAndEscape(md5($data['password']));
-       
         $email = $this->helpObj->validAndEscape($data['email']);
         $msg =  '';
 
@@ -95,6 +94,41 @@ class Login {
 
       
     }
+
+
+    /**
+    @ update user as stuff to database
+    */
+
+    public function updateUser($data)
+    {
+        $userid = $this->helpObj->validAndEscape($data['userid']);
+        $name = $this->helpObj->validAndEscape($data['name']);
+        //$username = $this->helpObj->validAndEscape($data['username']);
+        $password = $this->helpObj->validAndEscape(md5($data['password']));
+        $email = $this->helpObj->validAndEscape($data['email']);
+        $msg =  '';
+
+        if ($password != '' || $password != null) {
+            $stmt = $this->dbObj->update("update tbl_user set name='$name',password='$password',email='$email' where userid='$userid'") ;
+            if ($stmt) {
+                 $msg = "<script>alert('Stuff Updated Successfully');</script>";
+            } else {
+                $msg = "<script>alert('Stuff Update Failed');</script>";
+            }
+        } else {
+            $stmt = $this->dbObj->update("update tbl_user set name='$name',email='$email' where userid='$userid'") or die($this->dbObj->link->error). " error at line number ".__LINE__;;
+            if ($stmt) {
+                 $msg = "<script>alert('Stuff Updated Successfully');</script>";
+            } else {
+                $msg = "<script>alert('Stuff Update Failed');</script>";
+            }
+        }
+        
+        return $msg;
+    }
+
+
 
 
 

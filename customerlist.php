@@ -86,7 +86,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                         <?php if(Session::get('status') == 'admin'): ?>
                                         <td>
                                             <a href="<?php echo BASE_URL; ?>viewcustomer.php?action=view&serial=<?php echo $r['serial']; ?>&customer_id=<?php echo $r['customer_id']; ?>"><i class="fa fa-eye" title="view customer information"></i></a>&nbsp;
-                                            <a href="<?php echo BASE_URL; ?>editcustomer.php?action=edit&serial=<?php echo $r['serial']; ?>&customer_id=<?php echo $r['customer_id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
+                                            <a href="editcustomer.php?action=edit&serial=<?php echo $r['serial']; ?>&customer_id=<?php echo $r['customer_id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
                                            
 
                                         </td>

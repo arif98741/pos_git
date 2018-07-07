@@ -36,7 +36,7 @@ class Database {
     @ return as object
     */
     public function select($query) {
-        $stmt = $this->link->query($query);
+        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
         if($stmt)
         {
             if ($stmt->num_rows > 0) {
@@ -68,7 +68,7 @@ class Database {
     @ true/false
     */
     public function insert($query) {
-        $stmt = $this->link->query($query);
+        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
         if ($stmt) {
             return $stmt;
         } else {
@@ -83,7 +83,7 @@ class Database {
     @ true/false
     */
     public function update($query) {
-        $stmt = $this->link->query($query);
+        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;
         if ($stmt) {
             return true;
         } else {
@@ -97,7 +97,7 @@ class Database {
     @ true/false
     */
     public function delete($query) {
-        $stmt = $this->link->query($query);
+        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
         if ($stmt) {
             return true;
         } else {
@@ -112,7 +112,7 @@ class Database {
     
     */
     public function rowCount($query) {
-        $stmt = $this->link->query($query);
+        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
         if ($stmt->num_rows > 0) {
             return $stmt->num_rows;
         } else {
