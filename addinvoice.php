@@ -152,8 +152,6 @@
                             </div>
                         </div>
                     </div>
-               
-                
                 
                 </div>
 
@@ -170,34 +168,41 @@
                                 
                     <tbody>
                         <tr>
-                            <td>    <a class="btn btn-success" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
-                            <td><input type="text" class="form-control" id="product_id" placeholder="Product ID"  tabindex="2"></td>
-                            <td>
-                                <select class="form-control" id="product_group_dropdown_add_sale" >
-                                    <option id="reset_inv_product_group" value="">Select Group</option>
+                            <td width="20%">    <a class="btn btn-success btn-block" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
+
+                            <!-- <td><input type="text" class="form-control" id="product_id" placeholder="Product ID"  tabindex="2"></td> -->
+                            
+
+                            <td width="40%">
+                                <select id="product_id" class="form-control select2 select2_dropdown select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                     <?php
-                                        $grstmt = $db->select("select * from tbl_group order by groupname asc");
-                                        if($grstmt){
-                                            while ($row = $grstmt->fetch_assoc()) { ?>
-                                            <option value="<?php echo ucfirst($row['groupid']); ?>"><?php echo $row['groupname']; ?></option>
-                                            
-                                            <?php  }
-                                        }
-                                    ?>
-                                </select>
+                                    $q = "SELECT * FROM tbl_product tp
+                                    JOIN tbl_supplier ts ON
+                                        tp.product_brand = ts.supplier_id
+                                    JOIN tbl_group tg ON
+                                        tp.product_group = tg.groupid
+                                    JOIN tbl_type tt ON
+                                        tp.product_type = tt.typeid
+                                    ORDER BY tp.product_name ASC";
+                                    $status = $db->link->query($q) or die($db->link->error). " error at line number ".__LINE__;
+
+                                    if ($status) {
+
+                                        while ($result = $status->fetch_assoc()) {
+                                            ?>
+                                      <option productsearhkey="" productgroupid="<?php echo $result['product_group']; ?>" value="<?php echo $result['product_id']; ?>"><?php echo $result['product_name']; ?></option>
+                                      
+
+                                  <?php  }} ?>
+                                    </select>
                             </td>
-                            <td>
-                                
-                                <select class="form-control" id="product_group_list_dropdown_add_sale">
-                                    <option value="">Select Product</option>
-                                </select>
-                                
+                            <td width="20%">
+                                <input type="number" class="form-control" id="product_quantity" placeholder="Quantity">
+                                <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="Quantity">
                             </td>
-                            <td>
-                                <input type="number" class="form-control" id="product_quantity" placeholder="Quantity"/>
-                                <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="Quantity"/>
-                            </td>
-                            <td>
+
+
+                            <td width="20%">
                                 <input type="" class="form-control"  id="sale_price" placeholder="Sale Price"/>
                                 <input type="hidden" class="form-control"  id="purchase_price" placeholder="Sale Price"/>
                             </td>

@@ -1,6 +1,4 @@
 <?php include 'lib/header.php'; ?>
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -123,8 +121,6 @@
                                 
                             </div>
 
-
-
                             </div>
                             <div class="col-md-3"> 
                                 <div class="form-group has-success">
@@ -152,6 +148,7 @@
                             </div>
                         </div>
                     </div>
+               
                 
                 </div>
 
@@ -166,52 +163,25 @@
                 <table class="table table-bordered">
                                 
                                 
-                    <tbody>
-                        <tr>
-                            <td width="20%">    <a class="btn btn-success btn-block" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
+                                <tbody>
+                                    <tr>
+                                        <td>  <a class="btn btn-success" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
 
-                            <!-- <td><input type="text" class="form-control" id="product_id" placeholder="Product ID"  tabindex="2"></td> -->
-                            
-
-                            <td width="40%">
-                                <select id="product_id" class="form-control select2 select2_dropdown select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                    <?php
-                                    $q = "SELECT * FROM tbl_product tp
-                                    JOIN tbl_supplier ts ON
-                                        tp.product_brand = ts.supplier_id
-                                    JOIN tbl_group tg ON
-                                        tp.product_group = tg.groupid
-                                    JOIN tbl_type tt ON
-                                        tp.product_type = tt.typeid
-                                    ORDER BY tp.product_name ASC";
-                                    $status = $db->link->query($q) or die($db->link->error). " error at line number ".__LINE__;
-
-                                    if ($status) {
-
-                                        while ($result = $status->fetch_assoc()) {
-                                            ?>
-                                      <option productsearhkey="" productgroupid="<?php echo $result['product_group']; ?>" value="<?php echo $result['product_id']; ?>"><?php echo $result['product_name']; ?></option>
-                                      
-
-                                  <?php  }} ?>
-                                    </select>
-                            </td>
-                            <td width="20%">
-                                <input type="number" class="form-control" id="product_quantity" placeholder="Quantity">
-                                <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="Quantity">
-                            </td>
-
-
-                            <td width="20%">
-                                <input type="" class="form-control"  id="sale_price" placeholder="Sale Price"/>
-                                <input type="hidden" class="form-control"  id="purchase_price" placeholder="Sale Price"/>
-                            </td>
-                            
-                            
-                            
-                            
-                        </tr>
-                    </tbody>
+                                        <td><input type="text" class="form-control autocomplete" id="product_id" placeholder="Product ID"   tabindex="2"></td>
+                                        
+                                        <td>
+                                            <input type="" class="form-control"  id="sale_price" placeholder="Sale Price"/>
+                                            <input type="hidden" class="form-control"  id="purchase_price" placeholder="Sale Price"/>
+                                        </td>
+                                        
+                                        <td>
+                                            <input type="number" class="form-control" id="product_quantity" placeholder="Quantity"/>
+                                            <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="Quantity"/>
+                                        </td>
+                                        
+                                        
+                                    </tr>
+                                </tbody>
                             </table>
                              </form>
             </div>
@@ -230,6 +200,30 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
- <!-- footer -->
-
+ <!-- footer -->>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="assets/dist/js/jquery.autocomplete.js"></script>
+<script>
+    $(document).ready(function(){
+        // Initialize ajax autocomplete:
+        
+        $('#autocomplete-ajax').autocomplete({
+            // serviceUrl: '/autosuggest/service/url',
+            lookup: countriesArray,
+            lookupFilter: function(suggestion, originalQuery, queryLowerCase) {
+                var re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi');
+                return re.test(suggestion.value);
+            },
+            onSelect: function(suggestion) {
+                $('#selction-ajax').html('You selected: ' + suggestion.value + ', ' + suggestion.data);
+            },
+            onHint: function (hint) {
+                $('#autocomplete-ajax-x').val(hint);
+            },
+            onInvalidateSelection: function() {
+                $('#selction-ajax').html('You selected: none');
+            }
+        });
+    });
+</script>
  <?php include 'lib/footer.php'; ?>
