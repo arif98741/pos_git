@@ -91,7 +91,6 @@ $(document).ready(function () {
                 + '</tr>';
 
             $('#inv_detail').append(row);
-
             $('#invoice_form_table tr td i').click(function() {
                 $(this).parent().parent().remove();
                 wholetotal();
