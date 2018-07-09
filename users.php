@@ -1,9 +1,15 @@
 <?php include 'lib/header.php'; ?>
-<?php if (Session::get('status') !== 'admin') {
-    header("Location: index.php");
-}?>
+
 
 <?php
+//updsate user
+//add customer
+if (isset($_POST['updateuser'])) {
+    $result = $log->updateUser($_POST);
+    echo $result ;
+}
+
+
 //add customer
 if (isset($_POST['adduser'])) {
     $result = $log->addUser($_POST);
@@ -78,7 +84,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                               <?php if(Session::get('status') == 'admin'): ?>
 
                               <td>
-                                   <a href="?action=delete&serial=<?php echo $row['userid']; ?>" style="border-radius: 3px;" title="click to delete" onclick="return confirm('are you sure to delete?')" id="rowdelete" delid="<?php echo $result['serial']; ?>"><i class="fa fa-trash"></i></a>
+                                 <a href="edituser.php?action=edit&userid=<?php echo $row['userid']; ?>" style="border-radius: 3px;" title="click to delete" ><i class="fa fa-pencil-square-o btn"></i></a>&nbsp;&nbsp;
+
+                                   <a href="?action=delete&serial=<?php echo $row['userid']; ?>" style="border-radius: 3px;" title="click to delete" onclick="return confirm('are you sure to delete?')" ><i class="fa fa-trash"></i></a>
 
                               </td>
                             <?php endif; ?>

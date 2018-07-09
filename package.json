@@ -1,0 +1,26 @@
+{
+  "name": "pos_git",
+  "version": "2.0.5",
+  "description": "Point of Sale(pos) is an  online store management system where there are a lot of features for  managing products, stock, customer, bill, sales,\r invoice, report, sms inform etc. Everything is maintained in a secured way to handle. Seller can get day to day or range to range report of \r sales, invoice, purchase etc. \r Every customer will get a sms notification their mobile after successfully buying products from the store as well. This software is built by\r using pure php, mysql, javascript, ajax and also adminLTE dashboard solutions. <br/><br/>",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arif98741/pos_git.git"
+  },
+  "author": "Ariful Islam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arif98741/pos_git/issues"
+  },
+  "homepage": "https://github.com/arif98741/pos_git#readme",
+  "dependencies": {
+    "admin-lte": "^3.0.0-alpha.2",
+    "jquery": "^3.3.1"
+  }
+}
