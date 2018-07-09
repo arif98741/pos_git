@@ -153,6 +153,7 @@ class Extra {
            $balarray = $balstmt->fetch_assoc();
            $current_balance = number_format((float)$balarray['balance'], 2, '.', '');
            
+             
         }
 
         /*$message = 'Dear '.$customer_name.', your payment '.$amount.'tk for invoice '.$sell_id.' has successfully recieved. Your current balance is '.$current_balance.'-----------------'.Session::get('company_name'); */
