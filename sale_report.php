@@ -69,7 +69,7 @@
 
                   <div class="form-group">
                     <label for=""><strong>Customer</strong></label>
-                    <select name="customer_id" id="" class="customer form-control">
+                    <select name="customer_id" id="" class="customer form-control universal_select2_dropdown">
                         <option value="">Select Customer</option>
                         <?php 
                             $cusst = $db->select("select * from tbl_customer order by customer_name asc");
@@ -86,7 +86,7 @@
 
                   <div class="form-group">
                     <label for=""><strong>Product Name Wise</strong></label>
-                    <select name="product_id" id="" class="form-control">
+                    <select name="product_id" id="" class="form-control universal_select2_dropdown">
                       <option value="">Select Product</option>
                       <?php
                             $status = $db->link->query("select * from tbl_product order by product_name asc");

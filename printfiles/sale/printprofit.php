@@ -87,8 +87,8 @@ date_default_timezone_set("Asia/Dhaka");
                             <tr style="text-align: center;" id="rowid-<?php echo $row['serial']; ?>">
                                     <td><?php echo $help->formatDate($row['date'],'d-m-y'); ?></td>
                                     <td><?php echo $row['sell_id']; ?></td>
-                                    <td><?php echo $row['name']; ?></td>
-                                    <td><?php echo $row['customer_name']; ?></td>
+                                    <td style="text-align: left;"><?php echo $row['name']; ?></td>
+                                    <td style="text-align: left;"><?php echo $row['customer_name']; ?></td>
                                     <td><?php echo number_format((float)$row['profit'], 2, '.', ''); ?></td>    
 
                             </tr>
@@ -151,7 +151,7 @@ date_default_timezone_set("Asia/Dhaka");
                             <tr style="text-align: center;" id="rowid-<?php echo $row['serial']; ?>">
                                     <td><?php echo $help->formatDate($row['date'],'d-m-y'); ?></td>
                                     <td><?php echo $row['sell_id']; ?></td>
-                                    <td><?php echo $row['customer_name']; ?></td>
+                                    <td style="text-align: left;"><?php echo $row['customer_name']; ?></td>
                                     <td><?php echo number_format((float)$row['profit'], 2, '.', ''); ?></td>            
                             </tr>
 

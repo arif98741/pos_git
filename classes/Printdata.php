@@ -317,7 +317,7 @@ class Printdata {
                 $this->table_content .= "<tr>"
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d-m-Y')
                         . "<td>" . $row['sell_id'] . "</td>"
-                        . "<td>" . $row['customer_name'] . "</td>"
+                        . "<td style='text-align:left;'>" . $row['customer_name'] . "</td>"
                         . "<td>" . round($row['sub_total']) . "</td>"
                         . "<td>" . round($row['discount']) . "</td>"
                         . "<td>" . round($row['dlcharge']). "</td>"
@@ -582,7 +582,7 @@ class Printdata {
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d/m/Y')  . "</td>"
                         . "<td>" . $row['sell_id'] . "</td>"
                         . "<td>" . $row['product_id'] . "</td>"
-                        . "<td style='text-align:left;'>" . $row['product_name'] . "</td>"
+                        . "<td style='text-align : left;'>" . $row['product_name'] . "</td>"
                         . "<td>" . $row['quantity'] . "</td>"
                         . "<td>" . number_format((float)$row['sale_price'], 2, '.', '') . "</td>"
                         . "<td>" .number_format((float)($row['quantity'] * $row['sale_price']), 2, '.', ''). "</td>";
@@ -625,7 +625,7 @@ class Printdata {
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d/m/Y')  . "</td>"
                         . "<td>" . $row['sell_id'] . "</td>"
                         . "<td>" . $row['product_id'] . "</td>"
-                        . "<td>" . $row['product_name'] . "</td>"
+                        . "<td style='text-align: left;'>" . $row['product_name'] . "</td>"
                         . "<td>" . $row['quantity'] . "</td>"
                         . "<td>" . $row['sale_price'] . "</td>"
                         . "<td>" .$row['quantity'] * $row['sale_price'] . "</td>";
@@ -666,7 +666,7 @@ class Printdata {
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d/m/Y')  . "</td>"
                         . "<td>" . $row['sell_id'] . "</td>"
                         . "<td>" . $row['product_id'] . "</td>"
-                        . "<td>" . $row['product_name'] . "</td>"
+                        . "<td  style='text-align: left;'>" . $row['product_name'] . "</td>"
                         . "<td>" . $row['quantity'] . "</td>"
                         . "<td>" . $row['sale_price'] . "</td>"
                         . "<td>" .$row['quantity'] * $row['sale_price'] . "</td>";
@@ -710,7 +710,7 @@ class Printdata {
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d/m/Y')  . "</td>"
                         . "<td>" . $row['sell_id'] . "</td>"
                         . "<td>" . $row['product_id'] . "</td>"
-                        . "<td>" . $row['product_name'] . "</td>"
+                        . "<td  style='text-align: left;'>" . $row['product_name'] . "</td>"
                         . "<td>" . $row['quantity'] . "</td>"
                         . "<td>" . $row['sale_price'] . "</td>"
                         . "<td>" .$row['quantity'] * $row['sale_price'] . "</td>";
@@ -769,7 +769,7 @@ class Printdata {
                 $this->table_content .= "<tr>"
                         . "<td >" . $this->helpObj->formatDate($row['date'],'d/m/Y')  . "</td>"
                         . "<td>" . $row['sell_id'] . "</td>"
-                        . "<td>" . $row['customer_name'] . "</td>"
+                        . "<td  style='text-align: left;'>" . $row['customer_name'] . "</td>"
                         . "<td>" . $row['sale_price'] . "</td>"
                         . "<td>" . $row['quantity'] . "</td>"
                         . "<td>" . $row['sale_price'] * $row['quantity'] . "</td>";

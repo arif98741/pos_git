@@ -98,7 +98,7 @@ $db = new Database();
                                 <div class="title-3">Sales Report by Customer - <?php echo $customer_name; ?> <br/></div> From <?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
                                
                         <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select distinct ts.*, tc.customer_name,tc.customer_id from tbl_sell ts join tbl_customer  tc
-                                on ts.customer_id = tc.customer_id where ts.date between  '$start' and '$end'"); ?>) </div></td>
+                                on ts.customer_id = tc.customer_id where ts.customer_id='$customer_id' and ts.date between  '$start' and '$end'"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>

@@ -44,6 +44,7 @@ $(document).ready(function(){
 
 
 	 
-	 $('#cus_dropdown_addinvoice').select2();
-   $('.select2_dropdown').select2();
+	 $('#cus_dropdown_addinvoice').select2(); //customer live search in addinvoice.php
+   $('.select2_dropdown').select2(); //product live search in addinvoice.php
+   $('.universal_select2_dropdown').select2(); //live search for using in report or other place during live search
 });
