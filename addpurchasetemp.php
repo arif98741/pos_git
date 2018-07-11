@@ -29,7 +29,7 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
+                        <select name="supplier_id"  id="supplier_dropdowns"  class="form-control" >
                             <option value="">Select Supplier</option>
                             <?php
                             $status = $sup->showSupplier();
@@ -85,36 +85,35 @@
                     <table id="invoice_form_table" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Group</th>
-                                <th>Name</th>
-                                <th>Unit</th>
-                                <th>Quantity</th>
-                                <th>Purchase Price</th>
-                                <th>Subtotal</th>
-                                <th>Action</th>
+                                <th width="35%">Name</th>
+                                <th width="15%">Unit</th>
+                                <th width="10">Quantity</th>
+                                <th  width="15">Purchase Price</th>
+                                <th  width="15">Subtotal</th>
+                                <th  width="10">Action</th>
 
                             </tr>
                         </thead>
                         <tbody id="inv_detail">
-                            
+                           
                         </tbody>
                         <tfoot id="">
                             <tr>
-                                <td colspan="7" style="text-align:right; "><b>Invoice Total</b></td>
+                                <td colspan="5" style="text-align:right; "><b>Invoice Total</b></td>
                                 <td colspan="1" style="text-align: center;"><input type="hidden" name="addinvoice"><b class="wholetotal"></b></td>
                                 <input type="hidden" name="addpurchase">
                             </tr>
 
                         </tfoot>
                     </table>
+                    </form>
                     <button class="btn btn-success add_new_invoice_table_row" title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button>
                 </div>
         </div>
       </div>
             </div>
             
-            </form>
+            
           </div>
         </div>
       </div>
@@ -124,5 +123,11 @@
   </div>
   <!-- /.content-wrapper -->
  <!-- footer -->
-
+ <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+ <script src="assets/bower_components/select2/dist/js/select2.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.select2').select2();
+    });
+</script>
  <?php include 'lib/footer.php'; ?>

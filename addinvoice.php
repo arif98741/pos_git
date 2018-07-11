@@ -47,7 +47,7 @@
                                 
                                 <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $invoice; ?>">
                             
-                            <select name="cus_id" class="form-control" id="cus_dropdown_addinvoice">
+                            <select name="cus_id" class="form-control select2" id="cus_dropdown_addinvoice">
                                 <option value="" tabindex="1">Select Customer </option>
                                 <?php 
                                     $cusst = $db->select("select * from tbl_customer order by customer_name asc");

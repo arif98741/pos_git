@@ -127,6 +127,7 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] == 'ge
     $stmt =  $db->select("select * from tbl_product WHERE  product_id = '$pid'");
     if($stmt){
         echo json_encode($stmt->fetch_assoc());
+        //echo json_encode(array('fuck'));
     }
 }
 

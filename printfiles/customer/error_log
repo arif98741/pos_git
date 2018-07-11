@@ -1,0 +1,1 @@
+[02-May-2018 20:25:51 Asia/Dhaka] PHP Fatal error:  Call to a member function query() on a non-object in /home/aladinpos/public_html/printfiles/customer/printstatement.php on line 141
