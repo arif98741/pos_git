@@ -53,7 +53,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where date between '$starting' and '$ending'");
                                     if ($stmt) {
                                         $data = $stmt->fetch_object();
-                                        $balance = $data->debit- $data->credit;
+                                        $balance = $data->debit - $data->credit;
                                     }
                                     
                                 ?>
@@ -245,7 +245,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser");
                                     if ($stmt) {
                                         $data = $stmt->fetch_object();
-                                        $balance = $data->debit- $data->credit;
+                                        $balance = $data->debit - $data->credit;
                                     }
 
                                 ?>

@@ -97,8 +97,8 @@ date_default_timezone_set('Asia/Dhaka');
                         <?php } } ?>
                             <tr>
                                 <td colspan="3" style="text-align: right;"><strong>Total</strong></td>
-                                <td style="text-align: right;"><strong><?php echo round($debit); ?></strong></td>
-                                <td style="text-align: right;"><strong><?php echo round($credit); ?></strong></td>
+                                <td style="text-align: center;"><strong><?php echo round($debit); ?></strong></td>
+                                <td style="text-align: center;"><strong><?php echo round($credit); ?></strong></td>
                                 <td></td>
                             </tr>
                 </tbody>

@@ -74,6 +74,7 @@
                     
                     <input type="reset" value="Reset" class="btn btn-danger">
                 </div>
+              </form>
         </div>
             </div>
             
