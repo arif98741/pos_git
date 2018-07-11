@@ -48,7 +48,7 @@
                                 <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $invoice; ?>">
                             
                             <select name="cus_id" class="form-control select2" id="cus_dropdown_addinvoice">
-                                <option value="" tabindex="1">Select Customer </option>
+                                <option value="" >Select Customer </option>
                                 <?php 
                                     $cusst = $db->select("select * from tbl_customer order by customer_name asc");
                                     if($cusst){
@@ -110,7 +110,7 @@
                         <div class="col-md-3"> 
                             <div class="form-group has-success" style="">
                                 <label class="control-label" for="inputSuccess1" >Discount</label>
-                                <input type="number" class="form-control text-right" style="text-align: center;" id="discount" name="discount"  tabindex="3" />
+                                <input type="number" class="form-control text-right" style="text-align: center;" id="discount" name="discount"  tabindex="1" />
                                 <!--Discount is grandtotal-->
                             </div>
                             
@@ -128,22 +128,22 @@
                             </div>
                             <div class="col-md-3"> 
                                 <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess1" tabindex="4" >DL</label>
+                                    <label class="control-label" for="inputSuccess1" >DL</label>
                                     
-                                    <input type="number" class="form-control text-right" style="text-align: center;" id="dlcharge" name="dlcharge" required="" />
+                                    <input type="number" class="form-control text-right" style="text-align: center;" id="dlcharge" name="dlcharge" required=""  tabindex="2" />
                                 </div>
                                 <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess1" tabindex="6" >PAID</label>
+                                    <label class="control-label" for="inputSuccess1" >PAID</label>
                                     
-                                    <input type="number" class="form-control text-right" id="paid" name="paid" style="text-align: center;" required="" />
+                                    <input type="number" class="form-control text-right" id="paid" name="paid" style="text-align: center;" required="" tabindex="4"/>
                                 </div>
                         </div>
                         
                         <div class="col-md-3"> 
                             
                             <div class="form-group has-success">
-                                <label class="control-label" for="inputSuccess1" tabindex="5" >Vat</label>
-                                <input type="number" class="form-control text-right" id="vat" name="vat" style="text-align: center;" required="" />
+                                <label class="control-label" for="inputSuccess1" >Vat</label>
+                                <input type="number" class="form-control text-right" id="vat" name="vat" style="text-align: center;" required="" tabindex="3" />
                             </div>
                             <div class="form-group">
                                 <label>Due</label>
@@ -170,11 +170,10 @@
                         <tr>
                             <td width="20%">    <a class="btn btn-success btn-block" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
 
-                            <!-- <td><input type="text" class="form-control" id="product_id" placeholder="Product ID"  tabindex="2"></td> -->
-                            
+                           
 
                             <td width="40%">
-                                <select id="product_id" class="form-control select2 select2_dropdown select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                <select id="product_id" class="form-control select2 select2_dropdown select2-hidden-accessible" style="width: 100%;" aria-hidden="true">
                                     <?php
                                     $q = "SELECT * FROM tbl_product tp
                                     JOIN tbl_supplier ts ON
