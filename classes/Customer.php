@@ -63,7 +63,7 @@ class Customer {
         $date = date('Y-m-d H:i:s');
         $updateby = Session::get('userid');
         $query = "insert into tbl_customer(
-             customer_id, customer_name, address,contact_no,email,opening_balance,remark,date,updateby) 
+             customer_id, customer_name, address,contact_no,email,opening_balance,remark,date,updateby)
             values('$customer_id', '$customer_name', '$address',
             '$contact_no','$email','$opening_balance','$remark','$date','$updateby')";
 
@@ -82,8 +82,8 @@ class Customer {
                 return $this->msg;
             }
         }
-        
-        
+
+
     }
 
     /*
@@ -112,10 +112,10 @@ class Customer {
         $remark = $this->helpObj->validAndEscape($data['remark']);
         $updateby = Session::get('userid');
         $query = "UPDATE tbl_customer SET
-                            customer_name = '$customername', address = '$address',    
+                            customer_name = '$customername', address = '$address',
                             contact_no = '$contact_no',  email = '$email',
                             opening_balance ='$opening_balance',
-                            remark = '$remark', updateby = '$updateby'    
+                            remark = '$remark', updateby = '$updateby'
                             where serial='$serial'";
 
         $stmt = $this->dbObj->update($query);
@@ -142,8 +142,6 @@ class Customer {
         }
     }
 
-
-
     /*
      * show customers in addsell dropdown after adding from popup
      */
@@ -166,9 +164,9 @@ class Customer {
     /* @send message to customer
     * @ after completing payment
     */
-    
+
     public function sendMessage($customer_id,$amount,$method)
-    { 
+    {
         $query = "SELECT tc.customer_name,tc.customer_id,tc.contact_no,cb.balance from tbl_customer tc join customer_balance cb on tc.customer_id = cb.customer_id where tc.customer_id='$customer_id'";
         $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
         if ($stmt) {
@@ -199,6 +197,6 @@ class Customer {
 
 
 
-    
+
 
 }

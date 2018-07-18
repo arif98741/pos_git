@@ -21,11 +21,11 @@ if($_GET['sell_id']){
     $q = "SELECT ts.date  as 'selldate',tc.* from tbl_sell ts JOIN tbl_customer tc ON
             ts.customer_id = tc.customer_id where ts.sell_id ='$sell_id'";
 
-    $company_stmt = $db->link->query("select * from tbl_user where userid='$seller'");    
+    $company_stmt = $db->link->query("select * from tbl_user where userid='$seller'");
     if ($company_stmt) {
-         $company_details = $company_stmt->fetch_object(); 
-         
-    }    
+         $company_details = $company_stmt->fetch_object();
+
+    }
     $stmt = $db->link->query($q);
 
     if($stmt){
@@ -66,7 +66,7 @@ if($_GET['sell_id']){
                 padding-right: 50px;
             }
 
-            
+
             .header h1{
                 margin: 0px;
             }
@@ -378,7 +378,7 @@ if($_GET['sell_id']){
                             <th>PRICE</th>
                             <th>SUBTOTAL</th>
 
-                        </tr>   
+                        </tr>
 
                     </thead>
 
@@ -386,7 +386,7 @@ if($_GET['sell_id']){
 
                         <?php
 
-                        $update_q = "update tbl_sell_products set status = '1' where sell_id='$sell_id' and 
+                        $update_q = "update tbl_sell_products set status = '1' where sell_id='$sell_id' and
 
                         customer_id='{$inv_and_cus['customer_id']}'";
 
@@ -420,7 +420,7 @@ if($_GET['sell_id']){
 
                                 ?>
 
-                                <tr>   
+                                <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $result['product_id']; ?></td>
                                     <td><?php echo $result['product_name']; ?></td>
@@ -428,12 +428,12 @@ if($_GET['sell_id']){
                                     <td><?php echo  number_format((float)$result['unit_price'], 2, '.', ''); ?></td>
                                     <td><?php echo  number_format((float)$result['subtotal'], 2, '.', ''); ?></td>
 
-                                   
+
                                 </tr>
 
                             <?php endwhile; ?>
 
-                            
+
                         <?php endif; ?>
 
 
@@ -456,7 +456,7 @@ if($_GET['sell_id']){
 
 
 
-                        <?php 
+                        <?php
 
                             $stmt = $db->link->query("select * from tbl_sell where sell_id ='$sell_id'");
 
@@ -482,7 +482,7 @@ if($_GET['sell_id']){
 
                         </tr>
 
-                        
+
 
                         <tr>
 
@@ -504,8 +504,6 @@ if($_GET['sell_id']){
 
                              <td align="right" nowrap="nowrap"> <?php echo $invoice_data['vat']; ?></td>
 
-
-
                         </tr>
 
                           <tr>
@@ -519,7 +517,7 @@ if($_GET['sell_id']){
 
                         </tr>
 
-                        
+
 
                          <tr>
 
