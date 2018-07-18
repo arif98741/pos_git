@@ -2,12 +2,14 @@
 include_once 'classes/DB.php';
 include_once 'classes/Supplier.php';
 include_once 'classes/Invoice.php';
+include_once 'classes/Product.php';
 include_once 'classes/Extra.php';
 include_once 'classes/Customer.php';
 include_once 'helper/Helper.php';
 $sup = new Supplier();
 $db = new Database();
 $in = new Invoice();
+$pro = new Product();
 $ext = new Extra();
 $cus = new Customer();
 $help = new Helper();
@@ -52,6 +54,11 @@ if (isset($_GET['page']) && $_GET['page'] = 'page' && $_GET['action'] == 'showpr
 //showing groups in addinvoice form
 if (isset($_GET['page']) && $_GET['page'] = 'addinvoice' && $_GET['action'] == 'getgroups') {
     echo $ext->showGroup();
+}
+
+//showing products list in dropdown list in addpurchase.php
+if (isset($_GET['page']) && $_GET['page'] = 'addpurchase' && $_GET['action'] == 'getproducts') {   
+    echo $ext->showProductNameList();
 }
 
 //showing product name list in addinvoice form by select group

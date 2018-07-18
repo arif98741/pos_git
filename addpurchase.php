@@ -85,14 +85,12 @@
                     <table id="invoice_form_table" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Group</th>
-                                <th>Name</th>
-                                <th>Unit</th>
-                                <th>Quantity</th>
-                                <th>Purchase Price</th>
-                                <th>Subtotal</th>
-                                <th>Action</th>
+                                <th width="30%">Product Name</th>
+                                <th width="10%">Unit</th>
+                                <th width="15%">Quantity</th>
+                                <th width="15%">Purchase Price</th>
+                                <th width="15%">Subtotal</th>
+                                <th width="15%">Action</th>
 
                             </tr>
                         </thead>
@@ -101,7 +99,7 @@
                         </tbody>
                         <tfoot id="">
                             <tr>
-                                <td colspan="7" style="text-align:right; "><b>Invoice Total</b></td>
+                                <td colspan="5" style="text-align:right; "><b>Invoice Total</b></td>
                                 <td colspan="1" style="text-align: center;"><input type="hidden" name="addinvoice"><b class="wholetotal"></b></td>
                                 <input type="hidden" name="addpurchase">
                             </tr>

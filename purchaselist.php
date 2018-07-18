@@ -60,7 +60,7 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+              <table id="purchaselist" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                 <thead>
                 <tr role="row">
                   <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Serial</th>

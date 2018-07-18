@@ -28,23 +28,24 @@ class Extra {
     }
 
     //for showing products name list according to group id in dropdown in addinvoice.php
-    public function showProductNameList($group_id) {
-        $group_id = $this->helpObj->validAndEscape($group_id);
-        $query = "SELECT * from tbl_product WHERE product_group='$group_id' order by product_name asc";
+    public function showProductNameList() {
+        //$group_id = $this->helpObj->validAndEscape($group_id);
+        $query = "SELECT * from tbl_product order by product_name asc";
         $stmt = $this->dbObj->select($query);
-        $val = '<select class="form-control product_list" name="product_name">';
+        $val = '<select class="form-control product_list select2_product" name="product_id[]">';
+
         if ($stmt) {
             $val .= '<option>Select</option>';
             while ($r = $stmt->fetch_assoc()) {
-                $val .= '<option value="' . $r['product_id'] . '">' . $r['product_name'] . '</option>';
+                $val .= '<option  value="' . $r['product_id'] . '">' . $r['product_name'] . '</option>';
             }
             return $val .= '</select>';
         } else {
-            $return = '';
-            $return .= '<select  class="form-control">'
-                    . '<option>Select</option>'
+            $val = '';
+            $val .= '<select  class="form-control">'
+                    . '<option>Select Product</option>'
                     . '</select';
-            return $return;
+            return $val;
         }
     }
 

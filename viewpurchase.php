@@ -2,6 +2,7 @@
 <?php
   if (isset($_GET['invoice_id'])) {
     $invoice_id = $help->validAndEscape($_GET['invoice_id']);
+
   }else{
     header("Location: purchaselist.php");
     
@@ -29,14 +30,12 @@
              <p><strong>Invoice Number</strong>- <?php if(isset($_GET['invoice_id'])): ?> <?php echo $_GET['invoice_id']; ?><?php endif;?></p>
              <p><strong>Total Products </strong>- <?php
                 // $invoice_id = $help->validAndEscape($_GET['invoice_id']);
-                 $query = "select * from tbl_invoice ti join tbl_invoice_products tip on 
-                            ti.invoice_number = tip.invoice_id JOIN tbl_supplier ts on 
-                            ti.supplier_id = ts.supplier_id JOIN tbl_product tp on 
-                            tip.product_id = tp.product_id JOIN tbl_group tg on 
-                            tp.product_group = tg.groupid
-                             where ti.invoice_number = '$invoice_id' ";
-                 $status = $db->select($query); 
-                 $purchase_data = $status->fetch_assoc();            
+                 $query = "SELECT * FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_supplier ts ON ti.supplier_id = ts.supplier_id where ti.invoice_number='$invoice_id'";
+                 $status = $db->link->query($query) or die($this->link->error); 
+                 $purchase_data = $status->fetch_assoc();  
+                 // echo "<pre>";
+                 // print_r($purchase_data);         
+                 // echo "</pre>";          
                  $row = $db->rowCount("SELECT * FROM `tbl_invoice_products` WHERE invoice_id='$invoice_id'");
                  if($row){
                      echo $row;
@@ -74,7 +73,7 @@
                         $q = "select tp.product_id,tg.groupname,tp.product_name,tip.quantity,tip.purchase,tip.subtotal as 'inv_pro_subtotal' from tbl_invoice_products tip join tbl_invoice ti on ti.invoice_number = tip.invoice_id join tbl_product tp on tip.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where ti.invoice_number = '$invoice_id'";
 
 
-                        $stmt = $db->link->query($q);  
+                        $stmt = $db->link->query($q) or die($this->link->error);  
 
                         if ($stmt) {
                          

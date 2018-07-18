@@ -10,6 +10,9 @@
 <script src="assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script src="assets/bower_components/select2/dist/js/select2.min.js"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> -->
+
 <!-- AdminLTE App -->
 <script src="assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -21,7 +24,8 @@
 <!-- page script -->
 <script>
   $(function () {
-    $('#example1').DataTable()
+    $('#example1').DataTable();
+    
     $('#example2').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -29,8 +33,13 @@
       'info'        : true,
       'autoWidth'   : false,
       "order": [[ 1, "desc" ]]
-    })
-  })
+    });
+
+    $('#purchaselist').DataTable();
+
+
+
+  });
 
 
 </script>

@@ -68,6 +68,22 @@ class Dashboard {
     }
 
 
+    //Total Purchase
+    public function totalPurchase()
+    {
+        $query = "SELECT count(serial) as 'totalinvoice' from tbl_invoice";
+        $st = $this->dbObj->select($query);
+        if ($st) {
+            return $st->fetch_object()->totalinvoice;
+        } else {
+            return 0;
+        } 
+    }
+
+
+
+
+
 
 
     // Total Customer

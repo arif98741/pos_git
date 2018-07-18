@@ -53,6 +53,8 @@ class Invoice {
      */
 
     public function saveInvoice($data) {
+
+
         $inv_no1 = $this->helpObj->validAndEscape($data['invoice_no']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
         $date = $this->helpObj->validAndEscape($data['date']);

@@ -62,7 +62,9 @@ $(document).ready(function () {
             }
         }
 
-        function addnewrow() {
+        function addnewrow(addnewrowkey) {
+            
+            /*
             var groups = '';
             $.ajax({
                 url: "functions.php",
@@ -76,14 +78,31 @@ $(document).ready(function () {
                 }, error: function (e) {
                     alert(e);
                 }, async: false
+            });*/
+            var products = "";
+            $.ajax({
+                url: "functions.php",
+                method: 'get',
+                data: {
+                    page: 'addpurchase',
+                    action: 'getproducts'
+                }, success: function (d) {
+                    products = d;
+                    
+                }, error: function (e) {
+                    alert(e);
+                }, async: false
             });
+
+
             var row = '<tr style="text-align:center;">'
-                + '<td width="10%">' + '<input name="product_id[]" type="text" class="form-control product_id" required >' + '</td>'
-                + '<td width="10%">' + groups + '</td>'
-                + '<td width="10%">' + '<b class="product_name"></b>' + '</td>'
-                + '<td width="10%">' + '<b class="product_type"></b>' + '</td>'
-                + '<td width="8%">' + '<input type="number" name="quantity[]" class="form-control quantity" required >' + '</td>'
-                + '<td width="8%">' + '<input type="text" name="purchase[]" class="form-control purchase" required >' + '</td>'
+                //+ '<td width="10%">' '' + '</td>'
+                //+ '<td width="10%">' + '<select class="form-control selectpicker"><option>Abc</option</select><option>Def</option</select>' + '</td>'
+                + '<td width="10%">' + products  + '</td>'
+                // + '<td width="10%">' + '<b class="product_name"></b>' + '</td>'
+                + '<td width="10%">' + '<b class="product_type product_type'+addnewrowkey+'"></b>' + '</td>'
+                + '<td width="8%">' + '<input type="number" name="quantity[]" class="form-control quantity quantity'+addnewrowkey+'" required >' + '</td>'
+                + '<td width="8%">' + '<input type="text" name="purchase[]" class="form-control purchase  purchase'+addnewrowkey+'" required >' + '</td>'
                 + '<td width="6%">' + '<input type="hidden" name="subtotalforsave[]" class="form-control subtotalforsave"><b class="subtotal">0</b> ' + '</td>'
                 + '<td width="4%"><i class="fa fa-trash purchase_delete_btn" style="cursor:pointer;"><i></td>'
                 + '</tr>';
@@ -105,8 +124,11 @@ $(document).ready(function () {
         
 
         //addition of new row in addinvoice table by click
+        var addnewrowkey = 1; //for giving unique class
         $('.add_new_invoice_table_row').click(function () {
-            addnewrow();
+            addnewrow(addnewrowkey);
+            $('#inv_detail').find(".select2_product").select2();
+            addnewrowkey++;
         });
 
         $('#inv_detail').delegate('.product_id, .product_name', 'keyup', function (e) {
@@ -151,18 +173,21 @@ $(document).ready(function () {
         });
 
         //select single product in product list dropdown for finding product details and assign in form fields
+        var uniqueclassname = 1; //for giving unique class name and match with row
         $('#inv_detail').delegate('.product_list', 'change', function (e) {
             var tr = $(this).parent().parent();
             var pro_id = $(this).val();
+            //console.log(pro_id);
+
 
             var d = getSingleProDetails();
             console.log()
            
             var t = $(this).parent().parent().parent();
-            t.find('.product_id').val(d['product_id']);
-            t.find('.product_type').html(d['typename']);
-            t.find('.purchase').val(d['purchase_price']);
-            t.find('.sale_price').val(d['sale_price']);
+            t.find('.product_id'+uniqueclassname).val(d['product_id']);
+            t.find('.product_type'+uniqueclassname).html(d['typename']);
+            t.find('.purchase'+uniqueclassname).val(d['purchase_price']);
+            t.find('.sale_price'+uniqueclassname).val(d['sale_price']);
 
 
             function getSingleProDetails() {
@@ -183,6 +208,8 @@ $(document).ready(function () {
                 });
                 return details;
             }
+
+            uniqueclassname++; //increase for key value for giving unique class name every time
         });
 
 
@@ -198,7 +225,7 @@ $(document).ready(function () {
             //tr.find('.total').html(subtotal);
             tr.find('.totalforsave').val(subtotal); //for saving data to server
             wholetotal();
-            calculation(); //declared at top in custom.js
+            //calculation(); //declared at top in custom.js
 
         });
 
