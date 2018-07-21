@@ -40,6 +40,7 @@ if (isset($_GET['product_id'])) {
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add-new-product">Add New Product</a></li>
       </ol>
     </section>
 
