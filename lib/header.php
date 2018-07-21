@@ -3,6 +3,7 @@ ob_start();
 date_default_timezone_set('Asia/Dhaka');
 define("BASE_URL", 'http://localhost/pos_git/');
 
+
 //case control
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
