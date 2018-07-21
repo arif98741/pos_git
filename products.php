@@ -61,9 +61,13 @@ if (isset($_GET['product_id'])) {
                   <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Product ID</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Group</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">Product Name</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Supplier</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Unit</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">SQ</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Purchase Price</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">S. Price</th>
+
+
+
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">P. Price</th>
 
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Last Update</th>
 
@@ -87,6 +91,7 @@ if (isset($_GET['product_id'])) {
                                         <td style="text-align: left;"><?php echo $result['product_name']; ?></td>
                                         <td  style="text-align: left;"><?php echo $result['supplier_name']; ?></td>
                                         <td style="text-align: left;"><?php echo $result['typename']; ?></td>
+                                        <td><?php echo $result['sale_price']; ?></td>
                                         <td><?php echo $result['purchase_price']; ?></td>
                                         <td><?php echo $help->formatDate($result['last_update'], 'd-m-Y'); ?></td>
 

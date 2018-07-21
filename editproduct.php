@@ -40,7 +40,7 @@ if (isset($_GET['product_id'])) {
                     <div class="col-md-4">
                         <div class="form-group">
                             <select name="product_type" class="form-control">
-                                <option>Select Unit</option>
+                                <option disabled="">Select SQ</option>
                                 <?php
                                 $status = $pro->showType();
                                 while ($result = $status->fetch_assoc()) {
@@ -53,7 +53,7 @@ if (isset($_GET['product_id'])) {
                     <div class="col-md-4">
                         <div class="form-group">
                             <select name="product_group" class="form-control">
-                                <option>Select Group</option>
+                                <option disabled="">Select Group</option>
                                 
                             <?php
                             $status = $pro->showGroup();
@@ -101,7 +101,7 @@ if (isset($_GET['product_id'])) {
                         </div>
                     </div>
                     <div class="col-md-6 submit-buttom">
-                        <hr>
+                       
                         <input type="submit" value="Update Product"  name="updateproduct" class="btn btn-success">
                     <input type="reset" value="Reset" class="btn btn-warning" disabled="">
                     </div>

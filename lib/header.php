@@ -1,7 +1,7 @@
 <?php
 ob_start();
 date_default_timezone_set('Asia/Dhaka');
-define("BASE_URL", 'localhost/pos_git/');
+define("BASE_URL", 'http://localhost/pos_git/');
 //case control
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -212,8 +212,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
-            
-            <li><a href="addproduct.php"><i class="fa fa-plus"></i>Add Product</a></li>
+            <!-- 
+            <li><a href="addproduct.php"><i class="fa fa-plus"></i>Add Product</a></li> -->
             <li><a href="products.php"><i class="fa fa-list"></i>Product List</a></li>
             <li><a href="product_report.php"><i class="fa fa-tag"></i>Products Report</a></li>
             

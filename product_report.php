@@ -68,11 +68,10 @@
 
                 <div class="col-md-12 submit-buttom">
         <hr>
-                    <input type="submit" value="All Products" name="reportallproduct" class="btn btn-success">
+                    <input type="submit" value="All Products" name="reportbygroupandbrand" class="btn btn-success">
                     <input type="submit" value="Products by Group" name="reportbygroup" class="btn btn-warning">
                     <input type="submit" value="Product by Supplier" name="reportbybrand" class="btn btn-success">
                     
-                    <input type="reset" value="Reset" class="btn btn-danger">
                 </div>
               </form>
         </div>

@@ -8,17 +8,22 @@
         <h4 class="modal-title "><i class="fa fa-plus"></i>&nbsp;Add New Product</h4>
       </div>
       <div class="modal-body">
-        <form action="laserlist.php" method="post">
+        <form action="products.php" method="post">
           
-          <div class="col-md-4">
+          <div class="col-md-6">
               <div class="form-group">
                   <input name="product_id" class="form-control" type="text" placeholder="Product ID" required="">
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="product_name" class="form-control" type="text" placeholder="Product Name" required="">
+              </div>
+          </div>
+          <div class="col-md-6">
               <div class="form-group">
                   <select name="product_type" class="form-control">
-                      <option>Select Unit</option>
+                      <option>Select SQ</option>
                         <?php 
                           if ($stmt = $db->link->query("select * from tbl_type order by typename asc")){
                               while ($row = $stmt->fetch_assoc()) { ?>
@@ -30,66 +35,62 @@
                   </select>
               </div>
           </div>
-          <div class="col-md-4">
-                        <div class="form-group">
-                            <select name="product_group" class="form-control">
-                            <option>Select Group</option>
-                             <?php 
-                                if ($stmt = $db->link->query("select * from tbl_group order by groupname asc")){
-                                    while ($row = $stmt->fetch_assoc()) { ?>
-                                        <option value="<?php echo $row['groupid']; ?>"><?php echo $row['groupname'];  ?></option>
-                                  <?php  }
-                                } 
-                             ?>
-                                 
-                        </select>
+          <div class="col-md-6">
+            <div class="form-group">
+                <select name="product_group" class="form-control">
+                <option>Select Group</option>
+                 <?php 
+                    if ($stmt = $db->link->query("select * from tbl_group order by groupname asc")){
+                        while ($row = $stmt->fetch_assoc()) { ?>
+                          <option value="<?php echo $row['groupid']; ?>"><?php echo $row['groupname'];  ?></option>
+                      <?php  }
+                    } 
+                 ?>
+                     
+            </select>
+            </div>
           </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input name="product_name" class="form-control" type="text" placeholder="Product Name" required="">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <select name="product_brand" class="form-control">
-                                <option>Select Supplier</option>
-                                <?php 
-                                if ($stmt = $db->link->query("select * from tbl_supplier order by supplier_name asc")){
-                                    while ($row = $stmt->fetch_assoc()) { ?>
-                                        <option value="<?php echo $row['supplier_id']; ?>"><?php echo $row['supplier_name'];  ?></option>
-                                  <?php  }
-                                } 
-                             ?>
-                                  
-                                        
-                            </select>  
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input name="sale_price" class="form-control" type="text" placeholder="Sale Price" required="">
-                        </div>
-                    </div>
-                    
-                   
-                    
-                   <div class="col-md-4">
-                        <div class="form-group">
-                            <input name="purchase_price" class="form-control" type="text" placeholder="Purchase Price" required="">
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <input type="text" name="piece_in_a_carton" class="form-control" placeholder="Piece in Carton">
-                        </div>
-                    </div>
-                    <div class="col-md-6 submit-buttom">
-                       
-                        <input type="submit" value="Save Product" name="addproduct" class="btn btn-success">
-                        <input type="reset" value="Reset" class="btn btn-warning">
-                    </div>
+          
+          <div class="col-md-6">
+              <div class="form-group">
+                  <select name="product_brand" class="form-control">
+                      <option>Select Supplier</option>
+                      <?php 
+                      if ($stmt = $db->link->query("select * from tbl_supplier order by supplier_name asc")){
+                          while ($row = $stmt->fetch_assoc()) { ?>
+                            <option value="<?php echo $row['supplier_id']; ?>"><?php echo $row['supplier_name'];  ?></option>
+                        <?php  }
+                      } 
+                   ?>
+                        
+                              
+                  </select>  
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="sale_price" class="form-control" type="text" placeholder="Sale Price" required="">
+              </div>
+          </div>
+          
+         <div class="col-md-6">
+              <div class="form-group">
+                  <input type="text" name="piece_in_a_carton" class="form-control" placeholder="Piece in Carton">
+              </div>
+          </div>
+          
+         <div class="col-md-6">
+              <div class="form-group">
+                  <input name="purchase_price" class="form-control" type="text" placeholder="Purchase Price" required="">
+              </div>
+          </div>
+          
+          
+          <div class="col-md-6 submit-buttom">
+             
+              <input type="submit" value="Save Product" name="addproduct" class="btn btn-success">
+              <input type="reset" value="Reset" class="btn btn-warning">
+          </div>
 
 
         </form>
