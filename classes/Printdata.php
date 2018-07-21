@@ -51,7 +51,7 @@ class Printdata {
     /*
      * All Products report in printfiles/product/print.php
      */
-
+    /*
     public function ProductReportbyAll() {
        
         $this->table_content = "
@@ -99,6 +99,59 @@ class Printdata {
             
         }
     }
+    */
+    /*
+     * All Products report in printfiles/product/print.php
+     */
+
+    public function ProductReportbyGroupAndSupplier($data) {
+        $group = $data['product_group'];
+        $supplier = $data['supplier_id'];
+       
+        $this->table_content = "
+            <tbody style='text-align:center;'>
+             <tr>
+                  <th>Serial</th>  
+                  <th>Product ID</th>  
+                  <th>Product Name</th>  
+                  <th>Unit</th>  
+                  <th>Purchase Price</th>   
+                  <th>Sales Price</th>   
+            </tr>
+            </tbody>";
+
+        $q = "SELECT
+                    *
+                FROM
+                    tbl_product tp
+                JOIN tbl_group tg ON
+                    tp.product_group = tg.groupid
+                JOIN tbl_type tt ON
+                    tp.product_type = tt.typeid
+                JOIN tbl_supplier ts ON
+                    tp.product_brand = ts.supplier_id
+                    where tg.groupid ='$group' and  ts.supplier_id = '$supplier' ORDER by tp.product_name ASC";
+
+        $stmt = $this->dbObj->select($q);
+        if ($stmt) {
+            $i = 0;
+            while ($row = $stmt->fetch_assoc()) {
+                $i++;
+                $this->table_content .= "<tr>"
+                        . "<td style='text-align:center;'>" . $i . "</td>"
+                        . "<td>" . $row['product_id'] . "</td>"
+                        . "<td>" . $row['product_name'] . "</td>"
+                        . "<td>" . $row['typename'] . "</td>"
+                        . "<td  style='text-align:center;'>" . $row['purchase_price'] . "</td>"
+                        . "<td  style='text-align:center;'>" . $row['sale_price'] . "</td>";
+            }
+            return $this->table_content;
+            
+        }
+    }
+
+    
+
 
     /**
      * Products report by Group

@@ -33,22 +33,43 @@ date_default_timezone_set('Asia/Dhaka');
 
         <div class="wraper">
 
-            <?php if (isset($_POST['reportallproduct'])): ?>
+            <?php if (isset($_POST['reportbygroupandbrand'])): ?>
+                <?php
+                    $group      = $_POST['product_group'];
+                    $supplier   = $_POST['supplier_id'];
+                    $stmt = $db->link->query("SELECT  * FROM
+                    tbl_product tp JOIN tbl_group tg ON
+                        tp.product_group = tg.groupid
+                    JOIN tbl_type tt ON
+                    tp.product_type = tt.typeid
+                    JOIN tbl_supplier ts ON
+                    tp.product_brand = ts.supplier_id
+                    where tg.groupid ='$group' and  ts.supplier_id = '$supplier' ");
+                    if ($stmt) {
+                        $probygrandsup = $stmt->fetch_assoc();
+                    } else {
+                        
+                    }
+
+                 ?>
                 <table width="100%" border="0" class="header">
                     <tr>
                         <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo') ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">All Products List Report</div></td>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product"); ?>) </div></td>
+                                <div class="title-3">Product List Report By Group  and Brand <br> Group - <?php echo $probygrandsup['groupname'] ;?> <br> Brand- <?php echo $probygrandsup['supplier_name'] ;?> </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where product_group ='$group' and  product_brand = '$supplier'"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
                     <div class="line-3"></div>
 
                     <table class="TFtable" id="datatable" >
-                        <?php echo $pri->ProductReportbyAll(); ?>
+                        <?php
+                           // echo $pri->ProductReportbyAll();
+                            echo $pri->ProductReportbyGroupAndSupplier($_POST);
+                          ?>
                     </table>
             <?php endif; ?>
 
