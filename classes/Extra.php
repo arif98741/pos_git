@@ -161,7 +161,7 @@ class Extra {
 
         $message = 'Dear '.$customer_name.', your bill  is '.$amount.' for invoice '.$sell_id.'. Current balance is '.$current_balance;
 
-        $token = "77f9a4d2c5ea51913e1cd7624705239c";
+        $token = "4f95a55a00b11a9433aae48cfb96fe86";
         $url = "http://sms.greenweb.com.bd/api.php";
 
         $data= array(
