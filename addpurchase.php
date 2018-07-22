@@ -20,14 +20,8 @@
              <div class="row">
                 <div class="row">
         <div class="col-md-12"> 
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <input name="invoice_no" class="form-control" placeholder="Purchase Number" required="">
-                    </div>
 
-                </div>
-
-                <div class="col-md-4">
+             <div class="col-md-3">
                     <div class="form-group">
                         <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
                             <option value="">Select Supplier</option>
@@ -43,40 +37,61 @@
                     </div>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-group">
-                        <input id="supplier_id" class="form-control" placeholder="Supplier ID">
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <input  name="address" id="address" class="form-control" type="text" placeholder="Address" required="">
-
+                        <input name="date" class="form-control" id="date_input" type="date" placeholder="Date" title="date"  required="">
                     </div>
 
                 </div>
 
 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="form-group">
-                        <input name="contact" id="contact" class="form-control" type="text" placeholder="Contact" required="">
+                        <input name="invoice_no" class="form-control" placeholder="Chalan Number" required="">
+                    </div>
+
+                </div>
+                
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input id="vehicle_no" class="form-control" placeholder="Vehicle Number">
                     </div>
 
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="form-group">
-                        <input name="date" class="form-control" id="date_input" type="date" placeholder="Date"  required="">
+                        <input  name="driver_mobile" id="" class="form-control" type="text" placeholder="Driver Mobile Number" required="">
+
                     </div>
 
                 </div>
 
-
-                <div class="col-md-6 submit-buttom">
+                <!-- <div class="col-md-6 submit-buttom">
                     <input type="submit" value="Save Product" name="addproduct" class="btn btn-success">
                     <input type="reset" value="Reset" class="btn btn-warning">
+                </div> -->
+                <br> <br><br> <br>
+                <div class="row" style="margin-left: 1px; margin-top: 20px;">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" placeholder="Product Search">
+                    </div>
+
+                     <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Carton">
+                    </div>
+
+                     <div class="col-md-2">
+                        <input type="text" class="form-control" placeholder="Price">
+                    </div>
+
+                    <div class="col-md-2">
+                        <input type="button" class="btn btn-success add_new_invoice_table_row" id="" value="Add Product">
+                    </div>
+
+
+
+
                 </div>
 
 
@@ -86,8 +101,9 @@
                         <thead>
                             <tr>
                                 <th width="30%">Product Name</th>
-                                <th width="10%">Unit</th>
-                                <th width="15%">Quantity</th>
+                                <th width="10%">SQ</th>
+                                <th width="15%">Carton</th>
+                                <th width="15%">Piece</th>
                                 <th width="15%">Purchase Price</th>
                                 <th width="15%">Subtotal</th>
                                 <th width="15%">Action</th>
@@ -106,7 +122,7 @@
 
                         </tfoot>
                     </table>
-                    <button class="btn btn-success add_new_invoice_table_row" title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button>
+                   <!--  <button class="btn btn-success " title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button> -->
                 </div>
         </div>
       </div>
