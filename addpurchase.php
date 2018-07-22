@@ -19,11 +19,11 @@
             <form  action="purchaselist.php" method="post"  enctype="multipart/form-data">
              <div class="row">
                 <div class="row">
-        <div class="col-md-12"> 
+            <div class="col-md-12"> 
 
              <div class="col-md-3">
                     <div class="form-group">
-                        <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
+                        <select name="supplier_id"  id="supplier_dropdown_menu"  class="form-control" >
                             <option value="">Select Supplier</option>
                             <?php
                             $status = $sup->showSupplier();
@@ -61,7 +61,7 @@
 
                 <div class="col-md-2">
                     <div class="form-group">
-                        <input  name="driver_mobile" id="" class="form-control" type="text" placeholder="Driver Mobile Number" required="">
+                        <input  name="driver_mobile" class="form-control" type="text" placeholder="Driver Mobile Number" required="">
 
                     </div>
 
@@ -74,15 +74,15 @@
                 <br> <br><br> <br>
                 <div class="row" style="margin-left: 1px; margin-top: 20px;">
                     <div class="col-md-3">
-                        <input type="text" class="form-control" placeholder="Product Search">
+                        <input type="text" class="form-control" id="product_search_addpurchase" placeholder="Product Search">
                     </div>
 
                      <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Carton">
+                        <input type="text" class="form-control" id="product_purchase_carton" placeholder="Carton">
                     </div>
 
                      <div class="col-md-2">
-                        <input type="text" class="form-control" placeholder="Price">
+                        <input type="text" class="form-control" id="product_purchase_price"  placeholder="Price">
                     </div>
 
                     <div class="col-md-2">

@@ -16,7 +16,7 @@ $(document).ready(function () {
      
 
         //Add Purchase Page
-        $("#supplier_dropdown").change(function () {
+        $("#supplier_dropdown_menu").change(function () {
             var x = $(this).val();
 
             $.ajax({
@@ -37,6 +37,32 @@ $(document).ready(function () {
                 }
             });
         });
+
+        //search product id in addpurchase.php
+        $('#product_search_addpurchase').keyup(function() {
+           var product_id = $(this).val();
+            
+            $.ajax({
+                url: 'functions.php',
+                method: 'post',
+                data: {
+                    addpurchasequeryproduct: 'getqueryproductbyid',
+                    product_id : product_id
+
+                },datType: 'json',
+                success: function (response) {
+                    var stringyfi = JSON.stringify(response);
+                    console.log(response.purchase_price);
+                    //$('#product_purchase_carton').val(response.piece_in_a_carton);
+                    //$('#product_purchase_price').val(response.purchase_price);
+                }, error: function (er) {
+
+                }
+            });
+
+          
+        });
+
 
         //showing invoice Products by specific invoice id
         function showInvoiceInAddRowPage() {
@@ -118,8 +144,6 @@ $(document).ready(function () {
         }
 
         
-
-
         //remove apprend rows
         
 

@@ -34,6 +34,22 @@ if (isset($_POST['page']) && $_POST['page'] == 'supplier' && $_POST['supplier_id
     }
 }
 
+//get single addpurchase product in addpurchase.php
+if (isset($_POST['addpurchasequeryproduct'])) {
+    $product_id = $_POST['product_id'];
+    $query = "select * from tbl_product where product_id='$product_id'";
+    $sta = $db->link->query($query) or die($db->link->error)."at line number ".__LINE__;
+    if ($sta->num_rows > 0) {
+        $data = $sta->fetch_assoc();
+        echo json_encode(array(
+            'purchase_price' => $data['purchase_price'],
+            'piece_in_a_carton' => $data['piece_in_a_carton'],
+        ));
+    } else {
+        echo json_encode(['error'=>'no product found']);
+    }
+}
+
 //get invoiceProducts in addinvoice.php during page load
 if (isset($_GET['page']) && $_GET['action'] == 'showInvoiceList') {
     echo $in->showInvoices();
