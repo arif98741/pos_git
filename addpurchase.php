@@ -16,7 +16,26 @@
       <div class="col-sm-12">
         <div class="box">
           <div class="box-body">
-            <form  action="purchaselist.php" method="post"  enctype="multipart/form-data">
+            <form  action="purchaselist.php" method="post" >
+                <!-- invoice id hidden -->
+                 <?php
+                    $st = $db->select("select * from tbl_invoice ORDER  by serial DESC ");
+                    $invoice = "";
+                    if ($st){
+                        if($st->num_rows > 0){
+                            $data = $st->fetch_assoc();
+                            $invoice =  $data['invoice_number' ] + 1;
+                        }
+                        
+                        }else{
+                        $invoice =  1;
+                    }
+                    
+                ?>
+                
+                
+                <input class="form-control btn-success" name="sell_id" id="purchase_invoice_id" type="hidden" value="<?php echo $invoice; ?>">
+
              <div class="row">
                 <div class="row">
             <div class="col-md-12"> 

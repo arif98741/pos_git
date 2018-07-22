@@ -49,14 +49,16 @@ $(document).ready(function () {
                     addpurchasequeryproduct: 'getqueryproductbyid',
                     product_id : product_id
 
-                },datType: 'json',
+                },dataType: 'json',
                 success: function (response) {
-                    var stringyfi = JSON.stringify(response);
-                    console.log(response.purchase_price);
-                    //$('#product_purchase_carton').val(response.piece_in_a_carton);
-                    //$('#product_purchase_price').val(response.purchase_price);
+                    if (response['error'] == 'no error') {
+                        $('#product_purchase_price').val(response['purchase_price']);
+                        $('#product_purchase_carton').val(response['piece_in_a_carton']);
+                    }
+                    
+                    
                 }, error: function (er) {
-
+                    console.log(er);
                 }
             });
 
@@ -205,7 +207,7 @@ $(document).ready(function () {
 
 
             var d = getSingleProDetails();
-            console.log()
+            //console.log()
            
             var t = $(this).parent().parent().parent();
             t.find('.product_id'+uniqueclassname).val(d['product_id']);
@@ -317,7 +319,7 @@ $(document).ready(function () {
                 dataType:'json',
                 success: function (data) {
                     //(data);
-                    console.log(data);
+                   // console.log(data);
                     $('#customer_id').val(data.customer_id);
                     $('#address').val(data.address);
                     $('#contact').val(data.contact_no);

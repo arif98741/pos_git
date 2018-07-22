@@ -40,10 +40,11 @@ if (isset($_POST['addpurchasequeryproduct'])) {
     $query = "select * from tbl_product where product_id='$product_id'";
     $sta = $db->link->query($query) or die($db->link->error)."at line number ".__LINE__;
     if ($sta->num_rows > 0) {
-        $data = $sta->fetch_assoc();
+        $data = $sta->fetch_array();
         echo json_encode(array(
-            'purchase_price' => $data['purchase_price'],
+            'purchase_price'    => $data['purchase_price'],
             'piece_in_a_carton' => $data['piece_in_a_carton'],
+            'error'             => 'no error'
         ));
     } else {
         echo json_encode(['error'=>'no product found']);
