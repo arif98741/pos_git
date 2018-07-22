@@ -1014,7 +1014,7 @@ class Printdata {
         $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
         $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
 
-        $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.date BETWEEN '$starting' and '$ending'");
+        $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.date BETWEEN '$starting' and '$ending' order by date asc");
         
         if ($stmt) {
            $i = 0;
