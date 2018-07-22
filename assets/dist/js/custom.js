@@ -53,7 +53,9 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response['error'] == 'no error') {
                         $('#product_purchase_price').val(response['purchase_price']);
-                        $('#product_purchase_carton').val(response['piece_in_a_carton']);
+                        $('#product_purchase_carton').val(1);
+                        $('#product_purchase_piece_in_a_carton').val(response['piece_in_a_carton']);
+                        //$('#product_purchase_carton').val(response['piece_in_a_carton']);
                     }
                     
                     
@@ -147,14 +149,62 @@ $(document).ready(function () {
 
         
         //remove apprend rows
+
+        //add temporrary products to tbl_invoice_products
+        function addTemporaryProducts() {
+            var check;
+            var data = {
+                invoice_id        : $('#purchase_invoice_id').val(),
+                product_id        : $('#product_search_addpurchase').val(),
+                carton            : $('#product_purchase_carton').val(),
+                piece_in_a_carton : $('#product_purchase_piece_in_a_carton').val(),
+                price             : $('#product_purchase_price').val(), //purchase price
+                addTempProducts   : ""
+            }
+
+            if (data.product_id == '' || data.carton == '' || data.price == '') {
+                    alert('Field Must not be Empty');
+            }else{
+                $.ajax({
+                    url: "interact/purchase/functions.php",
+                    method: 'post',
+                    data: data,
+                    dataType: 'json',
+                    success: function (response) {
+
+                        if ($.trim(response.message =='existed')) {
+                            check = 'existed';
+                            //alert('Product Already Added');
+                        }
+                        if ($.trim(response.message =='inserted')) {
+                           check = 'inserted';
+                        }
+
+                    }, error: function (e) {
+                        //console.log(e);
+                    },async: false
+                });
+            }
+        return check;
+            
+        }
+
+
         
 
         //addition of new row in addinvoice table by click
         var addnewrowkey = 1; //for giving unique class
         $('.add_new_invoice_table_row').click(function () {
-            addnewrow(addnewrowkey);
-            $('#inv_detail').find(".select2_product").select2();
-            addnewrowkey++;
+            
+            console.log();
+            if (addTemporaryProducts() == 'existed') {
+                
+            }else if(addTemporaryProducts() == 'inserted'){
+                addnewrow(addnewrowkey);
+            }
+            
+            //$('#inv_detail').find(".select2_product").select2();
+            //addnewrowkey++;
         });
 
         $('#inv_detail').delegate('.product_id, .product_name', 'keyup', function (e) {
