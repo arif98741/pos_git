@@ -63,7 +63,11 @@
                   
                     <input type="submit" class="btn btn-success " name="showalltransaction" value="All Transaction">
                     
-                    <input type="submit" class="btn btn-primary " name="showalltransactionbycat" value="Supplier Wise">
+                    <input type="submit" class="btn btn-primary " name="supplierstatement" value="Supplier Statement"> 
+
+                   <!--  <input type="submit" class="btn btn-primary " name="showalltransactionbycat" value="Supplier Statement"> -->
+
+
       </div>
         </div>
       </div>

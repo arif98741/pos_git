@@ -21,7 +21,13 @@ date_default_timezone_set('Asia/Dhaka');
             }
         </script>
         <meta charset="utf-8">
-        <title>Supplier Transaction Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+        <?php if (isset($_POST['showalltransaction'])):  ?>
+            <title>Supplier Transaction Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+
+        <?php elseif(isset($_POST['supplierstatement'])): ?>
+            <title>Supplier Statement Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+        <?php endif; ?>
+        
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
@@ -83,7 +89,7 @@ date_default_timezone_set('Asia/Dhaka');
 
 
              <!--all ledger report start-->
-            <?php if (isset($_POST['showalltransactionbycat'])): ?>
+            <?php if (isset($_POST['supplierstatement'])): ?>
 
                 <table width="100%" border="0" class="header">
                    
@@ -93,7 +99,7 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Transaction Report From </div><?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?><br/>
+                                <div class="title-3">Supplier Statement From </div><?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?><br/>
                                 Supplier: <?php 
 
                                     $supplier_id = $help->validAndEscape($_POST["supplier_id"]);
@@ -107,15 +113,7 @@ date_default_timezone_set('Asia/Dhaka');
                                   ?>
                                     
                             </div></td>
-                                <?php 
-
-                                    $stmt = $db->link->query("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.supplier='$supplier_id' and tst.date BETWEEN '2018-05-06 23:59:59' and '2018-06-30 23:59:59'");
-                                    if ($stmt) {
-                                        $data = $stmt->fetch_object();
-                                        
-                                    }
-                                    
-                                ?>
+                                
                             <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2"></div></td>
                         </tr>
                     </table>
@@ -126,13 +124,14 @@ date_default_timezone_set('Asia/Dhaka');
                          <tr>
                             <th>Date</th>
                             <th>Description</th>
-                            <th>Purchase</th>
-                            <th>Payment</th>
+                            <th>Debit</th>
+                            <th>Credit</th>
+                            <th>Balance</th>
                             
                             
                         </tr>
                         <tbody style='text-align:center'>
-                            <?php echo $pri->ShowAllSupplierTransactionByCat($_POST['starting'],$_POST['ending'],$supplier_id); ?>
+                            <?php echo $pri->ShowSupplierStatement($_POST['starting'],$_POST['ending'],$supplier_id); ?>
                         </tbody>
                         
                     </table>

@@ -1087,5 +1087,50 @@ class Printdata {
     }
 
 
+    /*
+     * Supplier Transaction Report from date to date
+     * @return table data with html
+     * */
+
+    public function ShowSupplierStatement($starting,$ending,$supplier) {
+       
+        $supplier_id = $this->helpObj->validAndEscape($_POST["supplier_id"]);
+        $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
+        $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
+
+
+        $stmt = $this->dbObj->select("SELECT * FROM `supplier_statement` where supplier='$supplier_id' and date BETWEEN '$starting' and '$ending'");
+        
+        if ($stmt) {
+           $i = 0;
+           $debit = $credit =  $balance = 0;
+
+            while ($row = $stmt->fetch_assoc()) {
+                $i++;
+                $debit += round($row['Debit']);
+                $credit += round($row['Credit']);
+                $balance += round($row['Balance']);
+                
+                $this->table_content .= "<tr>"
+                        . "<td >" . $this->helpObj->formatDate($row['date'],'d-m-Y')
+                        . "<td style='text-align: left;'>" . substr($row['Drescription'], 0,45) . "</td>"
+                        . "<td>" . round($row['Debit']). "</td>"
+                        . "<td>" . round($row['Credit']). "</td>"
+                        . "<td>" . round($row['Balance']). "</td>";
+            }
+            
+           $this->table_content .="<tr>"
+                                . "<td colspan='2'><strong>Total</strong></td>"
+                                . "<td ><strong>".$debit."</strong></td>"
+                                . "<td ><strong>".$credit."</strong></td>"
+                                . "<td ><strong>".$balance."</strong></td>";
+
+            return $this->table_content;
+           
+        }
+        
+    }
+
+
 
 }
