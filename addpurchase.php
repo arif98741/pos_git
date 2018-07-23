@@ -42,8 +42,8 @@
 
              <div class="col-md-3">
                     <div class="form-group">
-                        <select name="supplier_id"  id="supplier_dropdown_menu"  class="form-control" >
-                            <option value="">Select Supplier</option>
+                        <select name="supplier_id"  id="supplier_dropdown_menu"  class="form-control" required="">
+                            <option value="" disabled="">Select Supplier</option>
                             <?php
                             $status = $sup->showSupplier();
                             if ($status) {
@@ -73,14 +73,14 @@
                 
                 <div class="col-md-2">
                     <div class="form-group">
-                        <input id="vehicle_no" class="form-control" placeholder="Vehicle Number">
+                        <input id="vehicle_no" name="vehicle_no" class="form-control" placeholder="Vehicle Number">
                     </div>
 
                 </div>
 
                 <div class="col-md-2">
                     <div class="form-group">
-                        <input  name="driver_mobile" class="form-control" type="text" placeholder="Driver Mobile Number" required="">
+                        <input  name="driver_mobile" class="form-control" type="text" placeholder="Driver Mobile Number" >
 
                     </div>
 

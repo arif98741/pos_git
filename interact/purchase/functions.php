@@ -76,7 +76,7 @@ if (isset($_POST['showTemporaryProducts']) ) {
           $value .= '<tr style="text-align:center;">'
           //+ '<td width="10%">' '' + '</td>'
           //+ '<td width="10%">' + '<select class="form-control selectpicker"><option>Abc</option</select><option>Def</option</select>' + '</td>'
-           .'<td width="10%">'.$row["product_id"]. '</td>'
+           .'<td width="10%">'.$row["product_id"]. ' <input type="hidden" value="'.$row["product_id"].'" name="product_id[]"></td>'
            .'<td width="10%">'.$row["product_name"]. '</td>'
            .'<td width="10%">' . '<b class="product_type product_type">'.$row['typename'].'</b>' . '</td>'
            .'<td width="8%">' . '<input style="text-align: center;" type="number" name="carton[]" class="form-control carton carton'.$i.'" rowid="'.$i.'" value="'.$row['carton'].'" required >' . '</td>'

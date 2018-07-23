@@ -54,47 +54,50 @@ class Invoice {
 
     public function saveInvoice($data) {
 
-
         $inv_no1     = $this->helpObj->validAndEscape($data['invoice_no']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
         $date        = $this->helpObj->validAndEscape($data['date']);
+        $vehicle_no        = $this->helpObj->validAndEscape($data['vehicle_no']);
+        $driver_mobile        = $this->helpObj->validAndEscape($data['driver_mobile']);
 
-        $quantity  = $purchase = $subtotal = $total = 0;
+        $piece  = $purchase = $subtotal = $carton = $total = 0;
         //for counting total data from a invoice form
-        for ($i = 0; $i < count($data['quantity']); $i++) {
-            $quantity += $data['quantity'][$i];
+        for ($i = 0; $i < count($data['piece']); $i++) {
+            $carton += $data['carton'][$i];
+            $piece += $data['piece'][$i];
             $purchase += $data['purchase'][$i];
-            $subtotal += $data['subtotalforsave'][$i];
-            $total = $total + $data['subtotalforsave'][$i];
+            $subtotal += $data['subtotal'][$i];
+            $total = $total + $data['subtotal'][$i];
         }
-
+        
+        /*
         $check_query = "select * from tbl_invoice where invoice_number='$inv_no1'";
         $check_availibility = $this->dbObj->select($check_query);
         if ($check_availibility) {
             return "<p class='alert alert-warning fadeout'>Invoice Already Exist<p>";
-        } else {
+        } else {*/
 
-            //insert product is tbl_invoice_products
-            for ($j = 0; $j < count($data['quantity']); $j++) {
+        //insert product is tbl_invoice_products
+        for ($j = 0; $j < count($data['piece']); $j++) {
 
-                $pid = $data['product_id'][$j];
-                $q = $data['quantity'][$j];
-                $pur = $data['purchase'][$j];
-                $subt = $data['subtotalforsave'][$j];
-                $invoice_products_q = "insert into tbl_invoice_products(invoice_id,product_id,quantity,purchase,subtotal) values
-                ('$inv_no1','$pid','$q','$pur','$subt')";
-                $st = $this->dbObj->insert($invoice_products_q);
-            }
-
-            $totalInvoice_query = "insert into tbl_invoice(invoice_number,supplier_id,quantity,purchase,subtotal,total,date)"
-                    . "values('$inv_no1','$supplier_id','$quantity','$purchase','$subtotal','$total','$date')";
-            $stmt = $this->dbObj->insert($totalInvoice_query);
-            if ($stmt) {
-                return "<p class='alert alert-success fadeout'>Data Insert Successful<p>";
-            } else {
-                return "<p class='alert alert-danger fadeout'>Data Insert Failed<p>";
-            }
+            $pid = $data['product_id'][$j];
+            $q = $data['piece'][$j];
+            $pur = $data['purchase'][$j];
+            $subt = $data['subtotal'][$j];
+            $invoice_products_q = "insert into tbl_invoice_products(invoice_id,product_id,piece,purchase,subtotal) values
+            ('$inv_no1','$pid','$q','$pur','$subt')";
+            $st = $this->dbObj->insert($invoice_products_q);
         }
+
+        $totalInvoice_query = "insert into tbl_invoice(invoice_number,supplier_id,carton,piece,purchase,subtotal,total,vehicle_no,driver_mobile,date)"
+                . "values('$inv_no1','$supplier_id','$carton','$piece','$purchase','$subtotal','$total','$vehicle_no','$driver_mobile','$date')";
+        $stmt = $this->dbObj->insert($totalInvoice_query);
+        if ($stmt) {
+            return "<p class='alert alert-success fadeout'>Data Insert Successful<p>";
+        } else {
+            return "<p class='alert alert-danger fadeout'>Data Insert Failed<p>";
+        }
+        
     }
 
     /*
