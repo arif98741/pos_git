@@ -64,7 +64,7 @@ if (isset($_POST['showTemporaryProducts']) ) {
 
   $invoice_id = $help->validAndEscape($_POST['invoice_id']);
   
-  $stmt = $db->link->query("SELECT tip.invoice_id, tip.carton, tip.piece, tip.purchase, tip.subtotal, tp.product_id,tp.product_name, ty.typename FROM tbl_invoice_products tip JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_type ty ON tp.product_type = ty.typeid WHERE tip.invoice_id = '$invoice_id' AND tip.status = '0'")  or die($db->link->error). " error at line number ".__LINE__;
+  $stmt = $db->link->query("SELECT tip.serial_no,tip.invoice_id, tip.carton, tip.piece, tip.purchase, tip.subtotal, tp.product_id,tp.product_name, ty.typename FROM tbl_invoice_products tip JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_type ty ON tp.product_type = ty.typeid WHERE tip.invoice_id = '$invoice_id' AND tip.status = '0'")  or die($db->link->error). " error at line number ".__LINE__;
   $value = "";
   if ($stmt) {
     if ($stmt->num_rows > 0) {
@@ -79,12 +79,14 @@ if (isset($_POST['showTemporaryProducts']) ) {
            .'<td width="10%">'.$row["product_id"]. '</td>'
            .'<td width="10%">'.$row["product_name"]. '</td>'
            .'<td width="10%">' . '<b class="product_type product_type">'.$row['typename'].'</b>' . '</td>'
-           .'<td width="8%">' . '<input style="text-align: center;" type="number" name="carton[]" class="form-control carton carton'.$i.'" value="'.$row['carton'].'" required >' . '</td>'
-           .'<td width="8%">' . '<input style="text-align: center;" type="number" name="quantity[]" class="form-control quantity quantity" value="'.$row['piece'].'" required >' . '</td>'
-           .'<td width="8%">' . '<input style="text-align: center;" type="text" name="purchase[]" class="form-control purchase  purchase" value="'.$row['purchase'].'" required >' . '</td>'
-           .'<td width="8%">' . '<input readonly="" type="text" name="subtotal[]" class="form-control subtotal  subtotal" value="'.$row['subtotal'].'" required >' . '</td>'
+           .'<td width="8%">' . '<input style="text-align: center;" type="number" name="carton[]" class="form-control carton carton'.$i.'" rowid="'.$i.'" value="'.$row['carton'].'" required >' . '</td>'
+           .'<td width="8%">' . '<input style="text-align: center;" type="number" name="piece[]" class="form-control piece piece'.$i.'" rowid="'.$i.'" value="'.$row['piece'].'" required >' . '</td>'
+           .'<td width="8%">' . '<input style="text-align: center;" type="text" name="purchase[]" class="form-control purchase  purchase'.$i.'" rowid="'.$i.'" value="'.$row['purchase'].'" required >' . '</td>'
+           .'<td width="8%">' . '<input readonly="" type="text" name="subtotal[]" class="form-control subtotal  subtotal'.$i.'" value="'.$row['subtotal'].'" required >' . '</td>'
            
-           .'<td dwidth="4%"><i class="fa fa-trash purchase_delete_btn" style="cursor:pointer;"><i></td>'
+           .'<td dwidth="4%"><i class="fa fa-trash purchase_delete_btn deleterow" serial="'.$row['serial_no'].'" btnid="'.$i.'" style="cursor:pointer;"><i></td>'
+
+           
            .'</tr>';
       }
 
@@ -100,6 +102,22 @@ if (isset($_POST['showTemporaryProducts']) ) {
 
   echo $value;
 }
+
+/*
+!------------------------------------------------------------------------------------------
+!          delete single row from tbl_invoice_products
+!------------------------------------------------------------------------------------------
+*/
+if (isset($_POST['deleterowdata']) ) {
+  $rowid        = $help->validAndEscape($_POST['rowid']);
+   $stmt = $db->link->query("delete from tbl_invoice_products where serial_no='$rowid'")  or die($db->link->error). " error at line number ".__LINE__;
+  if ($stmt) {
+    echo 'yes';
+  }else{
+    echo 'no';
+  }
+}
+
 
 ?>
 

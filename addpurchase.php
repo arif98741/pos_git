@@ -145,13 +145,21 @@
                     </table>
                    <!--  <button class="btn btn-success " title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button> -->
                 </div>
+
+               
         </div>
       </div>
             </div>
+             
             
-            </form>
           </div>
+
         </div>
+             <div class="button-div" style="width: 45%; margin: 0 auto;">
+                 <input type="submit" class="btn btn-primary" value="Save">
+             <input type="reset" class="btn btn-danger" value="Reset">
+             </div>
+        </form>
       </div>
       
     </section>

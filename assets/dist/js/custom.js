@@ -135,9 +135,9 @@ $(document).ready(function () {
 
         }
 
-        $('.purchase_delete_btn').click(function(){
-            alert('hi');
-        });
+        // $('i.purchase_delete_btn').click(function(){
+        //     alert('hi');
+        // });
 
         //show temporary products in addpurchase.php
         function showTemporaryProducts(){
@@ -205,7 +205,6 @@ $(document).ready(function () {
             
         }
 
-
         
 
         //addition of new row in addinvoice table by click
@@ -216,6 +215,7 @@ $(document).ready(function () {
             if (status == 'inserted') {
                 //addnewrow(addnewrowkey);
                 showTemporaryProducts();
+
             }else if(status ==  'existed'){
                 showTemporaryProducts();
                 alert('Proudct Already Added');
@@ -267,6 +267,13 @@ $(document).ready(function () {
             tr.find('.product_name').html(namelist);
         });
 
+        $('#inv_detail').delegate('.purchase_delete_btn', 'cilck', function (e) {
+            alert('hi');
+            showTemporaryProducts();
+        });
+
+
+
         //select single product in product list dropdown for finding product details and assign in form fields
         var uniqueclassname = 1; //for giving unique class name and match with row
         $('#inv_detail').delegate('.product_list', 'change', function (e) {
@@ -309,7 +316,7 @@ $(document).ready(function () {
 
 
         //counting management
-        $('#inv_detail').delegate('.quantity,.carton,.piece,.purchase,.subtotal,.wholetotal', 'keyup', function () {
+        $('#inv_detail').delegate('.carton, .piece,.purchase,.subtotal', 'keyup', function () {
             var tr = $(this).parent().parent();
             var quantity = tr.find('.quantity').val() - 0;
             var purchase = tr.find('.purchase').val() - 0;
@@ -321,12 +328,39 @@ $(document).ready(function () {
             tr.find('.totalforsave').val(subtotal); //for saving data to server
             wholetotal();
             //calculation(); //declared at top in custom.js
+            var rowid = $(this).attr('rowid');
+            var carton = $('.carton'+rowid).val();
+            var piece = $('.piece'+rowid).val();
+            var purchase = $('.purchase'+rowid).val();
+            var subtotal = $('.subtotal'+rowid).val();
 
+            $('.subtotal'+rowid).val(piece * purchase);
+            wholetotal();
+        
+            
         });
 
-        //delete appended row from the addinvoice table
+        //delete appended row from the addinvoice(#inv_detail) table 
         $('#inv_detail').delegate('.deleterow', 'click', function () {
-            $(this).parent().parent().fadeOut(300);
+            var rowid = $(this).attr('serial');
+            $.ajax({
+                url: "interact/purchase/functions.php",
+                method: 'post',
+                data: {
+                    page: 'addpurchase',
+                    deleterowdata: 'deleterowdata',
+                    rowid: rowid
+                },
+                dataType: 'text',
+                success: function (data) {
+                   console.log(data);
+                }, error: function (err) {
+                }
+            });
+
+            //$(this).parent().parent().slideUp(500);
+
+            showTemporaryProducts();
 
         });
 
@@ -362,8 +396,7 @@ $(document).ready(function () {
 
             $('.wholetotal').html(total);
             $('#subtotal').val(total.toFixed(2)); // in editsales.php
-            $('#grandtotal').val(total.toFixed(2)); // in editsales.php
-            
+            $('.wholetotal').html(total.toFixed(2)); // in editsales.php
             
         }
     });
