@@ -364,6 +364,33 @@ $(document).ready(function () {
 
         });
 
+        $('.product_id ').keyup(function () {
+            var product_id = $(this).val();
+            var row = $(this).attr('rowid');
+            var pro_data = foo(product_id);
+
+
+            if (pro_data !==null) {
+                // $('.product_name'+row).html(pro_data.product_name);
+                
+                
+                $('.piece_in_a_carton'+row).val(pro_data.piece_in_a_carton);
+                $('.purchase'+row).val(pro_data.purchase_price);
+
+                var carton = parseInt($('.carton'+row).val());
+                var purchase = parseInt($('.purchase'+row).val());
+                var piece_in_a_carton = parseInt($('.piece_in_a_carton'+row).val());
+
+                var pro_in_carton = carton * piece_in_a_carton ;
+                var subtotal = pro_in_carton * purchase;
+
+               
+                $('.subtotal'+row).html(subtotal);
+
+            }
+
+        })
+
 
         //getting product details by specific product id
         function foo(product_id) {

@@ -107,52 +107,55 @@ class Invoice {
 
     public function updateInvoice($data) {
 
-        $inv_no      = $this->helpObj->validAndEscape($data['invoice_number']);
-        $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
-        $date        = $this->helpObj->validAndEscape($data['date']);
-        $inv_q       = "select * from tbl_invoice where invoice_number='$inv_no'";
-        $inv_stmt    = $this->dbObj->select($inv_q);
 
-        if (!$inv_stmt) {
-            return "<p class='alert alert-danger fadeout'>Invoice Not Found<p>";
-        } else {
-            $quantity = $carton = $piece = $purchase = $subtotal = $total = 0;
-            //for counting total data from a invoice form
-            for ($i = 0; $i < count($data['quantity']); $i++) {
-                $quantity += $data['quantity'][$i];
-                
-                $purchase += $data['purchase'][$i];
-                $subtotal += $data['subtotalforsave'][$i];
-                $total = $total + $data['subtotalforsave'][$i];
-            }
-            $inv_data   = $inv_stmt->fetch_assoc();
+        $inv_no        = $this->helpObj->validAndEscape($data['invoice_no']);
+
+        $supplier_id   = $this->helpObj->validAndEscape($data['supplier_id']);
+        $vehicle_no    = $this->helpObj->validAndEscape($data['vehicle_no']);
+        $driver_mobile = $this->helpObj->validAndEscape($data['driver_mobile']);
+        $date          = $this->helpObj->validAndEscape($data['date']);
+        $inv_q         = "select * from tbl_invoice where invoice_number='$inv_no'";
+        $inv_stmt      = $this->dbObj->select($inv_q);
+
+        
+        $piece = $carton = $piece = $purchase = $subtotal = $total = 0;
+        //for counting total data from a invoice form
+        for ($i = 0; $i < count($data['piece']); $i++) {
+            $piece    += $data['piece'][$i];
+            $carton   += $data['piece'][$i];
+            $purchase += $data['purchase'][$i];
+            $subtotal += $data['subtotal'][$i];
+            $total     = $total + $data['subtotal'][$i];
+        }
+        $inv_data   = $inv_stmt->fetch_assoc();
+        if ($inv_data) {
             $inv_serial = $inv_data['serial'];
             $update_by  = Session::get('userid');
-            $updateInvoice_query = "update tbl_invoice set invoice_number='$inv_no',"
-                    . "supplier_id='$supplier_id',quantity='$quantity',"
-                    . "purchase='$purchase',"
-                    . "total='$total',date='$date',updateby='$update_by'"
-                    . "where serial = '$inv_serial'";
+            $updateInvoice_query = "update tbl_invoice set invoice_number='$inv_no',supplier_id='$supplier_id',carton='$carton',piece='$piece',
+                    purchase='$purchase',vehicle_no='$vehicle_no',driver_mobile='$driver_mobile',total='$total',date='$date',updateby='$update_by'
+                    where serial = '$inv_serial'";
             $stmt = $this->dbObj->update($updateInvoice_query);
             if ($stmt) {
-                for ($j = 0; $j <= count($data['quantity']) - 1; $j++) {
+                for ($j = 0; $j <= count($data['piece']) - 1; $j++) {
                     $serial_no = $data['serial_no'][$j];
                     $pid = $data['product_id'][$j];
-                    $q = $data['quantity'][$j];
+                    $carton = $data['carton'][$j];
+                    $p = $data['piece'][$j];
                     $pur = $data['purchase'][$j];
-                    $subt = $data['subtotalforsave'][$j];
+                    $subt = $data['subtotal'][$j];
                     
-                    $query = "update tbl_invoice_products set product_id='$pid', quantity = '$q',purchase='$pur',subtotal='$subt' where serial_no='$serial_no'";
+                    $query = "update tbl_invoice_products set product_id='$pid', carton = '$carton',piece='$piece',purchase='$pur',subtotal='$subt' where serial_no='$serial_no'";
 
                     $stmt1 = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." at line no ".__LINE__;
                 }
                 if ($stmt1) {
-                    return "<p class='alert alert-success fadeout'>Invoice Updated Successful<p>";
+                    return true;
                 } else {
                     return "<p class='alert alert-danger fadeout'>Invoice Updated Fail<p>";
                 }
             }
-        }
+        } 
+        
     }
 
     /*

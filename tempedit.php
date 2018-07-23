@@ -32,24 +32,8 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
         <div class="box">
           <div class="box-body">
             <form  action="purchaselist.php" method="post" >
-                <!-- invoice id hidden -->
-                 <?php
-                    $st = $db->select("select * from tbl_invoice ORDER  by serial DESC ");
-                    $invoice = "";
-                    if ($st){
-                        if($st->num_rows > 0){
-                            $data = $st->fetch_assoc();
-                            $invoice =  $data['invoice_number' ] + 1;
-                        }
-                        
-                        }else{
-                        $invoice =  1;
-                    }
-                    
-                ?>
                 
-                
-                <input class="form-control btn-success" name="sell_id" id="purchase_invoice_id" type="hidden" value="<?php echo $invoice; ?>">
+                <input class="form-control btn-success" name="invoice_number" id="purchase_invoice_id" type="hidden" value="<?php echo $inv_data['invoice_number']; ?>">
 
              <div class="row">
                 <div class="row">
@@ -141,20 +125,10 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                                         <tr style="text-align:center;">
 
                                             <td width="10%">
-                                                <input name="product_id[]" type="text" class="form-control product_id" value="<?php echo $getData['product_id']; ?>" required >
+                                                <input name="product_id[]" type="text" class="form-control product_id" rowid="<?php echo $i; ?>" value="<?php echo $getData['product_id']; ?>" required >
                                             </td>
                                             <td width="10%">
-                                                <select class="form-control product_list">
-
-                                                    <?php $prostmt = $pro->showProduct(); ?>
-                                                    
-                                                    <?php if ($prostmt->num_rows > 0): ?>
-                                                        <?php while ($result = $prostmt->fetch_assoc()): ?>
-                                                            <option value="<?php echo $allgroups['product_id']; ?>"  <?php if ($result['product_id'] == $getData['product_id']): ?> selected="" <?php endif; ?> ><?php echo $result['product_name']; ?></option>
-                                                        <?php endwhile; ?>
-                                                    <?php endif; ?>
-
-                                                </select>
+                                               <b class="product_name<?php echo $i;?>"><?php echo $getData['product_name']; ?></b>
                                             </td>
                                             
                                             <td width="10%">
@@ -172,21 +146,25 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                                             </td>
                                             
                                             <td width="8%">
-                                                <input type="text" name="quantity[]" class="form-control piece piece<?php echo $i;?>" value="<?php echo $getData['carton']; ?>"  required >
+                                                <input type="text" name="carton[]" class="form-control carton carton<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['carton']; ?>"  required >
+
+                                                 <input type="hidden" name="piece_in_a_carton" class="form-control piece_in_a_carton<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['carton']; ?>"  required >
+
+
                                             </td>
 
                                             
                                             <td width="8%">
-                                                <input type="text" name="quantity[]" class="form-control piece piece<?php echo $i;?>" value="<?php echo $getData['piece']; ?>"  required >
+                                                <input type="text" name="piece[]" class="form-control piece piece<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['piece']; ?>"  required >
                                             </td>
 
 
                                             
                                             <td width="8%">
-                                                <input type="text" name="purchase[]" class="form-control purchase purchase<?php echo $i;?>" value="<?php echo $getData['purchase']; ?>"  required >
+                                                <input type="text" name="purchase[]" class="form-control purchase purchase<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['purchase']; ?>"  required >
                                             </td>
                                             <td width="8%">
-                                                <input type="hidden" name="subtotal[]" class="form-control subtotal<?php echo $i;?>" value="<?php echo $getData['subtotal']; ?>" ><b class="subtotal"><?php echo $getData['subtotal']; ?></b>
+                                                <input type="hidden" name="subtotal[]" class="form-control subtotal<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['subtotal']; ?>" ><b class="subtotal subtotal<?php echo $i; ?>"><?php echo $getData['subtotal']; ?></b>
                                                 <input type="hidden" name="update">
                                             </td>
 
@@ -218,7 +196,7 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
 
         </div>
              <div class="button-div" style="width: 50%; margin: 0 auto;">
-                 <input type="submit" class="btn btn-primary" value="Update">
+                 <input type="submit" class="btn btn-primary" name="edit" value="Update">
                 <!-- <input type="reset" class="btn btn-danger" value="Reset"> -->
              </div>
         </form>
