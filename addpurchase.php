@@ -120,12 +120,13 @@
                     <table id="invoice_form_table" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th width="30%">Product Name</th>
+                                <th style="text-align: center;" width="20%">ID</th>
+                                <th width="20%">Product Name</th>
                                 <th width="10%">SQ</th>
                                 <th width="15%">Carton</th>
                                 <th width="15%">Piece</th>
-                                <th width="15%">Purchase Price</th>
-                                <th width="15%">Subtotal</th>
+                                <th width="10%">Purchase Price</th>
+                                <th width="10%">Subtotal</th>
                                 <th width="15%">Action</th>
 
                             </tr>
@@ -133,14 +134,14 @@
                         <tbody id="inv_detail">
                             
                         </tbody>
-                        <tfoot id="">
+                        <!-- <tfoot id="">
                             <tr>
                                 <td colspan="5" style="text-align:right; "><b>Invoice Total</b></td>
                                 <td colspan="1" style="text-align: center;"><input type="hidden" name="addinvoice"><b class="wholetotal"></b></td>
                                 <input type="hidden" name="addpurchase">
                             </tr>
 
-                        </tfoot>
+                        </tfoot> -->
                     </table>
                    <!--  <button class="btn btn-success " title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button> -->
                 </div>

@@ -95,7 +95,7 @@ $(document).ready(function () {
         function addnewrow(addnewrowkey) {
             
           
-            /*var products = "";
+            var products = "";
             $.ajax({
                 url: "functions.php",
                 method: 'get',
@@ -122,12 +122,32 @@ $(document).ready(function () {
                 + '<t dwidth="4%"><i class="fa fa-trash purchase_delete_btn" style="cursor:pointer;"><i></td>'
                 + '</tr>';
 
-            $('#inv_detail').append(row);*/
+            $('#inv_detail').append(row);
 
             $('#invoice_form_table tr td i').click(function() {
                 $(this).parent().parent().remove();
                 wholetotal();
 
+            });
+
+        }
+
+        //show temporary products in addpurchase.php
+        function showTemporaryProducts(){
+            
+            $.ajax({
+                url: "interact/purchase/functions.php",
+                method: 'post',
+                data: {
+                    page: 'addpurchase',
+                    showTemporaryProducts: 'showTemporaryProducts',
+                    invoice_id :  $('#purchase_invoice_id').val()
+                }, success: function (d) {
+                    $('#inv_detail').html(d);
+                    
+                }, error: function (e) {
+                    alert(e);
+                }
             });
 
         }
@@ -161,9 +181,12 @@ $(document).ready(function () {
 
                         if (response.message =='existed') {
                             check = 'existed';
+                            $('#product_purchase_carton').val("");
+                            $('#product_purchase_price').val("");
                             //alert('Product Already Added');
                         }else if (response.message =='inserted') {
                            check = 'inserted';
+                           $('#product_purchase_price').val("");
                         }
 
                     }, error: function (e) {
@@ -184,8 +207,10 @@ $(document).ready(function () {
             var status = addTemporaryProducts();
             console.log(status);
             if (status == 'inserted') {
-                addnewrow(addnewrowkey);
+                //addnewrow(addnewrowkey);
+                showTemporaryProducts();
             }else if(status ==  'existed'){
+                showTemporaryProducts();
                 alert('Proudct Already Added');
             }
             
