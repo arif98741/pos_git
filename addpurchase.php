@@ -34,8 +34,7 @@
                 ?>
                 
                 
-                <input class="form-control btn-success" name="sell_id" id="purchase_invoice_id" type="hidden" value="<?php echo $invoice; ?>">
-
+               
              <div class="row">
                 <div class="row">
             <div class="col-md-12"> 
@@ -66,7 +65,7 @@
 
                 <div class="col-md-2">
                     <div class="form-group">
-                        <input name="invoice_no" class="form-control" placeholder="Chalan Number" required="">
+                        <input name="invoice_no" class="form-control" id="purchase_invoice_id" placeholder="Chalan Number" required="">
                     </div>
 
                 </div>

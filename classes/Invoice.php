@@ -75,23 +75,28 @@ class Invoice {
         $check_availibility = $this->dbObj->select($check_query);
         if ($check_availibility) {
             return "<p class='alert alert-warning fadeout'>Invoice Already Exist<p>";
-        } else {*/
+        } else {
 
         //insert product is tbl_invoice_products
         for ($j = 0; $j < count($data['piece']); $j++) {
 
             $pid = $data['product_id'][$j];
+            $c = $data['carton'];
             $q = $data['piece'][$j];
             $pur = $data['purchase'][$j];
             $subt = $data['subtotal'][$j];
-            $invoice_products_q = "insert into tbl_invoice_products(invoice_id,product_id,piece,purchase,subtotal) values
-            ('$inv_no1','$pid','$q','$pur','$subt')";
+            $invoice_products_q = "insert into tbl_invoice_products(invoice_id,product_id,carton,piece,purchase,subtotal) values
+            ('$inv_no1','$pid','$carton','$q','$pur','$subt')";
             $st = $this->dbObj->insert($invoice_products_q);
-        }
+        }*/
+
 
         $totalInvoice_query = "insert into tbl_invoice(invoice_number,supplier_id,carton,piece,purchase,subtotal,total,vehicle_no,driver_mobile,date)"
                 . "values('$inv_no1','$supplier_id','$carton','$piece','$purchase','$subtotal','$total','$vehicle_no','$driver_mobile','$date')";
+
+
         $stmt = $this->dbObj->insert($totalInvoice_query);
+        $stmt = $this->dbObj->update("update tbl_invoice_products set status='1' where invoice_id='$inv_no1'");
         if ($stmt) {
             return "<p class='alert alert-success fadeout'>Data Insert Successful<p>";
         } else {

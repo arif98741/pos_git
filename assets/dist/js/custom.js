@@ -174,7 +174,7 @@ $(document).ready(function () {
                 addTempProducts   : ""
             }
 
-            if (data.product_id == '' || data.carton == '' || data.price == '') {
+            if (data.product_id == '' || data.carton == '' || data.price == '' || data.invoice_id == '') {
                     alert('Field Must not be Empty');
             }else{
                 $.ajax({
