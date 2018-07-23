@@ -95,7 +95,7 @@ $(document).ready(function () {
         function addnewrow(addnewrowkey) {
             
           
-            var products = "";
+            /*var products = "";
             $.ajax({
                 url: "functions.php",
                 method: 'get',
@@ -110,7 +110,6 @@ $(document).ready(function () {
                 }, async: false
             });
 
-
             var row = '<tr style="text-align:center;">'
                 //+ '<td width="10%">' '' + '</td>'
                 //+ '<td width="10%">' + '<select class="form-control selectpicker"><option>Abc</option</select><option>Def</option</select>' + '</td>'
@@ -120,10 +119,10 @@ $(document).ready(function () {
                 + '<td width="8%">' + '<input type="number" name="quantity[]" class="form-control quantity quantity'+addnewrowkey+'" required >' + '</td>'
                 + '<td width="8%">' + '<input type="text" name="purchase[]" class="form-control purchase  purchase'+addnewrowkey+'" required >' + '</td>'
                 + '<td width="6%">' + '<input type="hidden" name="subtotalforsave[]" class="form-control subtotalforsave"><b class="subtotal">0</b> ' + '</td>'
-                + '<td width="4%"><i class="fa fa-trash purchase_delete_btn" style="cursor:pointer;"><i></td>'
+                + '<t dwidth="4%"><i class="fa fa-trash purchase_delete_btn" style="cursor:pointer;"><i></td>'
                 + '</tr>';
 
-            $('#inv_detail').append(row);
+            $('#inv_detail').append(row);*/
 
             $('#invoice_form_table tr td i').click(function() {
                 $(this).parent().parent().remove();
@@ -158,11 +157,12 @@ $(document).ready(function () {
                     dataType: 'json',
                     success: function (response) {
 
-                        if ($.trim(response.message =='existed')) {
+                        //console.log(response);
+
+                        if (response.message =='existed') {
                             check = 'existed';
                             //alert('Product Already Added');
-                        }
-                        if ($.trim(response.message =='inserted')) {
+                        }else if (response.message =='inserted') {
                            check = 'inserted';
                         }
 
@@ -181,12 +181,12 @@ $(document).ready(function () {
         //addition of new row in addinvoice table by click
         var addnewrowkey = 1; //for giving unique class
         $('.add_new_invoice_table_row').click(function () {
-            
-            console.log(addTemporaryProducts());
-            if (addTemporaryProducts() == 'existed') {
-                alert('Proudct Already Added');
-            }else if(addTemporaryProducts() == 'inserted'){
+            var status = addTemporaryProducts();
+            console.log(status);
+            if (status == 'inserted') {
                 addnewrow(addnewrowkey);
+            }else if(status ==  'existed'){
+                alert('Proudct Already Added');
             }
             
             //$('#inv_detail').find(".select2_product").select2();

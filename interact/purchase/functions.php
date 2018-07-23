@@ -32,19 +32,23 @@ if (isset($_POST['addTempProducts']) ) {
   $message = [];
   if ($stmt) {
     if ($stmt->num_rows > 0) {
-
       $message['message'] = 'existed';
 
     } else {
+
+
         $stmt = $db->link->query("insert into tbl_invoice_products (invoice_id,product_id,carton,piece,purchase,subtotal) values('$invoice_id','$product_id','$carton','$piece','$price','$subtotal')")  or die($db->link->error). " error at line number ".__LINE__;
-        if($stmt)
-            $message['message'] = 'inserted';
-        else
-           $message['message'] = 'failed'; 
+        if($stmt){
+          $message['message'] = 'inserted';
+        }else{
+
+           $message['message'] = 'failed';
+        }
+            
 
     }
   } else {
-      echo json_encode($message['message'] = 'failed to execute');
+      $message['message'] = 'failed to execute';
   }
 
   echo json_encode($message);
