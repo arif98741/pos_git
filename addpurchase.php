@@ -97,7 +97,9 @@
 
                      <div class="col-md-2">
                         <input type="text" class="form-control" id="product_purchase_carton" placeholder="Carton">
+                        <input type="hidden" class="form-control" id="product_purchase_from_db" placeholder="Piece in a carton">
                         <input type="hidden" class="form-control" id="product_purchase_piece_in_a_carton" placeholder="Piece in a carton">
+                        
                     </div>
 
                      <div class="col-md-2">

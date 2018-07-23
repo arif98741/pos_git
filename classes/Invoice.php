@@ -114,7 +114,6 @@ class Invoice {
 
 
         $inv_no        = $this->helpObj->validAndEscape($data['invoice_no']);
-
         $supplier_id   = $this->helpObj->validAndEscape($data['supplier_id']);
         $vehicle_no    = $this->helpObj->validAndEscape($data['vehicle_no']);
         $driver_mobile = $this->helpObj->validAndEscape($data['driver_mobile']);
@@ -140,14 +139,16 @@ class Invoice {
                     purchase='$purchase',vehicle_no='$vehicle_no',driver_mobile='$driver_mobile',total='$total',date='$date',updateby='$update_by'
                     where serial = '$inv_serial'";
             $stmt = $this->dbObj->update($updateInvoice_query);
+
+          
             if ($stmt) {
                 for ($j = 0; $j <= count($data['piece']) - 1; $j++) {
                     $serial_no = $data['serial_no'][$j];
-                    $pid = $data['product_id'][$j];
-                    $carton = $data['carton'][$j];
-                    $p = $data['piece'][$j];
-                    $pur = $data['purchase'][$j];
-                    $subt = $data['subtotal'][$j];
+                    $pid       = $data['product_id'][$j];
+                    $carton    = $data['carton'][$j];
+                    $piece         = $data['piece'][$j];
+                    $pur       = $data['purchase'][$j];
+                    $subt      = $data['subtotal'][$j];
                     
                     $query = "update tbl_invoice_products set product_id='$pid', carton = '$carton',piece='$piece',purchase='$pur',subtotal='$subt' where serial_no='$serial_no'";
 
@@ -156,7 +157,7 @@ class Invoice {
                 if ($stmt1) {
                     return true;
                 } else {
-                    return "<p class='alert alert-danger fadeout'>Invoice Updated Fail<p>";
+                    return false;
                 }
             }
         } 

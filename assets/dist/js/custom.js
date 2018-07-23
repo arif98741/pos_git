@@ -38,6 +38,8 @@ $(document).ready(function () {
             });
         });
 
+
+
         //search product id in addpurchase.php
         $('#product_search_addpurchase').keyup(function() {
            var product_id = $(this).val();
@@ -52,12 +54,13 @@ $(document).ready(function () {
                 },dataType: 'json',
                 success: function (response) {
                     if (response['error'] == 'no error') {
-                        $('#product_purchase_price').val(response['purchase_price']);
-                        $('#product_purchase_carton').val(1);
+                        //$('#product_purchase_price').val(response['purchase_price']);
+                        $('#product_purchase_from_db').val(response['purchase_price']);
+                        
+                        $('#product_purchase_carton').val("");
                         $('#product_purchase_piece_in_a_carton').val(response['piece_in_a_carton']);
                         //$('#product_purchase_carton').val(response['piece_in_a_carton']);
                     }
-                    
                     
                 }, error: function (er) {
                     console.log(er);
@@ -159,7 +162,6 @@ $(document).ready(function () {
 
         }
 
-        
         //remove apprend rows
 
         //add temporrary products to tbl_invoice_products
@@ -204,6 +206,29 @@ $(document).ready(function () {
         return check;
             
         }
+
+
+        /*
+        !----------------------------------------------------------------------------
+        !       count changes effect before adding temporary products in count field
+        !-----------------------------------------------------------------------------
+        */
+        $('#product_purchase_carton').keyup(function() {
+            var carton            = parseInt($(this).val());
+            var piece_in_a_carton = parseFloat($('#product_purchase_piece_in_a_carton').val());
+            var db_purchase_price = parseFloat($('#product_purchase_from_db').val());
+            var total             = carton * piece_in_a_carton * db_purchase_price;
+
+            if (!isNaN(total)) {
+                $('#product_purchase_price').val(total);
+            }else{
+                $('#product_purchase_price').val("");
+            }
+            
+        });
+        
+
+        
 
         
 
@@ -366,8 +391,10 @@ $(document).ready(function () {
 
         $('.product_id ').keyup(function () {
             var product_id = $(this).val();
-            var row = $(this).attr('rowid');
-            var pro_data = foo(product_id);
+            var row        = $(this).attr('rowid');
+            var pro_data   = foo(product_id);
+
+            console.log(pro_data);
 
 
             if (pro_data !==null) {
@@ -377,19 +404,59 @@ $(document).ready(function () {
                 $('.piece_in_a_carton'+row).val(pro_data.piece_in_a_carton);
                 $('.purchase'+row).val(pro_data.purchase_price);
 
-                var carton = parseInt($('.carton'+row).val());
+                var carton   = parseInt($('.carton'+row).val());
+                var purchase = parseInt($('.purchase'+row).val());
+                var piece_in_a_carton = parseInt($('.piece_in_a_carton'+row).val());
+
+                var pro_in_carton = carton * piece_in_a_carton ;
+                var subtotal      = pro_in_carton * purchase;
+
+                $('.piece'+row).val(carton * piece_in_a_carton);
+                $('.subtotal'+row).val(subtotal);
+               
+                $('.viewsubtotal'+row).html(subtotal);
+
+            }
+
+        });
+
+        $('.carton').keyup(function () {
+            var carton     = $(this).val();
+            var row        = $(this).attr('rowid');
+            var product_id = $('.product_id'+row).val();
+            console.log(product_id);
+            var pro_data   = foo(product_id);
+            
+            var pro_data   = foo(product_id);
+
+
+            if (pro_data !==null) {
+                // $('.product_name'+row).html(pro_data.product_name);
+                
+                
+                $('.piece_in_a_carton'+row).val(pro_data.piece_in_a_carton);
+
+                $('.purchase'+row).val(pro_data.purchase_price);
+
                 var purchase = parseInt($('.purchase'+row).val());
                 var piece_in_a_carton = parseInt($('.piece_in_a_carton'+row).val());
 
                 var pro_in_carton = carton * piece_in_a_carton ;
                 var subtotal = pro_in_carton * purchase;
 
-               
-                $('.subtotal'+row).html(subtotal);
+                $('.piece'+row).val(carton * piece_in_a_carton);
+                $('.subtotal'+row).val(subtotal);
+                $('.viewsubtotal'+row).html(subtotal);
 
             }
 
-        })
+        });
+
+
+
+
+
+
 
 
         //getting product details by specific product id

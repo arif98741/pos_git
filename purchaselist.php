@@ -101,7 +101,7 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
 
                                     <td>
                                         <a href="viewpurchase.php?action=view&serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to view" ><i class="fa fa-eye"></i>&nbsp;&nbsp;</a>
-                                        <a href="tempedit.php?action=edit&serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
+                                        <a href="editpurchase.php?action=edit&serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
 
                                         <a href="printfiles/purchase/printpurchase.php?serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to print" ><i class="fa fa-print"></i></a>
 

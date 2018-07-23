@@ -1,13 +1,12 @@
-<?php include 'lib/header.php'; ?>
-<?php if (Session::get('status') !== 'admin') {
-    header("Location: index.php");
-}?>
+<?php include 'lib/header.php'; ?> 
 <?php
 
 
 //get purchase data from server to assign in editing form
 if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == 'edit') {
     $inv_data = $inv->singleInvoice($_GET['invoice_id']); //return as array
+
+
     $supplier_st = $sup->showSingleSupplier($inv_data['supplier_id']); //statement
     if ($supplier_st) {
         $supplier_data = $supplier_st->fetch_assoc(); //array result
@@ -15,11 +14,12 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
 }
 ?>
 
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-pencil"></i> &nbsp;EDIT PURCHASE</h1>
+      <h1><i class="lnr lnr-plus-circle"></i> &nbsp;PRODUCT PURCHASE</h1>
       <ol class="breadcrumb">
         <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
@@ -31,20 +31,17 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
       <div class="col-sm-12">
         <div class="box">
           <div class="box-body">
-            <form  action="purchaselist.php" method="post"  enctype="multipart/form-data">
+            <form  action="purchaselist.php" method="post" >
+                
+                <input class="form-control btn-success" name="invoice_number" id="purchase_invoice_id" type="hidden" value="<?php echo $inv_data['invoice_number']; ?>">
+
              <div class="row">
-                <div class="col-md-12"> 
-                <div class="col-md-4">
-                    <div class="form-group">
-                       <input name="invoice_number" class="form-control" value="<?php echo $inv_data['invoice_number']; ?>" readonly>
-                            <input name="edit" class="form-control" type="hidden">
-                    </div>
+                <div class="row">
+            <div class="col-md-12"> 
 
-                </div>
-
-                <div class="col-md-4">
+             <div class="col-md-4">
                     <div class="form-group">
-                        <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
+                        <select name="supplier_id"  id="supplier_dropdown_menu"  class="form-control" >
                             <option value="">Select Supplier</option>
                            <?php
                                 $stmt = $sup->showSupplierForDropdown();
@@ -59,30 +56,7 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                     </div>
 
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <input id="supplier_id" class="form-control" value="<?php echo $supplier_data['supplier_id']; ?>">
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <input  name="address" id="address" class="form-control" type="text" value="<?php echo $supplier_data['address']; ?>"  required="">
-
-                    </div>
-
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <input name="contact" id="contact" class="form-control" type="text" value="<?php echo $supplier_data['contact_no']; ?>"  required="">
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
+                <div class="col-md-2">
                     <div class="form-group">
                         <input name="date" class="form-control" id="date_input" type="date" value="<?php echo $inv_data['date']; ?>"  required="">
                     </div>
@@ -90,10 +64,34 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                 </div>
 
 
-                <div class="col-md-6 submit-buttom">
-                    <input type="submit" value="Update Purchase" name="addproduct" class="btn btn-success">
-                    <input type="reset" value="Reset" class="btn btn-warning">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input name="invoice_no" class="form-control" value="<?php echo $inv_data['invoice_number']; ?>" placeholder="Chalan Number" required="">
+                    </div>
+
                 </div>
+                
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input id="vehicle_no" name="vehicle_no"  value="<?php echo $inv_data['vehicle_no']; ?>"  class="form-control" placeholder="Vehicle Number">
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <input  name="driver_mobile" class="form-control"  value="<?php echo $inv_data['driver_mobile']; ?>"  type="text" placeholder="Driver Mobile Number" >
+
+                    </div>
+
+                </div>
+
+                <!-- <div class="col-md-6 submit-buttom">
+                    <input type="submit" value="Save Product" name="addproduct" class="btn btn-success">
+                    <input type="reset" value="Reset" class="btn btn-warning">
+                </div> -->
+                <br> <br>
+              
 
 
                 <div class="col-md-12" style="margin-top: 20px;">
@@ -101,44 +99,38 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                     <table id="invoice_form_table" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Group</th>
-                                <th>Name</th>
-                                <th>Unit</th>
-                                <th>Quantity</th>
-                                <th>Purchase</th>
-                                <th>Subtotal</th>
+                                <th style="text-align: center;" width="20%">ID</th>
+                                <th width="20%">Product Name</th>
+                                <th width="10%">SQ</th>
+                                <th width="15%">Carton</th>
+                                <th width="15%">Piece</th>
+                                <th width="10%">Purchase Price</th>
+                                <th width="10%">Subtotal</th>
 
                             </tr>
                         </thead>
                         <tbody id="inv_detail">
+                            <tbody id="inv_detail">
                                 <?php
                                 //get invoice products for a single invoice id
                                 $allinProQuery = $inv->getInvoiceProducts($inv_data['invoice_number']);
+
                                 ?>
                                 <?php if ($allinProQuery): ?>
-                                    <?php $invoice_total = 0; ?>
+                                    <?php $invoice_total = $i = 0; ?>
                                     <?php while ($getData = $allinProQuery->fetch_assoc()): ?>
-                                        <?php $invoice_total += $getData['subtotal']; ?>
+                                        <?php $invoice_total += $getData['subtotal']; $i++; ?>
                                         <input name="serial_no[]" type="hidden" class="form-control" value="<?php echo $getData['serial_no']; ?>" >
 
                                         <tr style="text-align:center;">
 
                                             <td width="10%">
-                                                <input name="product_id[]" type="text" class="form-control product_id" value="<?php echo $getData['product_id']; ?>" required >
+                                                <input name="product_id[]" type="text" class="form-control product_id product_id<?php echo $i; ?>" rowid="<?php echo $i; ?>" value="<?php echo $getData['product_id']; ?>" required >
                                             </td>
                                             <td width="10%">
-                                                <select class="form-control product_group">
-                                                    <?php $groupstmt = $pro->showGroup(); ?>
-                                                    <?php if ($stmt->num_rows > 0): ?>
-                                                        <?php while ($allgroups = $groupstmt->fetch_assoc()): ?>
-                                                            <option value="<?php echo $allgroups['groupid']; ?>"  <?php if ($allgroups['groupid'] == $getData['product_group']): ?> selected="" <?php endif; ?> ><?php echo $allgroups['groupname']; ?></option>
-                                                        <?php endwhile; ?>
-                                                    <?php endif; ?>
-
-                                                </select>
+                                               <b class="product_name<?php echo $i;?>"><?php echo $getData['product_name']; ?></b>
                                             </td>
-                                            <td width="10%"><b class="product_name"><?php echo $getData['product_name']; ?></b></td>
+                                            
                                             <td width="10%">
                                                 <b class="product_type">
                                                     <?php
@@ -154,37 +146,60 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                                             </td>
                                             
                                             <td width="8%">
-                                                <input type="text" name="quantity[]" class="form-control quantity" value="<?php echo $getData['quantity']; ?>"  required >
+                                                <input type="text" name="carton[]" class="form-control carton carton<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['carton']; ?>"  required >
+
+                                                 <input type="hidden" name="piece_in_a_carton" class="form-control piece_in_a_carton<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['carton']; ?>"  required >
+
+
                                             </td>
+
                                             
                                             <td width="8%">
-                                                <input type="text" name="purchase[]" class="form-control purchase" value="<?php echo $getData['purchase']; ?>"  required >
+                                                <input type="text" name="piece[]" class="form-control piece piece<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['piece']; ?>"  required >
+                                            </td>
+
+
+                                            
+                                            <td width="8%">
+                                                <input type="text" name="purchase[]" class="form-control purchase purchase<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['purchase']; ?>"  required >
                                             </td>
                                             <td width="8%">
-                                                <input type="hidden" name="subtotalforsave[]" class="form-control subtotalforsave" value="<?php echo $getData['subtotal']; ?>" ><b class="subtotal"><?php echo $getData['subtotal']; ?></b>
+                                                <input type="hidden" name="subtotal[]" class="form-control subtotal<?php echo $i;?>" rowid="<?php echo $i; ?>"  value="<?php echo $getData['subtotal']; ?>" ><b class="subtotal viewsubtotal<?php echo $i; ?>"><?php echo $getData['subtotal']; ?></b>
                                                 <input type="hidden" name="update">
                                             </td>
+
                                         </tr>
 
                                     <?php endwhile; ?>
                                 <?php endif; ?>
                             </tbody>
-                        <tfoot id="">
-                                <tr>
-                                    <td colspan="6" style="text-align:right;"><b>Invoice Total</b></td>
-                                    <td colspan="1"><b class="wholetotal"><?php echo $invoice_total; ?></b></td>
-                                </tr>
+                        </tbody>
+                        <!-- <tfoot id="">
+                            <tr>
+                                <td colspan="5" style="text-align:right; "><b>Invoice Total</b></td>
+                                <td colspan="1" style="text-align: center;"><input type="hidden" name="addinvoice"><b class="wholetotal"></b></td>
+                                <input type="hidden" name="addpurchase">
+                            </tr>
 
-                        </tfoot>
+                        </tfoot> -->
                     </table>
-                    <button class="btn btn-success add_new_invoice_table_row" title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button>
+                   <!--  <button class="btn btn-success " title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button> -->
                 </div>
-                </div>
-             </div>
-            
-            </form>
-          </div>
+
+               
         </div>
+      </div>
+            </div>
+             
+            
+          </div>
+
+        </div>
+             <div class="button-div" style="width: 50%; margin: 0 auto;">
+                 <input type="submit" class="btn btn-primary" name="edit" value="Update">
+                <!-- <input type="reset" class="btn btn-danger" value="Reset"> -->
+             </div>
+        </form>
       </div>
       
     </section>
