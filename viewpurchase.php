@@ -60,7 +60,8 @@
                             <th>Group</th>
                             <th>Product Name</th>
                             <th>Purchase</th>
-                            <th>Quantity</th>
+                            <th>Carton</th>
+                            <th>Piece</th>
                             <th>Subtotal</th>
 
                         </tr>
@@ -70,7 +71,7 @@
                          
                         //$q = "select tp.product_id,tg.groupname,tp.product_name,tip.quantity,tip.purchase from tbl_invoice_products tip join tbl_invoice ti on ti.invoice_number = tip.invoice_id join tbl_product tp on tip.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where ti.invoice_number = '$invoice_id'";
 
-                        $q = "select tp.product_id,tg.groupname,tp.product_name,tip.quantity,tip.purchase,tip.subtotal as 'inv_pro_subtotal' from tbl_invoice_products tip join tbl_invoice ti on ti.invoice_number = tip.invoice_id join tbl_product tp on tip.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where ti.invoice_number = '$invoice_id'";
+                        $q = "select tp.product_id,tg.groupname,tp.product_name,tip.carton,tip.piece,tip.purchase,tip.subtotal as 'inv_pro_subtotal' from tbl_invoice_products tip join tbl_invoice ti on ti.invoice_number = tip.invoice_id join tbl_product tp on tip.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where ti.invoice_number = '$invoice_id'";
 
 
                         $stmt = $db->link->query($q) or die($this->link->error);  
@@ -78,6 +79,7 @@
                         if ($stmt) {
                          
                             $total = $i = 0;
+
                             while ($result = $stmt->fetch_assoc()) {
                                 $i++;
                                // $total = ($result['quantity'] * $result['purchase']) + $total;
@@ -89,16 +91,17 @@
                                     <td><?php echo $result['product_id']; ?></td>
                                     <td><?php echo $result['groupname']; ?></td>
                                     <td><?php echo $result['product_name']; ?></td>
-                                    <td><?php echo $result['quantity']; ?></td>
                                     <td><?php echo $result['purchase']; ?></td>
-                                    <td><?php echo $result['quantity'] * $result['purchase']; ?></td>
+                                    <td><?php echo $result['carton']; ?></td>
+                                    <td><?php echo $result['piece']; ?></td>
+                                    <td><?php echo $result['inv_pro_subtotal']; ?></td>
                                 </tr>
 
                                 <?php } } else { ?>
 
                         <?php }  ?>
                            <tr class="bg-warning">
-                             <td colspan="5"></td>
+                             <td colspan="6"></td>
                              <td><strong>Total</strong></td>
                              <td style="text-align: center;"><strong><?php echo $total; ?></strong></td>
                            </tr>
