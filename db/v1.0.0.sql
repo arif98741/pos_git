@@ -671,7 +671,11 @@ CREATE TABLE `tsold` (
 --
 DROP TABLE IF EXISTS `customer_balance`;
 
+<<<<<<< HEAD
 CREATE  VIEW `customer_balance`  AS  select `customer_statement`.`customer_id` AS `customer_id`,sum((`customer_statement`.`payable` - `customer_statement`.`paid`)) AS `balance` from `customer_statement` group by `customer_statement`.`customer_id` ;
+=======
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `customer_balance`  AS  select `customer_statement`.`customer_id` AS `customer_id`,sum((`customer_statement`.`payable` - `customer_statement`.`paid`)) AS `balance` from `customer_statement` group by `customer_statement`.`customer_id` ;
+
 
 -- --------------------------------------------------------
 
@@ -680,7 +684,11 @@ CREATE  VIEW `customer_balance`  AS  select `customer_statement`.`customer_id` A
 --
 DROP TABLE IF EXISTS `customer_balancesheet`;
 
+<<<<<<< HEAD
 CREATE  VIEW `customer_balancesheet`  AS  select `t1`.`date` AS `date`,`t1`.`sell_id` AS `Ref`,`t1`.`customer_id` AS `Customer`,`t1`.`Drescription` AS `Drescription`,`t1`.`payable` AS `Debit`,`t1`.`paid` AS `Credit`,(select sum((`customer_statement`.`payable` - `customer_statement`.`paid`)) AS `Balance` from `customer_statement` where ((`customer_statement`.`customer_id` = `t1`.`customer_id`) and (`customer_statement`.`date` <= `t1`.`date`))) AS `Balance` from `customer_statement` `t1` order by `t1`.`date` ;
+=======
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `customer_balancesheet`  AS  select `t1`.`date` AS `date`,`t1`.`sell_id` AS `Ref`,`t1`.`customer_id` AS `Customer`,`t1`.`Drescription` AS `Drescription`,`t1`.`payable` AS `Debit`,`t1`.`paid` AS `Credit`,(select sum((`customer_statement`.`payable` - `customer_statement`.`paid`)) AS `Balance` from `customer_statement` where ((`customer_statement`.`customer_id` = `t1`.`customer_id`) and (`customer_statement`.`date` <= `t1`.`date`))) AS `Balance` from `customer_statement` `t1` order by `t1`.`date` ;
+
 
 -- --------------------------------------------------------
 
@@ -689,7 +697,9 @@ CREATE  VIEW `customer_balancesheet`  AS  select `t1`.`date` AS `date`,`t1`.`sel
 --
 DROP TABLE IF EXISTS `customer_statement`;
 
-CREATE  VIEW `customer_statement`  AS  select `tbl_sell`.`sell_id` AS `sell_id`,`tbl_sell`.`customer_id` AS `customer_id`,`tbl_sell`.`date` AS `date`,`tbl_sell`.`payable` AS `payable`,`tbl_sell`.`paid` AS `paid`,'Sales Invoice' AS `Drescription` from `tbl_sell` union select `tbl_customer`.`serial` AS `serial`,`tbl_customer`.`customer_id` AS `customer_id`,`tbl_customer`.`date` AS `date`,`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,'Opening' AS `Opening` from `tbl_customer` union select `payment`.`serial` AS `serial`,`payment`.`customer_id` AS `customer_id`,`payment`.`date` AS `date`,0 AS `0`,`payment`.`amount` AS `amount`,'Payment' AS `Payment` from `payment` ;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `customer_statement`  AS  select `tbl_sell`.`sell_id` AS `sell_id`,`tbl_sell`.`customer_id` AS `customer_id`,`tbl_sell`.`date` AS `date`,`tbl_sell`.`payable` AS `payable`,`tbl_sell`.`paid` AS `paid`,'Sales Invoice' AS `Drescription` from `tbl_sell` union select `tbl_customer`.`serial` AS `serial`,`tbl_customer`.`customer_id` AS `customer_id`,`tbl_customer`.`date` AS `date`,`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,'Opening' AS `Opening` from `tbl_customer` union select `payment`.`serial` AS `serial`,`payment`.`customer_id` AS `customer_id`,`payment`.`date` AS `date`,0 AS `0`,`payment`.`amount` AS `amount`,'Payment' AS `Payment` from `payment` ;
+
 
 -- --------------------------------------------------------
 
@@ -698,7 +708,9 @@ CREATE  VIEW `customer_statement`  AS  select `tbl_sell`.`sell_id` AS `sell_id`,
 --
 DROP TABLE IF EXISTS `profit`;
 
-CREATE  VIEW `profit`  AS  select `pr`.`date` AS `date`,`pr`.`sell_id` AS `sell_id`,`pr`.`customer_name` AS `customer_name`,`pr`.`product_id` AS `product_id`,`tu`.`name` AS `name`,((`pr`.`unit_price` * `pr`.`quantity`) - (`pr`.`purchase_price` * `pr`.`quantity`)) AS `profit` from (`profit_report` `pr` join `tbl_user` `tu` on((`pr`.`seller` = `tu`.`userid`))) group by `pr`.`sell_id` ;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profit`  AS  select `pr`.`date` AS `date`,`pr`.`sell_id` AS `sell_id`,`pr`.`customer_name` AS `customer_name`,`pr`.`product_id` AS `product_id`,`tu`.`name` AS `name`,((`pr`.`unit_price` * `pr`.`quantity`) - (`pr`.`purchase_price` * `pr`.`quantity`)) AS `profit` from (`profit_report` `pr` join `tbl_user` `tu` on((`pr`.`seller` = `tu`.`userid`))) group by `pr`.`sell_id` ;
+
 
 -- --------------------------------------------------------
 
@@ -707,7 +719,9 @@ CREATE  VIEW `profit`  AS  select `pr`.`date` AS `date`,`pr`.`sell_id` AS `sell_
 --
 DROP TABLE IF EXISTS `profit_report`;
 
-CREATE  VIEW `profit_report`  AS  select `tsp`.`sell_id` AS `sell_id`,`ts`.`seller` AS `seller`,`tc`.`customer_id` AS `customer_id`,`tc`.`customer_name` AS `customer_name`,`tsp`.`product_id` AS `product_id`,sum(`tsp`.`quantity`) AS `quantity`,`tsp`.`purchase_price` AS `purchase_price`,`tsp`.`unit_price` AS `unit_price`,`ts`.`date` AS `date` from ((`tbl_sell_products` `tsp` join `tbl_customer` `tc` on((`tc`.`customer_id` = `tsp`.`customer_id`))) join `tbl_sell` `ts` on((`tsp`.`sell_id` = `ts`.`sell_id`))) where (`tsp`.`status` = '1') group by `tsp`.`sell_id`,`tsp`.`product_id` ;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `profit_report`  AS  select `tsp`.`sell_id` AS `sell_id`,`ts`.`seller` AS `seller`,`tc`.`customer_id` AS `customer_id`,`tc`.`customer_name` AS `customer_name`,`tsp`.`product_id` AS `product_id`,sum(`tsp`.`quantity`) AS `quantity`,`tsp`.`purchase_price` AS `purchase_price`,`tsp`.`unit_price` AS `unit_price`,`ts`.`date` AS `date` from ((`tbl_sell_products` `tsp` join `tbl_customer` `tc` on((`tc`.`customer_id` = `tsp`.`customer_id`))) join `tbl_sell` `ts` on((`tsp`.`sell_id` = `ts`.`sell_id`))) where (`tsp`.`status` = '1') group by `tsp`.`sell_id`,`tsp`.`product_id` ;
+
 
 -- --------------------------------------------------------
 
@@ -716,7 +730,9 @@ CREATE  VIEW `profit_report`  AS  select `tsp`.`sell_id` AS `sell_id`,`ts`.`sell
 --
 DROP TABLE IF EXISTS `stock`;
 
-CREATE  VIEW `stock`  AS  select `tpurchase`.`product_id` AS `product_id`,`tpurchase`.`pquantity` AS `pquantity`,`tsold`.`squantity` AS `squantity`,(`tpurchase`.`pquantity` - ifnull(`tsold`.`squantity`,0)) AS `stock` from (`tpurchase` left join `tsold` on((`tpurchase`.`product_id` = `tsold`.`product_id`))) ;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `stock`  AS  select `tpurchase`.`product_id` AS `product_id`,`tpurchase`.`pquantity` AS `pquantity`,`tsold`.`squantity` AS `squantity`,(`tpurchase`.`pquantity` - ifnull(`tsold`.`squantity`,0)) AS `stock` from (`tpurchase` left join `tsold` on((`tpurchase`.`product_id` = `tsold`.`product_id`))) ;
+
 
 -- --------------------------------------------------------
 
@@ -725,7 +741,9 @@ CREATE  VIEW `stock`  AS  select `tpurchase`.`product_id` AS `product_id`,`tpurc
 --
 DROP TABLE IF EXISTS `tpurchase`;
 
-CREATE  VIEW `tpurchase`  AS  select `tbl_invoice_products`.`product_id` AS `product_id`,sum(`tbl_invoice_products`.`quantity`) AS `pquantity` from `tbl_invoice_products` group by `tbl_invoice_products`.`product_id` ;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tpurchase`  AS  select `tbl_invoice_products`.`product_id` AS `product_id`,sum(`tbl_invoice_products`.`quantity`) AS `pquantity` from `tbl_invoice_products` group by `tbl_invoice_products`.`product_id` ;
+
 
 -- --------------------------------------------------------
 
@@ -734,7 +752,9 @@ CREATE  VIEW `tpurchase`  AS  select `tbl_invoice_products`.`product_id` AS `pro
 --
 DROP TABLE IF EXISTS `tsold`;
 
-CREATE  VIEW `tsold`  AS  select `tbl_sell_products`.`product_id` AS `product_id`,sum(`tbl_sell_products`.`quantity`) AS `squantity` from `tbl_sell_products` group by `tbl_sell_products`.`product_id` ;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tsold`  AS  select `tbl_sell_products`.`product_id` AS `product_id`,sum(`tbl_sell_products`.`quantity`) AS `squantity` from `tbl_sell_products` group by `tbl_sell_products`.`product_id` ;
+
 
 --
 -- Indexes for dumped tables
