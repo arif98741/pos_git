@@ -471,7 +471,7 @@ class Printdata {
 
                 //$stmt = $this->dbObj->select("SELECT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, tp.purchase_price, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.date asc");
 
-                $stmt = $this->dbObj->select("SELECT ti.invoice_number, tip.product_id, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id ORDER BY ti.date asc");
+                $stmt = $this->dbObj->select("SELECT ti.invoice_number, tip.product_id, tip.carton,tip.piece, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id ORDER BY ti.date asc");
 
 
         $total = 0;
@@ -488,13 +488,14 @@ class Printdata {
                         . "<td>" . $row['product_name'] . "</td>"
                         . "<td>" . $row['supplier_name'] . "</td>"
                         . "<td style='text-align: center;'>" . $row['purchase_price'] . "</td>"
-                        . "<td style='text-align: center;'>" . $row['quantity'] . "</td>"
+                        . "<td style='text-align: center;'>" . $row['carton'] . "</td>"
+                        . "<td style='text-align: center;'>" . $row['piece'] . "</td>"
                         . "<td style='text-align: center;'>" . $row['subtotal'] . "</td>"
                         . "<td style='text-align: center;'>" . $this->helpObj->formatDate($row['date'],'d-m-Y') . "</td>";
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='5' style='text-align: center;'><strong>Total Amount</strong></td>"
+                                . "<td colspan='6' style='text-align: center;'><strong>Total Amount</strong></td>"
                                 
                                 ."<td></td>"
                                 
@@ -522,7 +523,7 @@ class Printdata {
                              ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.date asc");*/
 
 
-                 $stmt = $this->dbObj->select("SELECT ti.invoice_number, tip.product_id, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE tg.groupid = '$groupid' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id ORDER BY ti.date asc");
+                 $stmt = $this->dbObj->select("SELECT ti.invoice_number, tip.product_id,tip.carton,tip.piece, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE tg.groupid = '$groupid' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id ORDER BY ti.date asc");
 
 
         $total = 0;
@@ -537,13 +538,14 @@ class Printdata {
                         . "<td style='text-align:center;'>" . $row['invoice_number'] . "</td>"
                         . "<td >" . $row['product_name'] . "</td>"
                         . "<td>" . $row['supplier_name'] . "</td>"
-                        . "<td style='text-align:center;'>" . $row['quantity'] . "</td>"
+                        . "<td style='text-align:center;'>" . $row['carton'] . "</td>"
+                        . "<td style='text-align:center;'>" . $row['piece'] . "</td>"
                         . "<td style='text-align:center;'>" . $row['subtotal'] . "</td>"
                         . "<td style='text-align:center;'>" . $this->helpObj->formatDate($row['date'],'d-m-Y') . "</td>";
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='4' style='text-align:center;'><strong>Total Amount</strong></td>"
+                                . "<td colspan='5' style='text-align:center;'><strong>Total Amount</strong></td>"
                                 
                                 ."<td></td>"
                                 ."<td style='text-align:center;'><strong>".$total."</strong></td>"
@@ -573,7 +575,7 @@ class Printdata {
                 /*$stmt = $this->dbObj->select("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tss.supplier_id = '$supplier_id' and
                              ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.date asc");*/
 
-                 $stmt = $this->dbObj->select("SELECT ti.invoice_number, tip.product_id, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE tu.supplier_id = '$supplier_id' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id ORDER BY ti.date asc");             
+                 $stmt = $this->dbObj->select("SELECT ti.invoice_number, tip.product_id,tip.carton,tip.piece, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE tu.supplier_id = '$supplier_id' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id ORDER BY ti.date asc");             
 
 
 
@@ -589,13 +591,14 @@ class Printdata {
                         . "<td style='text-align:center'>" . $row['invoice_number'] . "</td>"
                         . "<td>" . $row['groupname'] . "</td>"
                         . "<td>" . $row['product_name'] . "</td>"
-                        . "<td style='text-align:center'>" . $row['quantity'] . "</td>"
+                        . "<td style='text-align:center'>" . $row['carton'] . "</td>"
+                        . "<td style='text-align:center'>" . $row['piece'] . "</td>"
                         . "<td style='text-align:center'>" . $row['subtotal'] . "</td>"
                         . "<td style='text-align:center'>" . $this->helpObj->formatDate($row['date'],'d-m-Y') . "</td>";
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='3' style='text-align:center'><strong>Total Amount</strong></td>"
+                                . "<td colspan='4' style='text-align:center'><strong>Total Amount</strong></td>"
                                 
                                 ."<td></td>"
                                 

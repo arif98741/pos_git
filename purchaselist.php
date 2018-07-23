@@ -65,7 +65,10 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
                 <tr role="row">
                   <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Serial</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Invoice No</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">Supplier</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Quantity</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Purchase</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Carton</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Piece</th>
+
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Total</th>
 
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Date</th>
@@ -88,7 +91,9 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $result['invoice_number']; ?></td>
                                     <td style="text-align: left;"><?php echo $result['supplier_name']; ?></td>
-                                    <td><?php echo $result['quantity']; ?></td>
+                                    <td><?php echo $result['purchase']; ?></td>
+                                    <td><?php echo $result['carton']; ?></td>
+                                    <td><?php echo $result['piece']; ?></td>
                                     <td><?php echo $result['total']; ?></td>
                                     <td><?php echo $help->formatDate($result['date'],'d-m-Y'); ?></td>
 
@@ -96,7 +101,7 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
 
                                     <td>
                                         <a href="viewpurchase.php?action=view&serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to view" ><i class="fa fa-eye"></i>&nbsp;&nbsp;</a>
-                                        <a href="editpurchase.php?action=edit&serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
+                                        <a href="tempedit.php?action=edit&serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
 
                                         <a href="printfiles/purchase/printpurchase.php?serial=<?php echo $result['serial'] ?>&invoice_id=<?php echo $result['invoice_number']; ?>" style="border-radius: 3px;" title="click to print" ><i class="fa fa-print"></i></a>
 

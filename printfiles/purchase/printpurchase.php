@@ -36,7 +36,7 @@ $help = new Helper();
             }
         </script>
         <meta charset="utf-8">
-        <title>::: Report of :::</title>
+        <title>::: Purchase Report for - <?php  echo $invoice_id; ?> :::</title>
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
@@ -57,12 +57,12 @@ $help = new Helper();
                         <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo'); ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
-                                <div class="title-3">Accounts Ledger Summary</div>
+                                <div class="title-3">Purchase Report </div>
                                 Invoice Number- <?php echo $invoice_id ; ?> <br>
                                 Date: <?php echo $purchase_data['date']; ?><br>
                                 Supplier: <?php echo $purchase_data['supplier_name']; ?>
                             </td>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total: (<?php echo $pri->TotalProducts("select category,sum(debit) as 'debit',sum(credit) as 'credit',date from tbl_laser GROUP by category"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total: (<?php echo $pri->TotalProducts("select * from tbl_invoice ti join tbl_invoice_products tip on ti.invoice_number = tip.invoice_id  where ti.invoice_number = '$invoice_id'"); ?>) </div></td>
                             
                         </tr>
                     </table>
@@ -77,7 +77,8 @@ $help = new Helper();
                             <th>Group</th>
                             <th>Product Name</th>
                             <th>Purchase</th>
-                            <th>Quantity</th>
+                            <th>Carton</th>
+                            <th>Piece</th>
                             <th>Subtotal</th>
 
                         </tr>
@@ -103,23 +104,24 @@ $help = new Helper();
                             $total = $i = 0;
                             while ($result = $stmt->fetch_assoc()) {
                                 $i++;
-                                $total = ($result['quantity'] * $result['purchase']) + $total; 
+                                $total = $result['subtotal']; 
                                 ?>
                                 <tr style="text-align: center;" id="rowid-<?php echo $result['serial']; ?>">
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $result['product_id']; ?></td>
                                     <td><?php echo $result['groupname']; ?></td>
                                     <td><?php echo $result['product_name']; ?></td>
-                                    <td><?php echo $result['quantity']; ?></td>
                                     <td><?php echo $result['purchase']; ?></td>
-                                    <td><?php echo $result['quantity'] * $result['purchase']; ?></td>
+                                    <td><?php echo $result['carton']; ?></td>
+                                    <td><?php echo $result['piece']; ?></td>
+                                    <td><?php echo $result['subtotal']; ?></td>
                                 </tr>
 
                                 <?php } } else { ?>
 
                         <?php }  ?>
                            <tr class="bg-warning">
-                             <td colspan="5"></td>
+                             <td colspan="6"></td>
                              <td><strong>Total</strong></td>
                              <td style="text-align: center;"><strong><?php echo $total; ?></strong></td>
                            </tr>

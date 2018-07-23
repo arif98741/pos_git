@@ -50,7 +50,7 @@ $pro = new Product();
                                     $ending = $_POST['ending']." 23:59:59";
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.serial desc"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2"> </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -64,7 +64,8 @@ $pro = new Product();
                             <th>Product Name</th>
                             <th>Supplier</th>
                             <th>Purchase Price</th>
-                            <th>Quantity</th>
+                            <th>Carton</th>
+                            <th>Piece</th>
                             <th>Subtotal</th>
                             <th>Date</th>
                         </tr>
@@ -100,8 +101,7 @@ $pro = new Product();
                                     $groupid = $_POST['groupid'];
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tg.groupid = '$groupid' and
-                             ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.serial desc"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2"> </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -113,7 +113,8 @@ $pro = new Product();
                             <th>Invoice Number</th>
                             <th>Product Name</th>
                             <th>Supplier</th>
-                            <th>Quantity</th>
+                            <th>Carton</th>
+                            <th>Piece</th>
                             <th>Subtotal</th>
                             <th>Date</th>
                         </tr>
@@ -145,8 +146,7 @@ $pro = new Product();
                                     $supplier_id = $_POST['brandid'];
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tss.supplier_id = '$supplier_id' and
-                             ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.serial desc"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2"></div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -158,7 +158,8 @@ $pro = new Product();
                             <th>Invoice Number</th>
                             <th>Group</th>
                             <th>Product Name</th>
-                            <th>Quantity</th>
+                            <th>Carton</th>
+                            <th>Piece</th>
                             <th>Subtotal</th>
                             <th>Date</th>
                         </tr>

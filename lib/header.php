@@ -237,7 +237,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             
           </ul>
         </li>
-        <li class="treeview">
+        <!-- <li class="treeview">
       
           <a href="#">
             <i class="fa fa-handshake-o"></i> <span>Sales</span>
@@ -352,7 +352,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <li><a href="users.php"><i class="fa fa-list"></i>User List </a></li>
             
           </ul>
-        </li>
+        </li> -->
 
       </ul>
     </section>
