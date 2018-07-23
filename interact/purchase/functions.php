@@ -68,9 +68,10 @@ if (isset($_POST['showTemporaryProducts']) ) {
   $value = "";
   if ($stmt) {
     if ($stmt->num_rows > 0) {
-      $subtotal = 0;
+      $subtotal = $i = 0;
       while ($row = $stmt->fetch_assoc()) {
         $subtotal += $row['subtotal'];
+        $i++;
 
           $value .= '<tr style="text-align:center;">'
           //+ '<td width="10%">' '' + '</td>'
@@ -78,7 +79,7 @@ if (isset($_POST['showTemporaryProducts']) ) {
            .'<td width="10%">'.$row["product_id"]. '</td>'
            .'<td width="10%">'.$row["product_name"]. '</td>'
            .'<td width="10%">' . '<b class="product_type product_type">'.$row['typename'].'</b>' . '</td>'
-           .'<td width="8%">' . '<input style="text-align: center;" type="number" name="quantity[]" class="form-control quantity quantity" value="'.$row['carton'].'" required >' . '</td>'
+           .'<td width="8%">' . '<input style="text-align: center;" type="number" name="carton[]" class="form-control carton carton'.$i.'" value="'.$row['carton'].'" required >' . '</td>'
            .'<td width="8%">' . '<input style="text-align: center;" type="number" name="quantity[]" class="form-control quantity quantity" value="'.$row['piece'].'" required >' . '</td>'
            .'<td width="8%">' . '<input style="text-align: center;" type="text" name="purchase[]" class="form-control purchase  purchase" value="'.$row['purchase'].'" required >' . '</td>'
            .'<td width="8%">' . '<input readonly="" type="text" name="subtotal[]" class="form-control subtotal  subtotal" value="'.$row['subtotal'].'" required >' . '</td>'
@@ -93,8 +94,6 @@ if (isset($_POST['showTemporaryProducts']) ) {
               ."<td colspan='1' style='text-align: center;'><input type='hidden' name='addinvoice'><b class='wholetotal'>".$subtotal."</b></td>"
               ."<input type='hidden' name='addpurchase'>"
               ."</tr>";
-
-      
 
     } 
   } 

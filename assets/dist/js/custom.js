@@ -124,13 +124,20 @@ $(document).ready(function () {
 
             $('#inv_detail').append(row);
 
-            $('#invoice_form_table tr td i').click(function() {
-                $(this).parent().parent().remove();
-                wholetotal();
+            $('.').click(function() {
+                //alert('hi');
+                //console.log('yes i am clieked');
+                //$(this).parent().parent().remove();
+                //wholetotal();
+                //showTemporaryProducts();
 
             });
 
         }
+
+        $('.purchase_delete_btn').click(function(){
+            alert('hi');
+        });
 
         //show temporary products in addpurchase.php
         function showTemporaryProducts(){
