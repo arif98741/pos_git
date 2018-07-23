@@ -5,7 +5,7 @@ pass     : explore+88
 host	 : localhost
 
 
-===cpanel=====
+===cpanel and ftp=====
 user	 : deeafep
 password : C8ZW{y+$1e&$
 ftp 	 : ftp.dp.explorebillingsuite.com
