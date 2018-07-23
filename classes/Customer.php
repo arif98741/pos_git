@@ -179,7 +179,7 @@ class Customer {
 
         $message = 'Dear '.$customer_name.', your payment '.$amount.'tk was successfully recieved by '.$method.'. Your current balance is '.$balance.'------------------'.Session::get('company_name');
 
-        $token = "4f95a55a00b11a9433aae48cfb96fe86";
+        $token = "77f9a4d2c5ea51913e1cd7624705239c";
         $url = "http://sms.greenweb.com.bd/api.php";
 
         $data= array(
