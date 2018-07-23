@@ -35,8 +35,8 @@ class Invoice {
      */
 
     public function showProductByID($product_id) {
-        $query = "select * from tbl_product where product_id='$product_id'";
-        $st = $this->dbObj->select($query);
+        $query  = "select * from tbl_product where product_id='$product_id'";
+        $st     = $this->dbObj->select($query);
         if ($st) {
             if ($st->num_rows > 0) {
                 return $st->fetch_assoc();
@@ -55,9 +55,9 @@ class Invoice {
     public function saveInvoice($data) {
 
 
-        $inv_no1 = $this->helpObj->validAndEscape($data['invoice_no']);
+        $inv_no1     = $this->helpObj->validAndEscape($data['invoice_no']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
-        $date = $this->helpObj->validAndEscape($data['date']);
+        $date        = $this->helpObj->validAndEscape($data['date']);
 
         $quantity  = $purchase = $subtotal = $total = 0;
         //for counting total data from a invoice form
@@ -104,11 +104,11 @@ class Invoice {
 
     public function updateInvoice($data) {
 
-        $inv_no = $this->helpObj->validAndEscape($data['invoice_number']);
+        $inv_no      = $this->helpObj->validAndEscape($data['invoice_number']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
-        $date = $this->helpObj->validAndEscape($data['date']);
-        $inv_q = "select * from tbl_invoice where invoice_number='$inv_no'";
-        $inv_stmt = $this->dbObj->select($inv_q);
+        $date        = $this->helpObj->validAndEscape($data['date']);
+        $inv_q       = "select * from tbl_invoice where invoice_number='$inv_no'";
+        $inv_stmt    = $this->dbObj->select($inv_q);
 
         if (!$inv_stmt) {
             return "<p class='alert alert-danger fadeout'>Invoice Not Found<p>";
@@ -122,9 +122,9 @@ class Invoice {
                 $subtotal += $data['subtotalforsave'][$i];
                 $total = $total + $data['subtotalforsave'][$i];
             }
-            $inv_data = $inv_stmt->fetch_assoc();
+            $inv_data   = $inv_stmt->fetch_assoc();
             $inv_serial = $inv_data['serial'];
-            $update_by = Session::get('userid');
+            $update_by  = Session::get('userid');
             $updateInvoice_query = "update tbl_invoice set invoice_number='$inv_no',"
                     . "supplier_id='$supplier_id',quantity='$quantity',"
                     . "purchase='$purchase',"
@@ -158,8 +158,8 @@ class Invoice {
 
     public function singleInvoice($inv_no) {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
-        $q = "select * from tbl_invoice where invoice_number ='$inv_no'";
-        $st = $this->dbObj->select($q);
+        $q      = "select * from tbl_invoice where invoice_number ='$inv_no'";
+        $st     = $this->dbObj->select($q);
         if ($st) {
             return $st->fetch_assoc();
         }
@@ -171,8 +171,8 @@ class Invoice {
 
     public function getInvoiceProducts($inv_no) {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
-        $q = "select * from tbl_invoice_products tip ,tbl_product tp where tip.invoice_id ='$inv_no' and tp.product_id = tip.product_id order by tip.product_id";
-        $st = $this->dbObj->select($q);
+        $q      = "select * from tbl_invoice_products tip ,tbl_product tp where tip.invoice_id ='$inv_no' and tp.product_id = tip.product_id order by tip.product_id";
+        $st     = $this->dbObj->select($q);
         if ($st) {
             return $st;
         } else {
@@ -185,10 +185,10 @@ class Invoice {
      */
 
     public function deleteInvoice($serial, $invoice_id) {
-        $serial = $this->helpObj->validAndEscape($serial);
+        $serial     = $this->helpObj->validAndEscape($serial);
         $invoice_id = $this->helpObj->validAndEscape($invoice_id);
 
-        $delquery = "delete from tbl_invoice where invoice_number='$invoice_id'";
+        $delquery   = "delete from tbl_invoice where invoice_number='$invoice_id'";
         $st = $this->dbObj->delete($delquery); //delete invoice 
         if ($st) {
             

@@ -20,17 +20,17 @@ class Manage {
      * */
 
     public function addRegistant($data) {
-        $fullname = $this->helpObj->validAndEscape($data['fullname']);
-        $dob = $this->helpObj->validAndEscape($data['dob']);
-        $gender = $this->helpObj->validAndEscape($data['gender']);
-        $father = $this->helpObj->validAndEscape($data['father']);
-        $contact = $this->helpObj->validAndEscape($data['contact']);
-        $address = $this->helpObj->validAndEscape($data['address']);
-        $email = $this->helpObj->validAndEscape($data['email']);
-        $batchyear = $this->helpObj->validAndEscape($data['batchyear']);
+        $fullname   = $this->helpObj->validAndEscape($data['fullname']);
+        $dob        = $this->helpObj->validAndEscape($data['dob']);
+        $gender     = $this->helpObj->validAndEscape($data['gender']);
+        $father     = $this->helpObj->validAndEscape($data['father']);
+        $contact    = $this->helpObj->validAndEscape($data['contact']);
+        $address    = $this->helpObj->validAndEscape($data['address']);
+        $email      = $this->helpObj->validAndEscape($data['email']);
+        $batchyear  = $this->helpObj->validAndEscape($data['batchyear']);
         $occupation = $this->helpObj->validAndEscape($data['occupation']);
         $fam_member_name = $this->helpObj->validAndEscape($data['fam_member_name']);
-        $relation = $this->helpObj->validAndEscape($data['relation']);
+        $relation   = $this->helpObj->validAndEscape($data['relation']);
 
         $photo  =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
         $msg = '';
@@ -71,7 +71,7 @@ class Manage {
     {
         $email = $this->helpObj->validAndEscape($data['email']);
         $query = "select id from registration where email='$email'";
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         if ($stmt) {
             $registant_id = $stmt->fetch_object()->id;
             $confirm_code = $this->RandomString(32);
@@ -155,9 +155,9 @@ class Manage {
     */
     function addPayment($data)
     {
-        $registant_id = $this->helpObj->validAndEscape($data['registant_id']);
-        $method = $this->helpObj->validAndEscape($data['method']);
-        $amount = $this->helpObj->validAndEscape($data['amount']);
+        $registant_id   = $this->helpObj->validAndEscape($data['registant_id']);
+        $method         = $this->helpObj->validAndEscape($data['method']);
+        $amount         = $this->helpObj->validAndEscape($data['amount']);
         $transaction_id = $this->helpObj->validAndEscape($data['transaction_id']);
 
         $checkquery = "select * from ledger where method='$method' and transaction_id='$transaction_id'";
@@ -227,11 +227,11 @@ class Manage {
     */
     function addCommittee($data)
     {
-        $name = $this->helpObj->validAndEscape($data['name']);
+        $name        = $this->helpObj->validAndEscape($data['name']);
         $designation = $this->helpObj->validAndEscape($data['designation']);
-        $address = $this->helpObj->validAndEscape($data['address']);
-        $contact = $this->helpObj->validAndEscape($data['contact']);
-        $photo  =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        $address     = $this->helpObj->validAndEscape($data['address']);
+        $contact     = $this->helpObj->validAndEscape($data['contact']);
+        $photo       =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
         $chstmt =  $this->dbObj->link->query("select * from committee where contact ='$contact'");
         if ($chstmt) {
@@ -261,13 +261,13 @@ class Manage {
     */
     function updateCommittee($data)
     {
-        $name = $this->helpObj->validAndEscape($data['name']);
+        $name        = $this->helpObj->validAndEscape($data['name']);
         $designation = $this->helpObj->validAndEscape($data['designation']);
-        $address = $this->helpObj->validAndEscape($data['address']);
-        $contact = $this->helpObj->validAndEscape($data['contact']);
-        $member_id = $this->helpObj->validAndEscape($data['member_id']);
+        $address     = $this->helpObj->validAndEscape($data['address']);
+        $contact     = $this->helpObj->validAndEscape($data['contact']);
+        $member_id   = $this->helpObj->validAndEscape($data['member_id']);
         $_FILES["photo"]["tmp_name"];
-        $photo  =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        $photo       =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
         if (strpos($_FILES["photo"]["tmp_name"],'.tmp') == "" || strpos($_FILES["photo"]["tmp_name"],'.tmp') == null) {
             
@@ -317,7 +317,7 @@ class Manage {
     {
 
         $query = "SELECT * FROM `committee` order by name asc";
-        $stmt = $this->dbObj->link->query($query);
+        $stmt  = $this->dbObj->link->query($query);
         if ($stmt) {
 
             return $stmt;

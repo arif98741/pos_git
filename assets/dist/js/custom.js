@@ -94,21 +94,7 @@ $(document).ready(function () {
 
         function addnewrow(addnewrowkey) {
             
-            /*
-            var groups = '';
-            $.ajax({
-                url: "functions.php",
-                method: 'get',
-                data: {
-                    page: 'addinvoice',
-                    action: 'getgroups'
-                }, success: function (d) {
-                    groups = d;
-                    //console.log(groups);
-                }, error: function (e) {
-                    alert(e);
-                }, async: false
-            });*/
+          
             var products = "";
             $.ajax({
                 url: "functions.php",
@@ -196,15 +182,16 @@ $(document).ready(function () {
         var addnewrowkey = 1; //for giving unique class
         $('.add_new_invoice_table_row').click(function () {
             
-            console.log();
+            console.log(addTemporaryProducts());
             if (addTemporaryProducts() == 'existed') {
-                
+                alert('Proudct Already Added');
             }else if(addTemporaryProducts() == 'inserted'){
                 addnewrow(addnewrowkey);
             }
             
             //$('#inv_detail').find(".select2_product").select2();
             //addnewrowkey++;
+            return false;
         });
 
         $('#inv_detail').delegate('.product_id, .product_name', 'keyup', function (e) {

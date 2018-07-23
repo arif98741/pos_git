@@ -21,15 +21,15 @@ class Login {
     public function login($data) {
         $username = $data['username'];
         $password = $data['password'];
-        $message = '';
+        $message  = '';
         if (empty($username) || empty($password)) {
             return $message = "<p class='alert alert-danger' id='message'><i class='fa fa-times'></i>&nbsp;Username or Password Must Not be Empty</p>";
         } else {
             $username = $this->helpObj->validAndEscape($username);
             $password = md5($this->helpObj->validAndEscape($password));
 
-            $query = "select * from tbl_user where username ='$username' and password = '$password'";
-            $status = $this->dbObj->select($query);
+            $query    = "select * from tbl_user where username ='$username' and password = '$password'";
+            $status   = $this->dbObj->select($query);
             if ($status) {
                 $data = $status->fetch_assoc();
                 //Session::init();
@@ -62,18 +62,18 @@ class Login {
 
     public function addUser($data)
     {
-        $name = $this->helpObj->validAndEscape($data['name']);
+        $name     = $this->helpObj->validAndEscape($data['name']);
         $username = $this->helpObj->validAndEscape($data['username']);
         $password = $this->helpObj->validAndEscape(md5($data['password']));
-        $email = $this->helpObj->validAndEscape($data['email']);
-        $msg =  '';
+        $email    = $this->helpObj->validAndEscape($data['email']);
+            $msg  =  '';
 
         $stmt = $this->dbObj->link->query("select * from tbl_user where username='admin'");
         if ($stmt) {
-            $obj = $stmt->fetch_object();
+            $obj   = $stmt->fetch_object();
             $company_name = $obj->company_name;
-            $address = $obj->address;
-            $logo = $obj->logo;
+            $address      = $obj->address;
+            $logo         = $obj->logo;
 
             $checkQ = $this->dbObj->link->query("select * from tbl_user where username = '$username' or email = '$email'");
             if ($checkQ) {
@@ -102,12 +102,12 @@ class Login {
 
     public function updateUser($data)
     {
-        $userid = $this->helpObj->validAndEscape($data['userid']);
-        $name = $this->helpObj->validAndEscape($data['name']);
+        $userid   = $this->helpObj->validAndEscape($data['userid']);
+        $name     = $this->helpObj->validAndEscape($data['name']);
         //$username = $this->helpObj->validAndEscape($data['username']);
         $password = $this->helpObj->validAndEscape(md5($data['password']));
-        $email = $this->helpObj->validAndEscape($data['email']);
-        $msg =  '';
+        $email    = $this->helpObj->validAndEscape($data['email']);
+        $msg      =  '';
 
         if ($password != '' || $password != null) {
             $stmt = $this->dbObj->update("update tbl_user set name='$name',password='$password',email='$email' where userid='$userid'") ;

@@ -105,7 +105,7 @@ class Printdata {
      */
 
     public function ProductReportbyGroupAndSupplier($data) {
-        $group = $data['product_group'];
+        $group    = $data['product_group'];
         $supplier = $data['supplier_id'];
        
         $this->table_content = "
@@ -348,7 +348,7 @@ class Printdata {
     public function SellReportForinvoice($starting,$ending) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
         $stmt = $this->dbObj->select("select distinct ts.*, tc.customer_name,tc.customer_id from tbl_sell ts join tbl_customer  tc on ts.customer_id = tc.customer_id where ts.date between  '$starting' and '$ending' order by ts.serial desc
             ");
@@ -407,7 +407,7 @@ class Printdata {
     public function SellReportForinvoiceByCustomer($starting,$ending,$customer_id) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
         $stmt = $this->dbObj->select("select ts.*, tc.customer_name,tc.customer_id from tbl_sell ts join tbl_customer  tc on ts.customer_id = tc.customer_id where ts.customer_id ='$customer_id' and ts.date between  '$starting' and '$ending' order by ts.serial desc
             ");
@@ -467,7 +467,7 @@ class Printdata {
     public function ShowAllPurchase($starting,$ending) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
                 //$stmt = $this->dbObj->select("SELECT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, tp.purchase_price, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.date asc");
 
@@ -516,7 +516,7 @@ class Printdata {
     public function ShowPurchaseByGroup($starting,$ending,$groupid) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
                 /*$stmt = $this->dbObj->select("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tg.groupid = '$groupid' and
                              ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.date asc");*/
@@ -568,7 +568,7 @@ class Printdata {
     public function ShowPurchaseByBrand($starting,$ending,$supplier_id) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
                 /*$stmt = $this->dbObj->select("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tss.supplier_id = '$supplier_id' and
                              ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.date asc");*/
@@ -617,7 +617,7 @@ class Printdata {
     public function SellReportForsales($starting,$ending) {
        
         $starting = $starting;
-        $ending = $ending;
+        $ending   = $ending;
 
         /*$stmt = $this->dbObj->select("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_sell.date between '$starting' and '$ending'");*/
         $stmt = $this->dbObj->select("SELECT ts.date,ts.sell_id,tp.product_id,tp.product_name,tsp.unit_price as 'sale_price',tsp.quantity FROM tbl_sell ts join tbl_sell_products tsp on ts.sell_id = tsp.sell_id JOIN tbl_product tp on tsp.product_id = tp.product_id where ts.date between '$starting' and '$ending' order by ts.date asc");
@@ -663,7 +663,7 @@ class Printdata {
     public function SellReportByGroup($starting,$ending,$groupid) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
 
         $stmt = $this->dbObj->select("SELECT ts.date,ts.sell_id,tp.product_id,tp.product_name,tsp.unit_price as 'sale_price',tsp.quantity FROM tbl_sell ts join tbl_sell_products tsp on ts.sell_id = tsp.sell_id JOIN tbl_product tp on tsp.product_id = tp.product_id where tp.product_group='$groupid' and ts.date between '$starting' and '$ending' order by ts.date asc");
@@ -705,7 +705,7 @@ class Printdata {
     public function SellReportByBrand($starting,$ending,$brandid) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
          $stmt = $this->dbObj->select("SELECT ts.date,ts.sell_id,tp.product_id,tp.product_name,tsp.unit_price as 'sale_price',tsp.quantity FROM tbl_sell ts join tbl_sell_products tsp on ts.sell_id = tsp.sell_id JOIN tbl_product tp on tsp.product_id = tp.product_id where tp.product_brand='$brandid' and ts.date between '$starting' and '$ending' order by ts.date asc");
        
@@ -747,8 +747,8 @@ class Printdata {
 
     public function SellReportByCustomer($starting,$ending,$customer_id) {
        
-        $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $starting    = $starting." 00:00:00";
+        $ending      = $ending." 23:59:59";
         $customer_id = $_POST['customer_id'];
 
          $stmt = $this->dbObj->select("SELECT ts.date,ts.sell_id,tp.product_id,tp.product_name,tsp.unit_price as 'sale_price',tsp.quantity FROM tbl_sell ts join tbl_sell_products tsp on ts.sell_id = tsp.sell_id JOIN tbl_product tp on tsp.product_id = tp.product_id where ts.customer_id='$customer_id' and ts.date between '$starting' and '$ending' order by ts.date asc");
@@ -790,7 +790,7 @@ class Printdata {
     public function SellReportByProductName($starting,$ending,$product_id) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
         $stmt = $this->dbObj->select("SELECT
                         ts.date,
@@ -899,7 +899,7 @@ class Printdata {
     public function ShowAllLedgerReport($starting,$ending) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
 
         $stmt = $this->dbObj->select("SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id where tl.date between '$starting' and '$ending' order by tl.serial asc");
         
@@ -939,7 +939,7 @@ class Printdata {
     public function ledgerReportbyCategory($starting,$ending,$category) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
+        $ending   = $ending." 23:59:59";
         $category = $this->helpObj->validAndEscape($category);
 
         $stmt = $this->dbObj->select("SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id where ttc.id ='$category' and tl.date between '$starting' and '$ending' order by tl.serial asc");
@@ -979,8 +979,8 @@ class Printdata {
     public function ledgerReportbyPayar($starting,$ending,$payar) {
        
         $starting = $starting." 00:00:00";
-        $ending = $ending." 23:59:59";
-        $payar = $this->helpObj->validAndEscape($payar);
+        $ending   = $ending." 23:59:59";
+        $payar    = $this->helpObj->validAndEscape($payar);
 
         $stmt = $this->dbObj->select("select * from tbl_laser where donor = '$payar' and date  BETWEEN '$starting' AND '$ending'  order by serial asc
             ");
@@ -1022,7 +1022,7 @@ class Printdata {
     public function ledgerReportbyReceiver($starting,$ending,$receiver) {
        
         $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
-        $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
+        $ending   = $this->helpObj->validAndEscape($ending." 23:59:59");
         $receiver = $this->helpObj->validAndEscape($receiver);
 
         $stmt = $this->dbObj->select("select * from tbl_laser where receiver = '$receiver' and date  BETWEEN '$starting' AND '$ending'  order by serial asc
@@ -1065,7 +1065,7 @@ class Printdata {
     public function ShowAllSupplierTransaction($starting,$ending) {
        
         $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
-        $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
+        $ending   = $this->helpObj->validAndEscape($ending." 23:59:59");
 
         $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.date BETWEEN '$starting' and '$ending'");
         
@@ -1107,7 +1107,7 @@ class Printdata {
        
         
         $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
-        $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
+        $ending   = $this->helpObj->validAndEscape($ending." 23:59:59");
 
 
         $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.supplier='$supplier' and tst.date BETWEEN '$starting' and '$ending'");

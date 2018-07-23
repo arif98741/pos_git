@@ -23,27 +23,27 @@ class Product {
 
     public function showType() { //for showing type in dropdown in addproduct.php
         $query = 'select * from tbl_type order by typename ASC';
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 
     public function showSingleType($typeid) {
-        $tstmt = $this->dbObj->select("select * from tbl_type where typeid='$typeid'");
+        $tstmt  = $this->dbObj->select("select * from tbl_type where typeid='$typeid'");
         $trdata = $tstmt->fetch_assoc();
         return $trdata;
     }
 
     public function showGroup() { //for showing group in dropdown in addproduct.php
         $query = 'select * from tbl_group order by groupname ASC';
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 
 
     public function showGroupById($groupid) { //for showing group in dropdown in addproduct.php
         $groupid = $this->helpObj->validAndEscape($groupid);
-        $query = "select * from tbl_group where groupid ='$groupid'";
-        $stmt = $this->dbObj->select($query);
+        $query   = "select * from tbl_group where groupid ='$groupid'";
+        $stmt    = $this->dbObj->select($query);
         if($stmt){
             return $stmt->fetch_assoc();
         }
@@ -54,8 +54,8 @@ class Product {
 
      public function showBrandById($supplier_id) { //for showing group in dropdown in addproduct.php
         $supplier_id = $this->helpObj->validAndEscape($supplier_id);
-        $query = "select * from tbl_supplier where supplier_id ='$supplier_id'";
-        $stmt = $this->dbObj->select($query);
+        $query       = "select * from tbl_supplier where supplier_id ='$supplier_id'";
+        $stmt        = $this->dbObj->select($query);
         if($stmt){
             return $stmt->fetch_assoc();
         }
@@ -65,13 +65,13 @@ class Product {
     
     public function showBrand() { //for showing brand in dropdown in addproduct.php
         $query = 'select * from tbl_brand order by brandname ASC';
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 
     public function showColor() { //for showing color in dropdown in addproduct.php
         $query = 'select * from tbl_color order by colorname ASC';
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 
@@ -103,15 +103,15 @@ class Product {
 
     public function addProduct($data) {
 
-        $product_id = $this->helpObj->validAndEscape($data['product_id']);
-        $product_type = $this->helpObj->validAndEscape($data['product_type']);
-        $product_group = $this->helpObj->validAndEscape($data['product_group']);
-        $product_name = $this->helpObj->validAndEscape($data['product_name']);
-        $product_brand = $this->helpObj->validAndEscape($data['product_brand']);
-        $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
+        $product_id     = $this->helpObj->validAndEscape($data['product_id']);
+        $product_type   = $this->helpObj->validAndEscape($data['product_type']);
+        $product_group  = $this->helpObj->validAndEscape($data['product_group']);
+        $product_name   = $this->helpObj->validAndEscape($data['product_name']);
+        $product_brand  = $this->helpObj->validAndEscape($data['product_brand']);
+        $sale_price     = $this->helpObj->validAndEscape($data['sale_price']);
         $purchase_price = $this->helpObj->validAndEscape($data['purchase_price']);
         $piece_in_a_carton = $this->helpObj->validAndEscape($data['piece_in_a_carton']);
-        $u_id = $_SESSION['userid'];
+        $u_id              = $_SESSION['userid'];
         $query = "insert into tbl_product
                 (product_id,product_type,product_group,product_name,product_brand,sale_price,purchase_price,piece_in_a_carton,updateby)
    
@@ -146,19 +146,19 @@ class Product {
 
     public function getsingleProduct($product_id) {
         $product_id = $this->helpObj->validAndEscape($product_id);
-        $query = "select * from tbl_product where product_id='$product_id'";
-        $sta = $this->dbObj->select($query);
+        $query      = "select * from tbl_product where product_id='$product_id'";
+        $sta        = $this->dbObj->select($query);
         return $sta;
     }
 
     public function updateProduct($data) {
 
-        $product_id = $this->helpObj->validAndEscape($data['product_id']);
-        $product_type = $this->helpObj->validAndEscape($data['product_type']);
-        $product_group = $this->helpObj->validAndEscape($data['product_group']);
-        $product_name = $this->helpObj->validAndEscape($data['product_name']);
-        $product_brand = $this->helpObj->validAndEscape($data['product_brand']);
-        $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
+        $product_id     = $this->helpObj->validAndEscape($data['product_id']);
+        $product_type   = $this->helpObj->validAndEscape($data['product_type']);
+        $product_group  = $this->helpObj->validAndEscape($data['product_group']);
+        $product_name   = $this->helpObj->validAndEscape($data['product_name']);
+        $product_brand  = $this->helpObj->validAndEscape($data['product_brand']);
+        $sale_price     = $this->helpObj->validAndEscape($data['sale_price']);
         $purchase_price = $this->helpObj->validAndEscape($data['purchase_price']);
         $piece_in_a_carton = $this->helpObj->validAndEscape($data['piece_in_a_carton']);
         $u_id = $_SESSION['userid'];
