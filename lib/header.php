@@ -168,7 +168,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo Session::get('logo'); ?>" class="user-image" alt="User Image">
-              <span class="hidden-xs">Admin</span>
+              <span class="hidden-xs"><?php echo ucfirst(Session::get('status')); ?></span>
             </a>
             <ul class="dropdown-menu">
              
@@ -215,10 +215,15 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
-            
+            <?php if(Session::get('status') == 'admin'): ?>
+
             <li><a href="addproduct.php"><i class="fa fa-plus"></i>Add Product</a></li>
+            <?php endif; ?>
             <li><a href="products.php"><i class="fa fa-list"></i>Product List</a></li>
+            <?php if(Session::get('status') == 'admin'): ?>
+
             <li><a href="product_report.php"><i class="fa fa-tag"></i>Products Report</a></li>
+            <?php endif; ?>
             
           </ul>
         </li>
@@ -236,7 +241,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             
             <li><a href="addpurchase.php"><i class="fa fa-plus"></i>Add Purchase</a></li>
             <li><a href="purchaselist.php"><i class="fa fa-list"></i>Purchase List</a></li>
+            <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="purchasereport.php"><i class="fa fa-tag"></i>Purchase Report</a></li>
+           <?php endif; ?>
             
           </ul>
         </li>
@@ -252,9 +259,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             
             <li><a href="addinvoice.php"><i class="fa fa-plus"></i>Sale Product</a></li>
             <li><a href="invoicelist.php"><i class="fa fa-list"></i>Sales List</a></li>
+
+            <?php if(Session::get('status') == 'admin'): ?>
+
             <li><a href="profitreport.php"><i class="fa fa-tag"></i>Profit Report</a></li>
             <li><a href="invoice_report.php"><i class="fa fa-tag"></i>Invoice Report</a></li>
             <li><a href="sale_report.php"><i class="fa fa-tag"></i>Sales Report</a></li>
+
+           <?php endif; ?>
             
           </ul>
         </li>
@@ -271,8 +283,14 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           <ul class="treeview-menu">
             
             <li><a href="billpay.php"><i class="fa fa-plus"></i>Add Payment</a></li>
+            
+            <?php if(Session::get('status') == 'admin'): ?>
+            
+
             <li><a href="paymentlist.php"><i class="fa fa-list"></i>Payment Record</a></li>
             <li><a href="paymentreport.php"><i class="fa fa-tag"></i>Payment Report</a></li>
+
+          <?php endif; ?>
             
           </ul>
         </li>
@@ -288,7 +306,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           </a>
           <ul class="treeview-menu">
             <li><a href="stocklist.php"><i class="fa fa-list"></i>Stock List</a></li>
+
+            <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="stock_report.php"><i class="fa fa-tag"></i>Stock Report</a></li>
+           <?php endif; ?>
+
           </ul>
         </li>
 
@@ -303,8 +325,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             
             
             <li><a href="transcategorylist.php"><i class="fa fa-list"></i>Transaction Category</a></li>
+            <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="laserlist.php"><i class="fa fa-list"></i>Transaction List </a></li>
             <li><a href="laserreport.php"><i class="fa fa-tag"></i>Transaction Report </a></li>
+
+          <?php endif; ?>
             
           </ul>
         </li>
@@ -318,10 +343,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
+            <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="addcustomer.php"><i class="fa fa-plus"></i>Add Customer</a></li>
+            <?php endif; ?>
+
             <li><a href="customerlist.php"><i class="fa fa-list"></i>Customer List </a></li>
+
+            <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="customer_statement.php"><i class="fa fa-exchange"></i>Customer Statement </a></li>
             <li><a href="printfiles/customer/print.php"><i class="fa fa-tag"></i>Customer Report</a></li>
+            <?php endif; ?>
           </ul>
         </li>
 
@@ -334,9 +365,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           </a>
           <ul class="treeview-menu">
             <li><a href="supplierlist.php"><i class="fa fa-list"></i>Supplier List </a></li>
+            <?php if(Session::get('status') == 'admin'): ?>
+
             <li><a href="suppliertransaction.php"><i class="fa fa-list"></i>Supplier Transaction</a></li>
             <li><a href="supplier_transaction_report.php"><i class="fa fa-tag"></i>Supplier Transaction Report</a></li>
             <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>Supplier Report</a></li>
+
+          <?php endif; ?>
           </ul>
         </li>
 
@@ -348,8 +383,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
+            <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="addgroup.php"><i class="fa fa-plus"></i>Add Product Group</a></li>
             <li><a href="addtype.php"><i class="fa fa-plus"></i>Add Product Unit</a></li>
+          <?php endif; ?>
+
             <li><a href="grouplist.php"><i class="fa fa-list"></i>Group List </a></li>
             <li><a href="typelist.php"><i class="fa fa-list"></i>Unit List </a></li>
             <li><a href="users.php"><i class="fa fa-list"></i>User List </a></li>

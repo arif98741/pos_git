@@ -21,7 +21,7 @@
     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-      <div class="row">
+      
         
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
@@ -69,7 +69,7 @@
             <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-
+    <?php if(Session::get('status') == 'admin'): ?>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
@@ -85,10 +85,13 @@
             <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
+
+      <?php endif; ?>
+
         <!-- ./col -->
         
         <!-- ./col -->
-      </div>
+     
       <!-- /.row -->
 
       <!-- row -->
@@ -159,7 +162,7 @@
         <!-- ./col -->
         
       
-      </div>
+    
       <!-- /.row -->
       
     </section>

@@ -40,7 +40,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active"><a href="index.php">Dashboard</a></li>
+        <?php if(Session::get('status') == 'admin'): ?>
         <li class="active"><a href="addsupplier.php">Add New Supplier</a></li>
+      <?php endif; ?>
       </ol>
     </section>
 
@@ -87,9 +89,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                        
 
                                         <td>
-                                            <a href="viewsupplier.php?action=view&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i class="fa fa-ey" title="view supplier information"></i></a>&nbsp;
+                                            <?php if(Session::get('status') == 'admin'): ?>
                                             <a href="editsupplier.php?action=edit&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
                                             <a href="?action=delete&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i id="deleterow"   class="fa fa-trash" style="color:red;" title="click to delete" onclick="return confirm('are you sure to delete?')" ></i></a>
+                                          <?php else:  ?>
+                                          -  
+                                          <?php endif; ?>
 
                                         </td>
                                         

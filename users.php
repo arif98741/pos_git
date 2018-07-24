@@ -89,6 +89,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                    <a href="?action=delete&serial=<?php echo $row['userid']; ?>" style="border-radius: 3px;" title="click to delete" onclick="return confirm('are you sure to delete?')" ><i class="fa fa-trash"></i></a>
 
                               </td>
+
+                              <?php else: ?>
+                                <td>-</td>
                             <?php endif; ?>
                               
                            </tr>

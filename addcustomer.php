@@ -1,5 +1,7 @@
 <?php include 'lib/header.php'; ?> 
-
+<?php if (Session::get('status') !== 'admin') {
+    header("Location: index.php");
+}?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">

@@ -1,4 +1,7 @@
 <?php include 'lib/header.php'; ?> 
+<?php if (Session::get('status') !== 'admin') {
+    header("Location: index.php");
+}?>
 <?php 
   if (isset($_GET['action']) && isset($_GET['id'])) {
     $id = $help->validAndEscape($_GET['id']);

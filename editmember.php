@@ -1,4 +1,7 @@
 <?php include 'lib/header.php'; ?> 
+<?php if (Session::get('status') !== 'admin') {
+    header("Location: index.php");
+}?>
 <?php 
 
   if(isset($_GET['duty'] ) && $_GET['duty'] ='delete'){

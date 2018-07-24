@@ -40,7 +40,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li ><a href="index.php">Dashboard</a></li>
+        
+        <?php if(Session::get('status') == 'admin'): ?>
+        
         <li ><a href="addtranscategory.php">Add Transaction Category</a></li>
+      
+       <?php endif; ?>
       </ol>
     </section>
 
@@ -82,10 +87,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                         
 
                                         <td>
-                                            
+                                            <?php if(Session::get('status') == 'admin'): ?>
                                             <a href="edittranscat.php?action=edit&id=<?php echo $r['id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
                                             <a href="?action=delete&id=<?php echo $r['id']; ?>"><i id="deleterow"   class="fa fa-trash" style="color:red;" title="click to delete" onclick="return confirm('are you sure to delete?')" ></i></a>
-
+                                            <?php else: ?>
+                                              -
+                                            <?php endif; ?>
                                         </td>
                                         
 

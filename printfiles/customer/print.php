@@ -4,6 +4,9 @@ $path = realpath(dirname(__DIR__));
 include_once $path . '../../classes/Session.php';
 include_once "../../classes/Printdata.php";
 Session::checkSession();
+if (isset($_SESSION['status']) && $_SESSION['status'] !== 'admin') {
+    header("location: ../../index.php");
+} 
 $pri = new Printdata();
 date_default_timezone_set('Asia/Dhaka');
 ?>

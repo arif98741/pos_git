@@ -2,8 +2,11 @@
 $path = realpath(dirname(__DIR__));
 include_once $path . '/product/print.php';
 include_once "../../classes/Printdata.php";
+include_once "../../classes/Session.php";
 $pri = new Printdata();
-
+if (isset($_SESSION['status']) && $_SESSION['status'] !== 'admin') {
+    header("location: ../../index.php");
+} 
 ?>
 
 
