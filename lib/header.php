@@ -321,7 +321,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <li><a href="printfiles/customer/print.php"><i class="fa fa-tag"></i>Customer Report</a></li>
           </ul>
         </li>
-
+        -->
         <li class="treeview">
           <a href="#">
             <i class="fa fa-user"></i> <span>Supplier</span>
@@ -336,6 +336,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>Supplier Report</a></li>
           </ul>
         </li>
+
+        
 
         <li class="treeview">
           <a href="#">
@@ -352,7 +354,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <li><a href="users.php"><i class="fa fa-list"></i>User List </a></li>
             
           </ul>
-        </li> -->
+        </li> 
 
       </ul>
     </section>
