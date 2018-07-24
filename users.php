@@ -37,7 +37,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active"><a href="index.php">Dashboard</a></li>
        <!-- <li class="active"><a href="addlaser.php">Add New Transaction</a></li> --> 
+       <?php if(Session::get('status') == 'admin'): ?>
         <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add-new-user">Add New User</a></li>
+      <?php endif; ?>
       </ol>
     </section>
 
