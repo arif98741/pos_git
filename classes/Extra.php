@@ -14,7 +14,12 @@ class Extra {
         $this->helpObj = new Helper();
     }
 
-    public function showGroup() { //for showing group in dropdown in addinvoice.php
+    /*
+    !----------------------------------------------------------
+    ! for showing group in dropdown in addinvoice.php     
+    !---------------------------------------------------------
+    */
+    public function showGroup() { 
         $query = 'select * from tbl_group order by groupname ASC';
         $stmt = $this->dbObj->select($query);
         $val = '<select class="form-control product_group" name="product_group">';
@@ -27,7 +32,12 @@ class Extra {
         return $val .= '</select>';
     }
 
-    //for showing products name list according to group id in dropdown in addinvoice.php
+
+    /*
+    !-------------------------------------------------------------------------------------
+    !for showing products name list according to group id in dropdown in addinvoice.php     
+    !------------------------------------------------------------------------------------
+    */
     public function showProductNameList() {
         //$group_id = $this->helpObj->validAndEscape($group_id);
         $query = "SELECT * from tbl_product order by product_name asc";
@@ -49,7 +59,12 @@ class Extra {
         }
     }
 
-    //showing single product details in addinvoice form by selecting product list dropdown
+    
+    /*
+    !-------------------------------------------------------------------------------------
+    !showing single product details in addinvoice form by selecting product list dropdown     
+    !------------------------------------------------------------------------------------
+    */
     public function showSingleProDetails($pro_id) {
         $q = "select * from tbl_product,tbl_type where tbl_product.product_type = tbl_type.typeid and tbl_product.product_id ='$pro_id'";
         $st = $this->dbObj->select($q);
@@ -61,10 +76,13 @@ class Extra {
     }
 
 
-    /**
-     * @ get group list
-     * @ group product
-     */
+    
+    /*
+    !------------------------------------------
+    !               group product 
+    !               group product
+    !-----------------------------------------
+    */
     public function showgrouplist()
     {
         $q = "select * from tbl_group order by groupid asc";
@@ -76,11 +94,12 @@ class Extra {
         }
     }
 
-
-    /**
-     * @ get type list
-     * @ type product
-     */
+    /*
+    !------------------------------------------
+    !               get type list 
+    !               type product
+    !-----------------------------------------
+    */
     public function showtypelist()
     {
         $q = "select * from tbl_type order by typeid asc";
@@ -93,10 +112,12 @@ class Extra {
     }
 
 
-    /**
-    @previous due of customer 
-    @ in viewsales.php
-    **/
+    /*
+    !---------------------------------------------------------
+    !                     previous due of customer 
+    !                      in viewsales.php
+    !--------------------------------------------------------
+    */
     public function lastInvoicedue($cus_id)
     {
 
@@ -183,10 +204,10 @@ class Extra {
 
 
 
-    /*------------------------------------------
+    /*------------------------------------------------
     ! Retriving Current Directory and Page Title
     !           Dynamic Page Title
-    !-------------------------------------------
+    !-------------------------------------------------
     */
     function dynamicPageTitle()
     {
@@ -219,7 +240,5 @@ class Extra {
           }
        }
     }
-
-
 
 }

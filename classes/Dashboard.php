@@ -17,8 +17,11 @@ class Dashboard {
     }
 
    
-
-    // Todays Sale
+    /*
+    !--------------------------------------
+    !               Today's Sale
+    !-------------------------------------
+    */
     public function TodaySale()
     {
         date_default_timezone_set('Asia/Dhaka');
@@ -39,7 +42,11 @@ class Dashboard {
     }
 
 
-    //Today Sales Amout
+    /*
+    !--------------------------------------
+    !               Today Sales Amout
+    !-------------------------------------
+    */
     public function TodayMemo()
     {
         $starting = date('Y-m-d')." 00:00:00";
@@ -54,8 +61,11 @@ class Dashboard {
         } 
     }
 
-
-    //Total Sales Amout
+    /*
+    !----------------------------------
+    !           Total Sales Amout
+    !----------------------------------
+    */
     public function TotalMemo()
     {
         $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell";
@@ -68,7 +78,11 @@ class Dashboard {
     }
 
 
-    //Total Purchase
+    /*
+    !----------------------------------
+    !         Total Purchase
+    !----------------------------------
+    */
     public function totalPurchase()
     {
         $query = "SELECT count(serial) as 'totalinvoice' from tbl_invoice";

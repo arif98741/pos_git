@@ -9,18 +9,22 @@ class Database {
     private $database = 'aladin_pos';
 
     
-     /*
-    @ initial load at the time of creating object
-    @ no return job
+    /*
+    !-----------------------------------------------------
+    !      nitial load at the time of creating object
+    !      no return job
+    !----------------------------------------------------
     */
     function __construct() {
         $this->link = $this->connection();
     }
 
 
-     /*
-    @ database connection
-    @ return as connection object
+    /*
+    !-----------------------------------------------------
+    !      database connection
+    !      return as connection object
+    !----------------------------------------------------
     */
     public function connection() {
         $link = new mysqli($this->host, $this->username, $this->password, $this->database);
@@ -31,9 +35,12 @@ class Database {
         }
     }
 
+    
     /*
-    @ select data from database
-    @ return as object
+    !-----------------------------------------------------
+    !      select data from database
+    !      return as object
+    !----------------------------------------------------
     */
     public function select($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
@@ -50,8 +57,10 @@ class Database {
     
 
     /*
-    @ select data from database
-    @ return as associative array
+    !-----------------------------------------------------
+    !      select data from database
+    !      return as associative array
+    !----------------------------------------------------
     */
     public function selectFetchAssoc($query) {
         $stmt = $this->link->query($query);
@@ -63,9 +72,11 @@ class Database {
     }
 
     /*
-    @ insert data into database
-    @ return as object
-    @ true/false
+    !-----------------------------------------------------
+    !      insert data into database
+    !      @param $query
+    !      @ return true/false
+    !----------------------------------------------------
     */
     public function insert($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;

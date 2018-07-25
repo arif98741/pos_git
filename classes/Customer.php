@@ -16,10 +16,12 @@ class Customer {
         $this->helpObj = new Helper();
     }
 
+   
     /*
-     * showing customer list in addsell.php in dropdown menu.
-     * */
-
+    !----------------------------------------------------------
+    ! showing customer list in addsell.php in dropdown menu
+    !---------------------------------------------------------
+    */
     public function showCustomerForDropdown() {
         $query = 'select * from tbl_customer order by customer_name asc';
         $stmt = $this->dbObj->select($query);
@@ -30,7 +32,12 @@ class Customer {
         }
     }
 
-    //show single customer details for dropdown in addsell.php
+   
+    /*
+    !----------------------------------------------------------
+    !  show single customer details for dropdown in addsell.php
+    !---------------------------------------------------------
+    */
     public function singleCustomerDetail($customer_id) {
         $query = "select * from tbl_customer where customer_id='$customer_id'";
         $stmt = $this->dbObj->select($query);
@@ -43,10 +50,11 @@ class Customer {
     }
 
     /*
-     * insert Customer to customer table
-     * from addcustomer.php
-     * */
-
+    !------------------------------------------------
+    !       sinsert Customer to customer table
+    !       from addcustomer.php
+    !-----------------------------------------------
+    */
     public function insertCustomer($data) {
 
         date_default_timezone_set('Asia/Dhaka');
@@ -87,9 +95,10 @@ class Customer {
     }
 
     /*
-     * get single customer details
-     * */
-
+    !--------------------------------------
+    !       get single customer details
+    !-------------------------------------
+    */
     public function singleCustomer($customerid) {
         $customerid = $this->helpObj->validAndEscape($customerid);
         $query = "select * from tbl_customer where customer_id='$customerid'";
@@ -98,9 +107,10 @@ class Customer {
     }
 
     /*
-     * update customer from editcustomer.php
-     * */
-
+    !----------------------------------------------
+    !    update customer from editcustomer.php
+    !---------------------------------------------
+    */
     public function updateCustomer($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
         $customerid = $this->helpObj->validAndEscape($data['customer_id']);
@@ -126,11 +136,12 @@ class Customer {
         }
     }
 
+    
     /*
-     * delete customer from customerlist.php
-     *
-     * */
-
+    !----------------------------------------------
+    !    delete customer from customerlist.php
+    !---------------------------------------------
+    */
     public function deleteCustomer($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
         $query = "delete from tbl_customer where serial='$serial'";
@@ -142,10 +153,12 @@ class Customer {
         }
     }
 
+    
     /*
-     * show customers in addsell dropdown after adding from popup
-     */
-
+    !-----------------------------------------------------------------
+    !    show customers in addsell dropdown after adding from popup
+    !----------------------------------------------------------------
+    */
     public function getPopCustomers() {
         $query = 'select * from tbl_customer order by customer_name asc';
         $stmt = $this->dbObj->select($query);
@@ -161,10 +174,13 @@ class Customer {
     }
 
 
-    /* @send message to customer
-    * @ after completing payment
+ 
+    /*
+    !-------------------------------------
+    !    send message to customer
+    !    after completing payment
+    !------------------------------------
     */
-
     public function sendMessage($customer_id,$amount,$method)
     {
         $query = "SELECT tc.customer_name,tc.customer_id,tc.contact_no,cb.balance from tbl_customer tc join customer_balance cb on tc.customer_id = cb.customer_id where tc.customer_id='$customer_id'";
@@ -194,8 +210,6 @@ class Customer {
         $smsresult = curl_exec($ch); //execute statement to send sms
         return $smsresult;
     }
-
-
 
 
 
