@@ -11,7 +11,7 @@ class Database {
     
     /*
     !-----------------------------------------------------
-    !      nitial load at the time of creating object
+    !      initial load at the time of creating object
     !      no return job
     !----------------------------------------------------
     */
@@ -87,11 +87,13 @@ class Database {
         }
     }
 
-
     /*
-    @ update data in database
-    @ return as object
-    @ true/false
+    !-----------------------------------------------------
+    !      update data in database
+    !      @param $query
+    !      @ return as object
+    !      @ true/false
+    !----------------------------------------------------
     */
     public function update($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;
@@ -102,10 +104,13 @@ class Database {
         }
     }
 
+  
     /*
-    @ delete data from database
-    @ return as object
-    @ true/false
+    !-----------------------------------------------------
+    !      delete data from database
+    !      @param $query
+    !      @ return boolean
+    !----------------------------------------------------
     */
     public function delete($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
@@ -118,9 +123,10 @@ class Database {
 
 
     /*
-    @ count row of table in database
-    @ return as number
-    
+    !-----------------------------------------------------
+    !      count row of table in database
+    !      return as number
+    !----------------------------------------------------
     */
     public function rowCount($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;

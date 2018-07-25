@@ -10,16 +10,24 @@ class Invoice {
     private $dbObj;
     private $helpObj;
 
+    /*
+    !-----------------------------------------------------
+    !      initial load at the time of creating object
+    !      no return job
+    !----------------------------------------------------
+    */
     public function __construct() {
 
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
     }
 
-    /*
-     * showing invoice list in the table
-     */
 
+    /*
+    !-------------------------------------------------
+    !           showing invoice list in the table     
+    !-------------------------------------------------
+    */
     public function showInvoices() {
         $query = "select * from tbl_invoice ti JOIN tbl_supplier ts on ti.supplier_id = ts.supplier_id order by ti.serial desc ";
         $st = $this->dbObj->select($query);
@@ -30,10 +38,12 @@ class Invoice {
         }
     }
 
+   
     /*
-     * show product in invoice form by specific product id
-     */
-
+    !--------------------------------------------------------------------
+    !           show product in invoice form by specific product id     
+    !-------------------------------------------------------------------
+    */
     public function showProductByID($product_id) {
         $query = "select * from tbl_product where product_id='$product_id'";
         $st = $this->dbObj->select($query);
@@ -48,10 +58,13 @@ class Invoice {
         }
     }
 
+   
     /*
-     * save invoice data from addpurchase in tbl_invoice and tbl_invoice_products
-     */
-
+    !----------------------------------------------------------
+    !       save invoice data from addpurchase 
+    !       used table tbl_invoice, tbl_invoice_products     
+    !---------------------------------------------------------
+    */
     public function saveInvoice($data) {
 
 
@@ -97,11 +110,13 @@ class Invoice {
         }
     }
 
+    
     /*
-     * Update Invoice Data from
-     * editvoice.php
-     */
-
+    !----------------------------------------------------------
+    !                Update Invoice Data from 
+    !                   editvoice.php     
+    !---------------------------------------------------------
+    */
     public function updateInvoice($data) {
 
         $inv_no = $this->helpObj->validAndEscape($data['invoice_number']);
@@ -153,9 +168,10 @@ class Invoice {
     }
 
     /*
-     * /get single invoice data for editpurchase.php
-     */
-
+    !----------------------------------------------------------
+    !        get single invoice data for editpurchase.php  
+    !---------------------------------------------------------
+    */
     public function singleInvoice($inv_no) {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
         $q = "select * from tbl_invoice where invoice_number ='$inv_no'";
@@ -166,9 +182,10 @@ class Invoice {
     }
 
     /*
-     * get all products for an invoice
-     */
-
+    !----------------------------------------------------------
+    !        get all products for an invoice  
+    !---------------------------------------------------------
+    */
     public function getInvoiceProducts($inv_no) {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
         $q = "select * from tbl_invoice_products tip ,tbl_product tp where tip.invoice_id ='$inv_no' and tp.product_id = tip.product_id order by tip.product_id";
@@ -181,9 +198,10 @@ class Invoice {
     }
 
     /*
-     * delete invoice and invoice products
-     */
-
+    !----------------------------------------------------------
+    !        delete invoice and invoice products  
+    !---------------------------------------------------------
+    */
     public function deleteInvoice($serial, $invoice_id) {
         $serial = $this->helpObj->validAndEscape($serial);
         $invoice_id = $this->helpObj->validAndEscape($invoice_id);
