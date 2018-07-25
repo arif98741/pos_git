@@ -119,9 +119,11 @@ class Extra {
     }
 
 
-    /**
-    @  quantiy Maintainer function
-    @  this will identify wheather the quantity is grater than one or not
+    /*
+    !-----------------------------------------------------------------------
+    !    quantiy Maintainer function
+    !    this will identify wheather the quantity is grater than one or not
+    !-----------------------------------------------------------------------
     */
     public function quantityMaintainer($quantity, $unit)
     {
@@ -134,9 +136,11 @@ class Extra {
     }
 
 
-
-    /* @send message to customer 
-    * @ after completing sale at printfiles/sale/printinvoice.php
+    /*
+    !--------------------------------------------------------------------
+    !       send message to customer
+    !       after completing sale at printfiles/sale/printinvoice.php
+    !-------------------------------------------------------------------  
     */
     
     public function sendMessageAfterSale($customer_id,$sell_id,$amount)
@@ -179,21 +183,42 @@ class Extra {
 
 
 
-        /*
-        @ current directory path
-        @ return string
-        */
-        public function currentPath()
-        {
-            
-            $path_array = $_SERVER['PHP_SELF'];
-            //return $path_array;
-            $explode = explode('/', $path_array);
-            unset($explode[0]);
+    /*------------------------------------------
+    ! Retriving Current Directory and Page Title
+    !           Dynamic Page Title
+    !-------------------------------------------
+    */
+    function dynamicPageTitle()
+    {
+        $path_array = $_SERVER['PHP_SELF'];
+        //return $path_array;
+        $explode = explode('/', $path_array);
+        unset($explode[0]); //delete empty array value
+         
+       $path_array = $explode;
+       if ($path_array[2] == 'index.php') {
+         return "Dashboard | ";
+       } else {
+          $string = $path_array[2];
+          $str_replace = str_replace('.php', '', $string);
+          $path = ucfirst($str_replace);
 
-            
-            return $explode;
-        }
+          if (strpos($path, '_') !== false) {
+              $string = explode('_',$path);
+              $path = '';
+              for ($i = 0; $i <count($string) ; $i++) {
+                if ($i == count($string) - 1) {
+                  $path .= ucfirst($string[$i])." ";
+                } else {
+                  $path .= ucfirst($string[$i])." | ";
+                }
+              }
+              return $path." | ";
+          }else{
+            return ucfirst($str_replace)." | ";
+          }
+       }
+    }
 
 
 
