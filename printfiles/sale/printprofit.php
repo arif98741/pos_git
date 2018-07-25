@@ -96,7 +96,8 @@ date_default_timezone_set("Asia/Dhaka");
                         <?php } } ?>
                             <tr>
                                 <td colspan="4" style="text-align: center;"><strong>Total</strong></td>
-                                <td style="text-align: center;"><strong><?php echo $amount; ?></strong></td>
+                               
+                                <td style="text-align: center;"><strong><?php echo number_format((float)$amount, 2, '.', ''); ?></strong></td>
                             </tr>
                   </tbody>
                 </table>
@@ -158,7 +159,7 @@ date_default_timezone_set("Asia/Dhaka");
                         <?php } } ?>
                             <tr>
                                 <td colspan="3" style="text-align: center;"><strong>Total</strong></td>
-                                <td style="text-align: center;"><strong><?php echo $amount; ?></strong></td>
+                                <td style="text-align: center;"><strong><?php echo number_format((float)$amount, 2, '.', ''); ?></strong></td>
                             </tr>
                   </tbody>
                 </table>

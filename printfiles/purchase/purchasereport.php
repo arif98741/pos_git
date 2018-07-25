@@ -1,4 +1,6 @@
 <?php
+ob_start();
+
 $path = realpath(dirname(__DIR__));
 include_once $path . '/product/print.php';
 include_once "../../classes/Session.php";
@@ -10,19 +12,19 @@ $pro = new Product();
 ?>
 
 
-<!DOCTYPE html>
+<!DOCTYPE html class="hi">
 <html>
-    <head>
+   <!--  <head>
         <script>
             function goBack() {
                 window.history.back();
             }
         </script>
         <meta charset="utf-8">
-        <title>Puchase Report - Summary</title>
+        <title>//Puchase Report - Summary</title>
         <link rel="stylesheet" href="../../assets/css/print.css" type="text/css" media="screen">
-        <link rel="stylesheet " href="../../assets/css/print.css">
-    </head>
+        <link rel="stylesheet " href="../../assets/css/print.css"> 
+    </head>-->
 
     <body>
         <div class="bt-div">
@@ -100,8 +102,7 @@ $pro = new Product();
                                     $groupid = $_POST['groupid'];
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tg.groupid = '$groupid' and
-                             ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.serial desc"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT ti.invoice_number, tip.product_id, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE tg.groupid = '$groupid' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
