@@ -179,5 +179,22 @@ class Extra {
 
 
 
+        /*
+        @ current directory path
+        @ return string
+        */
+        public function currentPath()
+        {
+            
+            $path_array = $_SERVER['PHP_SELF'];
+            //return $path_array;
+            $explode = explode('/', $path_array);
+            unset($explode[0]);
+
+            
+            return $explode;
+        }
+
+
 
 }

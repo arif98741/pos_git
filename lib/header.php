@@ -51,7 +51,18 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Point of Sale Management System</title>
+  <title>
+    <?php 
+        
+       $path_array = $ext->currentPath();
+      
+       if ($path_array[2] == 'index.php') {
+         echo "Dashboard | ";
+       } else {
+         echo ucfirst(str_replace('.php', '', $path_array[2]))." | ";
+       }
+     ?>Point of Sale Management System
+ </title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <?php include("lib/css/css.php"); ?>

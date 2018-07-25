@@ -1,3 +1,5 @@
+<!-- favicon -->
+<link rel="shortcut icon" href="uploads/logo_.png">
 <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
