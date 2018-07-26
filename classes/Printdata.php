@@ -1123,7 +1123,7 @@ class Printdata {
                                 . "<td colspan='2'><strong>Total</strong></td>"
                                 . "<td ><strong>".$debit."</strong></td>"
                                 . "<td ><strong>".$credit."</strong></td>"
-                                . "<td ><strong>".$balance."</strong></td>";
+                                . "<td ></td>";
 
             return $this->table_content;
            
