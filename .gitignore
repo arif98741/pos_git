@@ -2,3 +2,5 @@
 .idea
 uploads/
 node_modules/
+test.php
+tempstock.php
