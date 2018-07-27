@@ -566,7 +566,7 @@ class Printdata {
         $starting = $starting;
         $ending = $ending;
 
-        /*$stmt = $this->dbObj->select("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_sell.date between '$starting' and '$ending'");*/
+        
         $stmt = $this->dbObj->select("SELECT ts.date,ts.sell_id,tp.product_id,tp.product_name,tsp.unit_price as 'sale_price',tsp.quantity FROM tbl_sell ts join tbl_sell_products tsp on ts.sell_id = tsp.sell_id JOIN tbl_product tp on tsp.product_id = tp.product_id where ts.date between '$starting' and '$ending' order by ts.date asc");
         
 

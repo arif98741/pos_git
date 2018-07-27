@@ -1,6 +1,10 @@
  <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      
+      <?php 
+      $endScriptTime=microtime(TRUE);
+		$totalScriptTime=$endScriptTime-$startScriptTime;
+		echo "Executed in ".number_format($totalScriptTime, 4)." seconds";
+       ?>
     </div>
     <strong>Copyright &copy; 2018 <a href="http://exploreit.com.bd/" target="_blank">explore-it</a>.</strong> All rights
     reserved.

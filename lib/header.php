@@ -1,9 +1,8 @@
 <?php
 ob_start();
+$startScriptTime=microtime(TRUE);
 date_default_timezone_set('Asia/Dhaka');
 define("BASE_URL", 'http://localhost/pos_git/');
-
-
 
 //case control
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");

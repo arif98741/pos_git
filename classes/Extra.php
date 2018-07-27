@@ -241,4 +241,23 @@ class Extra {
        }
     }
 
+    /*
+    !-------------------------------------------------------------------------
+    !               Measure Page Load
+    !-------------------------------------------------------------------------
+    */
+    public function pageLoad()
+    {
+        $time = microtime();
+        $time = explode(' ', $time);
+        $time = $time[1] + $time[0];
+        $start = $time;
+    
+        $time = $time[1] + $time[0];
+        $finish = $time;
+        $total_time = round(($finish - $start), 4);
+        return 'Page generated in '.$total_time.' seconds.';
+        
+    }
+
 }
