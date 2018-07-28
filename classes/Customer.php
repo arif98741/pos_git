@@ -127,10 +127,10 @@ class Customer {
         }
     }
 
-    /*
-     * delete customer from customerlist.php
-     *
-     * */
+    /*---------------------------------------------
+    ! delete customer from customerlist.php
+    !-------------------------------------------- 
+     */
 
     public function deleteCustomer($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
