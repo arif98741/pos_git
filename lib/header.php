@@ -2,7 +2,7 @@
 ob_start();
 $startScriptTime=microtime(TRUE);
 date_default_timezone_set('Asia/Dhaka');
-define("BASE_URL", 'http://localhost/pos_git/');
+define("BASE_URL", 'http://pos.explorebillingsuite.com/bn/');
 
 //case control
 header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
@@ -210,7 +210,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
       <ul class="sidebar-menu" data-widget="tree">
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-database"></i> <span>Products</span>
+            <i class="fa fa-database"></i> <span>পন্য</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -218,12 +218,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           <ul class="treeview-menu">
             <?php if(Session::get('status') == 'admin'): ?>
 
-            <li><a href="addproduct.php"><i class="fa fa-plus"></i>Add Product</a></li>
+            <li><a href="addproduct.php"><i class="fa fa-plus"></i>পন্য সংযোজন</a></li>
             <?php endif; ?>
-            <li><a href="products.php"><i class="fa fa-list"></i>Product List</a></li>
+            <li><a href="products.php"><i class="fa fa-list"></i>পন্যের তালিকা</a></li>
             <?php if(Session::get('status') == 'admin'): ?>
 
-            <li><a href="product_report.php"><i class="fa fa-tag"></i>Products Report</a></li>
+            <li><a href="product_report.php"><i class="fa fa-tag"></i>প্রতিবেদন </a></li>
             <?php endif; ?>
             
           </ul>
@@ -233,17 +233,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-car"></i> <span>Purchase</span>
+            <i class="fa fa-car"></i> <span>পণ্য ক্রয়</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             
-            <li><a href="addpurchase.php"><i class="fa fa-plus"></i>Add Purchase</a></li>
-            <li><a href="purchaselist.php"><i class="fa fa-list"></i>Purchase List</a></li>
+            <li><a href="addpurchase.php"><i class="fa fa-plus"></i>ক্রয় সংযোজন</a></li>
+            <li><a href="purchaselist.php"><i class="fa fa-list"></i>ক্রয়ের তালিকা</a></li>
             <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="purchasereport.php"><i class="fa fa-tag"></i>Purchase Report</a></li>
+            <li><a href="purchasereport.php"><i class="fa fa-tag"></i>ক্রয় প্রতিবেদন</a></li>
            <?php endif; ?>
             
           </ul>
@@ -251,21 +251,21 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         <li class="treeview">
       
           <a href="#">
-            <i class="fa fa-handshake-o"></i> <span>Sales</span>
+            <i class="fa fa-handshake-o"></i> <span>বিক্রয়</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             
-            <li><a href="addinvoice.php"><i class="fa fa-plus"></i>Sale Product</a></li>
-            <li><a href="invoicelist.php"><i class="fa fa-list"></i>Sales List</a></li>
+            <li><a href="addinvoice.php"><i class="fa fa-plus"></i>পন্য ব্রিকয়</a></li>
+            <li><a href="invoicelist.php"><i class="fa fa-list"></i>মেমো লিষ্ট</a></li>
 
             <?php if(Session::get('status') == 'admin'): ?>
 
-            <li><a href="profitreport.php"><i class="fa fa-tag"></i>Profit Report</a></li>
-            <li><a href="invoice_report.php"><i class="fa fa-tag"></i>Invoice Report</a></li>
-            <li><a href="sale_report.php"><i class="fa fa-tag"></i>Sales Report</a></li>
+            <li><a href="profitreport.php"><i class="fa fa-tag"></i>লাভ-ক্ষতি</a></li>
+            <li><a href="invoice_report.php"><i class="fa fa-tag"></i>মেমো প্রতিবেদন</a></li>
+            <li><a href="sale_report.php"><i class="fa fa-tag"></i>বিক্রয় প্রতিবেদন</a></li>
 
            <?php endif; ?>
             

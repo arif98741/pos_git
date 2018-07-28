@@ -3,28 +3,24 @@
 class Database {
 
     public $link;
-    private $username = 'root';
-    private $password = '';
+    private $username = 'aladinpos';
+    private $password = 'explore+88';
     private $host = 'localhost';
-    private $database = 'aladin_pos';
+    private $database = 'aladinpo_pos_bn';
 
     
-    /*
-    !-----------------------------------------------------
-    !      initial load at the time of creating object
-    !      no return job
-    !----------------------------------------------------
+     /*
+    @ initial load at the time of creating object
+    @ no return job
     */
     function __construct() {
         $this->link = $this->connection();
     }
 
 
-    /*
-    !-----------------------------------------------------
-    !      database connection
-    !      return as connection object
-    !----------------------------------------------------
+     /*
+    @ database connection
+    @ return as connection object
     */
     public function connection() {
         $link = new mysqli($this->host, $this->username, $this->password, $this->database);
@@ -35,12 +31,9 @@ class Database {
         }
     }
 
-    
     /*
-    !-----------------------------------------------------
-    !      select data from database
-    !      return as object
-    !----------------------------------------------------
+    @ select data from database
+    @ return as object
     */
     public function select($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
@@ -57,10 +50,8 @@ class Database {
     
 
     /*
-    !-----------------------------------------------------
-    !      select data from database
-    !      return as associative array
-    !----------------------------------------------------
+    @ select data from database
+    @ return as associative array
     */
     public function selectFetchAssoc($query) {
         $stmt = $this->link->query($query);
@@ -72,11 +63,9 @@ class Database {
     }
 
     /*
-    !-----------------------------------------------------
-    !      insert data into database
-    !      @param $query
-    !      @ return true/false
-    !----------------------------------------------------
+    @ insert data into database
+    @ return as object
+    @ true/false
     */
     public function insert($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
@@ -87,13 +76,11 @@ class Database {
         }
     }
 
+
     /*
-    !-----------------------------------------------------
-    !      update data in database
-    !      @param $query
-    !      @ return as object
-    !      @ true/false
-    !----------------------------------------------------
+    @ update data in database
+    @ return as object
+    @ true/false
     */
     public function update($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;
@@ -104,13 +91,10 @@ class Database {
         }
     }
 
-  
     /*
-    !-----------------------------------------------------
-    !      delete data from database
-    !      @param $query
-    !      @ return boolean
-    !----------------------------------------------------
+    @ delete data from database
+    @ return as object
+    @ true/false
     */
     public function delete($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
@@ -123,10 +107,9 @@ class Database {
 
 
     /*
-    !-----------------------------------------------------
-    !      count row of table in database
-    !      return as number
-    !----------------------------------------------------
+    @ count row of table in database
+    @ return as number
+    
     */
     public function rowCount($query) {
         $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;

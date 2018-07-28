@@ -7,10 +7,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-plus-circle"></i> &nbsp;ADD PRODUCT</h1>
+      <h1><i class="lnr lnr-plus-circle"></i> &nbsp;পণ্য সংযোজন</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> প্রচ্চদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -24,13 +24,13 @@
                 <div class="col-md-12"> 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input name="product_id" class="form-control" type="text" placeholder="Product ID" required="">
+                            <input name="product_id" class="form-control" type="text" placeholder="পণ্যের আইডি" required="">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <select name="product_type" class="form-control">
-                                <option>Select Unit</option>
+                                <option> একক</option>
                                   <?php 
                                     if ($stmt = $db->link->query("select * from tbl_type order by typename asc")){
                                         while ($row = $stmt->fetch_assoc()) { ?>
@@ -45,7 +45,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <select name="product_group" class="form-control">
-                            <option>Select Group</option>
+                            <option>গ্রপ</option>
                              <?php 
                                 if ($stmt = $db->link->query("select * from tbl_group order by groupname asc")){
                                     while ($row = $stmt->fetch_assoc()) { ?>
@@ -59,13 +59,13 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input name="product_name" class="form-control" type="text" placeholder="Product Name" required="">
+                            <input name="product_name" class="form-control" type="text" placeholder="পণ্যের নাম" required="">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <select name="product_brand" class="form-control">
-                                <option>Select Supplier</option>
+                                <option>সরবরাহকারী</option>
                                 <?php 
                                 if ($stmt = $db->link->query("select * from tbl_supplier order by supplier_name asc")){
                                     while ($row = $stmt->fetch_assoc()) { ?>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input name="sale_price" class="form-control" type="text" placeholder="Sale Price" required="">
+                            <input name="sale_price" class="form-control" type="text" placeholder="বিক্রয় মূল্য" required="">
                         </div>
                     </div>
                     
@@ -88,19 +88,19 @@
                     
                    <div class="col-md-4">
                         <div class="form-group">
-                            <input name="purchase_price" class="form-control" type="text" placeholder="Purchase Price" required="">
+                            <input name="purchase_price" class="form-control" type="text" placeholder="ক্রয় মূল্য" required="">
                         </div>
                     </div>
                     
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input type="text" name="piece_in_a_carton" class="form-control" placeholder="Piece in Carton">
+                            <input type="text" name="piece_in_a_carton" class="form-control" placeholder="পিস (প্রতি কার্টনে)">
                         </div>
                     </div>
                     <div class="col-md-6 submit-buttom">
                        
-                        <input type="submit" value="Save Product" name="addproduct" class="btn btn-success">
-                        <input type="reset" value="Reset" class="btn btn-warning">
+                        <input type="submit" value="সেভ" name="addproduct" class="btn btn-success">
+                        <input type="reset" value="পুনরায়" class="btn btn-warning">
                     </div>
                 </div>
             </div>

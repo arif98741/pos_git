@@ -4,7 +4,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-plus-circle"></i> &nbsp;PRODUCT PURCHASE</h1>
+      <h1><i class="lnr lnr-plus-circle"></i> পন্য ক্রয়</h1>
       <ol class="breadcrumb">
         <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
@@ -22,7 +22,7 @@
         <div class="col-md-12"> 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input name="invoice_no" class="form-control" placeholder="Purchase Number" required="">
+                        <input name="invoice_no" class="form-control" placeholder="চালান নম্বর" required="">
                     </div>
 
                 </div>
@@ -30,7 +30,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
-                            <option value="">Select Supplier</option>
+                            <option value="">সরবরাহকারী </option>
                             <?php
                             $status = $sup->showSupplier();
                             if ($status) {
@@ -45,14 +45,14 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input id="supplier_id" class="form-control" placeholder="Supplier ID">
+                        <input id="supplier_id" class="form-control" placeholder="সরবরাহকারী আইডি">
                     </div>
 
                 </div>
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input  name="address" id="address" class="form-control" type="text" placeholder="Address" required="">
+                        <input  name="address" id="address" class="form-control" type="text" placeholder="ঠিকানা" required="">
 
                     </div>
 
@@ -61,14 +61,14 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input name="contact" id="contact" class="form-control" type="text" placeholder="Contact" required="">
+                        <input name="contact" id="contact" class="form-control" type="text" placeholder="মোবাইল নম্বর" required="">
                     </div>
 
                 </div>
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input name="date" class="form-control" id="date_input" type="date" placeholder="Date"  required="">
+                        <input name="date" class="form-control" id="date_input" type="date" placeholder="তারিখ"  required="">
                     </div>
 
                 </div>
@@ -85,12 +85,12 @@
                     <table id="invoice_form_table" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th width="30%">Product Name</th>
-                                <th width="10%">Unit</th>
-                                <th width="15%">Quantity</th>
-                                <th width="15%">Purchase Price</th>
-                                <th width="15%">Subtotal</th>
-                                <th width="15%">Action</th>
+                                <th width="30%">পণ্যের নাম</th>
+                                <th width="10%">দর</th>
+                                <th width="15%">পরিমান</th>
+                                <th width="15%">ক্রয় মূল্য</th>
+                                <th width="15%">মোট</th>
+                                <th width="15%">---</th>
 
                             </tr>
                         </thead>
@@ -99,7 +99,7 @@
                         </tbody>
                         <tfoot id="">
                             <tr>
-                                <td colspan="5" style="text-align:right; "><b>Invoice Total</b></td>
+                                <td colspan="5" style="text-align:right; "><b>সর্বমোট</b></td>
                                 <td colspan="1" style="text-align: center;"><input type="hidden" name="addinvoice"><b class="wholetotal"></b></td>
                                 <input type="hidden" name="addpurchase">
                             </tr>

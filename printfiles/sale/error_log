@@ -1,0 +1,1 @@
+[19-Jul-2018 10:55:10 Asia/Dhaka] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/aladinpos/public_html/printfiles/sale/printprofit.php:15) in /home/aladinpos/public_html/printfiles/sale/printprofit.php on line 16

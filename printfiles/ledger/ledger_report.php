@@ -52,7 +52,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     $ending = $_POST['ending']." 23:59:59";
                                     $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where date between '$starting' and '$ending'");
                                     if ($stmt) {
-                                        $data    = $stmt->fetch_object();
+                                        $data = $stmt->fetch_object();
                                         $balance = $data->debit - $data->credit;
                                     }
                                     

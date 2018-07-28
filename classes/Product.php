@@ -96,10 +96,12 @@ class Product {
             ORDER BY
                 tp.serial
             DESC";
+
+
+
         $stmt = $this->dbObj->select($q);
         return $stmt;
     }
-
 
     public function addProduct($data) {
 
