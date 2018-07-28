@@ -27,10 +27,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-plus-circle"></i>&nbsp;ADD PRODUCT GROUP</h1>
+      <h1><i class="lnr lnr-plus-circle"></i>&nbsp;পণ্যের গ্রুপ সংযোজন</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -45,14 +45,14 @@
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input name="groupname" class="form-control" type="text" placeholder="Group Name" required="">
+                            <input name="groupname" class="form-control" type="text" placeholder="গ্রুপের নাম" required="">
                         </div>
 
                     </div>
 
                     <div class="col-md-6 submit-button">
-                        <input type="submit" value="Save Group" name="addgroup" class="btn btn-success">
-                            <input type="reset" value="Reset" class="btn btn-warning">
+                        <input type="submit" value="সেভ" name="addgroup" class="btn btn-success">
+                            <input type="reset" value="পুনরায়" class="btn btn-warning">
                     </div>
                    
 

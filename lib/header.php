@@ -276,20 +276,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
         <li class="treeview">
       
           <a href="#">
-            <i class="fa fa-briefcase"></i> <span>Payment</span>
+            <i class="fa fa-briefcase"></i> <span>পেমেন্ট</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             
-            <li><a href="billpay.php"><i class="fa fa-plus"></i>Add Payment</a></li>
+            <li><a href="billpay.php"><i class="fa fa-plus"></i>পেমেন্ট সংযোজন</a></li>
             
             <?php if(Session::get('status') == 'admin'): ?>
             
 
-            <li><a href="paymentlist.php"><i class="fa fa-list"></i>Payment Record</a></li>
-            <li><a href="paymentreport.php"><i class="fa fa-tag"></i>Payment Report</a></li>
+            <li><a href="paymentlist.php"><i class="fa fa-list"></i>পেমেন্ট তালিকা</a></li>
+            <li><a href="paymentreport.php"><i class="fa fa-tag"></i>পেমেন্ট প্রতিবেদন</a></li>
 
           <?php endif; ?>
             
@@ -317,7 +317,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
          <li class="treeview">
           <a href="#">
-            <i class="fa fa-money"></i> <span>General Account</span>
+            <i class="fa fa-money"></i> <span>সাধারণ হিসাব</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
@@ -325,10 +325,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           <ul class="treeview-menu">
             
             
-            <li><a href="transcategorylist.php"><i class="fa fa-list"></i>Transaction Category</a></li>
+            <li><a href="transcategorylist.php"><i class="fa fa-list"></i>লেনদেন ধরণ</a></li>
             <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="laserlist.php"><i class="fa fa-list"></i>Transaction List </a></li>
-            <li><a href="laserreport.php"><i class="fa fa-tag"></i>Transaction Report </a></li>
+            <li><a href="laserlist.php"><i class="fa fa-list"></i>লেনদেন তালিকা </a></li>
+            <li><a href="laserreport.php"><i class="fa fa-tag"></i>লেনদেন তালিকা </a></li>
 
           <?php endif; ?>
             
@@ -338,39 +338,39 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
          <li class="treeview">
           <a href="#">
-            <i class="fa fa-users"></i> <span>Customer</span>
+            <i class="fa fa-users"></i> <span>ক্রেতা</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="addcustomer.php"><i class="fa fa-plus"></i>Add Customer</a></li>
+            <li><a href="addcustomer.php"><i class="fa fa-plus"></i>ক্রেতা সংযোজন</a></li>
             <?php endif; ?>
 
-            <li><a href="customerlist.php"><i class="fa fa-list"></i>Customer List </a></li>
+            <li><a href="customerlist.php"><i class="fa fa-list"></i>ক্রেতা তালিকা </a></li>
 
             <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="customer_statement.php"><i class="fa fa-exchange"></i>Customer Statement </a></li>
-            <li><a href="printfiles/customer/print.php"><i class="fa fa-tag"></i>Customer Report</a></li>
+            <li><a href="customer_statement.php"><i class="fa fa-exchange"></i>ক্রেতা বিবৃতি </a></li>
+            <li><a href="printfiles/customer/print.php"><i class="fa fa-tag"></i>ক্রেতা প্রতিবেদন</a></li>
             <?php endif; ?>
           </ul>
         </li>
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-user"></i> <span>Supplier</span>
+            <i class="fa fa-user"></i> <span>সরবরাহকারী</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="supplierlist.php"><i class="fa fa-list"></i>Supplier List </a></li>
+            <li><a href="supplierlist.php"><i class="fa fa-list"></i>সরবরাহকারী তালিকা </a></li>
             <?php if(Session::get('status') == 'admin'): ?>
 
-            <li><a href="suppliertransaction.php"><i class="fa fa-list"></i>Supplier Transaction</a></li>
-            <li><a href="supplier_transaction_report.php"><i class="fa fa-tag"></i>Supplier Transaction Report</a></li>
-            <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>Supplier Report</a></li>
+            <li><a href="suppliertransaction.php"><i class="fa fa-list"></i>সরবরাহকারী লেনদেন</a></li>
+            <li><a href="supplier_transaction_report.php"><i class="fa fa-tag"></i>সরবরাহকারী লেনদেন প্রতিবেদন</a></li>
+            <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>সরবরাহকারী প্রতিবেদন</a></li>
 
           <?php endif; ?>
           </ul>
@@ -378,20 +378,20 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-cog"></i> <span>Setting</span>
+            <i class="fa fa-cog"></i> <span>সেটিংস</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="addgroup.php"><i class="fa fa-plus"></i>Add Product Group</a></li>
-            <li><a href="addtype.php"><i class="fa fa-plus"></i>Add Product Unit</a></li>
+            <li><a href="addgroup.php"><i class="fa fa-plus"></i>পণ্য  গ্রুপ সংযোজন</a></li>
+            <li><a href="addtype.php"><i class="fa fa-plus"></i>পণ্য একক সংযোজন</a></li>
           <?php endif; ?>
 
-            <li><a href="grouplist.php"><i class="fa fa-list"></i>Group List </a></li>
-            <li><a href="typelist.php"><i class="fa fa-list"></i>Unit List </a></li>
-            <li><a href="users.php"><i class="fa fa-list"></i>User List </a></li>
+            <li><a href="grouplist.php"><i class="fa fa-list"></i>গ্রুপ তালিকা  </a></li>
+            <li><a href="typelist.php"><i class="fa fa-list"></i>একক তালিকা </a></li>
+            <li><a href="users.php"><i class="fa fa-list"></i>ব্যবহারকারী তালিকা </a></li>
             
           </ul>
         </li>

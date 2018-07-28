@@ -27,10 +27,10 @@ if(isset($_POST['addtype'])){
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-plus-circle"></i>&nbsp;ADD PRODUCT UNIT</h1>
+      <h1><i class="lnr lnr-plus-circle"></i>&nbsp;পণ্য একক সংযোজন</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -45,14 +45,14 @@ if(isset($_POST['addtype'])){
                   
                   <div class="col-md-4">
                       <div class="form-group">
-                          <input name="typename"  class="form-control" type="text" placeholder="Unit"  required="">
+                          <input name="typename"  class="form-control" type="text" placeholder="একক"  required="">
                       </div>
 
                   </div>
 
                   <div class="col-md-6 submit-button">
-                      <input type="submit" value="Save Unit" name="addtype" class="btn btn-success">
-                      <input type="reset" value="Reset" class="btn btn-warning">
+                      <input type="submit" value="সেভ" name="addtype" class="btn btn-success">
+                      <input type="reset" value="পুনরায়" class="btn btn-warning">
                   </div>
                 </form>
 

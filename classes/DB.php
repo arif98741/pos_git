@@ -3,8 +3,8 @@
 class Database {
 
     public $link;
-    private $username = 'aladinpos';
-    private $password = 'explore+88';
+    private $username = 'root';
+    private $password = '';
     private $host = 'localhost';
     private $database = 'aladin_pos_bn';
 
