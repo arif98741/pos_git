@@ -42,10 +42,11 @@ class Customer {
         }
     }
 
-    /*
-     * insert Customer to customer table
-     * from addcustomer.php
-     * */
+    /*---------------------------------------------
+     !      insert Customer to customer table
+     !          from addcustomer.php
+     !-------------------------------------------- 
+     */
 
     public function insertCustomer($data) {
 
