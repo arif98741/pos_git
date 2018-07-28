@@ -8,10 +8,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i> CUSTOMER STATEMENT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i> ক্রেতা বিবৃতি</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -28,19 +28,19 @@
           <form action="printfiles/customer/printstatement.php" method="POST">
               <div class="col-md-6">
                   <div class="form-group">
-                    <label for=""><strong>From</strong></label>
+                    <label for=""><strong>থেকে</strong></label>
                     <input type="date" name="starting" id="startdate" class="form-control">
                  </div>  
                   <div class="form-group">
-                    <label for=""><strong>To</strong></label>
+                    <label for=""><strong>পর্যন্ত</strong></label>
                     <input type="date" name="ending" id="enddate" class="form-control">
                  </div>
               </div>
 
             <div class="col-md-6">
-              <label for="">Customer</label>
+              <label for="">কেতা</label>
               <select name="customer_id" id="" class="customer form-control">
-                <option value="">Select Customer</option>
+                <option value="">নির্বাচন করুন</option>
                 <?php 
                     $cusst = $db->select("select * from tbl_customer order by customer_name asc");
                     if($cusst){
@@ -55,7 +55,7 @@
 
             <div class="col-md-offset-3 col-md-6">
                <div class="form-group">
-                  <input type="submit" name="showallstatement" class="btn btn-success" value="Preview">
+                  <input type="submit" name="showallstatement" class="btn btn-success" value="দেখুন">
               </div>
             </div>
 

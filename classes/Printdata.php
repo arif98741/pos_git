@@ -1120,7 +1120,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='2'><strong>Total</strong></td>"
+                                . "<td colspan='2'><strong>মোট</strong></td>"
                                 . "<td ><strong>".$debit."</strong></td>"
                                 . "<td ><strong>".$credit."</strong></td>"
                                 . "<td ></td>";

@@ -13,9 +13,9 @@ if (isset($_POST['addcustomer'])) {
 if (isset($_POST['updatecustomer'])) {
     $update = $cus->updateCustomer($_POST);
     if ($update) {
-        echo "<script>alert('Customer Updated Successfully');</script>";
+        echo "<script>alert('ক্রেতা সফলভাবে সম্পাদন হয়েছে');</script>";
     } else {
-        echo "<script>alert('Customer Updated Failed');</script>";
+        echo "<script>alert('ক্রেতা সম্পাদন ব্যর্থ');</script>";
     }
 }
 
@@ -23,9 +23,9 @@ if (isset($_POST['updatecustomer'])) {
 if (isset($_GET['action']) && $_GET['action'] == 'delete') {
     $sta = $cus->deleteCustomer($_GET);
     if ($sta) {
-        echo "<script>alert('Customer Deleted Successful');</script>";
+        echo "<script>alert('ক্রেতা সফলভাবে ডিলিট হয়েছে');</script>";
     } else {
-        echo "<script>alert('Customer to Deleted Product');</script>";
+        echo "<script>alert('ক্রেতা ডিলিট ব্যর্থ');</script>";
     }
 }
 ?>
@@ -34,10 +34,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>CUSTOMERS</h1>
+      <h1>ক্রেতা তালিকা</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -55,13 +55,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
               <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                 <thead>
                 <tr role="row">
-                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Customer ID</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="20%">Customer Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="10%">Address</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Contact No.</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Email</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">আইডি</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="20%">নাম</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="10%">Address</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">মোবাইল</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">ইমেইল</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Balance</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">ব্যালেন্স</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">-</th>
 
                 </tr>
                 </thead>

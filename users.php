@@ -32,13 +32,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>USERS</h1>
+      <h1>ব্যবহারকারী</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="index.php">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
        <!-- <li class="active"><a href="addlaser.php">Add New Transaction</a></li> --> 
        <?php if(Session::get('status') == 'admin'): ?>
-        <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add-new-user">Add New User</a></li>
+        <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add-new-user">নতুন ব্যবহারকারী সংযোজন</a></li>
       <?php endif; ?>
       </ol>
     </section>
@@ -57,16 +57,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
               <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                 <thead>
                 <tr role="row">
-                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Serial</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">ক্রমিক</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Name</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">নাম</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">Username</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">ইউজারনেম</th>
                   
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Email</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%"> ইমেইল </th>
                   
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">-</th>
 
                 </tr>
                 </thead>

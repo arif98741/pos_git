@@ -8,9 +8,9 @@ if (isset($_POST['addlaser'])) {
     
     $add = $las->addLaser($_POST);
     if ($add) {
-        echo "<script>alert('Transaction Added Successfully');</script>";
+        echo "<script>alert('লেনদেন সফলভাবে যুক্ত হয়েছে');</script>";
     } else {
-        echo "<script>alert('Transaction Added Failed');</script>";
+        echo "<script>alert('লেনদেন সংযোজন ব্যর্থ');</script>";
     }
 }
 
@@ -19,9 +19,9 @@ if (isset($_POST['addlaser'])) {
 if (isset($_POST['updatelaser'])) {
     $update = $las->updateLaser($_POST);
     if ($update) {
-        echo "<script>alert('Transaction Updated Successfully');</script>";
+        echo "<script>alert('লেনদেন সফলভাবে সম্পাদন হয়েছে');</script>";
     } else {
-        echo "<script>alert('Transaction Update Failed');</script>";
+        echo "<script>alert('লেনদেন সম্পাদন ব্যর্থ');</script>";
     }
 }
 
@@ -30,9 +30,9 @@ if (isset($_POST['updatelaser'])) {
 if (isset($_GET['action']) && $_GET['action'] ='del') {
     $sta = $las->deleteLaser($_GET['serial']);
     if ($sta) {
-        echo "<script>alert('Transaction Deleted Successful');</script>";
+        echo "<script>alert('লেনদেন সফলভাবে ডিলিট হয়েছে');</script>";
     } else {
-        echo "<script>alert('Failed to Delete Transaction');</script>";
+        echo "<script>alert('লেনদেন ডিলিট ব্যর্থ');</script>";
     }
 }
 ?>
@@ -41,12 +41,12 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>TRANSACTION LIST</h1>
+      <h1>লেনদেন তালিকা</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="index.php">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="index.php">ড্যাশবোর্ড</a></li>
        <!-- <li class="active"><a href="addlaser.php">Add New Transaction</a></li> --> 
-        <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add-new-transaction">Add New Transaction</a></li>
+        <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add-new-transaction">নতুন লেনদেন সংযোজন</a></li>
       </ol>
     </section>
 
@@ -66,18 +66,12 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
                 <tr role="row">
                   <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">SL</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Date</th>
-
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">Category</th>
-                  
-
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Description</th>
-
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Credit/Cash In</th>
-
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Debit/Cash Out</th>
-                  
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">তারিখ</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">ক্যাটাগরি</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">বিস্তারিত</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">জমা/ক্যাশ ইন</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">খরচ/ক্যাশ আউট</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">-</th>
 
                 </tr>
                 </thead>

@@ -8,9 +8,9 @@ if (isset($_POST['addsuppliertransaction'])) {
     
     $status = $sup->addSupplierTransaction($_POST);
     if ($status) {
-        echo "<script>alert('Transaction Added Successfully');</script>";
+        echo "<script>alert('লেনদেন সফলভাবে সংযোজন হয়েছে');</script>";
     } else {
-        echo "<script>alert('Transaction Added Failed');</script>";
+        echo "<script>alert('লেনদেন সংযোজন ব্যর্থ');</script>";
     }
 }
 
@@ -19,9 +19,9 @@ if (isset($_POST['addsuppliertransaction'])) {
 if (isset($_POST['updatesuppliersransaction'])) {
     $update = $sup->updateSupplierTransaction($_POST);
     if ($update) {
-        echo "<script>alert('Transaction Updated Successfully');</script>";
+        echo "<script>alert('লেনদেন সফলভাবে সম্পাদন হয়েছে');</script>";
     } else {
-        echo "<script>alert('Transaction Update Failed');</script>";
+        echo "<script>alert('লেনদেন সম্পাদন ব্যর্থ');</script>";
     }
 }
 
@@ -30,9 +30,9 @@ if (isset($_POST['updatesuppliersransaction'])) {
 if (isset($_GET['action']) && $_GET['action'] ='del') {
     $sta = $sup->deleteSupplierTransaction($_GET['id']);
     if ($sta) {
-        echo "<script>alert('Transaction Deleted Successful');</script>";
+        echo "<script>alert('লেনদেন সফলভাবে ডিলিট হয়েছ');</script>";
     } else {
-        echo "<script>alert('Failed to Delete Transaction');</script>";
+        echo "<script>alert('লেনদেন ডিলিট ব্যর্থ');</script>";
     }
 }
 ?>
@@ -41,12 +41,12 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>SUPPLIER TRANSACTION LIST</h1>
+      <h1>সরবরাহকারী লেনদেন তালিকা</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="index.php">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li><a href="index.php">ড্যাশবোর্ড</a></li>
         <!-- <li><a href="addsuppliertransaction.php">Add New Transaction</a></li> -->
-        <li><a type="button" href="#" class="" data-toggle="modal" data-target="#add-supplier-transaction">Add New Transaction</a></li>
+        <li><a type="button" href="#" class="" data-toggle="modal" data-target="#add-supplier-transaction">নতুন লেনদেন সংযোজন</a></li>
       </ol>
     </section>
 
@@ -65,18 +65,18 @@ if (isset($_GET['action']) && $_GET['action'] ='del') {
                 <thead>
                 <tr role="row">
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Date</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">তারিখ</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">Supplier</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="20%">সরবরাহকারী</th>
                   
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Description</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">বিস্তারিত</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Purchase</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">ক্রয়মূল্য</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Payment</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">পেমেন্ট</th>
                   
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">-</th>
 
                 </tr>
                 </thead>

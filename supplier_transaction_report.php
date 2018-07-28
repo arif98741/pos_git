@@ -8,10 +8,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i> SUPPLIER TRANSACTION REPORT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i> সরবরাহকারী লেনদেন প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -28,11 +28,11 @@
 
 
                   <div class="form-group">
-                    <label for=""><strong>From</strong></label>
+                    <label for=""><strong>থেকে</strong></label>
                     <input type="date" name="starting" id="startdate" class="form-control">
                  </div>  
                   <div class="form-group">
-                    <label for=""><strong>To</strong></label>
+                    <label for=""><strong>পর্যন্ত</strong></label>
                     <input type="date" name="ending" id="enddate" class="form-control">
                  </div>
                  <div class="form-group">
@@ -44,9 +44,9 @@
               <div class="col-md-6">
 
                   <div class="form-group">
-                    <label for=""><strong>By Supplier</strong></label>
+                    <label for=""><strong>সরবরাহকারী অনুযায়ী</strong></label>
                     <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
-                            <option value="" selected="" disabled="">Select Supplier</option>
+                            <option value="" disabled  selected="" disabled="">নির্বাচন করুন</option>
                             <?php
                             $status = $sup->showSupplier();
                             if ($status) {
@@ -64,9 +64,9 @@
               <div class="col-md-12">
                 <div class="form-group">
                   
-                    <input type="submit" class="btn btn-success " name="showalltransaction" value="All Transaction">
+                    <input type="submit" class="btn btn-success " name="showalltransaction" value="সব লেনদেন">
                     
-                    <input type="submit" class="btn btn-primary " name="supplierstatement" value="Supplier Statement"> 
+                    <input type="submit" class="btn btn-primary " name="supplierstatement" value="সরবরাহকারী বিবৃতি"> 
 
                    <!--  <input type="submit" class="btn btn-primary " name="showalltransactionbycat" value="Supplier Statement"> -->
 

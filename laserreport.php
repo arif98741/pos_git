@@ -8,10 +8,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i>  TRANSACTION REPORT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i>  লেনদেন প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -28,11 +28,11 @@
 
 
                   <div class="form-group">
-                    <label for=""><strong>From</strong></label>
+                    <label for=""><strong>থেকে </strong></label>
                     <input type="date" name="starting" id="startdate" class="form-control">
                  </div>  
                   <div class="form-group">
-                    <label for=""><strong>To</strong></label>
+                    <label for=""><strong>পর্যন্ত</strong></label>
                     <input type="date" name="ending" id="enddate" class="form-control">
                  </div>
                  <div class="form-group">
@@ -46,9 +46,9 @@
               <div class="col-md-6">
 
                   <div class="form-group">
-                    <label for=""><strong>By Category</strong></label>
+                    <label for=""><strong>ক্যাটাগরি অনুযায়ী</strong></label>
                     <select name="category" class="form-control">
-                          <option>Select Category</option>
+                          <option>নির্বাচন করুন</option>
                           <?php
                               $status = $las->showCategory();
                              
@@ -65,10 +65,10 @@
               <div class="col-md-12">
                 <div class="form-group">
                   
-                    <input type="submit" class="btn btn-success " name="showalledgerreport" value="All Transaction">
-                    <input type="submit" class="btn btn-primary " name="ledgerreportbycategory" value="Category Wise">
+                    <input type="submit" class="btn btn-success " name="showalledgerreport" value="সব লেনদেন">
+                    <input type="submit" class="btn btn-primary " name="ledgerreportbycategory" value="ক্যাটাগরি অনুযায়ী">
                     
-                    <input type="submit" class="btn btn-primary " name="accountsummary" value="Account Summary">
+                    <input type="submit" class="btn btn-primary " name="accountsummary" value="একাউন্ট সারাংশ">
       </div>
         </div>
       </div>
