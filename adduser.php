@@ -1,4 +1,7 @@
 <?php include 'lib/header.php'; ?>
+<!-- Add User Means App User
+    Default Status is Admin. An Admin can add other user as stuff.
+ -->
 <?php if (Session::get('status') !== 'admin') {
     header("Location: index.php");
 }?>
