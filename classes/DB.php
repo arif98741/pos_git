@@ -6,7 +6,7 @@ class Database {
     private $username = 'aladinpos';
     private $password = 'explore+88';
     private $host = 'localhost';
-    private $database = 'aladinpo_pos_bn';
+    private $database = 'aladin_pos_bn';
 
     
      /*
