@@ -6,9 +6,9 @@
 
 if (isset($_POST['addpurchase'])) {
     if($inv->saveInvoice($_POST)){
-        echo "<script>alert('Purchase Added Successfully');</script>";
+        echo "<script>alert('সফলভাবে যুক্ত হয়েছে');</script>";
     }else{
-        echo "<script>alert('Purchase Added Failed!');</script>";
+        echo "<script>alert('ক্রয় ব্যর্থ!');</script>";
     }
 }
 
@@ -17,11 +17,11 @@ if (isset($_POST['addpurchase'])) {
 //update invoice
 if ( isset($_POST['edit'])) {
     if($inv->updateInvoice($_POST)){
-        echo "<script>alert('Purchase Updated Successfully');</script>";
+        echo "<script>alert('সফলভাবে সম্পাদন হয়েছে');</script>";
         echo "<script>window.loction='';</script>";
 
     }else{
-        echo "<script>alert('Purchase Updated Failed!');</script>";
+        echo "<script>alert('সম্পাদন ব্যর্থ!');</script>";
     }
 
 }
@@ -30,9 +30,9 @@ if ( isset($_POST['edit'])) {
 if (isset($_GET['action']) && $_GET['action']=='delete') {
     $serial = $_GET['serial'];
     if($inv->deleteInvoice($serial, $_GET['invoice_id'])){
-         echo "<script>alert('Purchase Deleted Successfully');</script>";
+         echo "<script>alert('সফলভাবে ডিলিট হয়েছে');</script>";
     }else{
-        echo "<script>alert('Purchase Deleted Failed!');</script>";
+        echo "<script>alert('ডিলিট ব্যর্থ');</script>";
     }
    
 }
@@ -43,10 +43,10 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-list"></i> &nbsp;Purchase List</h1>
+      <h1><i class="lnr lnr-list"></i> &nbsp;ক্রয় তালিকা</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -64,15 +64,13 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
               <table id="purchaselist" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                 <thead>
                 <tr role="row">
-                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Serial</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Invoice No</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">Supplier</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Quantity</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Total</th>
-
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Date</th>
-
-                  
-                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">ক্রমিক</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">ইনভয়েচ নাম্বার</th>
+				  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">সরবরাহকারী</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">পরিমাণ</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">মোট</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">তারিখ</th>
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">-</th>
 
                 </tr>
                 </thead>

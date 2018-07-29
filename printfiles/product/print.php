@@ -19,15 +19,15 @@ date_default_timezone_set('Asia/Dhaka');
             }
         </script>
         <meta charset="utf-8">
-        <title>Product Reports - <?php echo date('Y-m-d h:i:s'); ?></title>
+        <title>পণ্য প্রতিবেদন - <?php echo date('Y-m-d h:i:s'); ?></title>
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
-            <button class="button blue" onclick="goBack()">Back</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
+            <button class="button blue" onclick="goBack()">ফিরে যান</button>
         </div>
         
 
@@ -40,8 +40,8 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">All Products List Report</div></td>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product"); ?>) </div></td>
+                                <div class="title-3">সব পণ্যের তালিকা প্রতিবেদন</div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("select * from tbl_product"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -60,11 +60,11 @@ date_default_timezone_set('Asia/Dhaka');
                             <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Products Report By Group - <?php
+                                <div class="title-3">পণ্যের প্রতিবেদন গ্রুপ অনুযায়ী - <?php
                                     $Groupname = $pri->PageTitleByCondition("select * from tbl_group WHERE groupid ={$_POST['product_group']}");
                                     echo $Groupname['groupname'];
                                     ?></div></td>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where product_group = '{$_POST["product_group"]}'") ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("select * from tbl_product where product_group = '{$_POST["product_group"]}'") ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -83,7 +83,7 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                            <div class="title-3">Products Report By Supplier - <?php
+                            <div class="title-3">পণ্যের প্রতিবেদন সরবরাহকারী অনুযায়ী - <?php
                                 $Brandname = $db->link->query("select * from tbl_supplier where supplier_id = {$_POST['supplier_id']}");
                                 if ($Brandname) {
                                     echo $Brandname->fetch_assoc()['supplier_name'];
@@ -91,7 +91,7 @@ date_default_timezone_set('Asia/Dhaka');
                                 
                                 ?>
                             </div></td>
-                        <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where product_brand = '{$_POST["supplier_id"]}'") ?>) </div></td>
+                        <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("select * from tbl_product where product_brand = '{$_POST["supplier_id"]}'") ?>) </div></td>
                     </tr>
                 </table>
                 <div class="line-4"></div>

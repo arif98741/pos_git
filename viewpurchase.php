@@ -13,10 +13,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-eye"></i> &nbsp;VIEW PURCHASE</h1>
+      <h1><i class="lnr lnr-eye"></i> &nbsp;ক্রয় প্রিভিউ</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -27,8 +27,8 @@
           <div class="box-body">
             <div class="row">
       <div class="col-md-12"> 
-             <p><strong>Invoice Number</strong>- <?php if(isset($_GET['invoice_id'])): ?> <?php echo $_GET['invoice_id']; ?><?php endif;?></p>
-             <p><strong>Total Products </strong>- <?php
+             <p><strong>ইনভয়েচ নাম্বার</strong>- <?php if(isset($_GET['invoice_id'])): ?> <?php echo $_GET['invoice_id']; ?><?php endif;?></p>
+             <p><strong>মোট পণ্য </strong>- <?php
                 // $invoice_id = $help->validAndEscape($_GET['invoice_id']);
                  $query = "SELECT * FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_supplier ts ON ti.supplier_id = ts.supplier_id where ti.invoice_number='$invoice_id'";
                  $status = $db->link->query($query) or die($this->link->error); 
@@ -44,8 +44,8 @@
                  }
                  ?>
              </p>
-             <p><strong>Date </strong>: <?php echo $purchase_data['date']; ?></p>
-             <p><strong>Supplier </strong>: <?php echo $purchase_data['supplier_name']; ?></p>
+             <p><strong>তারিখ </strong>: <?php echo $purchase_data['date']; ?></p>
+             <p><strong>সরবরাহকারী </strong>: <?php echo $purchase_data['supplier_name']; ?></p>
 
 
           </div>
@@ -55,13 +55,13 @@
                     <table class="table table-bordered invoice_table" id="invoice_product_data_table">
                         <thead>
                         <tr class="bg-warning">
-                            <th>Serial</th>
-                            <th>Product ID</th>
-                            <th>Group</th>
-                            <th>Product Name</th>
-                            <th>Purchase</th>
-                            <th>Quantity</th>
-                            <th>Subtotal</th>
+                            <th>তারিখ</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>গ্রুপ</th>
+                            <th>পণ্যের নাম</th>
+                            <th>ক্রয়মূল্য</th>
+                            <th>পরিমাণ</th>
+                            <th>সাবটোটাল</th>
 
                         </tr>
                         </thead>
@@ -71,8 +71,6 @@
                         //$q = "select tp.product_id,tg.groupname,tp.product_name,tip.quantity,tip.purchase from tbl_invoice_products tip join tbl_invoice ti on ti.invoice_number = tip.invoice_id join tbl_product tp on tip.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where ti.invoice_number = '$invoice_id'";
 
                         $q = "select tp.product_id,tg.groupname,tp.product_name,tip.quantity,tip.purchase,tip.subtotal as 'inv_pro_subtotal' from tbl_invoice_products tip join tbl_invoice ti on ti.invoice_number = tip.invoice_id join tbl_product tp on tip.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where ti.invoice_number = '$invoice_id'";
-
-
                         $stmt = $db->link->query($q) or die($this->link->error);  
 
                         if ($stmt) {
@@ -99,7 +97,7 @@
                         <?php }  ?>
                            <tr class="bg-warning">
                              <td colspan="5"></td>
-                             <td><strong>Total</strong></td>
+                             <td><strong>মোট</strong></td>
                              <td style="text-align: center;"><strong><?php echo $total; ?></strong></td>
                            </tr>
                         </tbody>

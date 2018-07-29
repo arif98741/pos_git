@@ -6,8 +6,8 @@
     <section class="content-header">
       <h1><i class="lnr lnr-plus-circle"></i> পন্য ক্রয়</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -75,8 +75,8 @@
 
 
                 <div class="col-md-6 submit-buttom">
-                    <input type="submit" value="Save Product" name="addproduct" class="btn btn-success">
-                    <input type="reset" value="Reset" class="btn btn-warning">
+                    <input type="submit" value="সেভ" name="addproduct" class="btn btn-success">
+                    <input type="reset" value="পুনরায়" class="btn btn-warning">
                 </div>
 
 
@@ -106,7 +106,7 @@
 
                         </tfoot>
                     </table>
-                    <button class="btn btn-success add_new_invoice_table_row" title="Click To Add Product in Purchase List" style="font-size: 17px;">+</button>
+                    <button class="btn btn-success add_new_invoice_table_row" title="নতুন রো যোগ করতে ক্লিক করুন" style="font-size: 17px;">+</button>
                 </div>
         </div>
       </div>

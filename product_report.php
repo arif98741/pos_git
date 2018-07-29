@@ -7,10 +7,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i> &nbsp;PRODUCT REPORT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i> &nbsp;পণ্যের প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -30,7 +30,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <select name="product_group" class="form-control">
-                            <option>Select Group</option>
+                            <option>গ্রুপ নির্বাচন করুন</option>
                             <?php
                             $status = $pro->showGroup();
                             if($status) {
@@ -48,7 +48,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <select name="supplier_id" class="form-control">
-                            <option>Select Supplier</option>
+                            <option>সরবরাহকারী নির্বাচন করুন</option>
                             <?php 
                                     $status = $sup->showSupplier();
                                     //brand is granted as supplier
@@ -71,11 +71,10 @@
 
                 <div class="col-md-12 submit-buttom">
         <hr>
-                    <input type="submit" value="All Products" name="reportallproduct" class="btn btn-success">
-                    <input type="submit" value="Products by Group" name="reportbygroup" class="btn btn-warning">
-                    <input type="submit" value="Product by Supplier" name="reportbybrand" class="btn btn-success">
-                    
-                    <input type="reset" value="Reset" class="btn btn-danger">
+                    <input type="submit" value="সব পণ্য" name="reportallproduct" class="btn btn-success">
+                    <input type="submit" value="গ্রুপ অনুযায়ী" name="reportbygroup" class="btn btn-warning">
+                    <input type="submit" value="সরবরাহকারী অনুযায়ী" name="reportbybrand" class="btn btn-success">
+
                 </div>
               </form>
         </div>

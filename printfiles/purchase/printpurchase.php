@@ -18,7 +18,12 @@ $help = new Helper();
               tp.product_group = tg.groupid
                where ti.invoice_number = '$invoice_id' ";
    $status = $db->select($query); 
-   $purchase_data = $status->fetch_assoc();    
+   if($status){
+	   $purchase_data = $status->fetch_assoc();  
+   }else{
+	   header('location: ../../purchaselist.php');
+   }
+     
   }else{
     header("Location: purchaselist.php");
     
@@ -36,15 +41,15 @@ $help = new Helper();
             }
         </script>
         <meta charset="utf-8">
-        <title>::: Report of :::</title>
+        <title>::: ক্রয় ইনভয়েচ :::</title>
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
-            <button class="button blue" onclick="goBack()">Back</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
+            <button class="button blue" onclick="goBack()">ফিরে যান</button>
         </div>
         <?php
         ?>
@@ -57,12 +62,12 @@ $help = new Helper();
                         <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo'); ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
-                                <div class="title-3">Accounts Ledger Summary</div>
-                                Invoice Number- <?php echo $invoice_id ; ?> <br>
-                                Date: <?php echo $purchase_data['date']; ?><br>
-                                Supplier: <?php echo $purchase_data['supplier_name']; ?>
+                                <div class="title-3">ক্রয় ইনভয়েচ</div>
+                                ইনভয়েচ নাম্বার- <?php echo $invoice_id ; ?> <br>
+                                তারিখ: <?php echo $purchase_data['date']; ?><br>
+                                সরবরাহকারী: <?php echo $purchase_data['supplier_name']; ?>
                             </td>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total: (<?php echo $pri->TotalProducts("select category,sum(debit) as 'debit',sum(credit) as 'credit',date from tbl_laser GROUP by category"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("select category,sum(debit) as 'debit',sum(credit) as 'credit',date from tbl_laser GROUP by category"); ?>) </div></td>
                             
                         </tr>
                     </table>
@@ -72,13 +77,13 @@ $help = new Helper();
                     <table class="TFtable" id="datatable" >
                      <thead>
                         <tr class="bg-warning">
-                            <th>Serial</th>
-                            <th>Product ID</th>
-                            <th>Group</th>
-                            <th>Product Name</th>
-                            <th>Purchase</th>
-                            <th>Quantity</th>
-                            <th>Subtotal</th>
+                            <th>ক্রমিক</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>গ্রুপ</th>
+                            <th>পণ্যের নাম</th>
+                            <th>ক্রয়মূল্য</th>
+                            <th>পরিমাণ</th>
+                            <th>সাবটোটাল</th>
 
                         </tr>
                         </thead>
@@ -120,7 +125,7 @@ $help = new Helper();
                         <?php }  ?>
                            <tr class="bg-warning">
                              <td colspan="5"></td>
-                             <td><strong>Total</strong></td>
+                             <td><strong>মোট</strong></td>
                              <td style="text-align: center;"><strong><?php echo $total; ?></strong></td>
                            </tr>
                         </tbody>

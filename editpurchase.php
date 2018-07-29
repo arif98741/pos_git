@@ -19,10 +19,10 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-pencil"></i> &nbsp;EDIT PURCHASE</h1>
+      <h1><i class="lnr lnr-pencil"></i> &nbsp;ক্রয় সম্পাদনা</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -45,7 +45,7 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                 <div class="col-md-4">
                     <div class="form-group">
                         <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
-                            <option value="">Select Supplier</option>
+                            <option value="">সরবরাহকারী নির্বাচন করুন</option>
                            <?php
                                 $stmt = $sup->showSupplierForDropdown();
                                 while ($result = $stmt->fetch_assoc()) {
@@ -91,8 +91,8 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
 
 
                 <div class="col-md-6 submit-buttom">
-                    <input type="submit" value="Update Purchase" name="addproduct" class="btn btn-success">
-                    <input type="reset" value="Reset" class="btn btn-warning">
+                    <input type="submit" value="আপডেট" name="addproduct" class="btn btn-success">
+                    <input type="reset" value="পুনরায়" class="btn btn-warning">
                 </div>
 
 
@@ -101,13 +101,13 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                     <table id="invoice_form_table" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Group</th>
-                                <th>Name</th>
-                                <th>Unit</th>
-                                <th>Quantity</th>
-                                <th>Purchase</th>
-                                <th>Subtotal</th>
+                                <th>আইডি</th>
+                                <th>গ্রুপ</th>
+                                <th>পণ্যের নাম</th>
+                                <th>একক</th>
+                                <th>পরিমাণ</th>
+                                <th>ক্রয়মূল্য</th>
+                                <th>সাবটোটাল</th>
 
                             </tr>
                         </thead>
@@ -171,7 +171,7 @@ if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == '
                             </tbody>
                         <tfoot id="">
                                 <tr>
-                                    <td colspan="6" style="text-align:right;"><b>Invoice Total</b></td>
+                                    <td colspan="6" style="text-align:right;"><b>সর্বমোট ইনভয়েচ</b></td>
                                     <td colspan="1"><b class="wholetotal"><?php echo $invoice_total; ?></b></td>
                                 </tr>
 

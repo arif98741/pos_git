@@ -57,14 +57,14 @@ class Printdata {
         $this->table_content = "
             <tbody style='text-align:center;'>
              <tr>
-                  <th>Serial</th>  
-                  <th>Product ID</th>  
-                  <th>Group</th>  
-                  <th>Product Name</th>  
-                  <th>Supplier</th>  
-                  <th>Unit</th>  
-                  <th>Purchase Price</th>   
-                  <th>Sales Price</th>   
+                  <th>ক্রমিক</th>  
+                  <th>পণ্যের আইডি</th>  
+                  <th>গ্রুপ</th>  
+                  <th>পণ্যের নাম</th>  
+                  <th>সরবরাহকারী</th>  
+                  <th>একক</th>  
+                  <th>ক্রয়মূল্য</th>   
+                  <th>বিক্রয়মূল্য</th>   
             </tr>
             </tbody>";
 
@@ -110,13 +110,13 @@ class Printdata {
         $this->table_content = "
             <tbody>
             <tr>
-                  <th>Serial</th>  
-                  <th>Product ID</th> 
-                  <th>Product Name</th>  
-                  <th>Supplier</th>  
-                  <th>Unit</th>  
-                  <th>Purchase Price</th>   
-                  <th>Sales Price</th>   
+				<th>ক্রমিক</th>  
+                <th>পণ্যের আইডি</th>   
+                <th>পণ্যের নাম</th>  
+                <th>সরবরাহকারী</th>  
+                <th>একক</th>  
+                <th>ক্রয়মূল্য</th>   
+                <th>বিক্রয়মূল্য</th>
             </tr>
             </tbody> ";
         $q = "SELECT
@@ -168,7 +168,8 @@ class Printdata {
                   <th>Supplier</th>  
                   <th>Unit</th>  
                   <th>Purchase Price</th>   
-                  <th>Sales Price</th>   
+                  <th>Sales Price</th> 
+				  
             </tr>
             </tbody> ";
 
@@ -216,13 +217,13 @@ class Printdata {
         $this->table_content = "
             <tbody>
              <tr>
-                  <th>Serial</th>  
-                  <th>Product ID</th>  
-                  <th>Group</th>  
-                  <th>Product Name</th>  
-                  <th>Unit</th>  
-                  <th>Purchase Price</th>   
-                  <th>Sales Price</th>    
+				<th>ক্রমিক</th>  
+                <th>পণ্যের আইডি</th>   
+                <th>গ্রুপ</th>   
+                <th>পণ্যের নাম</th>  
+                <th>একক</th>  
+                <th>ক্রয়মূল্য</th>   
+                <th>বিক্রয়মূল্য</th>
             </tr>
             </tbody> ";
         $q = "SELECT
