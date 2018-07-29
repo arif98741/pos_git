@@ -22,10 +22,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-pencil"></i>&nbsp;EDIT-INVOICE</h1>
+      <h1><i class="lnr lnr-pencil"></i>&nbsp; ইনভয়েচ/মেমো সম্পাদনা</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -48,7 +48,7 @@
             <div class="form-group">
               
               <select name="cus_id" class="form-control" id="cus_dropdown_addinvoice"">
-                <option value="">Select Customer </option>
+                <option value="">ক্রেতা নির্বাচন করুন</option>
                 <?php 
                   $cusst = $db->select("select * from tbl_customer order by customer_name asc") or die($db->link->error . __LINE__);
 
@@ -80,25 +80,25 @@
           
           <div class="col-md-6"> 
             <div class="form-group">
-              <input type="" class="form-control" id="customer_id" value="<?php echo $cdata['customer_id']; ?>" placeholder="Customer ID"/> 
+              <input type="" class="form-control" id="customer_id" value="<?php echo $cdata['customer_id']; ?>" placeholder="ক্রেতার আইডি"/> 
             </div>  
           </div>        
           <div class="col-md-6"> 
             <div class="form-group">
-              <input type="" class="form-control" id="customer_name" value="<?php echo $cdata['customer_name']; ?>" placeholder="Customer Name"/> 
+              <input type="" class="form-control" id="customer_name" value="<?php echo $cdata['customer_name']; ?>" placeholder="ক্রেতার নাম"/> 
             </div>  
           </div>  
           <div class="col-md-6"> 
             <div class="form-group">
               
               
-              <input type="" class="form-control" id="address" value="<?php echo $cdata['address']; ?>" placeholder="Address"/> 
+              <input type="" class="form-control" id="address" value="<?php echo $cdata['address']; ?>" placeholder="ঠিকানা"/> 
               
             </div>
           </div>
           <div class="col-md-6"> 
             <div class="form-group">
-              <input type="" class="form-control" id="contact" value="<?php echo $cdata['contact_no']; ?>" placeholder="Contact"/> 
+              <input type="" class="form-control" id="contact" value="<?php echo $cdata['contact_no']; ?>" placeholder="মোবাইল"/> 
               
             </div>
           </div>
@@ -117,17 +117,17 @@
             <div class="col-md-3"> 
 
               <div class="form-group">
-                <label> Balance: </label>
+                <label> ব্যালেন্স: </label>
                 <input type="text"  readonly="" class="form-control text-right" id="totalbalance" name="balance"  value="<?php echo $data['previous_balance']; ?>" />
               </div>
               <div class="form-group">
-                <label>Sub Total</label>
+                <label>টোটাল</label>
                 <input type="text" class="form-control wholetotal text-right" id="subtotal" name=""  value="<?php echo $data['sub_total']; ?>" />
               </div>
             </div>
             <div class="col-md-3"> 
               <div class="form-group has-success">
-                <label class="control-label" for="inputSuccess1">Discount</label>
+                <label class="control-label" for="inputSuccess1">ডিসকাউন্ট</label>
                 <input type="text" class="form-control text-right"  id="discount" name="discount" value="<?php echo $data['discount']; ?>" />
               </div>
               
@@ -135,19 +135,19 @@
               
               
               <div class="form-group">
-                <label>Grand Total</label>
+                <label>সাব টোটাল</label>
                 <input type="text" class="form-control text-right" id="grandtotal" name="payable" value="<?php echo $data['grand_total']; ?>" />
                 
               </div>
             </div>
             <div class="col-md-3"> 
               <div class="form-group has-success">
-                <label class="control-label" for="inputSuccess1">DL</label>
+                <label class="control-label" for="inputSuccess1">ডেলিভারি চার্জ</label>
                 
                 <input type="text" class="form-control text-right" id="dlcharge" name="dlcharge"  value="<?php echo $data['dlcharge']; ?>" />
               </div>
               <div class="form-group has-success">
-                <label class="control-label" for="inputSuccess1">PAID</label>
+                <label class="control-label" for="inputSuccess1">পরিশোধ</label>
                 
                 <input type="text" class="form-control text-right" id="paid" name="paid"  value="<?php echo $data['paid']; ?>" />
               </div>
@@ -157,12 +157,12 @@
 
               
               <div class="form-group has-success">
-                <label class="control-label" for="inputSuccess1">Vat</label>
+                <label class="control-label" for="inputSuccess1">ভ্যাট</label>
                 <input type="text" class="form-control text-right" id="vat" name="vat"  value="<?php echo $data['vat']; ?>" />
                 
               </div>
               <div class="form-group">
-                <label>Due</label>
+                <label>বকেয়া</label>
                 <input type="text" class="form-control text-right" id="due" name="due"  value="<?php echo $data['due']; ?>" />
                 
               </div>
@@ -194,13 +194,13 @@
               <table class="table table-striped">
                 <tbody id="inv_detail">
                   <tr>
-                    <th width="5%">Serial</th>
-                    <th width="15%">Product ID</th>
-                    <th width="15%">Product Group</th>
-                    <th width="20%">Product Name</th>
-                    <th width="15%">Price</th>
-                    <th width="15%">Quantity</th>
-                    <th width="15%">Subtotal</th>
+                    <th width="5%">ক্রমিক</th>
+                    <th width="15%">পণ্যের আইডি</th>
+                    <th width="15%">পণ্যের গ্রুপ</th>
+                    <th width="20%">পণ্যের নাম</th>
+                    <th width="15%">মূল্য</th>
+                    <th width="15%">পরিমাণ</th>
+                    <th width="15%">মোট</th>
                     
                   </tr>
                   <?php

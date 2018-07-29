@@ -25,15 +25,15 @@ date_default_timezone_set("Asia/Dhaka");
             }
         </script>
         <meta charset="utf-8">
-        <title>Profit List Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+        <title>লাভ-ক্ষতি প্রতিবেদন - <?php echo date('Y-m-d h:i:sA'); ?></title>
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
-            <button class="button blue" onclick="goBack()">Back</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
+            <button class="button blue" onclick="goBack()">ফিরে যান</button>
         </div>
         <?php
         ?>
@@ -54,7 +54,7 @@ date_default_timezone_set("Asia/Dhaka");
                         <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo'); ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
-                                <div class="title-3">Profit Report <br/>From <?php echo $help->formatDate($_POST['starting']); ?> to <?php echo $help->formatDate($_POST['ending']); ?></div>
+                                <div class="title-3">লাভ-ক্ষতি প্রতিবেদন <br/> <?php echo $help->formatDate($_POST['starting']); ?> থেকে <?php echo $help->formatDate($_POST['ending']); ?>পর্যন্ত</div>
 
                         </td>
                             
@@ -65,11 +65,11 @@ date_default_timezone_set("Asia/Dhaka");
                 <table class="TFtable" id="datatable" >
                     <thead>
                         <tr>
-                            <th width="10%">Date</th>
-                            <th width="25%">Invoice ID</th>
-                            <th width="20%">Seller</th>
-                            <th width="20%">Customer</th>
-                            <th width="25%">Profit</th>
+                            <th width="10%">তারিখ</th>
+                            <th width="25%">ইনভয়েচ আইডি</th>
+                            <th width="20%">বিক্রেতা</th>
+                            <th width="20%">ক্রেতা</th>
+                            <th width="25%">লাভ</th>
                         </tr>
                     </thead>
                   <tbody>
@@ -95,7 +95,7 @@ date_default_timezone_set("Asia/Dhaka");
 
                         <?php } } ?>
                             <tr>
-                                <td colspan="4" style="text-align: center;"><strong>Total</strong></td>
+                                <td colspan="4" style="text-align: center;"><strong>মোট</strong></td>
                                
                                 <td style="text-align: center;"><strong><?php echo number_format((float)$amount, 2, '.', ''); ?></strong></td>
                             </tr>
@@ -118,8 +118,8 @@ date_default_timezone_set("Asia/Dhaka");
                         <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo'); ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
-                                <div class="title-3">Profit Report <br/>From <?php echo $help->formatDate($_POST['starting']); ?> to <?php echo $help->formatDate($_POST['ending']); ?></div>
-                                <div class="title-3">Product Name - 
+                                <div class="title-3">লাভ-ক্ষতি প্রতিবেদন  <br/> <?php echo $help->formatDate($_POST['starting']); ?> থেকে <?php echo $help->formatDate($_POST['ending']); ?> পর্যন্ত</div>
+                                <div class="title-3">পণ্যের নাম - 
                                     <?php echo $db->link->query("select product_name from tbl_product where product_id ='$product_id'")->fetch_object()->product_name; ?>
                                 </div>
 
@@ -131,10 +131,10 @@ date_default_timezone_set("Asia/Dhaka");
                 <table class="TFtable" id="datatable" >
                     <thead>
                         <tr>
-                            <th width="10%">Date</th>
-                            <th width="25%">Invoice ID</th>
-                            <th width="20%">Customer</th>
-                            <th width="25%">Profit</th>
+                            <th width="10%">তারিখ</th>
+                            <th width="25%">ইনভয়েচ আইডি</th>
+                            <th width="20%">ক্রেতা</th>
+                            <th width="25%">লাভ</th>
                         </tr>
                     </thead>
                   <tbody>
@@ -158,7 +158,7 @@ date_default_timezone_set("Asia/Dhaka");
 
                         <?php } } ?>
                             <tr>
-                                <td colspan="3" style="text-align: center;"><strong>Total</strong></td>
+                                <td colspan="3" style="text-align: center;"><strong>মোট</strong></td>
                                 <td style="text-align: center;"><strong><?php echo number_format((float)$amount, 2, '.', ''); ?></strong></td>
                             </tr>
                   </tbody>

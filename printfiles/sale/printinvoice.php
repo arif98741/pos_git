@@ -205,7 +205,7 @@ if (isset($_POST['sell_id'])) {
 
             </div>
             <div class="page_title">
-                <h2>Bill/Invoice</h2>
+                <h2>বিল/ইনভয়েচ</h2>
             </div>
             <?php
 
@@ -228,26 +228,26 @@ if (isset($_POST['sell_id'])) {
                 <div class="information_left">
                     <table style="text-align: center;">
                         <tr>
-                            <td>Invoice No</td>
+                            <td>ইনভয়েচ নাম্বার</td>
                             <td>:</td>
                             <td><strong><?php echo $sell_id; ?></strong></td>
 
                         </tr>
                         <tr>
-                            <td>Date</td>
+                            <td>তারিখ</td>
                             <td>:</td>
                             <td><?php echo $help->formatDate($invoice_data['date'],'d-m-Y'); ?></td>
 
                         </tr>
                         <tr>
-                            <td>Time</td>
+                            <td>সময়</td>
                             <td>:</td>
                             <td><?php echo $help->formatDate($invoice_data['date'],'g:i:s A'); ?></td>
                             
 
                         </tr>
                         <tr>
-                            <td>User</td>
+                            <td>বিক্রেতা</td>
                             <td>:</td>
                             <td><?php echo Session::get('name'); ?></td>
 
@@ -259,25 +259,25 @@ if (isset($_POST['sell_id'])) {
                 <div class="information_right">
                     <table>
                         <tr>
-                            <td>Customer ID</td>
+                            <td>ক্রেতার আইডি</td>
                             <td>:</td>
                             <td><?php echo $single_cus_r['customer_id']; ?></td>
 
                         </tr>
                         <tr>
-                            <td>Name</td>
+                            <td>নাম</td>
                             <td>:</td>
                             <td><?php echo $single_cus_r['customer_name']; ?></td>
 
                         </tr>
                         <tr>
-                            <td>Address</td>
+                            <td>ঠিকানা</td>
                             <td>:</td>
                             <td><?php echo $single_cus_r['address']; ?></td>
 
                         </tr>
                         <tr>
-                            <td>Contact</td>
+                            <td>মোবাইল</td>
                             <td>:</td>
                             <td><?php echo $single_cus_r['contact_no']; ?></td>
 
@@ -292,12 +292,12 @@ if (isset($_POST['sell_id'])) {
                 <table cellpadding="3">
                     <thead>
                         <tr>
-                            <th>SERIAL</th>
-                            <th>PROUDCT ID</th>
-                            <th>PRODUCT NAME</th>
-                            <th>QUANTITY</th>
-                            <th>PRICE</th>
-                            <th>SUBTOTAL</th>
+                            <th>ক্রমিক</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>পণ্যের নাম</th>
+                            <th>পরিমাণ</th>
+                            <th>মূল্য</th>
+                            <th>মোট</th>
                         </tr>	
                     </thead>
                     <tbody>
@@ -339,14 +339,14 @@ if (isset($_POST['sell_id'])) {
 
                     <table width="100%" style="text-align: center;">
                         <tr>
-                            <td width="303" align="right" nowrap="nowrap"><strong>Sub Total</strong></td>
+                            <td width="303" align="right" nowrap="nowrap"><strong>সর্বমোট</strong></td>
                             <td width="10" nowrap="nowrap">:</td>
                             <td width="121" align="right" nowrap="nowrap"><strong><?php echo $invoice_data['sub_total']; ?></strong></td>
 
                         </tr>
                         
                         <tr>
-                            <td align="right" nowrap="nowrap">DL.</td>
+                            <td align="right" nowrap="nowrap">ডেলিভারি</td>
                             <td nowrap="nowrap">:</td>
                              <td align="right" nowrap="nowrap"> <?php echo $invoice_data['dlcharge']; ?></td>
 
@@ -356,7 +356,7 @@ if (isset($_POST['sell_id'])) {
 
 
                         <tr>
-                           <td align="right" nowrap="nowrap">VAT(%)</td>
+                           <td align="right" nowrap="nowrap">ভ্যাট(%)</td>
                             <td nowrap="nowrap">:</td>
                              <td align="right" nowrap="nowrap"> <?php echo $invoice_data['vat']; ?></td>
 
@@ -364,33 +364,33 @@ if (isset($_POST['sell_id'])) {
                        
 
                         <tr>
-                            <td align="right" nowrap="nowrap">Discount</td>
+                            <td align="right" nowrap="nowrap">ডিসকাউন্ট</td>
                             <td nowrap="nowrap">:</td>
                              <td align="right" nowrap="nowrap"><?php echo $invoice_data['discount']; ?></td>
 
                         </tr>
                         
                         <tr>
-                            <td align="right" nowrap="nowrap"><strong>PAYABLE</strong></td>
+                            <td align="right" nowrap="nowrap"><strong>পরিশোধযোগ্য</strong></td>
                             <td nowrap="nowrap">:</td>
                             <td align="right" nowrap="nowrap"><strong><?php echo round($invoice_data['payable']); ?></strong></td>
                         </tr>
 
                          <tr>
-                            <td align="right" nowrap="nowrap">Paid</td>
+                            <td align="right" nowrap="nowrap">পরিশোধ</td>
                             <td nowrap="nowrap">:</td>
                              <td align="right" nowrap="nowrap"> <?php echo $invoice_data['paid']; ?></td>
 
                         </tr>
 
                        <tr>
-                            <td align="right" nowrap="nowrap">DUE</td>
+                            <td align="right" nowrap="nowrap">বকেয়া</td>
                             <td nowrap="nowrap">:</td>
                             <td align="right" nowrap="nowrap"><?php echo round($invoice_data['due']); ?></td>
 
                         </tr>
                          <tr>
-                            <td align="right" nowrap="nowrap">Previous Balance</td>
+                            <td align="right" nowrap="nowrap">পূর্ববর্তী ব্যালেন্স</td>
                             <td nowrap="nowrap">:</td>
                             <td align="right" nowrap="nowrap"> <?php echo round($invoice_data['previous_balance']); ?></td>
                         </tr>
@@ -403,22 +403,22 @@ if (isset($_POST['sell_id'])) {
 
                 <div class="first_part">
                     <hr/>
-                    <p>Customer's Signature</p>
+                    <p>ক্রেতার স্বাক্ষর</p>
                 </div>
                 <div class="second_part">
                     <hr/>
-                    <p>Delivery Incharge/Manager</p>
+                    <p>দায়িত্বরত ব্যবস্থাপক</p>
                 </div>
                 <div class="third_part">
                     <hr/>
-                    <p>For <?php  echo Session::get('company_name'); ?></p>
+                    <p> <?php  echo Session::get('company_name'); ?></p>
                 </div>
             </div>
 
             <div class="command_section">
                 <span>
-                    <a  href="../../addinvoice.php" id="backbutton">Sell Product</a>
-                    <button class="printbutton" id="printbutton" onclick="printFunction()" style="background: #007fff; width: 100px; height: 30px;">Print</button>
+                    <a  href="../../addinvoice.php" id="backbutton">পুনরায় বিক্রয়</a>
+                    <button class="printbutton" id="printbutton" onclick="printFunction()" style="background: #007fff; width: 100px; height: 30px;">প্রিন্ট</button>
                 </span>
             </div>
 

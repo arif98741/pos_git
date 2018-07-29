@@ -389,7 +389,7 @@ class Printdata {
             
            $this->table_content .="<tr>"
                                 ."<td></td>"
-                                . "<td colspan='1'><strong>Total Amount</strong></td>"
+                                . "<td colspan='1'><strong>মোট</strong></td>"
                                 . "<td><strong>".$sub_total."</strong></td>"
                                 . "<td ><strong>".$discount."</strong></td>"
                                 . "<td ><strong>".$dlcharge."</strong></td>"
@@ -590,7 +590,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='6'><strong>Total Amount</strong></td>"
+                                . "<td colspan='6'><strong>মোট</strong></td>"
                                 
                                 . "<td colspan='1'><strong>".round($total)."</strong></td>";
 
@@ -632,7 +632,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='6'><strong>Total Amount</strong></td>"
+                                . "<td colspan='6'><strong>মোট</strong></td>"
                                 
                                 . "<td colspan='1'><strong>".round($total)."</strong></td>";
 
@@ -673,7 +673,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='6'><strong>Total Amount</strong></td>"
+                                . "<td colspan='6'><strong>মোট</strong></td>"
                                 
                                 . "<td colspan='1'><strong>".round($total)."</strong></td>";
 
@@ -717,7 +717,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='6'><strong>Total Amount</strong></td>"
+                                . "<td colspan='6'><strong>মোট</strong></td>"
                             
                                 . "<td colspan='1'><strong>".round($total)."</strong></td>";
 
@@ -776,7 +776,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='4'><strong>Total Amount</strong></td>"
+                                . "<td colspan='4'><strong>মোট</strong></td>"
                                 . "<td colspan=''><strong>".$quantity."</strong></td>"
                                 . "<td colspan='1'><strong>".round($total)."</strong></td>";
 

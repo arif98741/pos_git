@@ -7,10 +7,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i> &nbsp;PROFIT REPORT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i> &nbsp;লাভ-ক্ষতি প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -26,11 +26,11 @@
         <form action="printfiles/sale/printprofit.php" method="POST">
             <div class="col-md-6 ">
                 <div class="form-group">
-                  <label for=""><strong>From</strong></label>
+                  <label for=""><strong>থেকে</strong></label>
                   <input type="date" name="starting" id="startdate" class="form-control">
                </div>  
                 <div class="form-group">
-                  <label for=""><strong>To</strong></label>
+                  <label for=""><strong>পর্যন্ত</strong></label>
                   <input type="date" name="ending" id="enddate" class="form-control">
                </div>
           </div>
@@ -38,9 +38,9 @@
 
           <div class="col-md-6">
                 <div class="form-group">
-                  <label for=""><strong>Product</strong></label>
+                  <label for=""><strong>পণ্য</strong></label>
                   <select name="product_id" id="" class="form-control">
-                    <option value="">Select Product</option>
+                    <option value="">পণ্য নির্বাচন করুন</option>
                     <?php
                       $status = $db->link->query("select * from tbl_product order by product_name asc");
                       if ($status) {
@@ -54,8 +54,8 @@
 
           <div class="col-md-offset-5 col-md-6">
              <div class="form-group">
-                <input type="submit" name="showprofit" class="btn btn-primary" value="Preview">
-                 <input type="submit" name="showprofitproductwise" class="btn btn-warning" value="Product Wise">
+                <input type="submit" name="showprofit" class="btn btn-primary" value="দেখুন">
+                 <input type="submit" name="showprofitproductwise" class="btn btn-warning" value="পণ্য অনুযায়ী">
             </div>
           </div>
       </form>

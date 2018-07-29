@@ -47,7 +47,7 @@ if($_GET['sell_id']){
 
         <meta charset="UTF-8">
 
-        <title>Invoice ID-<?php echo $sell_id; ?></title>
+        <title>ইনভয়েচ আইডি-<?php echo $sell_id; ?></title>
 
         <style type="text/css">
 
@@ -214,14 +214,11 @@ if($_GET['sell_id']){
 
             <div class="page_title">
 
-                <h2>Bill/Invoice</h2>
+                <h2>বিল/মেমো</h2>
 
             </div>
 
             <?php
-
-
-
             if (isset($_POST['cus_id'])) {
 
                 $cus_id = $_POST['cus_id'];
@@ -246,7 +243,7 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td>Invoice No</td>
+                            <td>ইনভয়েচ নাম্বার</td>
 
                             <td>:</td>
 
@@ -258,7 +255,7 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td>Date</td>
+                            <td>তারিখ</td>
 
                             <td>:</td>
 
@@ -270,30 +267,23 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td>Time</td>
+                            <td>সময়</td>
 
                             <td>:</td>
 
                             <td><?php echo $help->formatDate($inv_and_cus['selldate'],'h:i:s A'); ?></td>
 
-
-
                         </tr>
 
                         <tr>
 
-                            <td>User</td>
+                            <td>বিক্রেতা</td>
 
                             <td>:</td>
 
                             <td><?php echo Session::get('name'); ?></td>
 
-
-
                         </tr>
-
-
-
 
 
                     </table>
@@ -306,7 +296,7 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td>Customer ID</td>
+                            <td>ক্রেতার আইডি</td>
 
                             <td>:</td>
 
@@ -318,7 +308,7 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td>Name</td>
+                            <td>নাম</td>
 
                             <td>:</td>
 
@@ -330,30 +320,21 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td>Address</td>
+                            <td>ঠিকানা</td>
 
                             <td>:</td>
 
                             <td><?php echo $inv_and_cus['address']; ?></td>
-
-
-
                         </tr>
 
                         <tr>
-
-                            <td>Contact</td>
+                            <td>মোবাইল</td>
 
                             <td>:</td>
 
                             <td><?php echo $inv_and_cus['contact_no']; ?></td>
 
-
-
                         </tr>
-
-
-
 
 
                     </table>
@@ -371,12 +352,12 @@ if($_GET['sell_id']){
                     <thead>
 
                         <tr>
-                            <th>SERIAL</th>
-                            <th>PROUDCT ID</th>
-                            <th>PRODUCT NAME</th>
-                            <th>QUANTITY</th>
-                            <th>PRICE</th>
-                            <th>SUBTOTAL</th>
+                            <th>ক্রমিক</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>পন্যের নাম</th>
+                            <th>পরিমাণ</th>
+                            <th>মূল্য</th>
+                            <th>মোট</th>
 
                         </tr>   
 
@@ -472,7 +453,7 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td width="303" align="right" nowrap="nowrap"><strong>Sub Total</strong></td>
+                            <td width="303" align="right" nowrap="nowrap"><strong>সর্বমোট</strong></td>
 
                             <td width="10" nowrap="nowrap">:</td>
 
@@ -486,7 +467,7 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td align="right" nowrap="nowrap">DL.</td>
+                            <td align="right" nowrap="nowrap">ডেলিভারি চার্জ</td>
 
                             <td nowrap="nowrap">:</td>
 
@@ -498,7 +479,7 @@ if($_GET['sell_id']){
 
                         <tr>
 
-                            <td align="right" nowrap="nowrap">VAT(%)</td>
+                            <td align="right" nowrap="nowrap">ভ্যাট(%)</td>
 
                             <td nowrap="nowrap">:</td>
 
@@ -510,7 +491,7 @@ if($_GET['sell_id']){
 
                           <tr>
 
-                            <td align="right" nowrap="nowrap">Discount</td>
+                            <td align="right" nowrap="nowrap">ডিসকাউন্ট</td>
 
                             <td nowrap="nowrap">:</td>
 
@@ -523,7 +504,7 @@ if($_GET['sell_id']){
 
                          <tr>
 
-                            <td align="right" nowrap="nowrap"><strong>PAYABLE</strong></td>
+                            <td align="right" nowrap="nowrap"><strong>পরিশোধযোগ্য</strong></td>
 
                             <td nowrap="nowrap">:</td>
 
@@ -533,33 +514,24 @@ if($_GET['sell_id']){
 
 
 
-
-
                         <tr>
 
-                            <td align="right" nowrap="nowrap">Paid</td>
-
+                            <td align="right" nowrap="nowrap">পরিশোধ</td>
                             <td nowrap="nowrap">:</td>
-
                              <td align="right" nowrap="nowrap"> <?php echo $invoice_data['paid']; ?></td>
 
-
-
                         </tr>
 
                         <tr>
 
-                            <td align="right" nowrap="nowrap">DUE</td>
-
+                            <td align="right" nowrap="nowrap">বকেয়া</td>
                             <td nowrap="nowrap">:</td>
-
                             <td align="right" nowrap="nowrap"><?php echo $invoice_data['due']; ?></td>
-
                         </tr>
 
                         <tr>
 
-                            <td align="right" nowrap="nowrap">Previous Balance</td>
+                            <td align="right" nowrap="nowrap">পূর্ববর্তী ব্যালেন্স</td>
 
                             <td nowrap="nowrap">:</td>
 
@@ -581,7 +553,7 @@ if($_GET['sell_id']){
 
                     <hr/>
 
-                    <p>Customer's Signature</p>
+                    <p>ক্রেতার স্বাক্ষর</p>
 
                 </div>
 
@@ -589,30 +561,22 @@ if($_GET['sell_id']){
 
                     <hr/>
 
-                    <p>Delivery Incharge/Manager</p>
+                    <p>দায়িত্বরত ব্যবস্থাপক</p>
 
                 </div>
 
                 <div class="third_part">
-
                     <hr/>
-
-                    <p>For <?php  echo Session::get('company_name'); ?></p>
-
+                    <p> <?php  echo Session::get('company_name'); ?></p>
                 </div>
-
             </div>
-
 
 
             <div class="command_section">
 
                 <span>
-
-                    <a  href="invoicelist.php" id="backbutton">Sell Product</a>
-
-                    <button class="printbutton" id="printbutton" onclick="printFunction()" style="background: #007fff; width: 100px; height: 30px;">Print</button>
-
+                    <a  href="invoicelist.php" id="backbutton">পণ্য বিক্রয়</a>
+                    <button class="printbutton" id="printbutton" onclick="printFunction()" style="background: #007fff; width: 100px; height: 30px;">প্রিন্ট</button>
                 </span>
 
             </div>

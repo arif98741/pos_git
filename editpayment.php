@@ -21,10 +21,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-pencil"></i>  UPDATE PAYMENT</h1>
+      <h1><i class="lnr lnr-pencil"></i>  পেমেন্ট সম্পাদনা</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -45,16 +45,16 @@
                 
                 <div class="col-md-6">
                     <div class="form-group">
-                          <label for="">Customer ID</label>
-                        <input name="customer_id"  class="form-control" type="text" placeholder="Customer ID"  value="<?php echo $payment_data['customer_id']; ?>"   readonly="">
+                          <label for="">ক্রেতার আইডি</label>
+                        <input name="customer_id"  class="form-control" type="text" placeholder="আইডি"  value="<?php echo $payment_data['customer_id']; ?>"   readonly="">
                     </div>
 
                 </div>
 
                   <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Customer Name</label>
-                        <input name="customer_name"  class="form-control" type="text" placeholder="Customer Name" value="<?php echo $payment_data['customer_name']; ?>" readonly="">
+                        <label for="">ক্রেতার নাম</label>
+                        <input name="customer_name"  class="form-control" type="text" placeholder="ক্রেতার নাম" value="<?php echo $payment_data['customer_name']; ?>" readonly="">
                     </div>
 
                 </div>
@@ -62,15 +62,15 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Paid Amount</label>
-                        <input name="amount"  class="form-control" type="text"  value="<?php echo round($payment_data['amount']); ?>"  placeholder="Amount"  required="">
+                        <label for="">পরিমাণ</label>
+                        <input name="amount"  class="form-control" type="text"  value="<?php echo round($payment_data['amount']); ?>"  placeholder="টাকার পরিমাণ"  required="">
                     </div>
 
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Payment Method</label>
+                        <label for="">পেমেন্ট পদ্ধতি</label>
                         <input type="text" name="method" class="form-control"  value="<?php echo $payment_data['method']; ?>" placeholder="">
                     </div>
 
@@ -78,8 +78,8 @@
 
                 <div class="col-md-offset-4 col-md-6 submit-button">
                     <input type="hidden" value="<?php echo $serial; ?>" name="serial" >
-                    <input type="submit" value="Update Payment" name="updatepayment" class="btn btn-success">
-                    <input type="reset" value="Reset" class="btn btn-warning">
+                    <input type="submit" value="সেভ" name="updatepayment" class="btn btn-success">
+                    <input type="reset" value="পুনরায়" class="btn btn-warning">
                 </div>
                 </div>
             </div>

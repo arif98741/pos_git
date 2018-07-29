@@ -7,10 +7,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i> &nbsp;INVOICE REPORT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i> &nbsp;মেমো প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -25,19 +25,19 @@
         <form action="printfiles/sale/invoicereport.php" method="POST">
             <div class="col-md-6">
                 <div class="form-group">
-                  <label for=""><strong>From</strong></label>
+                  <label for=""><strong>থেকে</strong></label>
                   <input type="date" name="starting" id="startdate" class="form-control">
                </div>  
                 <div class="form-group">
-                  <label for=""><strong>To</strong></label>
+                  <label for=""><strong>পর্যন্ত</strong></label>
                   <input type="date" name="ending" id="enddate" class="form-control">
                </div>
           </div>
 
           <div class="col-md-6">
-            <label for="">Customer</label>
+            <label for="">ক্রেতা</label>
             <select name="customer_id" id="" class="customer form-control universal_select2_dropdown">
-              <option value="">Select Customer</option>
+              <option value="">ক্রেতা নির্বাচন করুন</option>
               <?php 
                   $cusst = $db->select("select * from tbl_customer order by customer_name asc");
                   if($cusst){
@@ -52,8 +52,8 @@
 
           <div class="col-md-offset-3 col-md-6">
              <div class="form-group">
-                <input type="submit" name="showinvoicereport" class="btn btn-success" value="All Sales">
-                <input type="submit" name="showinvoiceaccordingtocustomer" class="btn btn-primary" value="Customer Wise">
+                <input type="submit" name="showinvoicereport" class="btn btn-success" value="সবগুলো">
+                <input type="submit" name="showinvoiceaccordingtocustomer" class="btn btn-primary" value="ক্রেতা অনুযায়ী">
             </div>
           </div>
 

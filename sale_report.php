@@ -7,10 +7,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i> &nbsp; SALE REPORT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i> &nbsp; বিক্রয় প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href=""><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -27,11 +27,11 @@
 
 
                   <div class="form-group">
-                    <label for=""><strong>From</strong></label>
+                    <label for=""><strong>থেকে</strong></label>
                     <input type="date" name="starting" id="startdate" class="form-control">
                  </div>  
                   <div class="form-group">
-                    <label for=""><strong>To</strong></label>
+                    <label for=""><strong>পর্যন্ত</strong></label>
                     <input type="date" name="ending" id="enddate" class="form-control">
                  </div>
                  <div class="form-group">
@@ -44,9 +44,9 @@
               <div class="col-md-6">
 
                   <div class="form-group">
-                    <label for=""><strong>Group</strong></label>
+                    <label for=""><strong>গ্রুপ</strong></label>
                     <select name="groupid" id="" class="form-control">
-                      <option value="">Select Group</option>
+                      <option value="">গ্রুপ নির্বাচন করুন</option>
                       <?php
                             $status = $pro->showGroup();
                             if($status){
@@ -57,9 +57,9 @@
                  </div> 
 
                 <div class="form-group">
-                    <label for=""><strong>Supplier</strong></label>
+                    <label for=""><strong>সরবরাহকারী</strong></label>
                     <select name="brandid" id="" class="form-control">
-                      <option value="">Select Supplier</option>
+                      <option value="">সরবরাহকারী নির্বাচন করুন</option>
                       <?php
                             $status = $sup->showSupplier();
                             if ($status) {
@@ -71,9 +71,9 @@
 
 
                   <div class="form-group">
-                    <label for=""><strong>Customer</strong></label>
+                    <label for=""><strong>ক্রেতা</strong></label>
                     <select name="customer_id" id="" class="customer form-control universal_select2_dropdown">
-                        <option value="">Select Customer</option>
+                        <option value="">ক্রেতা নির্বাচন করুন</option>
                         <?php 
                             $cusst = $db->select("select * from tbl_customer order by customer_name asc");
                             if($cusst){
@@ -88,9 +88,9 @@
 
 
                   <div class="form-group">
-                    <label for=""><strong>Product Name Wise</strong></label>
+                    <label for=""><strong>পণ্য অনুযায়ী</strong></label>
                     <select name="product_id" id="" class="form-control universal_select2_dropdown">
-                      <option value="">Select Product</option>
+                      <option value="">পণ্য নির্বাচন করুন</option>
                       <?php
                             $status = $db->link->query("select * from tbl_product order by product_name asc");
                             if ($status) {
@@ -109,11 +109,11 @@
               <div class="col-md-12">
                 <div class="form-group">
                   
-                    <input type="submit" class="btn btn-success " name="showsellreport" value="All Sales">
-                    <input type="submit" class="btn btn-warning" name="sellreportbygroup" value="Group Wise">
-                    <input type="submit" class="btn btn-info " name="sellreportbybrand" value="Supplier Wise">
-                    <input type="submit" class="btn btn-danger " name="sellreportbycustomer" value="Customer Wise">
-                    <input type="submit" class="btn btn-warning " name="sellreportbyname" value="Product Name Wise">
+                    <input type="submit" class="btn btn-success " name="showsellreport" value="সব বিক্রয়">
+                    <input type="submit" class="btn btn-warning" name="sellreportbygroup" value="গ্রুপ অনুযায়ী">
+                    <input type="submit" class="btn btn-info " name="sellreportbybrand" value="সরবরাহকারী অনুযায়ী">
+                    <input type="submit" class="btn btn-danger " name="sellreportbycustomer" value="ক্রেতা অনুযায়ী">
+                    <input type="submit" class="btn btn-warning " name="sellreportbyname" value="পণ্যের নাম অনুযায়ী">
                 </div>
               </div>
          </div>

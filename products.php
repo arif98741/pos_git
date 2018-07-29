@@ -4,9 +4,9 @@
 if (isset($_POST['addproduct'])) {
     $add = $pro->addProduct($_POST);
     if ($add) {
-        echo "<script>alert('Product Added Successfully');</script>";
+        echo "<script>alert('সফলভাবে যুক্ত হয়েছে');</script>";
     } else {
-        echo "<script>alert('Product Added Failed');</script>";
+        echo "<script>alert('পণ্য সংযোজন ব্যর্থ');</script>";
     }
 }
 
@@ -15,9 +15,9 @@ if (isset($_POST['addproduct'])) {
 if (isset($_POST['updateproduct'])) {
     $update = $pro->updateProduct($_POST);
     if ($update) {
-        echo "<script>alert('Product Updated Successfully');</script>";
+        echo "<script>alert('পণ্য সফলভাবে সম্পাদন হয়েছে');</script>";
     } else {
-        echo "<script>alert('Product Update Failed');</script>";
+        echo "<script>alert('পণ্য সম্পাদন ব্যর্থ');</script>";
     }
 }
 //delete products
@@ -25,9 +25,9 @@ if (isset($_POST['updateproduct'])) {
 if (isset($_GET['product_id'])) {
     $sta = $pro->deleteProduct($_GET['product_id']);
     if ($sta) {
-        echo "<script>alert('Product Deleted Successful');</script>";
+       echo "<script>alert('পণ্য সফলভাবে ডিলিট হয়েছে');</script>";
     } else {
-        echo "<script>alert('Failed to Delete Product');</script>";
+        echo "<script>alert('পণ্য ডিলিট ব্যর্থ');</script>";
     }
 }
 ?>
@@ -36,10 +36,10 @@ if (isset($_GET['product_id'])) {
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-list"></i> &nbsp;PRODUCTS</h1>
+      <h1><i class="lnr lnr-list"></i> &nbsp;পণ্য সমূহ</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -57,18 +57,16 @@ if (isset($_GET['product_id'])) {
               <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                 <thead>
                 <tr role="row">
-                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Product ID</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Group</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">Product Name</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Supplier</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Unit</th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">পণ্যের আইডি</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">গ্রুপ</th>
+				  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">পণ্যের নাম</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">সরবরাহকারী</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">একক</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">ক্রয়মূল্য</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Purchase Price</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">সর্বশেষ সম্পাদন</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Last Update</th>
-
-
-                  
-                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">-</th>
 
                 </tr>
                 </thead>

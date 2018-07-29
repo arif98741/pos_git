@@ -23,8 +23,8 @@ $db = new Database();
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
-            <button class="button blue" onclick="goBack()">Back</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
+            <button class="button blue" onclick="goBack()">ফিরে যান</button>
         </div>
         
 
@@ -41,7 +41,7 @@ $db = new Database();
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Sales Report From </div><?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">বিক্রয় প্রতিবেদন </div><?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 <?php 
 
                                     $starting = $_POST['starting']." 00:00:00";
@@ -57,13 +57,13 @@ $db = new Database();
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Invoice</th>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Sale Price</th>
-                            <th>Sub Total</th>
+                            <th>তারিখ</th>
+                            <th>ইনভয়েচ</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>পণ্যের নাম</th>
+                            <th>পরিমাণ</th>
+                            <th>বিক্রয়মূল্য</th>
+                            <th>সাবটোটাল</th>
                         </tr>
                         <tbody style='text-align:center'>
                             <?php echo $pri->SellReportForsales($starting,$ending); ?>
@@ -93,9 +93,9 @@ $db = new Database();
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Sales Report by Group - <?php echo $groupname; ?> </div>From <?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">বিক্রয় প্রতিবেদন গ্রুপ অনুযায়ী - <?php echo $groupname; ?> </div> <?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_product.product_group='$groupid' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_product.product_group='$groupid' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -103,13 +103,14 @@ $db = new Database();
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Invoice</th>
-                             <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Sale Price</th>
-                            <th>Sub Total</th>
+                           
+							<th>তারিখ</th>
+                            <th>ইনভয়েচ</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>পণ্যের নাম</th>
+                            <th>পরিমাণ</th>
+                            <th>বিক্রয়মূল্য</th>
+                            <th>সাবটোটাল</th>
                         </tr>
                         <tbody style='text-align:center'>
                             <?php echo $pri->SellReportByGroup($_POST['starting'],$_POST['ending'],$groupid); ?>
@@ -139,14 +140,9 @@ $db = new Database();
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Sales Report by Supplier - <?php echo $supplier_name; ?></div>From <?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
-                                <?php 
-
-                                    
-                                    
-                                    
-                                ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_product.product_brand='$brandid' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
+                                <div class="title-3">বিক্রয় প্রতিবেদন সরবরাহকারী অনুযায়ী - <?php echo $supplier_name; ?></div> <?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
+                                
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_product.product_brand='$brandid' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -154,13 +150,14 @@ $db = new Database();
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Invoice</th>
-                            <th>Product ID</th>
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Sale Price</th>
-                            <th>Sub Total</th>
+                            
+							<th>তারিখ</th>
+                            <th>ইনভয়েচ</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>পণ্যের নাম</th>
+                            <th>পরিমাণ</th>
+                            <th>বিক্রয়মূল্য</th>
+                            <th>সাবটোটাল</th>
                         </tr>
                         <tbody style='text-align:center'>
                             <?php echo $pri->SellReportByBrand($_POST['starting'],$_POST['ending'],$brandid); ?>
@@ -189,9 +186,9 @@ $db = new Database();
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Sales Report By Customer - <?php echo $customer_name; ?></div>From <?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">বিক্রয় প্রতিবেদন ক্রেতা অনুযায়ী - <?php echo $customer_name; ?></div><?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_sell.customer_id='$customer_id' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id where tbl_sell.customer_id='$customer_id' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -199,13 +196,15 @@ $db = new Database();
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Invoice</th>
-                            <th>Product ID</th>   
-                            <th>Product Name</th>
-                            <th>Quantity</th>
-                            <th>Sale Price</th>
-                            <th>Sub Total</th>
+                            
+							
+							<th>তারিখ</th>
+                            <th>ইনভয়েচ</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>পণ্যের নাম</th>
+                            <th>পরিমাণ</th>
+                            <th>বিক্রয়মূল্য</th>
+                            <th>সাবটোটাল</th>
                         </tr>
                         <tbody style='text-align:center'>
                             <?php echo $pri->SellReportByCustomer($_POST['starting'],$_POST['ending'],$customer_id); ?>
@@ -235,9 +234,9 @@ $db = new Database();
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Sales Report by Product - <?php echo $product_name; ?> </div>From <?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">বিক্রয় প্রতিবেদন পণ্য অনুযায়ী - <?php echo $product_name; ?> </div> <?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id join tbl_customer on tbl_sell_products.customer_id = tbl_customer.customer_id where tbl_product.product_id='$product_id' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট পণ্য: (<?php echo $pri->TotalProducts("SELECT * FROM tbl_sell join tbl_sell_products on tbl_sell.sell_id = tbl_sell_products.sell_id JOIN tbl_product on tbl_sell_products.product_id = tbl_product.product_id join tbl_customer on tbl_sell_products.customer_id = tbl_customer.customer_id where tbl_product.product_id='$product_id' and tbl_sell.date between '$starting' and '$ending'"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -245,12 +244,12 @@ $db = new Database();
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Invoice</th>
-                            <th>Customer</th>
-                            <th>SalePrice</th>
-                            <th>Quantity</th>
-                            <th>Sub-Total</th>
+                            <th>তারিখ</th>
+                            <th>ইনভয়েচ</th>
+                            <th>ক্রেতা</th>
+                            <th>বিক্রয়মূল্য</th>
+                            <th>পরিমাণ</th>
+                            <th>সাবটোটাল</th>
                         </tr>
                         <tbody style='text-align:center'>
                             <?php echo $pri->SellReportByProductName($_POST['starting'],$_POST['ending'],$product_id); ?>

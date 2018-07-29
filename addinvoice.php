@@ -5,10 +5,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-plus-circle"></i>BILL-INVOICE</h1>
+      <h1><i class="lnr lnr-plus-circle"></i>বিল/ইনভয়েচ</h1>
       <ol class="breadcrumb">
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><a href="<?php echo BASE_URL; ?>">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
       </ol>
     </section>
 
@@ -48,7 +48,7 @@
                                 <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $invoice; ?>">
                             
                             <select name="cus_id" class="form-control select2" id="cus_dropdown_addinvoice">
-                                <option value="" >Select Customer </option>
+                                <option value="" >ক্রেতা নির্বাচন করুন</option>
                                 <?php 
                                     $cusst = $db->select("select * from tbl_customer order by customer_name asc");
                                     if($cusst){
@@ -68,23 +68,23 @@
                     <div class="col-md-6"> 
 
                         <div class="form-group">
-                            <input type="" class="form-control" id="customer_id" placeholder="Customer ID"/> 
+                            <input type="" class="form-control" id="customer_id" placeholder="ক্রেতার আইডি"/> 
                         </div>  
                     </div>              
                     <div class="col-md-6"> 
                         <div class="form-group">
-                            <input type="" class="form-control" id="customer_name" placeholder="Customer Name"/> 
+                            <input type="" class="form-control" id="customer_name" placeholder="ক্রেতার নাম"/> 
                         </div>  
                     </div>  
                     <div class="col-md-6"> 
                         <div class="form-group">
-                            <input type="" class="form-control" id="address" placeholder="Address"/> 
+                            <input type="" class="form-control" id="address" placeholder="ঠিকানা"/> 
                             
                         </div>
                     </div>
                     <div class="col-md-6"> 
                         <div class="form-group">
-                            <input type="" class="form-control" id="contact" placeholder="Contact"/> 
+                            <input type="" class="form-control" id="contact" placeholder="মোবাইল"/> 
                             
                         </div>
                     </div>
@@ -99,41 +99,36 @@
                         
                         <div class="col-md-3"> 
                             <div class="form-group">
-                                <label> Balance: </label>
+                                <label> ব্যালেন্স: </label>
                                 <input type="text"  readonly="" class="form-control text-right" id="totalbalance" name="balance"/>
                             </div>
                             <div class="form-group">
-                                <label>Sub Total</label>
+                                <label>সর্বমোট</label>
                                 <input type="text" class="form-control text-right" id="subtotal" name="subtotal" readonly="" />
                             </div>
                         </div>
                         <div class="col-md-3"> 
                             <div class="form-group has-success" style="">
-                                <label class="control-label" for="inputSuccess1" >Discount</label>
+                                <label class="control-label" for="inputSuccess1" >ডিসকাউন্ট</label>
                                 <input type="number" class="form-control text-right" style="text-align: center;" id="discount" name="discount"  tabindex="1" />
                                 <!--Discount is grandtotal-->
                             </div>
                             
-                            
                             <div class="form-group">
-                                <label>Payable</label>
+                                <label>পরিশোধযোগ্য</label>
                                 <input type="text" class="form-control text-right" id="payable" value="0" name="payable" readonly="" />
-
                                 <input type="hidden" class="form-control text-right" id="grandtotal" value="0" name="grandtotal" />
-                                
                             </div>
-
-
 
                             </div>
                             <div class="col-md-3"> 
                                 <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess1" >DL</label>
+                                    <label class="control-label" for="inputSuccess1" >ডেলিভারি চার্জ</label>
                                     
                                     <input type="number" class="form-control text-right" style="text-align: center;" id="dlcharge" name="dlcharge" required=""  tabindex="2" />
                                 </div>
                                 <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess1" >PAID</label>
+                                    <label class="control-label" for="inputSuccess1" >পরিশোধ</label>
                                     
                                     <input type="number" class="form-control text-right" id="paid" name="paid" style="text-align: center;" required="" tabindex="4"/>
                                 </div>
@@ -142,11 +137,11 @@
                         <div class="col-md-3"> 
                             
                             <div class="form-group has-success">
-                                <label class="control-label" for="inputSuccess1" >Vat</label>
+                                <label class="control-label" for="inputSuccess1" >ভ্যাট</label>
                                 <input type="number" class="form-control text-right" id="vat" name="vat" style="text-align: center;" required="" tabindex="3" />
                             </div>
                             <div class="form-group">
-                                <label>Due</label>
+                                <label>বকেয়া</label>
                                 <input type="number" class="form-control text-right" id="due" name="due" readonly="" value="0" />
                                 
                             </div>
@@ -168,7 +163,7 @@
                                 
                     <tbody>
                         <tr>
-                            <td width="20%">    <a class="btn btn-success btn-block" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
+                            <td width="20%">    <a class="btn btn-success btn-block" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;নতুন সংযোজন</a></td>
 
                            
 
@@ -196,13 +191,13 @@
                                     </select>
                             </td>
                             <td width="20%">
-                                <input type="number" class="form-control" id="product_quantity" placeholder="Quantity">
-                                <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="Quantity">
+                                <input type="number" class="form-control" id="product_quantity" placeholder="পরিমাণ">
+                                <input type="hidden" name="addpurchase" class="form-control" id="product_quantity" placeholder="পরিমাণ">
                             </td>
 
 
                             <td width="20%">
-                                <input type="" class="form-control"  id="sale_price" placeholder="Sale Price"/>
+                                <input type="" class="form-control"  id="sale_price" placeholder="বিক্রয়মূল্য"/>
                                 <input type="hidden" class="form-control"  id="purchase_price" placeholder="Sale Price"/>
                             </td>
                             

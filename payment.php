@@ -27,14 +27,10 @@
     <!-- Content Header (Page header) -->
 
     <section class="content-header">
-
-      <h1><i class="lnr lnr-plus-circle"></i> &nbsp;PAYMENT</h1>
-
+      <h1><i class="lnr lnr-plus-circle"></i> &nbsp;পেমেন্ট</h1>
       <ol class="breadcrumb">
-
-        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
-
-        <li class="active"><a href="billpay.php">Dashboard</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active"><a href="<?php echo BASE_URL; ?>">ড্যাশবোর্ড</a></li>
 
       </ol>
 
@@ -45,14 +41,9 @@
     <!-- Main content -->
 
     <section class="content">
-
       <div class="col-sm-12">
-
-        <div class="box">
-
+        <div class="box"
           <div class="box-body">
-
-            
 
              <div class="row">
 
@@ -60,53 +51,35 @@
 
             <form action="billpay.php" method="post">
 
-                
-
                 <div class="col-md-6">
-
                     <div class="form-group">
-
-                          <label for="">Customer ID</label>
-
-                        <input name="customer_id"  class="form-control" type="text" placeholder="Customer ID"  value="<?php echo $customer_data['customer_id']; ?>"   readonly="">
+                          <label for="">ক্রেতার আইডি</label>
+                        <input name="customer_id"  class="form-control" type="text" placeholder="ক্রেতার আইডি"  value="<?php echo $customer_data['customer_id']; ?>"   readonly="">
 
                     </div>
 
-
-
                 </div>
-
 
 
                   <div class="col-md-6">
-
                     <div class="form-group">
 
-                        <label for="">Customer Name</label>
+                        <label for="">ক্রেতার নাম</label>
 
-                        <input name="customer_name"  class="form-control" type="text" placeholder="Customer Name" value="<?php echo $customer_data['customer_name']; ?>" readonly="">
+                        <input name="customer_name"  class="form-control" type="text" placeholder="ক্রেতার নাম" value="<?php echo $customer_data['customer_name']; ?>" readonly="">
 
                     </div>
 
-
-
                 </div>
 
-
-
                 
-
-               
-
-                
-
                 <div class="col-md-4">
 
                     <div class="form-group">
 
-                        <label for="">Previous Due</label>
+                        <label for="">পূর্ববর্তী বকেয়া</label>
 
-                        <input name="previous"  class="form-control" type="text" value="<?php echo round($customer_data['balance']); ?>" placeholder="Previous Balance"  required="">
+                        <input name="previous"  class="form-control" type="text" value="<?php echo round($customer_data['balance']); ?>" placeholder="পূর্ববর্তী বকেয়া"  required="">
 
                     </div>
 
@@ -122,51 +95,30 @@
 
                     <div class="form-group">
 
-                        <label for="">Paid Amount</label>
+                        <label for="">পরিমাণ</label>
 
-                        <input name="amount"  class="form-control" type="text" placeholder="Amount"  required="">
+                        <input name="amount"  class="form-control" type="text" placeholder="পরিমাণ"  required="">
 
                     </div>
-
-
 
                 </div>
 
 
-
                 <div class="col-md-4">
-
                     <div class="form-group">
-
-                        <label for="">Payment Method</label>
-
+                        <label for="">পেমেন্ট পদ্ধতি</label>
                         <input type="text" name="method" class="form-control" value="" placeholder="">
 
-                       
-
-                        
-
                     </div>
 
-
-
                 </div>
-
-
-
-
-
-
-
-
-
 
 
                 <div class="col-md-offset-4 col-md-6 submit-button">
 
-                    <input type="submit" value="Pay Now" name="payamount" class="btn btn-success">
+                    <input type="submit" value="পরিশোধ করুন" name="payamount" class="btn btn-success">
 
-                    <input type="reset" value="Reset" class="btn btn-warning">
+                    <input type="reset" value="পুনরায়" class="btn btn-warning">
 
                 </div>
 
