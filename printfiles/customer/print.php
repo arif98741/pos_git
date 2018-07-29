@@ -21,15 +21,15 @@ date_default_timezone_set('Asia/Dhaka');
         }
     </script>
     <meta charset="utf-8">
-    <title>ক্রেতা প্রতিবেদন - <?php echo date('Y-m-d h:i:sA'); ?></title>
+    <title>Customer Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
     <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
     <link rel="stylesheet " href="../../assets/dist/css/print.css">
 </head>
 
 <body>
 <div class="bt-div">
-    <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
-    <a class="button blue" href="../../customerlist.php">ফিরে যান</a>
+    <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
+    <a class="button blue" href="../../customerlist.php">Back</a>
 </div>
 <?php
 ?>
@@ -42,9 +42,9 @@ date_default_timezone_set('Asia/Dhaka');
                 <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                    <div class="title-3">ক্রেতা তালিকা প্রতিবেদন</div></td>
+                    <div class="title-3">Customer List Report</div></td>
                 <td width="24%" align="right" valign="middle" nowrap="nowrap">
-                    <div class="title-2">মোট ক্রেতা: (<?php echo $pri->TotalProducts("select * from tbl_customer ORDER  by customer_name ASC "); ?>)</div>
+                    <div class="title-2">Total Customer: (<?php echo $pri->TotalProducts("select * from tbl_customer ORDER  by customer_name ASC "); ?>)</div>
                 </td>
             </tr>
         </table>
@@ -54,13 +54,13 @@ date_default_timezone_set('Asia/Dhaka');
         <table class="TFtable" id="datatable" >
             <thead>
                 <tr>
-                    <th>ক্রমিক</th>
-                    <th>আইডি</th>
-                    <th>নাম</th>
-                    <th>ইমেইল</th>
-                    <th>ঠিকানা</th>
-                    <th>মোবাইল</th>
-                    <th>ব্যালেন্স</th>
+                    <th>Serial</th>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Email</th>
+                    <th>Adress</th>
+                    <th>Contact</th>
+                    <th>Balance</th>
 
 
                 </tr>

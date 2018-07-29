@@ -23,15 +23,15 @@ date_default_timezone_set('Asia/Dhaka');
             }
         </script>
         <meta charset="utf-8">
-        <title>ক্রেতা বিবৃতি প্রতিবেদন - <?php echo date('Y-m-d h:i:sA'); ?></title>
+        <title>Customer Statement Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
-            <button class="button blue" onclick="goBack()">ফিরে যান</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
+            <button class="button blue" onclick="goBack()">Back</button>
         </div>
 
         <div class="wraper">
@@ -52,7 +52,7 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo'); ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
-                                <div class="title-3">ক্রেতা বিবৃতি প্রতিবেদন<br/>ক্রেতার নাম: <?php echo $customer_data->customer_name; ?><br/><?php echo $_POST['starting']; ?> থেকে  <?php echo $_POST['ending']; ?> পর্যন্ত</div></td>
+                                <div class="title-3">Customer Statement Report<br/>Customer Name: <?php echo $customer_data->customer_name; ?><br/>From <?php echo $_POST['starting']; ?> to <?php echo $_POST['ending']; ?></div></td>
                             
                         </tr>
                 </table>
@@ -60,12 +60,12 @@ date_default_timezone_set('Asia/Dhaka');
                 <table class="TFtable" id="datatable" >
                       <thead style="text-align: center;">
                             <tr>
-                                <th>তারিখ</th>
-                                <th>ইনভয়েচ. আইডি</th>
-                                 <th>বিস্তারিত</th>
-                                <th>ডেবিট</th>
-                                <th>ক্রেডিট</th>
-                                <th>ব্যালেন্স</th>
+                                <th>Date</th>
+                                <th>Invoice/Trans. ID</th>
+                                 <th>Description</th>
+                                <th>Debit</th>
+                                <th>Credit</th>
+                                <th>Balance</th>
                                 
                             </tr>
                       </thead>
@@ -96,7 +96,7 @@ date_default_timezone_set('Asia/Dhaka');
 
                         <?php } } ?>
                             <tr>
-                                <td colspan="3" style="text-align: right;"><strong>মোট</strong></td>
+                                <td colspan="3" style="text-align: right;"><strong>Total</strong></td>
                                 <td style="text-align: center;"><strong><?php echo round($debit); ?></strong></td>
                                 <td style="text-align: center;"><strong><?php echo round($credit); ?></strong></td>
                                 <td></td>
