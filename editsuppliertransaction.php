@@ -20,10 +20,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="fa fa-pencil"></i> Edit SUPPLIER TRANSACTION</h1>
+      <h1><i class="fa fa-pencil"></i> সরবরাহকারী ট্রানসেকশন প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -50,7 +50,7 @@
 
                     <div class="form-group">
                         <select name="supplier_id"  id="supplier_dropdown"  class="form-control" >
-                            <option value="">Select Supplier</option>
+                            <option value="">সরবরাহকারী নির্বাচন করুন</option>
                             <?php
                             $status = $sup->showSupplier();
                             if ($status) {
@@ -74,25 +74,25 @@
                                         
                <div class="col-md-4">
                     <div class="form-group">
-                        <input  name="purchase" id="purchase" class="form-control" value="<?php echo $transdata['purchase']; ?>" type="number" placeholder="Purchase" tabindex="6">
+                        <input  name="purchase" id="purchase" class="form-control" value="<?php echo $transdata['purchase']; ?>" type="number" placeholder="ক্রয়" tabindex="6">
                     </div>
                 </div>
                 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input  name="payment" id="payment" class="form-control" type="number" value="<?php echo $transdata['payment']; ?>"  placeholder="Payment" tabindex="6">
+                        <input  name="payment" id="payment" class="form-control" type="number" value="<?php echo $transdata['payment']; ?>"  placeholder="পেমেন্ট" tabindex="6">
                     </div>
                 </div>
                     
                     <div class="col-md-8">
                         <div class="form-group">
-                            <input name="description" id="" class="form-control" value="<?php echo $transdata['description']; ?>"  placeholder="Description" tabindex="7">
+                            <input name="description" id="" class="form-control" value="<?php echo $transdata['description']; ?>"  placeholder="বিস্তারিত" tabindex="7">
                         </div>
                     </div>
                     <div class="col-md-6 submit-buttom">
                         
-                        <input type="submit" value="Save" name="updatesuppliersransaction" class="btn btn-success" tabindex="8">
-                        <input type="reset" value="Reset" class="btn btn-warning">
+                        <input type="submit" value="সেভ" name="updatesuppliersransaction" class="btn btn-success" tabindex="8">
+                        <input type="reset" value="পুনরায়" class="btn btn-warning">
                     </div>
                 </div>
             </div>

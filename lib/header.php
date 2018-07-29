@@ -328,7 +328,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <li><a href="transcategorylist.php"><i class="fa fa-list"></i>লেনদেন ধরণ</a></li>
             <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="laserlist.php"><i class="fa fa-list"></i>লেনদেন তালিকা </a></li>
-            <li><a href="laserreport.php"><i class="fa fa-tag"></i>লেনদেন তালিকা </a></li>
+            <li><a href="laserreport.php"><i class="fa fa-tag"></i>লেনদেন প্রতিবেদন </a></li>
 
           <?php endif; ?>
             

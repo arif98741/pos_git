@@ -21,15 +21,15 @@ date_default_timezone_set('Asia/Dhaka');
             }
         </script>
         <meta charset="utf-8">
-        <title>Transaction Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+        <title>লেনদেন প্রতিবেদন - <?php echo date('Y-m-d h:i:sA'); ?></title>
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
-            <button class="button blue" onclick="goBack()">Back</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
+            <button class="button blue" onclick="goBack()">ফিরে যান</button>
         </div>
         
 
@@ -45,7 +45,7 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Transaction Report From </div><?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">লেনদেন প্রতিবেদন  </div><?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 <?php 
 
                                     $starting = $_POST['starting']." 00:00:00";
@@ -57,7 +57,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     }
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total: (<?php echo $balance; ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট: (<?php echo $balance; ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -65,10 +65,10 @@ date_default_timezone_set('Asia/Dhaka');
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Category</th>
-                            <th>Debit</th>
-                            <th>Credit</th>
+                            <th>তারিখ</th>
+                            <th>ক্যাটাগরি</th>
+                            <th>জমা</th>
+                            <th>খরচ</th>
                             
                             
                         </tr>
@@ -91,8 +91,8 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Transaction Report by Category - <?php echo $las->showCategoryByID($_POST['category']) ; ?></div>From
-                                <?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">ট্রানসেকশন প্রতিবেদন ক্যাটাগরি অনুযায়ী - <?php echo $las->showCategoryByID($_POST['category']) ; ?></div>
+                                <?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 <?php 
 
                                     $starting = $_POST['starting']." 00:00:00";
@@ -105,7 +105,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     }
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total: (<?php echo $balance; ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট: (<?php echo $balance; ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -113,9 +113,9 @@ date_default_timezone_set('Asia/Dhaka');
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Debit</th>
-                            <th>Credit</th>
+                            <th>তারিখ</th>
+                            <th>জমা</th>
+                            <th>খরচ</th>
                             
                             
                         </tr>
@@ -152,7 +152,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     }
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total: (<?php echo $balance; ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">মোট: (<?php echo $balance; ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -160,11 +160,11 @@ date_default_timezone_set('Asia/Dhaka');
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Category</th>
-                            <th>Receiver</th>
-                            <th>Debit</th>
-                            <th>Credit</th>
+                            <th>তারিখ</th>
+                            <th>ক্যাটাগরি</th>
+                            <th>গ্রহণকারী</th>
+                            <th>জমা</th>
+                            <th>খরচ</th>
                             
                             
                         </tr>
@@ -236,8 +236,8 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Account Summary</div>From
-                                <?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">একাউন্ট সারাংশ</div>
+                                <?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 <?php 
 
                                     $starting = $_POST['starting']." 00:00:00";
@@ -249,7 +249,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     }
 
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Balance: (<?php echo $balance; ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">ব্যালেন্স: (<?php echo $balance; ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -258,10 +258,10 @@ date_default_timezone_set('Asia/Dhaka');
                     <table class="TFtable" id="datatable" >
                          <tr>
                              <tr>
-                                <th>Date</th>
-                                <th>Category</th>
-                                <th>Debit</th>
-                                <th>Credit</th>
+                                <th>তারিখ</th>
+                                <th>ক্যাটাগরি</th>
+                                <th>জমা</th>
+                                <th>খরচ</th>
                             </tr>
                             
                         </tr>
@@ -287,7 +287,7 @@ date_default_timezone_set('Asia/Dhaka');
 
                             <?php } } ?>
                                 <tr>
-                                    <td colspan="2" style="text-align: center;"><strong>Total</strong></td>
+                                    <td colspan="2" style="text-align: center;"><strong>মোট</strong></td>
                                    <td style="text-align: center;"><strong><?php echo $debit; ?></strong></td>
                                     <td style="text-align: center;"><strong><?php echo $credit; ?></strong></td>
                                     

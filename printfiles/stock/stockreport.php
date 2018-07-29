@@ -26,8 +26,8 @@ date_default_timezone_set('Asia/Dhaka');
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
-            <button class="button blue" onclick="goBack()">Back</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
+            <button class="button blue" onclick="goBack()">ফিরে যান</button>
         </div>
 
        <?php  if (isset($_POST['allstock'])) : ?>
@@ -40,7 +40,7 @@ date_default_timezone_set('Asia/Dhaka');
                     <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo'); ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                     <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
-                            <div class="title-3">Stock Report </br></div></td>
+                            <div class="title-3">স্টক প্রতিবেদন </br></div></td>
                         <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2"></div></td>
                     </tr>
             </table>
@@ -48,15 +48,15 @@ date_default_timezone_set('Asia/Dhaka');
             <table class="TFtable" id="datatable" >
                   <thead style="text-align: center;">
                         <tr>
-                            <th>Serial</th>
-                            <th>Pro. ID</th>
-                            <th>Group</th>
-                            <th>Product Name</th>
-                            <th>Sale Price</th>
-                            <th>Purchase Price</th>
-                            <th>Current Stock</th>
-                            <th>Sell Value</th>
-                            <th>Stock Value</th>
+                            <th>ক্রমিক</th>
+                            <th>পণ্যের আইডি</th>
+                            <th>পণ্যের গ্রুপ</th>
+                            <th>নাম</th>
+                            <th>বিক্রমূল্য</th>
+                            <th>ক্রয়মূল্য</th>
+                            <th>বর্তমান স্টক</th>
+                            <th>বিক্রয় মূল্য</th>
+                            <th>স্টক মূল্য</th>
                         </tr>
                   </thead>
                   <tbody>

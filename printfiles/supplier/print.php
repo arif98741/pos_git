@@ -19,7 +19,7 @@ if (isset($_SESSION['status']) && $_SESSION['status'] !== 'admin') {
         }
     </script>
     <meta charset="utf-8">
-    <title>::: Report of Supplier:::</title>
+    <title>::: সরবরাহকারী প্রতিবেদন :::</title>
     <link rel="stylesheet" href="../../assets/css/print.css" type="text/css" media="screen">
     <link rel="stylesheet " href="../../assets/css/print.css">
 </head>
@@ -40,9 +40,9 @@ if (isset($_SESSION['status']) && $_SESSION['status'] !== 'admin') {
                 <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                    <div class="title-3">Supplier List Report</div></td>
+                    <div class="title-3">সরবরাহকারী তালিকা প্রতিবেদন</div></td>
                 <td width="24%" align="right" valign="middle" nowrap="nowrap">
-                    <div class="title-2">Total Suppliers: (<?php echo $pri->TotalProducts("select * from tbl_supplier ORDER  by supplier_name ASC "); ?>)</div>
+                    <div class="title-2">মোট সরবরাহকারী: (<?php echo $pri->TotalProducts("select * from tbl_supplier ORDER  by supplier_name ASC "); ?>)</div>
                 </td>
             </tr>
         </table>
@@ -52,12 +52,12 @@ if (isset($_SESSION['status']) && $_SESSION['status'] !== 'admin') {
         <table class="TFtable" id="datatable" >
             <thead>
                 <tr>
-                    <th>Serial</th>
-                    <th>Supplier ID</th>
-                    <th>Supplier Name</th>
-                    <th>Email</th>
-                    <th>Adress</th>
-                    <th>Contact</th>
+                    <th>ক্রমিক</th>
+                    <th>সরবরাহকারী আইডি</th>
+                    <th>নাম</th>
+                    <th>ইমেইল</th>
+                    <th>ঠিকানা</th>
+                    <th>মোবাইল</th>
 
 
                 </tr>

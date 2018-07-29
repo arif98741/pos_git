@@ -18,10 +18,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="fa fa-pencil"></i> EDIT TRANSACTION</h1>
+      <h1><i class="fa fa-pencil"></i> লেনদেন সম্পাদনা</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -86,8 +86,8 @@
                     </div>
                     <div class="col-md-6 submit-buttom">
                         
-                        <input type="submit" value="Update" name="updatelaser" class="btn btn-success" tabindex="8">
-                        <input type="reset" value="Reset" class="btn btn-warning">
+                        <input type="submit" value="সেভ" name="updatelaser" class="btn btn-success" tabindex="8">
+                        <input type="reset" value="পুররায়" class="btn btn-warning">
                     </div>
                 </div>
             </div>

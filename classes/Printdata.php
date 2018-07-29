@@ -907,7 +907,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='1'><strong>Total</strong></td>"
+                                . "<td colspan='1'><strong>মোট</strong></td>"
                                 . "<td ><strong>".$debit."</strong></td>"
                                 . "<td ><strong>".$credit."</strong></td>";
 
@@ -1034,7 +1034,7 @@ class Printdata {
             }
             
            $this->table_content .="<tr>"
-                                . "<td colspan='3'><strong>Total</strong></td>"
+                                . "<td colspan='3'><strong>মোট</strong></td>"
                                 . "<td ><strong>".$purchase."</strong></td>"
                                 . "<td ><strong>".$payment."</strong></td>";
 

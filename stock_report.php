@@ -9,10 +9,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-chart-bars"></i>STOCK REPORT</h1>
+      <h1><i class="lnr lnr-chart-bars"></i>স্টক প্রতিবেদন</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -42,9 +42,9 @@
 
 
           <div class="col-md-6">
-            <label for="">Supplier</label>
+            <label for="">সরবাহকারী</label>
             <select name="supplier_id" id="" class="customer form-control">
-              <option value="">Select Supplier</option>
+              <option value="">সরবাহকারী নির্বাচন করুন</option>
               <?php 
                   $stmt = $db->select("select * from tbl_supplier order by supplier_name asc");
                   if($stmt){
@@ -55,9 +55,9 @@
             <br/>
           </div>
           <div class="col-md-6">
-            <label for="">Group</label>
+            <label for="">গ্রউওপ</label>
             <select name="groupid" id="" class="customer form-control">
-              <option value="">Select Group</option>
+              <option value="">গ্রুপ নির্বাচন করুন</option>
               <?php 
                   $grstmt = $db->select("select * from tbl_group order by groupname asc");
                   if($grstmt){
@@ -73,9 +73,9 @@
 
           <div class="col-md-offset-3 col-md-6">
              <div class="form-group">
-                <input type="submit" name="allstock" class="btn btn-success" value="All Stock">
-                <input type="submit" name="stockbysupplier" class="btn btn-primary" value="Supplier Wise">
-                <input type="submit" name="stockbygroup" class="btn btn-warning" value="Group Wise">
+                <input type="submit" name="allstock" class="btn btn-success" value="সব স্টক">
+                <input type="submit" name="stockbysupplier" class="btn btn-primary" value="সরবাহকারী অনুযায়ী">
+                <input type="submit" name="stockbygroup" class="btn btn-warning" value="গ্রুপ অনুযায়ী">
             </div>
           </div>
 

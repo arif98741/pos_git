@@ -18,10 +18,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="fa fa-pencil"></i> Edit TRANSACTION CATEGORY</h1>
+      <h1><i class="fa fa-pencil"></i> ট্রানসেকশন ক্যাটাগরি নাম</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -34,7 +34,7 @@
              <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input name="transactioncat" class="form-control" value="<?php echo $transactdata['category_name']; ?>" type="text" placeholder="Transaction Category Name" required="">
+                        <input name="transactioncat" class="form-control" value="<?php echo $transactdata['category_name']; ?>" type="text" placeholder="ট্রানসেকশন ক্যাটাগরি নাম" required="">
 
                         <input name="transactioncatid" class="form-control" value="<?php echo $transactdata['id']; ?>" type="hidden" >
                     </div>
@@ -45,7 +45,7 @@
                     <div class="form-group">
                         <select name="type" id="" class="form-control" required="">
 
-                          <option value="" disabled="" selected="">Select Transaction Type</option>
+                          <option value="" disabled="" selected="">নির্বাচন করুন</option>
                           <option value="Debit" <?php if($transactdata['category_type'] == 'Debit') echo "selected" ?>>Debit</option>
                           <option value="Credit" <?php if($transactdata['category_type'] == 'Credit') echo "selected" ?>>Credit</option>
                         </select>
@@ -54,8 +54,8 @@
                 </div>
 
                 <div class="col-md-6 submit-button">
-                    <input type="submit" value="Update" name="updatetransactioncat" class="btn btn-success">
-                        <input type="reset" value="Reset" class="btn btn-warning">
+                    <input type="submit" value="সেভ" name="updatetransactioncat" class="btn btn-success">
+                        <input type="reset" value="পুনরায়" class="btn btn-warning">
                 </div>
               
             </div>

@@ -15,7 +15,7 @@
 <!-- //header-ends -->
 <div class="container">
     <div class="breadcrumb">
-           <h3><i class="lnr lnr-chart-bars"></i> &nbsp;Edit Transaction Category</h3>
+           <h3><i class="lnr lnr-chart-bars"></i> &nbsp;ট্রানসেকশন ক্যাটাগরি সম্পাদনা</h3>
     </div>
     <div class="bs-example4">
         
@@ -26,15 +26,15 @@
                 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input name="transactioncatname" class="form-control" type="text" value="<?php echo $result['category_name']; ?>" placeholder="Transaction Category Name" required="">
+                        <input name="transactioncatname" class="form-control" type="text" value="<?php echo $result['category_name']; ?>" placeholder="ট্রানসেকশন ক্যাটাগরি নাম" required="">
                         <input name="trans_category_id" type="hidden" value="<?php echo $result['id']; ?>"  required="">
                     </div>
 
                 </div>
 
                 <div class="col-md-6 submit-button">
-                    <input type="submit" value="Update" name="updatetransactioncat" class="btn btn-success">
-                        <input type="reset" value="Reset" class="btn btn-warning">
+                    <input type="submit" value="সেভ" name="updatetransactioncat" class="btn btn-success">
+                        <input type="reset" value="পুনরায়" class="btn btn-warning">
                 </div>
                 </div>
             </div>

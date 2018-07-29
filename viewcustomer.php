@@ -20,10 +20,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><i class="lnr lnr-eye"></i> VIEW CUSTOMER</h1>
+      <h1><i class="lnr lnr-eye"></i> ক্রেতা প্রোফাইল</h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> প্রচ্ছদ</a></li>
+        <li class="active">ড্যাশবোর্ড</li>
       </ol>
     </section>
 
@@ -34,41 +34,41 @@
           <div class="box-body">
             <div class="row">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a data-toggle="tab" href="#home">Profile</a></li>
-                  <li><a data-toggle="tab" href="#menu1">Invoice</a></li>
-                  <li><a data-toggle="tab" href="#menu2">Payments</a></li>
+                  <li class="active"><a data-toggle="tab" href="#home">প্রোফাইল</a></li>
+                  <li><a data-toggle="tab" href="#menu1">ইনভয়েন্ট</a></li>
+                  <li><a data-toggle="tab" href="#menu2">পেমেন্টসমূহ</a></li>
                 </ul>
             </div>
             <div class="row">
                 <div class="tab-content">
           <div id="home" class="tab-pane fade-in active">
-            <h3>User Profile</h3>
+            <h3>ক্রেতা প্রোফাইল</h3>
             
               <ul >
-                <li>Name: <?php echo $customer_data['customer_name']; ?></li>
-                <li>ID: <?php echo $customer_data['customer_id']; ?></li>
-                <li>Address: <?php echo $customer_data['address']; ?></li>
-                <li>Contact No: <?php echo $customer_data['contact_no']; ?></li>
-                <li>Email: <?php echo $customer_data['email']; ?></li>
-                <li><strong>Current Balance: <?php echo round($customer_data['balance'])." tk"; ?></strong></li>
+                <li>নাম: <?php echo $customer_data['customer_name']; ?></li>
+                <li>আইডি: <?php echo $customer_data['customer_id']; ?></li>
+                <li>ঠিকানা: <?php echo $customer_data['address']; ?></li>
+                <li>মোবাইল: <?php echo $customer_data['contact_no']; ?></li>
+                <li>ইমেইল: <?php echo $customer_data['email']; ?></li>
+                <li><strong>বর্তমান ব্যালেন্স: <?php echo round($customer_data['balance'])." tk"; ?></strong></li>
               </ul>
            
           </div>
           <div id="menu1" class="tab-pane fade">
-            <h3>Invoice</h3>
+            <h3> ইনভয়েচ </h3>
             <table class="table table-bordered" id="use_pro_invoice_table">
               <thead>
                 <tr>
-                  <th>Serial</th>
-                  <th>Invoice No</th>
-                  <th>Sub Total</th>
-                  <th>Discount</th>
-                  <th>DL.</th>
-                  <th>Vat</th>
-                  <th>Pre. Balance</th>
-                  <th>Paid</th>
-                  <th>Due</th>
-                  <th>Date</th>
+                  <th>ক্রমিক</th>
+                  <th>ইনভয়েচ নাম্বার</th>
+                  <th>সর্বমোট</th>
+                  <th>ডিসকাউন্ট</th>
+                  <th>ডেলিভারি চার্জ</th>
+                  <th>ভ্যাট</th>
+                  <th>পূর্ববর্তী ব্যালেন্স</th>
+                  <th>পরিশোধ</th>
+                  <th>বাকি</th>
+                  <th>তারিখ</th>
                 </tr>
               </thead>
               <tbody style="text-align:center;">
@@ -101,16 +101,16 @@
             </table>
           </div>
           <div id="menu2" class="tab-pane fade">
-            <h2>Payments</h2>
+            <h2>পেমেন্টসমূহ</h2>
 
 
             <table class="table table-bordered" id="customer_payment_table">
               <thead>
                 <tr>
-                  <th>Serial</th>
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Reciever</th>
+                  <th>ক্রমিক</th>
+                  <th>তারিখ</th>
+                  <th>পরিমাণ</th>
+                  <th>গ্রহণকারী</th>
                 </tr>
               </thead>
               <tbody style="text-align:center;">

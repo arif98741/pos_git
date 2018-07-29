@@ -22,10 +22,10 @@ date_default_timezone_set('Asia/Dhaka');
         </script>
         <meta charset="utf-8">
         <?php if (isset($_POST['showalltransaction'])):  ?>
-            <title>Supplier Transaction Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+            <title>সরবরাহকারী লেনদেন প্রতিবেদন - <?php echo date('Y-m-d h:i:sA'); ?></title>
 
         <?php elseif(isset($_POST['supplierstatement'])): ?>
-            <title>Supplier Statement Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+            <title>সরবরাহকারী লেনদেন প্রতিবেদন - <?php echo date('Y-m-d h:i:sA'); ?></title>
         <?php endif; ?>
         
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
@@ -34,8 +34,8 @@ date_default_timezone_set('Asia/Dhaka');
 
     <body>
         <div class="bt-div">
-            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="Print">
-            <button class="button blue" onclick="goBack()">Back</button>
+            <INPUT TYPE="button" class="button blue" title="Print" onClick="window.print()" value="প্রিন্ট">
+            <button class="button blue" onclick="goBack()">ফিরে যান</button>
         </div>
         
 
@@ -51,7 +51,7 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Supplier Transaction Report From </div><?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?></div></td>
+                                <div class="title-3">সরবরাহকারী লেনদেন প্রতিবেদন  </div><?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত</div></td>
                                 <?php 
 
                                     $starting = $_POST['starting']." 00:00:00";
@@ -71,11 +71,11 @@ date_default_timezone_set('Asia/Dhaka');
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Supplier</th>
-                            <th>Description</th>
-                            <th>Purchase</th>
-                            <th>Payment</th>
+                            <th>তারিখ</th>
+                            <th>সরবরাহকারী</th>
+                            <th>বিস্তারিত</th>
+                            <th>ক্রয়</th>
+                            <th>পেমেন্ট</th>
                             
                             
                         </tr>
@@ -99,8 +99,8 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
-                                <div class="title-3">Supplier Statement From </div><?php echo $_POST['starting']?> to </div><?php echo $_POST['ending'];?><br/>
-                                Supplier: <?php 
+                                <div class="title-3">সরবরাহকারী লেনদেন প্রতিবেদন  </div><?php echo $_POST['starting']?> থেকে </div><?php echo $_POST['ending'];?> পর্যন্ত<br/>
+                                সরবরাহকারী: <?php 
 
                                     $supplier_id = $help->validAndEscape($_POST["supplier_id"]);
                                     $starting = $help->validAndEscape($_POST['starting']." 00:00:00");
@@ -122,11 +122,11 @@ date_default_timezone_set('Asia/Dhaka');
 
                     <table class="TFtable" id="datatable" >
                          <tr>
-                            <th>Date</th>
-                            <th>Description</th>
-                            <th>Debit</th>
-                            <th>Credit</th>
-                            <th>Balance</th>
+                            <th>তারিখ</th>
+                            <th>বিস্তারিত</th>
+                            <th>খরচ</th>
+                            <th>জমা</th>
+                            <th>ব্যালেন্স</th>
                             
                             
                         </tr>
