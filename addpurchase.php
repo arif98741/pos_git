@@ -22,7 +22,7 @@
         <div class="col-md-12"> 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input name="invoice_no" class="form-control" placeholder="Purchase Number" required="">
+                        <input name="invoice_no" value="<?php echo $ext->generatePurchaseID();  ?>" class="form-control" placeholder="Purchase Number" required="" readonly="">
                     </div>
 
                 </div>

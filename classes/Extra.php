@@ -139,6 +139,52 @@ class Extra {
 
     }
 
+    /*
+    !---------------------------------------------------------
+    !                   Generate Invoice ID 
+    !                   addinvoice.php
+    !--------------------------------------------------------
+    */
+    public function generateInvoiceID()
+    {
+        $st = $this->dbObj->link->query("select * from tbl_sell ORDER  by sell_id DESC limit 1")  or die($db->link->error);
+        $invoice = "";
+        if ($st){
+            if($st->num_rows > 0){
+                $data = $st->fetch_assoc();
+                $invoice =  $data['sell_id' ] + 1;
+            }else{
+                $invoice =  date("ymd")."0001";
+            } 
+        }
+
+        return $invoice;
+    }
+
+
+    /*
+    !---------------------------------------------------------
+    !                    Generate Purchase ID 
+    !                   addpurchase.php
+    !--------------------------------------------------------
+    */
+    public function generatePurchaseID()
+    {
+        $st = $this->dbObj->link->query("select * from tbl_invoice ORDER  by serial DESC limit 1") or die($db->link->error);
+        $purchase_number = "";
+        if ($st){
+            if($st->num_rows > 0){
+                $data = $st->fetch_assoc();
+                    $purchase_number =  $data['invoice_number' ] + 1;
+                }else{
+                    $purchase_number =  date("Y")."0001";
+             }
+        }
+
+        return $purchase_number;
+    }
+
+
 
     /*
     !-----------------------------------------------------------------------

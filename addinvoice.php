@@ -29,23 +29,8 @@
                  <div class="col-md-6"> 
                     <div class="col-md-12"> 
                         <div class="form-group">
-                            <?php
-                                    $st = $db->select("select * from tbl_sell ORDER  by sell_id DESC ");
-                                    $invoice = "";
-                                    if ($st){
-                                        if($st->num_rows > 0){
-                                            $data = $st->fetch_assoc();
-                                            $invoice =  $data['sell_id' ] + 1;
-                                        }
-                                        
-                                        }else{
-                                        $invoice =  date("ymd")."0001";
-                                    }
-                                    
-                                ?>
-                                
-                                
-                                <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $invoice; ?>">
+                           
+                                <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $ext->generateInvoiceID(); ?>">
                             
                             <select name="cus_id" class="form-control select2" id="cus_dropdown_addinvoice">
                                 <option value="" >Select Customer </option>
