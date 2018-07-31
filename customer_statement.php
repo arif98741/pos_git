@@ -39,7 +39,7 @@
 
             <div class="col-md-6">
               <label for="">Customer</label>
-              <select name="customer_id" id="" class="customer form-control">
+              <select name="customer_id" id="select2" class="customer select2_dropdown form-control">
                 <option value="">Select Customer</option>
                 <?php 
                     $cusst = $db->select("select * from tbl_customer order by customer_name asc");

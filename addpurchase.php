@@ -22,7 +22,21 @@
         <div class="col-md-12"> 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input name="invoice_no" class="form-control" placeholder="Purchase Number" required="">
+                        <?php
+                            $st = $db->link->query("select * from tbl_invoice ORDER  by serial DESC limit 1") or die($db->link->error);
+                            $purchase_number = "";
+                            if ($st){
+                                if($st->num_rows > 0){
+                                    $data = $st->fetch_assoc();
+                                        $purchase_number =  $data['invoice_number' ] + 1;
+                                    }else{
+                                        $purchase_number =  date("Y")."0001";
+                                 }
+                            }
+                            
+                        ?>
+
+                        <input name="invoice_no" value="<?php echo $purchase_number;  ?>" class="form-control" placeholder="Purchase Number" required="" readonly="">
                     </div>
 
                 </div>

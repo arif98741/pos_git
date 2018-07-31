@@ -30,18 +30,16 @@
                     <div class="col-md-12"> 
                         <div class="form-group">
                             <?php
-                                    $st = $db->select("select * from tbl_sell ORDER  by sell_id DESC ");
+                                    $st = $db->link->query("select * from tbl_sell ORDER  by sell_id DESC limit 1")  or die($db->link->error);
                                     $invoice = "";
                                     if ($st){
                                         if($st->num_rows > 0){
                                             $data = $st->fetch_assoc();
                                             $invoice =  $data['sell_id' ] + 1;
-                                        }
-                                        
                                         }else{
-                                        $invoice =  date("ymd")."0001";
+                                             $invoice =  date("ymd")."0001";
+                                        } 
                                     }
-                                    
                                 ?>
                                 
                                 
