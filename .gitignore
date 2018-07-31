@@ -1,7 +1,7 @@
 .phpintel
 .idea
-uploads/
-node_modules/
+uploads/*
+node_modules/*
 test.php
 tempstock.php
 error_log
