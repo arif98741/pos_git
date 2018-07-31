@@ -29,6 +29,7 @@
                  <div class="col-md-6"> 
                     <div class="col-md-12"> 
                         <div class="form-group">
+
                            
                                 <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $ext->generateInvoiceID(); ?>">
                             
