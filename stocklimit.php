@@ -41,7 +41,7 @@
                 </thead>
                 <tbody style="text-align: center;">
                             <?php
-                            $stock_stmt = $sto->getstocklist();
+                            $stock_stmt = $sto->getlimitstocklist();
                             
                             ?>
                             <?php

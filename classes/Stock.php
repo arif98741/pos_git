@@ -10,6 +10,12 @@ class Stock {
     private $dbObj;
     private $helpObj;
 
+
+    /*
+    !-----------------------------------------------------
+    !     Constructor Load During Creation of Object
+    !-----------------------------------------------------
+    */
     public function __construct() {
         $this->loginObj = new Helper();
         $this->dbObj = new Database();
@@ -17,6 +23,12 @@ class Stock {
     }
 
 
+    /*
+    !----------------------------------------------
+    !        Stock List
+    !       Table = stock
+    !----------------------------------------------
+    */
     public function getstocklist()
     {
         $query = "SELECT * from stock LEFT JOIN tbl_product ON stock.product_id = tbl_product.product_id INNER JOIN tbl_group ON tbl_product.product_group = tbl_group.groupid";
@@ -24,7 +36,26 @@ class Stock {
         return $stmt;
     }
 
+    /*
+    !----------------------------------------------
+    !          Get Limit Stock List
+    !          Show Product which < limit_stock
+    !        table = stock,tbl_product
+    !----------------------------------------------
+    */
+    public function getlimitstocklist()
+    {
+        $query = "SELECT * from stock LEFT JOIN tbl_product ON stock.product_id = tbl_product.product_id INNER JOIN tbl_group ON tbl_product.product_group = tbl_group.groupid and stock.stock < tbl_product.stock_limit";
+        $stmt = $this->dbObj->select($query);
+        return $stmt;
+    }
 
+
+    /*
+    !----------------------------------------------
+    !          Show last sell
+    !----------------------------------------------
+    */
     public function tempstock()
     {
         $query = "SELECT * from stock LEFT JOIN tbl_product ON stock.product_id = tbl_product.product_id  JOIN tbl_group ON tbl_product.product_group = tbl_group.groupid";
@@ -33,6 +64,11 @@ class Stock {
     }
 
 
+    /*
+    !----------------------------------------------
+    !          Show last sell
+    !----------------------------------------------
+    */
     public function instock($product_id)
     {
 
@@ -57,6 +93,11 @@ class Stock {
     }
 
 
+    /*
+    !----------------------------------------------
+    !          Show last sell
+    !----------------------------------------------
+    */
     public function lastsell($product_id)
     {
         $query = "SELECT quantity FROM tbl_sell_products where product_id ='$product_id' order by serial_no DESC LIMIT 1";
