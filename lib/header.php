@@ -307,6 +307,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           </a>
           <ul class="treeview-menu">
             <li><a href="stocklist.php"><i class="fa fa-list"></i>Stock List</a></li>
+            <li><a href="stocklimit.php"><i class="fa fa-list"></i>Stock Limit</a></li>
 
             <?php if(Session::get('status') == 'admin'): ?>
             <li><a href="stock_report.php"><i class="fa fa-tag"></i>Stock Report</a></li>

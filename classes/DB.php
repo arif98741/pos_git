@@ -6,7 +6,7 @@ class Database {
     private $username = 'root';
     private $password = '';
     private $host = 'localhost';
-    private $database = 'aladin_pos';
+    private $database = 'espos';
 
     
     /*

@@ -96,7 +96,7 @@
                         <div class="col-md-3"> 
                             <div class="form-group has-success" style="">
                                 <label class="control-label" for="inputSuccess1" >Discount</label>
-                                <input type="number" class="form-control text-right" style="text-align: center;" id="discount" name="discount"  tabindex="1" />
+                                <input type="number" class="form-control text-right" style="text-align: center;" value="0" id="discount" name="discount"  tabindex="1" />
                                 <!--Discount is grandtotal-->
                             </div>
                             
@@ -116,7 +116,7 @@
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess1" >DL</label>
                                     
-                                    <input type="number" class="form-control text-right" style="text-align: center;" id="dlcharge" name="dlcharge" required=""  tabindex="2" />
+                                    <input type="number" class="form-control text-right" style="text-align: center;" id="dlcharge" value="0" name="dlcharge" required=""  tabindex="2" />
                                 </div>
                                 <div class="form-group has-success">
                                     <label class="control-label" for="inputSuccess1" >PAID</label>
@@ -129,7 +129,7 @@
                             
                             <div class="form-group has-success">
                                 <label class="control-label" for="inputSuccess1" >Vat</label>
-                                <input type="number" class="form-control text-right" id="vat" name="vat" style="text-align: center;" required="" tabindex="3" />
+                                <input type="number" class="form-control text-right" id="vat" name="vat" style="text-align: center;" value="0" required="" tabindex="3" />
                             </div>
                             <div class="form-group">
                                 <label>Due</label>

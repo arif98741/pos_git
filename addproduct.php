@@ -97,6 +97,14 @@
                             <input type="text" name="piece_in_a_carton" class="form-control" placeholder="Piece in Carton">
                         </div>
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="text" name="stock_limit" class="form-control" placeholder="Stock Limit">
+                        </div>
+                    </div>
+
+
                     <div class="col-md-6 submit-buttom">
                        
                         <input type="submit" value="Save Product" name="addproduct" class="btn btn-success">

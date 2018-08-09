@@ -111,11 +111,12 @@ class Product {
         $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
         $purchase_price = $this->helpObj->validAndEscape($data['purchase_price']);
         $piece_in_a_carton = $this->helpObj->validAndEscape($data['piece_in_a_carton']);
+        $stock_limit = $this->helpObj->validAndEscape($data['stock_limit']);
         $u_id = $_SESSION['userid'];
         $query = "insert into tbl_product
-                (product_id,product_type,product_group,product_name,product_brand,sale_price,purchase_price,piece_in_a_carton,updateby)
+                (product_id,product_type,product_group,product_name,product_brand,sale_price,purchase_price,piece_in_a_carton,stock_limit,updateby)
    
-          values('$product_id','$product_type','$product_group','$product_name','$product_brand','$sale_price','$purchase_price','$piece_in_a_carton','$u_id')";
+          values('$product_id','$product_type','$product_group','$product_name','$product_brand','$sale_price','$purchase_price','$piece_in_a_carton','$stock_limit','$u_id')";
 
         $check = $this->dbObj->select("select * from tbl_product where product_id='$product_id'");
 
@@ -161,6 +162,7 @@ class Product {
         $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
         $purchase_price = $this->helpObj->validAndEscape($data['purchase_price']);
         $piece_in_a_carton = $this->helpObj->validAndEscape($data['piece_in_a_carton']);
+        $stock_limit = $this->helpObj->validAndEscape($data['stock_limit']);
         $u_id = $_SESSION['userid'];
         $last_update = date('current_timestamp'); //set default time at Asia/Dhaka on header.php
 
@@ -173,6 +175,7 @@ class Product {
                             sale_price = '$sale_price',
                             purchase_price = '$purchase_price',    
                             piece_in_a_carton = '$piece_in_a_carton',   
+                            stock_limit = '$stock_limit',   
                             last_update   ='$last_update',
                             updateby ='$u_id'    
                             where product_id='$product_id' ";

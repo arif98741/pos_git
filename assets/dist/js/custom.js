@@ -140,14 +140,6 @@ $(document).ready(function () {
             tr.find('.product_type').html(data['typename']);
             tr.find('.purchase').val(data['purchase_price']);
 
-            //$('.product_group').children('option').find
-
-
-            //tr.find('.size_h').html(data['size_h']);
-            //tr.find('.size_w').html(data['size_w']);
-
-            //tr.find('.product_group').html(data['product_group']);
-
         });
 
         //select group in dropdown for finding product
