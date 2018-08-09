@@ -272,6 +272,29 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           </ul>
         </li>
 
+        <li class="treeview">
+      
+          <a href="#">
+            <i class="fa fa-handshake-o"></i> <span>Warranty</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+            
+
+            <?php if(Session::get('status') == 'admin'): ?>
+            <li><a href="warranty_products.php"><i class="fa fa-list"></i>Warranty Products</a></li>
+
+           <?php endif; ?>
+            
+          </ul>
+        </li>
+
+        
+
+
 
         <li class="treeview">
       

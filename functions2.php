@@ -16,12 +16,21 @@ $help = new Helper();
 //sale management
 //insert selling products ony be one to tbl_sell_products table for per customer
 if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='singleproductsavebeforesale'){
+    date_default_timezone_set('Asia/Dhaka');
+
     $sell_id = $help->validAndEscape($_POST['sell_id']);
     $cus_id = $help->validAndEscape($_POST['cus_id']);
     $pro_id = $help->validAndEscape($_POST['pro_id']);
     $quantity = $help->validAndEscape($_POST['quantity']);
     $sale_price = $help->validAndEscape($_POST['sale_price']);
     $purchase_price = $help->validAndEscape($_POST['purchase_price']);
+    $serial = $help->validAndEscape($_POST['product_serial']);
+    $warranty_day = $help->validAndEscape($_POST['warranty_expire']);
+
+    $date = strtotime(date("Y-m-d"));
+    $date = strtotime("+".$warranty_day." day", $date);
+    $expire = date('Y-m-d', $date);
+
     $sub_total = $quantity * $sale_price;
     $check = $db->select("select * from tbl_sell_products WHERE product_id ='$pro_id' and sell_id ='$sell_id' and customer_id ='$cus_id'");
     if($pro_id == '0' || $pro_id == null){
@@ -29,7 +38,7 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sin
     }elseif($check){
         echo "already added";
     }else{
-        $stmt = $db->insert("insert into tbl_sell_products(sell_id, customer_id, product_id, quantity, unit_price,purchase_price,subtotal) VALUES ('$sell_id','$cus_id','$pro_id','$quantity','$sale_price','$purchase_price','$sub_total')");
+        $stmt = $db->insert("insert into tbl_sell_products(sell_id, customer_id, product_id, quantity, unit_price,purchase_price,subtotal,product_serial,warranty_expire) VALUES ('$sell_id','$cus_id','$pro_id','$quantity','$sale_price','$purchase_price','$sub_total','$serial','$expire')");
         if ($stmt){
             echo "added";
         }else{

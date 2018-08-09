@@ -382,7 +382,8 @@ $(document).ready(function () {
             var quantity = $('#product_quantity').val();
             var sale_price = $('#sale_price').val();
             var purchase_price = $('#purchase_price').val();
-            var purchase_price = $('#purchase_price').val();
+            var product_serial = $('#product_serial').val();
+            var warranty_expire = $('#warranty_expire').val();
 
 			if(cus_id == "" || pro_id == ""){
 				alert("Please Select Both Customer and Product");
@@ -399,7 +400,9 @@ $(document).ready(function () {
 							pro_id: pro_id,
                             quantity: quantity,
                             sale_price: sale_price,
-	                        purchase_price: purchase_price,
+                            purchase_price: purchase_price,
+                            product_serial: product_serial,
+	                        warranty_expire: warranty_expire,
 	                        action: "savesaleproduct",
 	                        target: "singleproductsavebeforesale"
 					},

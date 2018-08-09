@@ -374,6 +374,8 @@ if($_GET['sell_id']){
                             <th>SERIAL</th>
                             <th>PROUDCT ID</th>
                             <th>PRODUCT NAME</th>
+                            <th>Serial</th>
+                            <th>Warranty Expire</th>
                             <th>QUANTITY</th>
                             <th>PRICE</th>
                             <th>SUBTOTAL</th>
@@ -392,23 +394,19 @@ if($_GET['sell_id']){
 
                         $update_q_st = $db->link->query($update_q);
 
-                        $q = "SELECT * FROM tbl_sell_products, tbl_product,tbl_group,tbl_type WHERE tbl_sell_products.product_id = tbl_product.product_id and tbl_sell_products.customer_id='{$inv_and_cus['customer_id']}' and tbl_group.groupid = tbl_product.product_group and tbl_sell_products.sell_id='$sell_id' AND tbl_product.product_type = tbl_type.typeid and tbl_sell_products.status='1' ORDER by tbl_sell_products.serial_no ASC";
+                        /*$q = "SELECT * FROM tbl_sell_products, tbl_product,tbl_group,tbl_type WHERE tbl_sell_products.product_id = tbl_product.product_id and tbl_sell_products.customer_id='{$inv_and_cus['customer_id']}' and tbl_group.groupid = tbl_product.product_group and tbl_sell_products.sell_id='$sell_id' AND tbl_product.product_type = tbl_type.typeid and tbl_sell_products.status='1' ORDER by tbl_sell_products.serial_no ASC";*/
 
-                         $q = "SELECT tsp.subtotal,tsp.unit_price,tsp.purchase_price,tsp.quantity,tp.product_id,tp.product_name FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id where tsp.sell_id='$sell_id' and tsp.status='1' order by tsp.serial_no asc";
+                         $q = "SELECT tsp.subtotal,tsp.unit_price,tsp.purchase_price,tsp.product_serial,tsp.warranty_expire,tsp.quantity,tp.product_id,tp.product_name FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id where tsp.sell_id='$sell_id' and tsp.status='1' order by tsp.serial_no asc";
 
 
 
                         $st = $db->link->query($q);
 
-                        $i = 0;
-
-                        $total = 0;
+                        $i = $total = 0;
 
                         ?>
 
                         <?php if ($st): ?>
-
-
 
                             <?php while ($result = $st->fetch_assoc()): ?>
 
@@ -417,13 +415,14 @@ if($_GET['sell_id']){
                                 $i++;
 
                                 $total += $result['subtotal'];
-
                                 ?>
 
                                 <tr>
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $result['product_id']; ?></td>
                                     <td><?php echo $result['product_name']; ?></td>
+                                    <td><?php echo $result['product_serial']; ?></td>
+                                    <td><?php echo $help->formatDate($result['warranty_expire'],'d-m-Y'); ?></td>
                                     <td><?php echo $result['quantity']; ?></td>
                                     <td><?php echo  number_format((float)$result['unit_price'], 2, '.', ''); ?></td>
                                     <td><?php echo  number_format((float)$result['subtotal'], 2, '.', ''); ?></td>

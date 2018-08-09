@@ -295,6 +295,8 @@ if (isset($_POST['sell_id'])) {
                             <th>SERIAL</th>
                             <th>PROUDCT ID</th>
                             <th>PRODUCT NAME</th>
+                            <th>Serial</th>
+                            <th>Warranty Expire</th>
                             <th>QUANTITY</th>
                             <th>PRICE</th>
                             <th>SUBTOTAL</th>
@@ -305,7 +307,7 @@ if (isset($_POST['sell_id'])) {
                             $update_q = "update tbl_sell_products set status = '1' where sell_id='$sell_id' and customer_id='$cus_id'";
                             $update_q_st = $db->link->query($update_q);
 
-                             $q = "SELECT tsp.subtotal,tsp.unit_price,tsp.purchase_price,tsp.quantity,tp.product_id,tp.product_name FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id where tsp.sell_id='$sell_id' and tsp.status='1' order by tsp.serial_no asc";           
+                             $q = "SELECT tsp.subtotal,tsp.product_serial,tsp.warranty_expire,tsp.unit_price,tsp.purchase_price,tsp.quantity,tp.product_id,tp.product_name FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id where tsp.sell_id='$sell_id' and tsp.status='1' order by tsp.serial_no asc";           
 
 
                             $st = $db->link->query($q);
@@ -323,6 +325,8 @@ if (isset($_POST['sell_id'])) {
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $result['product_id']; ?></td>
                                     <td><?php echo $result['product_name']; ?></td>
+                                    <td><?php echo $result['product_serial']; ?></td>
+                                    <td><?php echo $help->formatDate($result['warranty_expire'],'d-m-Y'); ?></td>
                                     <td><?php echo $result['quantity']; ?></td>
                                     <td><?php echo  number_format((float)$result['unit_price'], 2, '.', ''); ?></td>
                                     <td><?php echo  number_format((float)$result['subtotal'], 2, '.', ''); ?></td>
