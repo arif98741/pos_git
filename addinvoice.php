@@ -155,7 +155,7 @@
                     <tbody>
                         <tr>
                             <td width="10%">    <a class="btn btn-success btn-block" href="#" id="add_invo_pro_btn"><i class="lnr lnr-plus-circle"></i>&nbsp;Add New</a></td>
-
+                           
 
                             <td width="30%">
                                 <select id="product_id" class="form-control select2 select2_dropdown select2-hidden-accessible" style="width: 100%;" aria-hidden="true">
@@ -184,7 +184,7 @@
                                 <input type="text" class="form-control" id="product_serial" placeholder="Serial">
                             </td>
 
-                            <td width="15%">
+                            <td width="10%">
                                 <input type="number" class="form-control" id="warranty_expire" placeholder="Warranty Expire(days)">
                                 
                             </td>
@@ -199,6 +199,12 @@
                                 <input type="hidden" class="form-control"  id="purchase_price" placeholder="Sale Price"/>
                             </td>
                             
+                        </tr>
+                        <tr>
+                             <td width="5%"><input type="radio" class="" value="radio_sale_price" id="radio_sale_price" name="price_selector" checked ="">Sale Price</td>
+                            <td width="5%"><input type="radio" class="" value="radio_wholesale_price" id="radio_wholesale_price" name="price_selector">Whole Sale Price</td>
+                            <td colspan="4"></td>
+
                         </tr>
                     </tbody>
                             </table>

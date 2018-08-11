@@ -86,19 +86,28 @@
                     
                    
                     
-                   <div class="col-md-4">
+                   <div class="col-md-3">
                         <div class="form-group">
                             <input name="purchase_price" class="form-control" type="text" placeholder="Purchase Price" required="">
                         </div>
-                    </div>
+                  </div>
+
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <input name="wholesale_price" class="form-control" type="text" placeholder="Whole Sale Price" required="">
+                        </div>
+                  </div>
+
+
                     
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <input type="text" name="piece_in_a_carton" class="form-control" placeholder="Piece in Carton">
                         </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <input type="text" name="stock_limit" class="form-control" placeholder="Stock Limit">
                         </div>

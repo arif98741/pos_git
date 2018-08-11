@@ -373,6 +373,7 @@ $(document).ready(function () {
             });
         });
 
+        
 
         //add product to temp sales list
         $('#add_invo_pro_btn').click(function(){
@@ -424,7 +425,7 @@ $(document).ready(function () {
                             $('#product_quantity').val('');
                             $('#product_serial').val('');
                             $('#warranty_expire').val('');
-                            
+
                         }
 
 					},error:function(e)

@@ -90,18 +90,26 @@ if (isset($_GET['action']) && $_GET['action'] == 'edit') {
                     </div>
                     
                     
-                   <div class="col-md-4">
+                   <div class="col-md-3">
                         <div class="form-group">
                             <input  name="purchase_price" class="form-control" type="text"  value="<?php echo $data['purchase_price']; ?>" placeholder="Purchase Price" required="">
                         </div>
                     </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <input  name="wholesale_price" class="form-control" type="text"  value="<?php echo $data['wholesale_price']; ?>" placeholder="Whole Sale Price" required="">
+                        </div>
+                    </div>
+
+
                    
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <input type="text" name="piece_in_a_carton" placeholder="Piece in a Carton"  class="form-control"  value="<?php echo $data['piece_in_a_carton']; ?>" />
                         </div>
                     </div>
-                     <div class="col-md-4">
+                     <div class="col-md-3">
                         <div class="form-group">
                             <input type="text" name="stock_limit" class="form-control" placeholder="Stock Limit" value="<?php echo $data['stock_limit']; ?>">
                         </div>
