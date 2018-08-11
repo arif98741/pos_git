@@ -11,9 +11,7 @@
         if ($stmt) {
 
             $customer_data = $stmt->fetch_assoc();
-
         }
-
     }
 
  ?>
@@ -88,37 +86,20 @@
 
                     </div>
 
-
-
                 </div>
 
-
-
-                
-
-               
-
-                
-
-                <div class="col-md-4">
+                <div class="col-md-3">
 
                     <div class="form-group">
 
                         <label for="">Previous Due</label>
 
                         <input name="previous"  class="form-control" type="text" value="<?php echo round($customer_data['balance']); ?>" placeholder="Previous Balance"  required="">
-
                     </div>
-
-
 
                 </div>
 
-                
-
-                
-
-                <div class="col-md-4">
+                <div class="col-md-3">
 
                     <div class="form-group">
 
@@ -128,13 +109,23 @@
 
                     </div>
 
-
-
                 </div>
 
 
+                <div class="col-md-3">
 
-                <div class="col-md-4">
+                    <div class="form-group">
+
+                        <label for="">Discount</label>
+
+                        <input type="text" name="discount" class="form-control" value="" placeholder="">
+
+                       
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
 
                     <div class="form-group">
 
@@ -143,23 +134,9 @@
                         <input type="text" name="method" class="form-control" value="" placeholder="">
 
                        
-
-                        
-
                     </div>
 
-
-
                 </div>
-
-
-
-
-
-
-
-
-
 
 
                 <div class="col-md-offset-4 col-md-6 submit-button">

@@ -53,9 +53,9 @@ if (isset($_POST['payamount'])) {
                   <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Date</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="10%">Customer ID</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="15%">Customer Name</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Amount</th>
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Method</th>
 
-                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Receiver</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Discount</th>
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Method</th>
 
                  
                    <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
@@ -74,8 +74,8 @@ if (isset($_POST['payamount'])) {
                                         <td> <?php echo $row['customer_id']  ?></td>
                                         <td style="text-align: left;"> <?php echo $row['customer_name']  ?></td>
                                         <td> <?php echo round($row['amount']);  ?></td>
-                                         <td> <?php echo ucfirst($row['method']);  ?></td>
-                                        <td> <?php echo $db->link->query("select name from tbl_user where userid='{$row['receiver']}'")->fetch_object()->name; ?></td>
+                                        <td> <?php echo round($row['discount_amount']);  ?></td>
+                                        <td> <?php echo ucfirst($row['method']);  ?></td>
                                         <td>
                                         <a href="editpayment.php?action=edit&serial=<?php echo $row['serial'] ?>" style="border-radius: 3px;" title="click to view" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
                                         

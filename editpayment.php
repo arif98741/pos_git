@@ -60,7 +60,7 @@
                 </div>
 
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="">Paid Amount</label>
                         <input name="amount"  class="form-control" type="text"  value="<?php echo round($payment_data['amount']); ?>"  placeholder="Amount"  required="">
@@ -68,7 +68,17 @@
 
                 </div>
 
-                <div class="col-md-6">
+                 <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="">Discount</label>
+                        <input name="discount"  class="form-control" type="text"  value="<?php  echo round($payment_data['discount_amount']); ?>"  placeholder="Discount"  required="">
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="">Payment Method</label>
                         <input type="text" name="method" class="form-control"  value="<?php echo $payment_data['method']; ?>" placeholder="">

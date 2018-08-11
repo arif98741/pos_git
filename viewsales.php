@@ -66,7 +66,6 @@ if($_GET['sell_id']){
                 padding-right: 50px;
             }
 
-
             .header h1{
                 margin: 0px;
             }
@@ -156,21 +155,16 @@ if($_GET['sell_id']){
             }
 
 
-
             .command_section{
 
                 text-align: center;
 
                 margin-top: 20px;
-
             }
 
             .command_section span{
 
-
-
             }
-
             .command_section span input{
 
                 padding: 5px;
@@ -180,8 +174,9 @@ if($_GET['sell_id']){
                 height: 30px;
 
                 display: inline-block;
-
             }
+
+
 
         </style>
     </head>
@@ -193,8 +188,9 @@ if($_GET['sell_id']){
             <div class="header">
 
                 <h1 style="text-align: center;"><?php echo Session::get('company_name'); ?></h1>
+                <h4 style="text-align: center;"><?php echo $company_details->address; ?></h4>
+                <img src="<?php echo  Session::get('logo'); ?>" width="80px" height="80px"> 
 
-                <img src="">
 
             </div>
 
@@ -204,13 +200,11 @@ if($_GET['sell_id']){
 
             </div>
 
-            <div class="address">
-
-                <h4 ><?php echo $company_details->address; ?></h4>
-
-
-
-            </div>
+            <!-- <div class="address">
+            
+                <h4 ><?php //echo $company_details->address; ?></h4>
+            
+            </div> -->
 
             <div class="page_title">
 

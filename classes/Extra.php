@@ -1,6 +1,7 @@
 <?php
 $path = realpath(dirname(__DIR__));
 include_once 'DB.php';
+include_once 'Session.php';
 include_once $path.'/helper/Helper.php';
 
 class Extra {
@@ -227,10 +228,8 @@ class Extra {
            
              
         }
-
-        /*$message = 'Dear '.$customer_name.', your payment '.$amount.'tk for invoice '.$sell_id.' has successfully recieved. Your current balance is '.$current_balance.'-----------------'.Session::get('company_name'); */
-
-        $message = 'Dear '.$customer_name.', your bill  is '.$amount.' for invoice '.$sell_id.'. Current balance is '.$current_balance.". Happy Product";
+        
+        $message = 'Dear '.$customer_name.', your bill  is '.$amount.' for invoice '.$sell_id.'. Current balance is '.$current_balance.' . '.Session::get('company_name');
 
         $token = "77f9a4d2c5ea51913e1cd7624705239c";
         $url = "http://sms.greenweb.com.bd/api.php";

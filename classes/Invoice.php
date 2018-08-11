@@ -68,9 +68,10 @@ class Invoice {
     public function saveInvoice($data) {
 
 
-        $inv_no1 = $this->helpObj->validAndEscape($data['invoice_no']);
+        $inv_no1     = $this->helpObj->validAndEscape($data['invoice_no']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
-        $date = $this->helpObj->validAndEscape($data['date']);
+        $date        = $this->helpObj->validAndEscape($data['date']);
+        $userid      = Session::get('userid');
 
         $quantity  = $purchase = $subtotal = $total = 0;
         //for counting total data from a invoice form
@@ -99,8 +100,8 @@ class Invoice {
                 $st = $this->dbObj->insert($invoice_products_q);
             }
 
-            $totalInvoice_query = "insert into tbl_invoice(invoice_number,supplier_id,quantity,purchase,subtotal,total,date)"
-                    . "values('$inv_no1','$supplier_id','$quantity','$purchase','$subtotal','$total','$date')";
+            $totalInvoice_query = "insert into tbl_invoice(invoice_number,supplier_id,quantity,purchase,subtotal,total,date,updateby)"
+                    . "values('$inv_no1','$supplier_id','$quantity','$purchase','$subtotal','$total','$date','$userid')";
             $stmt = $this->dbObj->insert($totalInvoice_query);
             if ($stmt) {
                 return "<p class='alert alert-success fadeout'>Data Insert Successful<p>";

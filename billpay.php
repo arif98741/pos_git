@@ -4,14 +4,16 @@
 if (isset($_POST['payamount'])) {
     $customer_id = $_POST['customer_id'];
     $amount = $_POST['amount'];
-    $receiver = Session::get('userid');
+    $updateby = Session::get('userid');
     $method = $_POST['method'];
     $previous = $_POST['previous'];
+    $discount = $_POST['discount'];
     $date = date('Y-m-d H:i:s');
     $after_pay = $previous - $amount;
-    $stmt = $db->link->query("insert into payment(customer_id,amount,current_bal,receiver,method,date) values('$customer_id','$amount','$after_pay','$receiver','$method','$date')");
+    $stmt = $db->link->query("insert into payment(
+      customer_id,amount,current_bal,method,date,discount_amount,updateby) values(
+      '$customer_id','$amount','$after_pay','$method','$date','$discount','$updateby')");
 
-    
     if ($stmt) {
         $cus->sendMessage($customer_id,$amount,$method);
         echo "<script>alert('Paid Successfully');</script>";
@@ -24,10 +26,11 @@ if (isset($_POST['updatepayment'])) {
     $serial = $_POST['serial'];
     $customer_id = $_POST['customer_id'];
     $amount = $_POST['amount'];
+    $discount = $_POST['discount'];
     $method = $_POST['method'];
     $date = date('Y-m-d h:i:s');
 
-    $stmt = $db->link->query("update payment set amount='$amount',method='$method' where serial='$serial'") or die($db->link->error).__LINE__;
+    $stmt = $db->link->query("update payment set amount='$amount',discount_amount='$discount',method='$method' where serial='$serial'") or die($db->link->error).__LINE__;
 
     $stmt1 = $db->link->query("select balance from customer_balance where customer_id='$customer_id'") or die($db->link->error).__LINE__;
     if ($stmt1) {

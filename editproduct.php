@@ -4,8 +4,8 @@
 }?>
 
 <?php
-if (isset($_GET['product_id'])) {
-    $sta = $pro->getsingleProduct($_GET['product_id']);
+if (isset($_GET['action']) && $_GET['action'] == 'edit') {
+    $sta = $pro->getsingleProduct($_GET['id']);
     $data = $sta->fetch_assoc();
     
 } else {
@@ -34,7 +34,8 @@ if (isset($_GET['product_id'])) {
                 <div class="col-md-12"> 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <input name="product_id" class="form-control" type="text" value="<?php echo $data['product_id']; ?>" placeholder="Purchase ID"  required="">
+                            <input name="product_id" class="form-control" type="text" value="<?php echo $data['product_id']; ?>" placeholder="Product ID"  required="">
+                            <input name="id" class="form-control" type="hidden" value="<?php echo $data['serial']; ?>" placeholder=""  required="">
                         </div>
                     </div>
                     <div class="col-md-4">

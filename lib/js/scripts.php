@@ -37,9 +37,6 @@
 
     $('#purchaselist').DataTable();
 
-
-
   });
-
 
 </script>

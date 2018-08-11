@@ -86,7 +86,7 @@ class Product {
     public function showProduct() {
         //brand is granted as supplier
 
-        $q = "SELECT * FROM tbl_product tp
+        $q = "SELECT tp.product_id,tg.groupname,tp.product_name,ts.supplier_name,tt.typename,tp.purchase_price,tp.stock_limit,tp.last_update,tp.serial FROM tbl_product tp
             JOIN tbl_supplier ts ON
                 tp.product_brand = ts.supplier_id
             JOIN tbl_group tg ON
@@ -133,10 +133,10 @@ class Product {
         }
     }
 
-    public function deleteProduct($product_id) {
-        $serial = $this->helpObj->validAndEscape($product_id);
+    public function deleteProduct($id) {
+        $id = $this->helpObj->validAndEscape($id);
 
-        $query = "DELETE from tbl_product where product_id ='$product_id'";
+        $query = "DELETE from tbl_product where serial ='$id'";
         $sta = $this->dbObj->delete($query);
         if ($sta) {
             return true;
@@ -145,15 +145,16 @@ class Product {
         }
     }
 
-    public function getsingleProduct($product_id) {
-        $product_id = $this->helpObj->validAndEscape($product_id);
-        $query = "select * from tbl_product where product_id='$product_id'";
+    public function getsingleProduct($id) {
+        $id = $this->helpObj->validAndEscape($id);
+        $query = "select * from tbl_product where serial='$id'";
         $sta = $this->dbObj->select($query);
         return $sta;
     }
 
     public function updateProduct($data) {
 
+        $id = $this->helpObj->validAndEscape($data['id']);
         $product_id = $this->helpObj->validAndEscape($data['product_id']);
         $product_type = $this->helpObj->validAndEscape($data['product_type']);
         $product_group = $this->helpObj->validAndEscape($data['product_group']);
@@ -168,6 +169,7 @@ class Product {
 
         $query = "UPDATE tbl_product
                             SET
+                            product_id = '$product_id',    
                             product_type = '$product_type',    
                             product_group = '$product_group',    
                             product_name = '$product_name',    
@@ -178,7 +180,7 @@ class Product {
                             stock_limit = '$stock_limit',   
                             last_update   ='$last_update',
                             updateby ='$u_id'    
-                            where product_id='$product_id' ";
+                            where serial='$id' ";
 
         $sta = $this->dbObj->update($query);
         if ($sta) {

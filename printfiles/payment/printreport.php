@@ -7,6 +7,7 @@ Session::checkSession();
 $pri = new Printdata();
 $db = new Database();
 $help = new Helper();
+$userid = Session::get('userid');
 
 date_default_timezone_set('Asia/Dhaka');
 ?>
@@ -65,13 +66,16 @@ date_default_timezone_set('Asia/Dhaka');
                             <th>Date</th>
                             <th>Customer Name</th>
                             <th>Payment Method</th>
+                            <th>Discount</th>
                             <th>Amount</th>
                         </tr>
                   </thead>
                   <tbody>
                       <?php 
 
-                        $stmt = $db->link->query("SELECT p.date,tc.customer_name,p.amount,p.method FROM payment p join tbl_customer tc on p.customer_id = tc.customer_id WHERE  p.date BETWEEN '$starting' and '$ending'");
+                        
+
+                        $stmt = $db->link->query("SELECT p.date,tc.customer_name,p.amount,p.discount_amount,p.method FROM payment p join tbl_customer tc on p.customer_id = tc.customer_id WHERE p.updateby='$userid' and  p.date BETWEEN '$starting' and '$ending'");
                         if ($stmt) {
                             $i = $amount = 0;
                            while ($row = $stmt->fetch_assoc()) {
@@ -83,13 +87,14 @@ date_default_timezone_set('Asia/Dhaka');
                                 <td style="text-align: center;"><?php echo $help->formatDate($row['date']); ?></td>
                                 <td><?php echo $row['customer_name']; ?></td>
                                 <td><?php echo ucfirst($row['method']); ?></td>
+                                <td style="text-align: center;"><?php echo round($row['discount_amount']); ?></td>
                                 <td style="text-align: center;"><?php echo round($row['amount']); ?></td>
                                 
                             </tr>
 
                         <?php } } ?>
                             <tr>
-                                <td colspan="3" style="text-align: center;"><strong>Total</strong></td>
+                                <td colspan="4" style="text-align: center;"><strong>Total</strong></td>
                                 <td style="text-align: center;"><strong><?php echo $amount; ?></strong></td>
                             </tr>
                   </tbody>
@@ -124,13 +129,14 @@ date_default_timezone_set('Asia/Dhaka');
                         <tr>
                             <th>Date</th>
                             <th>Payment Method</th>
+                            <th>Discount</th>
                             <th>Amount</th>
                         </tr>
                   </thead>
                   <tbody>
                       <?php 
 
-                        $stmt = $db->link->query("SELECT p.date,tc.customer_name,p.method,p.amount FROM payment p join tbl_customer tc on p.customer_id = tc.customer_id WHERE p.customer_id='$customer_id' and p.date BETWEEN '$starting' and '$ending'");
+                        $stmt = $db->link->query("SELECT p.date,tc.customer_name,p.method,p.discount_amount,p.amount FROM payment p join tbl_customer tc on p.customer_id = tc.customer_id WHERE p.customer_id='$customer_id' and p.updateby='$userid' and p.date BETWEEN '$starting' and '$ending'");
                         if ($stmt) {
                             $i = $amount = 0;
                            while ($row = $stmt->fetch_assoc()) {
@@ -141,13 +147,14 @@ date_default_timezone_set('Asia/Dhaka');
                             <tr>
                                 <td><?php echo $help->formatDate($row['date']); ?></td>
                                 <td><?php echo ucfirst($row['method']); ?></td>
+                                <td style="text-align: center;"><?php echo round($row['discount_amount']); ?></td>
                                 <td style="text-align: center;"><?php echo round($row['amount']); ?></td>
                                 
                             </tr>
 
                         <?php } } ?>
                             <tr>
-                                <td colspan="2" style="text-align: center;"><strong>Total</strong></td>
+                                <td colspan="3" style="text-align: center;"><strong>Total</strong></td>
                                 <td style="text-align: center;"><strong><?php echo $amount; ?></strong></td>
                             </tr>
                   </tbody>

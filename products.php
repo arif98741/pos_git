@@ -23,7 +23,7 @@ if (isset($_POST['updateproduct'])) {
 //delete products
 
 if (isset($_GET['product_id'])) {
-    $sta = $pro->deleteProduct($_GET['product_id']);
+    $sta = $pro->deleteProduct($_GET['id']);
     if ($sta) {
         echo "<script>alert('Product Deleted Successful');</script>";
     } else {
@@ -95,8 +95,8 @@ if (isset($_GET['product_id'])) {
                                         <td>
                                             <?php if(Session::get('status') == 'admin'): ?>
 
-                                            <a href="<?php echo BASE_URL; ?>editproduct.php?product_id=<?php echo $result['product_id']; ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o btn"></i></a>
-                                            <a href="?action=del&serial=<?php echo $result['serial']; ?>&product_id=<?php echo $result['product_id']; ?>"  title="click to delete" onclick="return confirm('are you sure to delete?')" ><i class="fa fa-trash-o btn"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>editproduct.php?action=edit&id=<?php echo $result['serial']; ?>&product_id=<?php echo $result['product_id']; ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o btn"></i></a>
+                                            <a href="?action=del&id=<?php echo $result['serial']; ?>&product_id=<?php echo $result['product_id']; ?>"  title="click to delete" onclick="return confirm('are you sure to delete?')" ><i class="fa fa-trash-o btn"></i></a>
                                             <?php else: ?>
                                                 -
                                             <?php endif; ?>

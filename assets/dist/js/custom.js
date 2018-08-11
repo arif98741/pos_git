@@ -422,6 +422,9 @@ $(document).ready(function () {
                             $('#product_group_list_dropdown_add_sale').html(r);
                             $('#sale_price').val('');
                             $('#product_quantity').val('');
+                            $('#product_serial').val('');
+                            $('#warranty_expire').val('');
+                            
                         }
 
 					},error:function(e)
