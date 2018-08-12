@@ -9,6 +9,7 @@ include_once "../../classes/Product.php";
 
 $pri = new Printdata();
 $pro = new Product();
+$userid = Session::get('userid');
 ?>
 
 
@@ -52,7 +53,8 @@ $pro = new Product();
                                     $ending = $_POST['ending']." 23:59:59";
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.serial desc"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE ti.updateby='$userid' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.serial desc"); ?>) </div></td>
+                            
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -102,7 +104,11 @@ $pro = new Product();
                                     $groupid = $_POST['groupid'];
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT ti.invoice_number, tip.product_id, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE tg.groupid = '$groupid' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT ti.invoice_number, tip.product_id, tg.groupname, tp.product_name, tu.supplier_name, tip.purchase as 'purchase_price', tip.quantity, tip.subtotal, ti.date FROM tbl_invoice_products tip JOIN tbl_invoice ti ON tip.invoice_id = ti.invoice_number JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_group tg ON tp.product_group = tg.groupid JOIN tbl_supplier tu ON tp.product_brand = tu.supplier_id WHERE tg.groupid = '$groupid' and ti.updateby='$userid' and ti.date BETWEEN '$starting' AND '$ending' GROUP BY tip.product_id"); ?>) </div></td>
+
+
+                          
+
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -146,7 +152,7 @@ $pro = new Product();
                                     $supplier_id = $_POST['brandid'];
                                     
                                 ?>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tss.supplier_id = '$supplier_id' and
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("SELECT DISTINCT ti.invoice_number, tg.groupname, tp.product_name, tss.supplier_name, ti.quantity, ti.subtotal, ti.date FROM tbl_invoice ti JOIN tbl_invoice_products tip ON ti.invoice_number = tip.invoice_id JOIN tbl_product tp ON tip.product_id = tp.product_id JOIN tbl_supplier tss ON tp.product_brand = tss.supplier_id JOIN tbl_group tg ON tp.product_group = tg.groupid WHERE tss.supplier_id = '$supplier_id' and ti.updateby='$userid' and
                              ti.date BETWEEN '$starting' AND '$ending' GROUP BY (ti.serial) order by ti.serial desc"); ?>) </div></td>
                         </tr>
                     </table>

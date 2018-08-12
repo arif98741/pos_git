@@ -34,7 +34,7 @@ class Supplier {
     public function showSingleSupplier($id) {
         $supplier_id = $this->helpObj->validAndEscape($id);
         $query = "select * from tbl_supplier where supplier_id='$supplier_id'";
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 

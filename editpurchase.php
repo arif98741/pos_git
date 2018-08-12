@@ -8,9 +8,14 @@
 //get purchase data from server to assign in editing form
 if (isset($_GET['action']) && isset($_GET['invoice_id']) && $_GET['action'] == 'edit') {
     $inv_data = $inv->singleInvoice($_GET['invoice_id']); //return as array
+
+    
+
     $supplier_st = $sup->showSingleSupplier($inv_data['supplier_id']); //statement
+
     if ($supplier_st) {
         $supplier_data = $supplier_st->fetch_assoc(); //array result
+
     }
 }
 ?>

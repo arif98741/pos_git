@@ -37,6 +37,8 @@ $las = new Laser();
 $ext = new Extra();
 $help = new Helper();
 
+$userid = Session::get('userid');
+
 
 
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
