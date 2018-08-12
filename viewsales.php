@@ -5,7 +5,6 @@ $sell_id = $_GET['sell_id'];
 $path = realpath(dirname(__DIR__));
 include_once 'classes/DB.php';
 include_once  'classes/Extra.php';
-include  'classes/Session.php';
 include_once  'helper/Helper.php';
 if (!isset($_SESSION['login'])) {
     header('Location: login.php');
@@ -52,11 +51,8 @@ if($_GET['sell_id']){
         <style type="text/css">
 
             body{
-
                 background: #ccc;
-
                 font-size: 14px;
-
             }
 
             .main{

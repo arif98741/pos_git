@@ -1,18 +1,23 @@
 <?php
-
+ob_clean();
+session_start();
 $path = realpath(dirname(__DIR__));
 include_once "DB.php";
+include_once 'Session.php';
 include_once $path . '/helper/Helper.php';
+$userid = Session::get('userid');
 
 class Printdata {
 
     private $helpObj;
     private $dbObj;
     private $table_content;
+    private $userid; //for filtering data by Session User
 
     function __construct() {
         $this->helpObj = new Helper();
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
+        $this->userid  = Session::get('userid');
     }
 
     /*
@@ -77,10 +82,11 @@ class Printdata {
                 JOIN tbl_type tt ON
                     tp.product_type = tt.typeid
                 JOIN tbl_supplier ts ON
-                    tp.product_brand = ts.supplier_id
+                    tp.product_brand = ts.supplier_id where tp.updateby='$this->userid'
                     ORDER by tp.product_name ASC";
 
         $stmt = $this->dbObj->select($q);
+
         if ($stmt) {
             $i = 0;
             while ($row = $stmt->fetch_assoc()) {
@@ -129,7 +135,7 @@ class Printdata {
             tp.product_type = tt.typeid
         JOIN tbl_supplier ts ON
             tp.product_brand = ts.supplier_id
-            WHERE tg.groupid ='$group'
+            WHERE tg.groupid ='$group' and tp.updateby='$this->userid'
             ORDER by tp.product_name ASC";
         $stmt = $this->dbObj->select($q);
         if ($stmt) {
@@ -183,7 +189,7 @@ class Printdata {
             JOIN tbl_supplier ts ON
                 tp.product_brand = ts.supplier_id
             WHERE
-                tt.typeid = '$type'
+                tt.typeid = '$type' and tp.updateby='$this->userid'
             ORDER BY
                 tp.product_name ASC";
         $stmt = $this->dbObj->select($q);
@@ -236,7 +242,7 @@ class Printdata {
             JOIN tbl_supplier ts ON
                 tp.product_brand = ts.supplier_id
             WHERE
-                ts.supplier_id = '$supplier'
+                ts.supplier_id = '$supplier' and tp.updateby='$this->userid'
             ORDER BY
                 tp.product_name ASC";
         $stmt = $this->dbObj->select($q);

@@ -1,14 +1,12 @@
 <?php
 $path = realpath(dirname(__DIR__));
-include_once $path . '../../classes/Session.php';
-include_once $path . '/product/print.php';
-include_once "../../classes/Printdata.php";
+include_once $path . "../../classes/Printdata.php";
 $pri = new Printdata();
 $db = new Database();
-Session::checkSession();
+//Session::checkSession();
 date_default_timezone_set('Asia/Dhaka');
+//$userid is defined in Printdata.php
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +39,7 @@ date_default_timezone_set('Asia/Dhaka');
 
 
                                 <div class="title-3">All Products List Report</div></td>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product"); ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where updateby='$userid'"); ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -61,10 +59,10 @@ date_default_timezone_set('Asia/Dhaka');
 
 
                                 <div class="title-3">Products Report By Group - <?php
-                                    $Groupname = $pri->PageTitleByCondition("select * from tbl_group WHERE groupid ={$_POST['product_group']}");
+                                    $Groupname = $pri->PageTitleByCondition("select * from tbl_group WHERE groupid ={$_POST['product_group']} and updateby='$userid'");
                                     echo $Groupname['groupname'];
                                     ?></div></td>
-                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where product_group = '{$_POST["product_group"]}'") ?>) </div></td>
+                            <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where product_group = '{$_POST["product_group"]}' and updateby='$userid'") ?>) </div></td>
                         </tr>
                     </table>
                     <div class="line-4"></div>
@@ -84,14 +82,14 @@ date_default_timezone_set('Asia/Dhaka');
 
 
                             <div class="title-3">Products Report By Supplier - <?php
-                                $Brandname = $db->link->query("select * from tbl_supplier where supplier_id = {$_POST['supplier_id']}");
+                                $Brandname = $db->link->query("select * from tbl_supplier where supplier_id = {$_POST['supplier_id']} and updateby='$userid'");
                                 if ($Brandname) {
                                     echo $Brandname->fetch_assoc()['supplier_name'];
                                 }
                                 
                                 ?>
                             </div></td>
-                        <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where product_brand = '{$_POST["supplier_id"]}'") ?>) </div></td>
+                        <td width="24%" align="right" valign="middle" nowrap="nowrap"><div class="title-2">Total Products: (<?php echo $pri->TotalProducts("select * from tbl_product where product_brand = '{$_POST["supplier_id"]}' and updateby='$userid'") ?>) </div></td>
                     </tr>
                 </table>
                 <div class="line-4"></div>
