@@ -11,9 +11,10 @@ if (!isset($_SESSION['login'])) {
 } 
 
 
-$db = new Database();
-$ext = new Extra();
+$db   = new Database();
+$ext  = new Extra();
 $help = new Helper();
+
 
 if (isset($_POST['sell_id'])) {
 
@@ -307,6 +308,7 @@ if (isset($_POST['sell_id'])) {
                     <tbody>
                         <?php
                             $update_q = "update tbl_sell_products set status = '1' where sell_id='$sell_id' and customer_id='$cus_id'";
+
                             $update_q_st = $db->link->query($update_q);
 
                              $q = "SELECT tsp.subtotal,tsp.product_serial,tsp.warranty_expire,tsp.unit_price,tsp.purchase_price,tsp.quantity,tp.product_id,tp.product_name FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id where tsp.sell_id='$sell_id' and tsp.status='1' order by tsp.serial_no asc";           

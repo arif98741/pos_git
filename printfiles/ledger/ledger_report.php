@@ -3,12 +3,14 @@ $path = realpath(dirname(__DIR__));
 include_once $path . '../../classes/Session.php';
 include_once "../../classes/Printdata.php";
 include_once "../../classes/Laser.php";
-Session::checkSession();
+//Session::checkSession();
 $pri = new Printdata();
 $las = new Laser();
 $db = new Database();
 $help = new Helper();
 date_default_timezone_set('Asia/Dhaka');
+
+$userid = Session::get('userid');
 ?>
 
 
@@ -50,7 +52,7 @@ date_default_timezone_set('Asia/Dhaka');
 
                                     $starting = $_POST['starting']." 00:00:00";
                                     $ending = $_POST['ending']." 23:59:59";
-                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where date between '$starting' and '$ending'");
+                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where updateby='$userid' and date between '$starting' and '$ending'");
                                     if ($stmt) {
                                         $data    = $stmt->fetch_object();
                                         $balance = $data->debit - $data->credit;
@@ -98,7 +100,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     $starting = $_POST['starting']." 00:00:00";
                                     $ending = $_POST['ending']." 23:59:59";
                                     $category = $_POST['category'];
-                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where category='$category' and date between '$starting' and '$ending'");
+                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where category='$category' and updateby='$userid' and date between '$starting' and '$ending'");
                                     if ($stmt) {
                                         $data = $stmt->fetch_object();
                                         $balance = $data->debit- $data->credit;
@@ -145,7 +147,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     $starting = $_POST['starting']." 00:00:00";
                                     $ending = $_POST['ending']." 23:59:59";
                                     $payar = $_POST['payar'];
-                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where payar='$payar' and date between '$starting' and '$ending'");
+                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where payar='$payar' and updateby='$userid' and date between '$starting' and '$ending'");
                                     if ($stmt) {
                                         $data = $stmt->fetch_object();
                                         $balance = $data->debit- $data->credit;
@@ -194,7 +196,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     $starting = $_POST['starting']." 00:00:00";
                                     $ending = $_POST['ending']." 23:59:59";
                                     $receiver = $_POST['receiver'];
-                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where receiver='$receiver' and date between '$starting' and '$ending'");
+                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where receiver='$receiver' and updateby='$userid' and date between '$starting' and '$ending'");
                                     if ($stmt) {
                                         $data = $stmt->fetch_object();
                                         $balance = $data->debit- $data->credit;
@@ -242,7 +244,7 @@ date_default_timezone_set('Asia/Dhaka');
 
                                     $starting = $_POST['starting']." 00:00:00";
                                     $ending = $_POST['ending']." 23:59:59";
-                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser");
+                                    $stmt = $db->link->query("select sum(debit) as 'debit', sum(credit) as 'credit' from tbl_laser where updateby='$userid'");
                                     if ($stmt) {
                                         $data = $stmt->fetch_object();
                                         $balance = $data->debit - $data->credit;
@@ -270,7 +272,7 @@ date_default_timezone_set('Asia/Dhaka');
 
                            $starting = $help->validAndEscape($_POST['starting']." 00:00:00");
                             $ending = $help->validAndEscape($_POST['ending']." 23:59:59");
-                            $stmt = $db->link->query("select category,sum(debit) as 'debit',sum(credit) as 'credit',date,category_name from tbl_laser join tbl_transactioncat on tbl_laser.category = tbl_transactioncat.id where tbl_laser.date between '$starting' and '$ending' GROUP by tbl_laser.category ");
+                            $stmt = $db->link->query("select category,sum(debit) as 'debit',sum(credit) as 'credit',date,category_name from tbl_laser join tbl_transactioncat on tbl_laser.category = tbl_transactioncat.id where tbl_laser.updateby='$userid' and tbl_laser.date between '$starting' and '$ending' GROUP by tbl_laser.category ");
                             if ($stmt) {
                                 $i = $debit = $credit = 0;
                                while ($row = $stmt->fetch_assoc()) {
@@ -297,15 +299,6 @@ date_default_timezone_set('Asia/Dhaka');
                     </table>
             <?php endif; ?>
             <!--account summary report end--> 
-
-
-
-
-
-
-
-
-
 
         </div>
 

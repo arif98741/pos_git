@@ -9,11 +9,13 @@ class Customer {
     private $dbObj;
     private $helpObj;
     private $msg;
+    private $userid; //for filtering data by Session User
 
     public function __construct() {
 
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
         $this->helpObj = new Helper();
+        $this->userid  = Session::get('userid');
     }
 
    
@@ -125,8 +127,8 @@ class Customer {
                             customer_name = '$customername', address = '$address',
                             contact_no = '$contact_no',  email = '$email',
                             opening_balance ='$opening_balance',
-                            remark = '$remark', updateby = '$updateby'
-                            where serial='$serial'";
+                            remark = '$remark'
+                            where updateby='$updateby' and serial='$serial'";
 
         $stmt = $this->dbObj->update($query);
         if ($stmt) {
@@ -144,7 +146,7 @@ class Customer {
     */
     public function deleteCustomer($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
-        $query  = "delete from tbl_customer where serial='$serial'";
+        $query  = "delete from tbl_customer where updateby='$this->userid' and serial='$serial'";
         $sta    = $this->dbObj->delete($query);
         if ($sta) {
             return "<p class='alert alert-success fadeout'>Customer Deleted Successful<p>";
@@ -160,7 +162,7 @@ class Customer {
     !----------------------------------------------------------------
     */
     public function getPopCustomers() {
-        $query = 'select * from tbl_customer order by customer_name asc';
+        $query = "select * from tbl_customer where updateby='$this->userid' order by customer_name asc";
         $stmt  = $this->dbObj->select($query);
         if ($stmt) {
             $v = '<option>Select</option>';
@@ -183,7 +185,7 @@ class Customer {
     */
     public function sendMessage($customer_id,$amount,$method)
     {
-        $query = "SELECT tc.customer_name,tc.customer_id,tc.contact_no,cb.balance from tbl_customer tc join customer_balance cb on tc.customer_id = cb.customer_id where tc.customer_id='$customer_id'";
+        $query = "SELECT tc.customer_name,tc.customer_id,tc.contact_no,cb.balance from tbl_customer tc join customer_balance cb on tc.customer_id = cb.customer_id where tc.customer_id='$customer_id' and tc.updateby='$this->userid'";
         $stmt  = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
         if ($stmt) {
            $data =  $stmt->fetch_assoc();

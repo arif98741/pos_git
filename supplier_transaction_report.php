@@ -40,7 +40,6 @@
                  </div>
               </div>  
 
-
               <div class="col-md-6">
 
                   <div class="form-group">
@@ -57,8 +56,7 @@
                          
                         </select>
                  </div> 
- 
-                
+
               </div>  
 
               <div class="col-md-12">
@@ -69,9 +67,7 @@
                     <input type="submit" class="btn btn-primary " name="supplierstatement" value="Supplier Statement"> 
 
                    <!--  <input type="submit" class="btn btn-primary " name="showalltransactionbycat" value="Supplier Statement"> -->
-
-
-      </div>
+             </div>
         </div>
       </div>
             </div>

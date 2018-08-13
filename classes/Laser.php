@@ -6,19 +6,20 @@ include_once $path.'/helper/Helper.php';
 
 class Laser {
 
-    private $loginObj;
     private $dbObj;
     private $helpObj;
+    private $userid; //for filtering data by Session User
 
 
     /*
     |----------------------------------------------------
-    |           Construtor Load During Object Creation
+    |           Constructor Load During Object Creation
     |------------------------------------------------------
     */
     public function __construct() {
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
         $this->helpObj = new Helper();
+        $this->userid  = Session::get('userid');
     }
 
    
@@ -30,10 +31,9 @@ class Laser {
     */
     public function showLaser() {
 
-        $q = "SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id order by serial desc";
+        $q = "SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id where tl.updateby='$this->userid' order by serial desc";
         $stmt = $this->dbObj->select($q);
         if($stmt){
-
            return $stmt;
         }
     }
@@ -46,7 +46,7 @@ class Laser {
     */
     public function showCategory()
     {
-        $q = "SELECT * FROM  tbl_transactioncat order by category_name asc";
+        $q = "SELECT * FROM  tbl_transactioncat where updateby='$this->userid' order by category_name asc";
         $stmt = $this->dbObj->select($q);
         if($stmt){
            return $stmt;
@@ -63,7 +63,7 @@ class Laser {
     */
     public function showCategoryByID($catid)
     {
-        $q = "SELECT * FROM  tbl_transactioncat where id='$catid' order by category_name asc";
+        $q = "SELECT * FROM  tbl_transactioncat where id='$catid' and updateby='$this->userid' order by category_name asc";
         $stmt = $this->dbObj->select($q);
         if($stmt){
            return $stmt->fetch_assoc()['category_name'];
@@ -110,7 +110,7 @@ class Laser {
     public function deleteLaser($serial) {
         $serial = $this->helpObj->validAndEscape($serial);
 
-        $query = "DELETE from tbl_laser where serial ='$serial'";
+        $query = "DELETE from tbl_laser where serial ='$serial' and updateby='$this->userid'";
         $sta = $this->dbObj->delete($query);
         if ($sta) {
             return true;
@@ -154,9 +154,8 @@ class Laser {
 
         $query = "UPDATE tbl_laser SET
                             category = '$category',debit = '$debit',
-                            credit = '$credit',description = '$description',
-                            updateby ='$updateby'    
-                            where serial='$laserid'";
+                            credit = '$credit',description = '$description'
+                            where serial='$laserid' and updateby='$this->userid'";
 
         $sta = $this->dbObj->update($query);
         if ($sta) {
@@ -181,12 +180,12 @@ class Laser {
         $type = $this->helpObj->validAndEscape($data['type']);
         $date = date('Y-m-d h:i:s');
         
-        $check = $status = $this->dbObj->link->query("select * from tbl_transactioncat where category_name='$transactioncat'") or die($this->dbObj->link->error). " at line number ".__LINE__;
+        $check = $status = $this->dbObj->link->query("select * from tbl_transactioncat where category_name='$transactioncat' and updateby='$this->userid'") or die($this->dbObj->link->error). " at line number ".__LINE__;
         if ($check) {
             if ($row = $check->num_rows > 0) {
                  return  "<script>alert('Transaction Category Already Exist');</script>";
             } else {
-                $query = "insert into tbl_transactioncat(category_name,category_type,last_update) values('$transactioncat','$type','$date')";
+                $query = "insert into tbl_transactioncat(category_name,category_type,last_update,updateby) values('$transactioncat','$type','$date','$this->userid')";
     
                 $status = $this->dbObj->link->query($query) or die($this->dbObj->link->error). " at line number ".__LINE__;
 
@@ -217,7 +216,7 @@ class Laser {
         $type = $this->helpObj->validAndEscape($data['type']);
         $date = date('Y-m-d h:i:s');
         
-        $query = "update tbl_transactioncat set category_name='$transactioncat',category_type='$type',last_update='$date' where id='$transactioncatid'";
+        $query = "update tbl_transactioncat set category_name='$transactioncat',category_type='$type',last_update='$date' where id='$transactioncatid' and updateby='$this->userid'";
 
         $status = $this->dbObj->link->query($query) or die($this->dbObj->link->error). " at line number ".__LINE__;
 
@@ -240,7 +239,7 @@ class Laser {
     {
         $transactioncatid = $this->helpObj->validAndEscape($id);
         
-        $query = "delete from  tbl_transactioncat  where id='$transactioncatid'";
+        $query = "delete from  tbl_transactioncat  where id='$transactioncatid' and updateby='$this->userid'";
 
         $status = $this->dbObj->link->query($query) or die($this->dbObj->link->error). " at line number ".__LINE__;
 

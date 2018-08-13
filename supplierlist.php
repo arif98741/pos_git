@@ -71,7 +71,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                 </thead>
                 <tbody style="text-align: center;">
                             <?php
-                            $cust_stmt = $db->select("select * from tbl_supplier order by serial desc");
+                            $cust_stmt = $db->select("select * from tbl_supplier where updateby='$userid' order by serial desc");
                             ?>
                             <?php
                             $i = 0;

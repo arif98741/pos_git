@@ -72,7 +72,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                 </thead>
                 <tbody style="text-align: center;">
                             <?php
-                            $cust_stmt = $db->select("select * from tbl_transactioncat order by category_name desc");
+                            $cust_stmt = $db->select("select * from tbl_transactioncat where updateby='$userid' order by category_name desc");
                             ?>
                             <?php
                             $i = 0;
@@ -83,9 +83,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                         <td><?php echo ++$i; ?></td>
                                         <td style="text-align: left;"><?php echo $r['category_name']; ?></td>
                                         <td style="text-align: left;"><?php echo $r['category_type']; ?></td>
-
-                                        
-
                                         <td>
                                             <?php if(Session::get('status') == 'admin'): ?>
                                             <a href="edittranscat.php?action=edit&id=<?php echo $r['id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
@@ -94,11 +91,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                               -
                                             <?php endif; ?>
                                         </td>
-                                        
-
-                                            </tr>
+                                      </tr>
                                         <?php endwhile; ?>
-
                                     <?php else: ?>
                                         <tr>
                                             <td colspan="9" style="text-align: center;">No Data Found</td>

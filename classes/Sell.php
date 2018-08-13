@@ -6,13 +6,14 @@ include_once $path.'/helper/Helper.php';
 
 class Sell {
 
-    private $loginObj;
     private $dbObj;
     private $helpObj;
+    private $userid; //for filtering data by Session User
 
     public function __construct() {
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
         $this->helpObj = new Helper();
+        $this->userid  = Session::get('userid');
     }
 
 
@@ -51,7 +52,7 @@ class Sell {
     */
     public function showSellProducts() {
         $query = "select ts.date,ts.customer_id,ts.previous_balance,ts.sell_id,ts.serial,ts.due,ts.sub_total,ts.dlcharge,ts.discount,ts.vat,ts.payable,ts.paid,ts.due,tc.customer_name from tbl_sell ts JOIN tbl_customer tc on
-        ts.customer_id = tc.customer_id order by ts.serial desc";
+        ts.customer_id = tc.customer_id where ts.updateby='$this->userid' order by ts.serial desc";
 
         $st = $this->dbObj->select($query);
         if ($st) {
@@ -68,7 +69,7 @@ class Sell {
     !----------------------------------------------------
     */
     public function deleteSingleProduct($pro_id, $sell_id) {
-        $del_query = "delete from tbl_sell_products where product_id='$pro_id' and sell_id='$sell_id' and status='0'";
+        $del_query = "delete from tbl_sell_products where product_id='$pro_id' and sell_id='$sell_id' and status='0' and updateby='$this->userid'";
         $del_st = $this->dbObj->delete($del_query);
         if ($del_st) {
             return true;
@@ -87,7 +88,7 @@ class Sell {
     public function getTotal($data) {
         $customer_id = $this->helpObj->validAndEscape($data['customer_id']);
         $sell_id = $this->helpObj->validAndEscape($data['sell_id']);
-        $tq = "select * from tbl_sell_products where status='0' and customer_id='$customer_id' && sell_id='$sell_id'";
+        $tq = "select * from tbl_sell_products where status='0' and customer_id='$customer_id' && sell_id='$sell_id' and updateby='$this->userid'";
         $stmt = $this->dbObj->select($tq);
         if ($stmt) {
             $total = 0;
@@ -138,7 +139,7 @@ class Sell {
     !----------------------------------------------------
     */
     public function showSalesList() {
-        $st = $this->dbObj->select("SELECT * FROM tbl_sell,tbl_customer WHERE tbl_sell.customer_id = tbl_customer.customer_id order by tbl_sell.serial DESC");
+        $st = $this->dbObj->select("SELECT * FROM tbl_sell,tbl_customer WHERE tbl_sell.customer_id = tbl_customer.customer_id and tbl_sell.updateby='$this->userid' order by tbl_sell.serial DESC");
         if ($st) {
             return $st;
         } else {
@@ -157,10 +158,10 @@ class Sell {
         $serial = $this->helpObj->validAndEscape($serial);
         $sell_id = $this->helpObj->validAndEscape($sell_id);
 
-        $delquery = "delete from tbl_sell where sell_id='$sell_id'";
+        $delquery = "delete from tbl_sell where sell_id='$sell_id' and updateby='$this->userid'";
         $st = $this->dbObj->delete($delquery);
         if ($st) {
-            $in_pro_query = "select * from tbl_sell_products where sell_id='$sell_id' and status = '1'";
+            $in_pro_query = "select * from tbl_sell_products where sell_id='$sell_id' and updateby='$this->userid' and status = '1'";
             $in_pro_st = $this->dbObj->select($in_pro_query); //delete invoice 
             if ($in_pro_st) {
                 $in_pro_del_q = "delete from tbl_sell_products where sell_id='$sell_id'";
@@ -181,7 +182,7 @@ class Sell {
     */
     public function showSoldProduct($sell_id) {
         $sell_id = $this->helpObj->validAndEscape($sell_id);
-        $query = "SELECT * FROM tbl_sell_products,tbl_sell,tbl_product where tbl_sell_products.sell_id = tbl_sell.sell_id and tbl_sell_products.product_id = tbl_product.product_id AND tbl_sell.sell_id ='$sell_id' and tbl_sell_products.status = '0'  ORDER by tbl_sell_products.serial_no DESC";
+        $query = "SELECT * FROM tbl_sell_products,tbl_sell,tbl_product where tbl_sell_products.sell_id = tbl_sell.sell_id and tbl_sell_products.product_id = tbl_product.product_id AND tbl_sell.sell_id ='$sell_id' and tbl_sell_products.status = '0' and tbl_sell_products.updateby='$this->userid'  ORDER by tbl_sell_products.serial_no DESC";
         $stmt = $this->dbObj->select($query);
         if ($stmt) {
             $update_q = "UPDATE tbl_sell_products SET status = '0' WHERE tbl_sell_products.sell_id = '$sell_id'";
@@ -200,7 +201,7 @@ class Sell {
     */
     public function getsingleProduct($product_id) {
         $product_id = $this->helpObj->validAndEscape($product_id);
-        $query = "select * from tbl_product where serial='$product_id'";
+        $query = "select * from tbl_product where serial='$product_id' and updateby='$this->userid'";
         $sta = $this->dbObj->select($query);
         return $sta;
     }
@@ -213,7 +214,7 @@ class Sell {
     */
     public function singleSale($sell_id) {
         $sell_id = $this->helpObj->validAndEscape($sell_id);
-        $query = "select * from tbl_sell where sell_id='$sell_id'";
+        $query = "select * from tbl_sell where sell_id='$sell_id' and updateby='$this->userid'";
         $st = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_assoc();
@@ -234,7 +235,7 @@ class Sell {
                     tbl_sell_products.product_id = tbl_product.product_id AND
                     tbl_product.product_type = tbl_type.typeid AND
                     tbl_product.product_group = tbl_group.groupid  AND
-                    tbl_sell.sell_id='$sell_id'    AND tbl_sell_products.status='1'";
+                    tbl_sell.sell_id='$sell_id'    AND tbl_sell_products.status='1' and tbl_sell_products.updateby='$this->userid'";
 
         $st = $this->dbObj->select($query);
         if ($st) {
@@ -255,7 +256,7 @@ class Sell {
         $sell_id = $this->helpObj->validAndEscape($sell_id);
         $row = $db->link->query("SELECT sum(quantity) as 'totalproduct',tbl_sell.date from tbl_sell_products tsp JOIN tbl_sell ON
               tsp.sell_id = tbl_sell.sell_id WHERE
-              tsp.sell_id ='$sell_id' and tsp.status='1'")->fetch_assoc();
+              tsp.sell_id ='$sell_id' and tsp.status='1'and tsp.updateby='$this->userid'")->fetch_assoc();
         echo $row['totalproduct'    ];
     }
 
@@ -322,7 +323,7 @@ class Sell {
     */
     public function profit($invoice_id)
     {
-        $query = "select tsp.quantity, sum( tsp.unit_price) as 'sale', sum(tsp.purchase_price) as 'purchase' from tbl_sell_products tsp WHERE sell_id='$invoice_id' and status ='1' GROUP by sell_id";
+        $query = "select tsp.quantity, sum( tsp.unit_price) as 'sale', sum(tsp.purchase_price) as 'purchase' from tbl_sell_products tsp WHERE sell_id='$invoice_id' and status ='1' and updateby='$this->userid' GROUP by sell_id";
 
         $stmt =  $this->dbObj->link->query($query);
         if ($stmt) {
@@ -346,7 +347,7 @@ class Sell {
                     SUM(tsp.purchase_price) AS 'purchase'
                 FROM tbl_sell_products tsp WHERE
                     sell_id = '$invoice_id' AND product_id = '$product_id' AND
-                STATUS = '1' GROUP BY sell_id";
+                STATUS = '1' and updateby='$this->userid' GROUP BY sell_id";
 
         $stmt =  $this->dbObj->link->query($query);
         if ($stmt) {
@@ -377,7 +378,7 @@ class Sell {
          $paid = $this->helpObj->validAndEscape($data['paid']);
         $due = $this->helpObj->validAndEscape($data['due']);
         
-        $q = "update tbl_sell set customer_id='$cus_id',sub_total='$sub_total',dlcharge='$dlcharge',discount='$discount',vat='$vat',paid='$paid',payable='$payable',due='$due',updateby='$updateby' where sell_id='$sell_id'";
+        $q = "update tbl_sell set customer_id='$cus_id',sub_total='$sub_total',dlcharge='$dlcharge',discount='$discount',vat='$vat',paid='$paid',payable='$payable',due='$due',updateby='$updateby' where sell_id='$sell_id' and updateby='$this->userid'";
 
         $stmt =  $this->dbObj->link->query($q) or die($this->dbObj->link->error);
         if ($stmt) {
@@ -390,7 +391,7 @@ class Sell {
                 $quantity = $data['quantity'][$i];
                 $subtotal = $data['subtotal'][$i];
 
-               $query = "update tbl_sell_products set customer_id='$cus_id',product_id='$pro_id',quantity='$quantity',unit_price='$unit_price',subtotal='$subtotal' where serial_no ='$serial'";
+               $query = "update tbl_sell_products set customer_id='$cus_id',product_id='$pro_id',quantity='$quantity',unit_price='$unit_price',subtotal='$subtotal' where serial_no ='$serial' and updateby='$this->userid'";
 
                  $stmt =  $this->dbObj->link->query($query) or die($this->dbObj->link->error);
             }

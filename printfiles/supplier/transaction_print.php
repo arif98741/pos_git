@@ -3,11 +3,13 @@ $path = realpath(dirname(__DIR__));
 include_once $path . '../../classes/Session.php';
 include_once "../../classes/Printdata.php";
 include_once "../../classes/Laser.php";
-Session::checkSession();
-$pri = new Printdata();
-$las = new Laser();
-$db = new Database();
+//Session::checkSession();
+$pri   = new Printdata();
+$las  = new Laser();
+$db   = new Database();
 $help = new Helper();
+$userid = Session::get('userid');
+
 date_default_timezone_set('Asia/Dhaka');
 ?>
 
@@ -56,7 +58,7 @@ date_default_timezone_set('Asia/Dhaka');
 
                                     $starting = $_POST['starting']." 00:00:00";
                                     $ending = $_POST['ending']." 23:59:59";
-                                    $stmt = $db->link->query("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.date BETWEEN '$starting' and '$ending'");
+                                    $stmt = $db->link->query("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where and tst.updateby='$userid' and tst.date BETWEEN '$starting' and '$ending'");
                                     if ($stmt) {
                                         $data = $stmt->fetch_object();
                                         
@@ -106,7 +108,7 @@ date_default_timezone_set('Asia/Dhaka');
                                     $starting = $help->validAndEscape($_POST['starting']." 00:00:00");
                                     $ending = $help->validAndEscape($_POST['ending']." 23:59:59");
 
-                                    $stmt = $db->link->query("select supplier_name from tbl_supplier where supplier_id='$supplier_id'");
+                                    $stmt = $db->link->query("select supplier_name from tbl_supplier where supplier_id='$supplier_id' and updateby='$userid'");
                                     if ($stmt) {
                                        echo $stmt->fetch_assoc()['supplier_name']; 
                                     } 
@@ -138,10 +140,6 @@ date_default_timezone_set('Asia/Dhaka');
             <?php endif; ?>
             <!--all ledger report end-->
 
-
-            
-
-            
 
         </div>
 

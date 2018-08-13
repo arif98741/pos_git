@@ -8,11 +8,13 @@ class Extra {
 
     private $dbObj;
     private $helpObj;
+    private $userid; //for filtering data by Session User
 
     public function __construct() {
 
         $this->dbObj   = new Database();
         $this->helpObj = new Helper();
+        $this->userid  = Session::get('userid');
     }
 
     /*

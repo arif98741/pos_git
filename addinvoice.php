@@ -17,7 +17,7 @@
       <div class="col-sm-12">
         <div class="box">
           <div class="box-body">
-            <form  action="printfiles/sale/printinvoice.php" method="post"  enctype="multipart/form-data">
+            <form  action="printfiles/sale/printinvoice.php" method="post">
              <div class="row">
                 <div style="padding:6px">
                     <div class="col-md-offset-10 col-sm-2">
@@ -34,7 +34,7 @@
                             <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $ext->generateInvoiceID(); ?>">
                             
                             <select name="cus_id" class="form-control select2" id="cus_dropdown_addinvoice">
-                                <option value="" >Select Customer </option>
+                                <option value="">Select Customer </option>
                                 <?php 
                                     $cusst = $db->select("select * from tbl_customer order by customer_name asc");
                                     if($cusst){

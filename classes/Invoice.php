@@ -211,11 +211,11 @@ class Invoice {
         $serial     = $this->helpObj->validAndEscape($serial);
         $invoice_id = $this->helpObj->validAndEscape($invoice_id);
 
-        $delquery = "delete from tbl_invoice where invoice_number='$invoice_id'";
+        $delquery = "delete from tbl_invoice where invoice_number='$invoice_id' and updateby='$this->userid'";
         $st = $this->dbObj->delete($delquery); //delete invoice 
         if ($st) {
             
-            $in_pro_query = "delete from tbl_invoice_products where invoice_id='$invoice_id'";
+            $in_pro_query = "delete from tbl_invoice_products where invoice_id='$invoice_id' and updateby='$this->userid'";
             $in_pro_st = $this->dbObj->delete($in_pro_query); //delete invoice products
             if ($in_pro_st) {
                  return true;

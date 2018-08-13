@@ -7,6 +7,7 @@ class Supplier {
 
     private $dbObj;
     private $helpObj;
+    private $userid; //for filtering data by Session User
 
     /*
     !-----------------------------------------------------
@@ -15,8 +16,9 @@ class Supplier {
     */
     public function __construct() {
 
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
         $this->helpObj = new Helper();
+         $this->userid = Session::get('userid');
     }
 
 
@@ -26,7 +28,7 @@ class Supplier {
     !--------------------------------
     */
     public function showSupplier() {
-        $query = 'select * from tbl_supplier order by serial desc';
+        $query = "select * from tbl_supplier where updateby='$this->userid' order by serial desc";
         $stmt = $this->dbObj->select($query);
         if ($stmt) {
             return $stmt;
@@ -42,7 +44,7 @@ class Supplier {
     !-----------------------------------------------------
     */
     public function showSupplierForDropdown() {
-        $query = 'select * from tbl_supplier order by supplier_name asc';
+        $query = "select * from tbl_supplier where updateby='$this->userid' order by supplier_name asc";
         $stmt = $this->dbObj->select($query);
         return $stmt;
     }
@@ -134,8 +136,7 @@ class Supplier {
         $query = "UPDATE tbl_supplier SET
                             supplier_id = '$supplier_id',supplier_name = '$supplier_name', address = '$address',    
                             contact_no = '$contact_no', contact_person = '$contact_person',
-                            email = '$email', updateby = '$updateby'    
-                            where serial='$serial' ";
+                            email = '$email' where updateby='$this->userid' and serial='$serial' ";
         $stmt = $this->dbObj->update($query);
         if ($stmt) {
             return true;
@@ -179,7 +180,7 @@ class Supplier {
         $description = $this->helpObj->validAndEscape($data['description']);
         $date = date('Y-m-d H:i:s');
         $query = "insert into  tbl_supplier_transaction(
-            supplier, description, purchase,payment,date) values('$supplier_id','$description', '$purchase', '$payment', '$date')";
+            supplier, description, purchase,payment,date,updateby) values('$supplier_id','$description', '$purchase', '$payment', '$date','$this->userid')";
 
         $sta = $this->dbObj->link->query($query) or die( $this->dbObj->link->error) .". at line number ".__LINE__;
         if ($sta) {
@@ -207,7 +208,7 @@ class Supplier {
         $description = $this->helpObj->validAndEscape($data['description']);
         $date =  $this->helpObj->validAndEscape($data['date']);
         $query = "update tbl_supplier_transaction set
-            supplier ='$supplier_id', description='$description', purchase='$purchase',payment='$payment',date='$date' where id='$suppliertransid'";
+            supplier ='$supplier_id', description='$description', purchase='$purchase',payment='$payment',date='$date' where id='$suppliertransid' and updateby='$this->userid'";
 
 
         $sta = $this->dbObj->link->query($query) or die( $this->dbObj->link->error) .". at line number ".__LINE__;
@@ -228,7 +229,7 @@ class Supplier {
     public function deleteSupplierTransaction($id) {
         $id = $this->helpObj->validAndEscape($id);
         //$supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
-        $query = "delete from tbl_supplier_transaction where id='$id'";
+        $query = "delete from tbl_supplier_transaction where id='$id' updateby='$this->userid'";
         $sta = $this->dbObj->delete($query);
         if ($sta) {
             return true;

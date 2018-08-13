@@ -3,12 +3,13 @@ ob_start();
 $path = realpath(dirname(__DIR__));
 include_once $path . '../../classes/Session.php';
 include_once "../../classes/Printdata.php";
-Session::checkSession();
+//Session::checkSession();
 if (isset($_SESSION['status']) && $_SESSION['status'] !== 'admin') {
     header("location: ../../index.php");
 } 
 $pri = new Printdata();
 date_default_timezone_set('Asia/Dhaka');
+$userid = Session::get('userid');
 ?>
 
 
@@ -44,7 +45,7 @@ date_default_timezone_set('Asia/Dhaka');
 
                     <div class="title-3">Customer List Report</div></td>
                 <td width="24%" align="right" valign="middle" nowrap="nowrap">
-                    <div class="title-2">Total Customer: (<?php echo $pri->TotalProducts("select * from tbl_customer ORDER  by customer_name ASC "); ?>)</div>
+                    <div class="title-2">Total Customer: (<?php echo $pri->TotalProducts("select * from tbl_customer where updateby='$userid' ORDER  by customer_name ASC "); ?>)</div>
                 </td>
             </tr>
         </table>

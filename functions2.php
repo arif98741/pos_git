@@ -1,16 +1,20 @@
 <?php
+include_once 'classes/Session.php';
 include_once 'classes/DB.php';
 include_once 'classes/Supplier.php';
 include_once 'classes/Invoice.php';
 include_once 'classes/Extra.php';
 include_once 'classes/Customer.php';
 include_once 'helper/Helper.php';
-$sup = new Supplier();
-$db = new Database();
-$in = new Invoice();
-$ext = new Extra();
-$cus = new Customer();
+$sup  = new Supplier();
+$db   = new Database();
+$in   = new Invoice();
+$ext  = new Extra();
+$cus  = new Customer();
 $help = new Helper();
+
+Session::init();
+$userid = Session::get('userid');
 
 
 //sale management
@@ -26,6 +30,7 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sin
     $purchase_price = $help->validAndEscape($_POST['purchase_price']);
     $serial = $help->validAndEscape($_POST['product_serial']);
     $warranty_day = $help->validAndEscape($_POST['warranty_expire']);
+    $userid = $userid;
 
     $date = strtotime(date("Y-m-d"));
     $date = strtotime("+".$warranty_day." day", $date);
@@ -38,7 +43,7 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sin
     }elseif($check){
         echo "already added";
     }else{
-        $stmt = $db->insert("insert into tbl_sell_products(sell_id, customer_id, product_id, quantity, unit_price,purchase_price,subtotal,product_serial,warranty_expire) VALUES ('$sell_id','$cus_id','$pro_id','$quantity','$sale_price','$purchase_price','$sub_total','$serial','$expire')");
+        $stmt = $db->insert("insert into tbl_sell_products(sell_id, customer_id, product_id, quantity, unit_price,purchase_price,subtotal,product_serial,warranty_expire,updateby) VALUES ('$sell_id','$cus_id','$pro_id','$quantity','$sale_price','$purchase_price','$sub_total','$serial','$expire','$userid')");
         if ($stmt){
             echo "added";
         }else{

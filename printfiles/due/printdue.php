@@ -85,9 +85,6 @@ $sel = new Sell();
                         </tbody>
 
                     </table>
-              
-
         </div>
-
     </body>
 </html>

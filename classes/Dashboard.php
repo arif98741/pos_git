@@ -2,17 +2,20 @@
 $path = realpath(dirname(__DIR__));
 
 include_once 'DB.php';
+include_once 'Session.php';
 include_once $path . '/helper/Helper.php';
 
 class Dashboard {
 
     private $dbObj;
     private $helpObj;
+    private $userid; //for filtering data by Session User
 
     public function __construct() {
 
         $this->dbObj   = new Database();
         $this->helpObj = new Helper();
+        $this->userid  = Session::get('userid');
 
     }
 
@@ -28,7 +31,7 @@ class Dashboard {
         $starting = date('Y-m-d')." 00:00:00";
         $ending   = date('Y-m-d')." 23:59:59";
 
-        $query = "SELECT sum(sub_total) as 'subtotal' from tbl_sell ts where ts.date between '$starting' and '$ending'";
+        $query = "SELECT sum(sub_total) as 'subtotal' from tbl_sell ts where ts.updateby='$this->userid' and ts.date between '$starting' and '$ending'";
         $st = $this->dbObj->select($query);
         if ($st) {
             $subtotal =  $st->fetch_object()->subtotal;
@@ -52,7 +55,7 @@ class Dashboard {
         $starting = date('Y-m-d')." 00:00:00";
         $ending   = date('Y-m-d')." 23:59:59";
 
-        $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell where date between '$starting' and '$ending'";
+        $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell where updateby='$this->userid' and date between '$starting' and '$ending'";
         $st    = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalsell;
@@ -68,7 +71,7 @@ class Dashboard {
     */
     public function TotalMemo()
     {
-        $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell";
+        $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell where updateby='$this->userid'";
         $st    = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalsell;
@@ -85,7 +88,7 @@ class Dashboard {
     */
     public function totalPurchase()
     {
-        $query = "SELECT count(serial) as 'totalinvoice' from tbl_invoice";
+        $query = "SELECT count(serial) as 'totalinvoice' from tbl_invoice where updateby='$this->userid'";
         $st    = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalinvoice;
@@ -105,7 +108,7 @@ class Dashboard {
     {
         $starting = date('Y-m-d')." 00:00:00";
         $ending   = date('Y-m-d')." 23:59:59";
-        $query    = "SELECT count(serial) as 'totalcustomer' from tbl_customer";
+        $query    = "SELECT count(serial) as 'totalcustomer' from tbl_customer where updateby='$this->userid'";
         $st = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalcustomer;
@@ -158,7 +161,7 @@ class Dashboard {
     public function totalProducts()
     {
         
-        $query = "select count(product_id) as 'total' from tbl_product";
+        $query = "select count(product_id) as 'total' from tbl_product where updateby='$this->userid'";
         $st    = $this->dbObj->link->query($query);
         if ($st) {
             $total = $st->fetch_object()->total;
@@ -178,7 +181,7 @@ class Dashboard {
     public function totalCustomers()
     {
         
-        $query = "select count(customer_id) as 'total' from tbl_customer";
+        $query = "select count(customer_id) as 'total' from tbl_customer where updateby='$this->userid'";
         $st    = $this->dbObj->link->query($query);
         if ($st) {
             $total = $st->fetch_object()->total;
@@ -198,7 +201,7 @@ class Dashboard {
     public function totalSuppliers()
     {
         
-        $query = "select count(supplier_id) as 'total' from tbl_supplier";
+        $query = "select count(supplier_id) as 'total' from tbl_supplier where updateby='$this->userid'";
         $st    = $this->dbObj->link->query($query);
         if ($st) {
             $total = $st->fetch_object()->total;

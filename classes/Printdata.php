@@ -268,7 +268,7 @@ class Printdata {
      */
 
     public function SupplierReportByAll() {
-        $stmt = $this->dbObj->select("select * from tbl_supplier ORDER  by tbl_supplier.supplier_name ASC ");
+        $stmt = $this->dbObj->select("select * from tbl_supplier where updateby='$this->userid' ORDER  by tbl_supplier.supplier_name ASC ");
         if ($stmt) {
             if ($stmt->num_rows > 0) {
                 return $stmt;
@@ -283,7 +283,7 @@ class Printdata {
      * */
 
     public function CustomerReportByAll() {
-        $stmt = $this->dbObj->select("SELECT * FROM tbl_customer tc JOIN customer_balance cb ON tc.customer_id = cb.customer_id ORDER BY tc.customer_name ASC");
+        $stmt = $this->dbObj->select("SELECT * FROM tbl_customer tc JOIN customer_balance cb ON tc.customer_id = cb.customer_id where tc.updateby='$this->userid' ORDER BY tc.customer_name ASC");
         if ($stmt) {
             if ($stmt->num_rows > 0) {
                 return $stmt;
@@ -853,7 +853,7 @@ class Printdata {
         $starting = $starting." 00:00:00";
         $ending = $ending." 23:59:59";
 
-        $stmt = $this->dbObj->select("SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id where tl.date between '$starting' and '$ending' order by tl.serial asc");
+        $stmt = $this->dbObj->select("SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id where tl.updateby='$this->userid' and tl.date between '$starting' and '$ending' order by tl.serial asc");
         
         if ($stmt) {
            $i = 0;
@@ -894,7 +894,7 @@ class Printdata {
         $ending = $ending." 23:59:59";
         $category = $this->helpObj->validAndEscape($category);
 
-        $stmt = $this->dbObj->select("SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id where ttc.id ='$category' and tl.date between '$starting' and '$ending' order by tl.serial asc");
+        $stmt = $this->dbObj->select("SELECT * FROM tbl_laser tl join tbl_transactioncat ttc on tl.category = ttc.id where ttc.id ='$category' and tl.updateby='$this->userid' and tl.date between '$starting' and '$ending' order by tl.serial asc");
         
         if ($stmt) {
            $i = 0;
@@ -934,7 +934,7 @@ class Printdata {
         $ending = $ending." 23:59:59";
         $payar = $this->helpObj->validAndEscape($payar);
 
-        $stmt = $this->dbObj->select("select * from tbl_laser where donor = '$payar' and date  BETWEEN '$starting' AND '$ending'  order by serial asc
+        $stmt = $this->dbObj->select("select * from tbl_laser where donor = '$payar' and updateby='$this->userid' and date  BETWEEN '$starting' AND '$ending'  order by serial asc
             ");
         
         if ($stmt) {
@@ -977,7 +977,7 @@ class Printdata {
         $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
         $receiver = $this->helpObj->validAndEscape($receiver);
 
-        $stmt = $this->dbObj->select("select * from tbl_laser where receiver = '$receiver' and date  BETWEEN '$starting' AND '$ending'  order by serial asc
+        $stmt = $this->dbObj->select("select * from tbl_laser where receiver = '$receiver' and updateby='$this->userid' and date  BETWEEN '$starting' AND '$ending'  order by serial asc
             ");
         
         if ($stmt) {
@@ -1019,7 +1019,7 @@ class Printdata {
         $starting = $this->helpObj->validAndEscape($starting." 23:59:59");
         $ending = $this->helpObj->validAndEscape($ending." 23:59:59");
 
-        $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.date BETWEEN '$starting' and '$ending' order by date asc");
+        $stmt = $this->dbObj->select("SELECT tst.*,ts.supplier_name from tbl_supplier_transaction tst join tbl_supplier ts on tst.supplier = ts.supplier_id where tst.updateby='$this->userid' and tst.date BETWEEN '$starting' and '$ending' order by date asc");
         
         if ($stmt) {
            $i = 0;
