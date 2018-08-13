@@ -1,5 +1,4 @@
 <?php
-
 include_once 'Session.php';
 include_once 'DB.php';
 include_once 'helper/Helper.php';
@@ -9,12 +8,23 @@ class Supplier {
     private $dbObj;
     private $helpObj;
 
+    /*
+    !-----------------------------------------------------
+    !     Constructor Load During Creation of Object
+    !-----------------------------------------------------
+    */
     public function __construct() {
 
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
     }
 
+
+    /*
+    !--------------------------------
+    !     Show Supplier
+    !--------------------------------
+    */
     public function showSupplier() {
         $query = 'select * from tbl_supplier order by serial desc';
         $stmt = $this->dbObj->select($query);
@@ -25,12 +35,25 @@ class Supplier {
         }
     }
 
+
+    /*
+    !-----------------------------------------------------
+    !    Show Supplier in Dropdown
+    !-----------------------------------------------------
+    */
     public function showSupplierForDropdown() {
         $query = 'select * from tbl_supplier order by supplier_name asc';
         $stmt = $this->dbObj->select($query);
         return $stmt;
     }
 
+
+    /*
+    !-----------------------------------------------------
+    !     Show Single Supplier
+    !     @param supplier_id
+    !-----------------------------------------------------
+    */
     public function showSingleSupplier($id) {
         $supplier_id = $this->helpObj->validAndEscape($id);
         $query = "select * from tbl_supplier where supplier_id='$supplier_id'";
@@ -40,9 +63,12 @@ class Supplier {
 
 
     /*
-     * Add New Supplier to Database
-     * From addsupplier.php
-     * */
+    !-----------------------------------------------------
+    !     Add New Supplier to Database
+    !     @param array
+    !     @return  string
+    !-----------------------------------------------------
+    */
     public function addSupplier($data) {
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
         $supplier_name = $this->helpObj->validAndEscape($data['supplier_name']);
@@ -77,9 +103,12 @@ class Supplier {
         }
     }
 
+
     /*
-     * showing single supplier data to editsupplier.php
-     * */
+    !-----------------------------------------------------
+    !  showing single supplier data to editsupplier.php
+    !-----------------------------------------------------
+    */
     public function singleSupplier($supplier_id) {
         $supplier_id = $this->helpObj->validAndEscape($supplier_id);
         $query = "select * from tbl_supplier where supplier_id='$supplier_id'";
@@ -87,10 +116,12 @@ class Supplier {
         return $sta;
     }
 
+
     /*
-     * update supplier from editsupplier.php
-     * update execution at supplierlist.php
-     * */
+    !-----------------------------------------------------
+    !  update supplier from editsupplier.php
+    !-----------------------------------------------------
+    */
     public function updatesupplier($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
@@ -115,9 +146,10 @@ class Supplier {
 
 
     /*
-     * delete single supplier from database
-     *
-     * */
+    !-----------------------------------------------------
+    !  delete single supplier from database
+    !-----------------------------------------------------
+    */
     public function deleteSupplier($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
         //$supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
@@ -130,13 +162,14 @@ class Supplier {
         }
     }
 
-
-
     
-    /* add supplier transaction
-    * param array
-    * return boolen
-     * */
+    /*
+    !------------------------------------
+    !       add supplier transaction
+    !       @param array
+    !       @return boolen
+    !--------------------------------------
+    */
     public function addSupplierTransaction($data) {
         date_default_timezone_set('Asia/Dhaka');
         
@@ -158,10 +191,13 @@ class Supplier {
     }
 
 
-     /* update supplier transaction
-    * param array
-    * return boolen
-     * */
+    /*
+    !------------------------------------
+    !       update supplier transaction
+    !       @param array
+    !       @return boolen
+    !------------------------------------
+    */ 
     public function updateSupplierTransaction($data) {
         date_default_timezone_set('Asia/Dhaka');
         $suppliertransid = $this->helpObj->validAndEscape($data['suppliertransid']);
@@ -184,11 +220,11 @@ class Supplier {
     }
 
 
-
     /*
-     * delete Supplier transaction 
-     *
-     * */
+    !------------------------------------
+    !       delete Supplier transaction 
+    !--------------------------------------
+    */ 
     public function deleteSupplierTransaction($id) {
         $id = $this->helpObj->validAndEscape($id);
         //$supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
@@ -200,12 +236,6 @@ class Supplier {
             return false;
         }
     }
-
-
-
-    
-
-
 
 }
 

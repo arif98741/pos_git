@@ -23,7 +23,6 @@ class Printdata {
     /*
      * Total Products Function
      * */
-
     public function TotalProducts($query) {
         $st = $this->dbObj->select($query);
         if ($st) {

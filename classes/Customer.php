@@ -24,7 +24,7 @@ class Customer {
     */
     public function showCustomerForDropdown() {
         $query = 'select * from tbl_customer order by customer_name asc';
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         if ($stmt) {
             return $stmt;
         } else {
@@ -40,7 +40,7 @@ class Customer {
     */
     public function singleCustomerDetail($customer_id) {
         $query = "select * from tbl_customer where customer_id='$customer_id'";
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         if ($stmt) {
             $val = $stmt->fetch_array();
             return json_encode($val);
@@ -59,16 +59,16 @@ class Customer {
 
         date_default_timezone_set('Asia/Dhaka');
 
-        $customer_id = $this->helpObj->validAndEscape($data['customer_id']);
+        $customer_id   = $this->helpObj->validAndEscape($data['customer_id']);
         $customer_name = $this->helpObj->validAndEscape($data['customer_name']);
-        $address = $this->helpObj->validAndEscape($data['address']);
-        $contact_no = $this->helpObj->validAndEscape($data['contact_no']);
+        $address       = $this->helpObj->validAndEscape($data['address']);
+        $contact_no    = $this->helpObj->validAndEscape($data['contact_no']);
         //$contact_person = $this->helpObj->validAndEscape($data['contact_person']);
-        $email = $this->helpObj->validAndEscape($data['email']);
+        $email   = $this->helpObj->validAndEscape($data['email']);
 
         $opening_balance = $this->helpObj->validAndEscape($data['opening_balance']);
-        $remark = $this->helpObj->validAndEscape($data['remark']);
-        $date = date('Y-m-d H:i:s');
+        $remark   = $this->helpObj->validAndEscape($data['remark']);
+        $date     = date('Y-m-d H:i:s');
         $updateby = Session::get('userid');
         $query = "insert into tbl_customer(
              customer_id, customer_name, address,contact_no,email,opening_balance,remark,date,updateby)
@@ -102,7 +102,7 @@ class Customer {
     public function singleCustomer($customerid) {
         $customerid = $this->helpObj->validAndEscape($customerid);
         $query = "select * from tbl_customer where customer_id='$customerid'";
-        $sta = $this->dbObj->select($query);
+        $sta   = $this->dbObj->select($query);
         return $sta;
     }
 
@@ -112,15 +112,15 @@ class Customer {
     !---------------------------------------------
     */
     public function updateCustomer($data) {
-        $serial = $this->helpObj->validAndEscape($data['serial']);
-        $customerid = $this->helpObj->validAndEscape($data['customer_id']);
+        $serial       = $this->helpObj->validAndEscape($data['serial']);
+        $customerid   = $this->helpObj->validAndEscape($data['customer_id']);
         $customername = $this->helpObj->validAndEscape($data['customer_name']);
-        $address = $this->helpObj->validAndEscape($data['address']);
-        $contact_no = $this->helpObj->validAndEscape($data['contact_no']);
-        $email = $this->helpObj->validAndEscape($data['email']);
+        $address      = $this->helpObj->validAndEscape($data['address']);
+        $contact_no   = $this->helpObj->validAndEscape($data['contact_no']);
+        $email        = $this->helpObj->validAndEscape($data['email']);
         $opening_balance = $this->helpObj->validAndEscape($data['opening_balance']);
-        $remark = $this->helpObj->validAndEscape($data['remark']);
-        $updateby = Session::get('userid');
+        $remark       = $this->helpObj->validAndEscape($data['remark']);
+        $updateby     = Session::get('userid');
         $query = "UPDATE tbl_customer SET
                             customer_name = '$customername', address = '$address',
                             contact_no = '$contact_no',  email = '$email',
@@ -144,8 +144,8 @@ class Customer {
     */
     public function deleteCustomer($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
-        $query = "delete from tbl_customer where serial='$serial'";
-        $sta = $this->dbObj->delete($query);
+        $query  = "delete from tbl_customer where serial='$serial'";
+        $sta    = $this->dbObj->delete($query);
         if ($sta) {
             return "<p class='alert alert-success fadeout'>Customer Deleted Successful<p>";
         } else {
@@ -161,7 +161,7 @@ class Customer {
     */
     public function getPopCustomers() {
         $query = 'select * from tbl_customer order by customer_name asc';
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         if ($stmt) {
             $v = '<option>Select</option>';
             while ($r = $stmt->fetch_assoc()) {
@@ -184,21 +184,21 @@ class Customer {
     public function sendMessage($customer_id,$amount,$method)
     {
         $query = "SELECT tc.customer_name,tc.customer_id,tc.contact_no,cb.balance from tbl_customer tc join customer_balance cb on tc.customer_id = cb.customer_id where tc.customer_id='$customer_id'";
-        $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
+        $stmt  = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
         if ($stmt) {
            $data =  $stmt->fetch_assoc();
-           $customer_name = $data['customer_name'];
+           $customer_name   = $data['customer_name'];
            $customer_mobile = $data['contact_no'];
            //$balance = $data['balance']; //current balance
-            $balance = number_format((float)$data['balance'], 2, '.', '');
+            $balance  = number_format((float)$data['balance'], 2, '.', '');
         }
 
         $message = 'Dear '.$customer_name.', your payment '.$amount.'tk was successfully recieved by '.$method.'. Your current balance is '.$balance.'------------------'.Session::get('company_name');
 
         $token = "77f9a4d2c5ea51913e1cd7624705239c";
-        $url = "http://sms.greenweb.com.bd/api.php";
+        $url   = "http://sms.greenweb.com.bd/api.php";
 
-        $data= array(
+        $data = array(
         'to'=>$customer_mobile,
         'message'=>$message,
         'token'=>"$token"
@@ -210,7 +210,5 @@ class Customer {
         $smsresult = curl_exec($ch); //execute statement to send sms
         return $smsresult;
     }
-
-
 
 }

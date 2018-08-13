@@ -19,7 +19,7 @@ class Invoice {
     */
     public function __construct() {
 
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
         $this->helpObj = new Helper();
         $this->userid  = Session::get('userid');
     }
@@ -124,11 +124,11 @@ class Invoice {
     */
     public function updateInvoice($data) {
 
-        $inv_no = $this->helpObj->validAndEscape($data['invoice_number']);
+        $inv_no      = $this->helpObj->validAndEscape($data['invoice_number']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
-        $date = $this->helpObj->validAndEscape($data['date']);
-        $inv_q = "select * from tbl_invoice where invoice_number='$inv_no'";
-        $inv_stmt = $this->dbObj->select($inv_q);
+        $date        = $this->helpObj->validAndEscape($data['date']);
+        $inv_q       = "select * from tbl_invoice where invoice_number='$inv_no'";
+        $inv_stmt    = $this->dbObj->select($inv_q);
 
         if (!$inv_stmt) {
             return "<p class='alert alert-danger fadeout'>Invoice Not Found<p>";
@@ -179,7 +179,7 @@ class Invoice {
     */
     public function singleInvoice($inv_no) {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
-        $q = "select * from tbl_invoice where invoice_number ='$inv_no' and updateby='$this->userid'";
+        $q  = "select * from tbl_invoice where invoice_number ='$inv_no' and updateby='$this->userid'";
         $st = $this->dbObj->select($q);
         if ($st) {
             return $st->fetch_assoc();
@@ -193,7 +193,7 @@ class Invoice {
     */
     public function getInvoiceProducts($inv_no) {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
-        $q = "select * from tbl_invoice_products tip ,tbl_product tp where tip.invoice_id ='$inv_no' and tp.product_id = tip.product_id and tip.updateby='$this->userid' order by tip.product_id";
+        $q  = "select * from tbl_invoice_products tip ,tbl_product tp where tip.invoice_id ='$inv_no' and tp.product_id = tip.product_id and tip.updateby='$this->userid' order by tip.product_id";
         $st = $this->dbObj->select($q);
         if ($st) {
             return $st;
@@ -208,7 +208,7 @@ class Invoice {
     !---------------------------------------------------------
     */
     public function deleteInvoice($serial, $invoice_id) {
-        $serial = $this->helpObj->validAndEscape($serial);
+        $serial     = $this->helpObj->validAndEscape($serial);
         $invoice_id = $this->helpObj->validAndEscape($invoice_id);
 
         $delquery = "delete from tbl_invoice where invoice_number='$invoice_id'";

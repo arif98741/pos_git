@@ -29,7 +29,7 @@ class Product {
     public function showallproducts()
     {
         $query = "select * from tbl_product where updateby='$this->userid' order by serial ASC";
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 
@@ -40,7 +40,7 @@ class Product {
     */
     public function showType() { //for showing type in dropdown in addproduct.php
         $query = "select * from tbl_type where updateby='$this->userid' order by typename ASC";
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 
@@ -50,7 +50,7 @@ class Product {
     !-----------------------------------------------------
     */
     public function showSingleType($typeid) {
-        $tstmt = $this->dbObj->select("select * from tbl_type where typeid='$typeid' and updateby='$this->userid'");
+        $tstmt  = $this->dbObj->select("select * from tbl_type where typeid='$typeid' and updateby='$this->userid'");
         $trdata = $tstmt->fetch_assoc();
         return $trdata;
     }
@@ -63,7 +63,7 @@ class Product {
     */
     public function showGroup() { //for showing group in dropdown in addproduct.php
         $query = "select * from tbl_group where updateby='$this->userid' order by groupname ASC";
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
 
@@ -74,12 +74,13 @@ class Product {
     */
     public function showGroupById($groupid) { //for showing group in dropdown in addproduct.php
         $groupid = $this->helpObj->validAndEscape($groupid);
-        $query = "select * from tbl_group where groupid ='$groupid' and updateby='$this->userid'";
-        $stmt = $this->dbObj->select($query);
+        $query   = "select * from tbl_group where groupid ='$groupid' and updateby='$this->userid'";
+        $stmt    = $this->dbObj->select($query);
         if($stmt){
             return $stmt->fetch_assoc();
         }
     }
+
 
     /*
     !-----------------------------------------------------
@@ -101,7 +102,7 @@ class Product {
     public function showBrandById($supplier_id) { //for showing group in dropdown in addproduct.php
         $supplier_id = $this->helpObj->validAndEscape($supplier_id);
         $query = "select * from tbl_supplier where supplier_id ='$supplier_id' and updateby='$this->userid'";
-        $stmt = $this->dbObj->select($query);
+        $stmt  = $this->dbObj->select($query);
         if($stmt){
             return $stmt->fetch_assoc();
         }
@@ -119,6 +120,7 @@ class Product {
         $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
+
 
     /*
     !-----------------------------------------------------
@@ -154,6 +156,7 @@ class Product {
         $stmt = $this->dbObj->select($q);
         return $stmt;
     }
+
 
     /*
     !-----------------------------------------------------
@@ -206,18 +209,18 @@ class Product {
     public function updateProduct($data) {
 
         $id = $this->helpObj->validAndEscape($data['id']);
-        $product_id = $this->helpObj->validAndEscape($data['product_id']);
-        $product_type = $this->helpObj->validAndEscape($data['product_type']);
-        $product_group = $this->helpObj->validAndEscape($data['product_group']);
-        $product_name = $this->helpObj->validAndEscape($data['product_name']);
-        $product_brand = $this->helpObj->validAndEscape($data['product_brand']);
-        $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
-        $purchase_price = $this->helpObj->validAndEscape($data['purchase_price']);
+        $product_id      = $this->helpObj->validAndEscape($data['product_id']);
+        $product_type    = $this->helpObj->validAndEscape($data['product_type']);
+        $product_group   = $this->helpObj->validAndEscape($data['product_group']);
+        $product_name    = $this->helpObj->validAndEscape($data['product_name']);
+        $product_brand   = $this->helpObj->validAndEscape($data['product_brand']);
+        $sale_price      = $this->helpObj->validAndEscape($data['sale_price']);
+        $purchase_price  = $this->helpObj->validAndEscape($data['purchase_price']);
         $wholesale_price = $this->helpObj->validAndEscape($data['wholesale_price']);
         $piece_in_a_carton = $this->helpObj->validAndEscape($data['piece_in_a_carton']);
-        $stock_limit = $this->helpObj->validAndEscape($data['stock_limit']);
+        $stock_limit     = $this->helpObj->validAndEscape($data['stock_limit']);
         $u_id = $_SESSION['userid'];
-        $last_update = date('current_timestamp'); //set default time at Asia/Dhaka on header.php
+        $last_update     = date('current_timestamp'); //set default time at Asia/Dhaka on header.php
 
         $query = "UPDATE tbl_product
                             SET
@@ -255,7 +258,7 @@ class Product {
         $id = $this->helpObj->validAndEscape($id);
 
         $query = "DELETE from tbl_product where serial ='$id' and updateby='$this->userid'";
-        $sta = $this->dbObj->delete($query);
+        $sta   = $this->dbObj->delete($query);
         if ($sta) {
             return true;
         } else {
@@ -263,16 +266,16 @@ class Product {
         }
     }
 
-     /*
+    /*
     !-----------------------------------------------------
     !    Get Single Product Details
     !    @return object
     !-----------------------------------------------------
     */
     public function getsingleProduct($id) {
-        $id = $this->helpObj->validAndEscape($id);
+        $id    = $this->helpObj->validAndEscape($id);
         $query = "select * from tbl_product where serial='$id' and updateby='$this->userid'";
-        $sta = $this->dbObj->select($query);
+        $sta   = $this->dbObj->select($query);
         return $sta;
     }
     

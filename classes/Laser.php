@@ -10,6 +10,12 @@ class Laser {
     private $dbObj;
     private $helpObj;
 
+
+    /*
+    |----------------------------------------------------
+    |           Construtor Load During Object Creation
+    |------------------------------------------------------
+    */
     public function __construct() {
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
@@ -17,8 +23,10 @@ class Laser {
 
    
     /*
-    @ view lasers in laserlist.php
-    @ return object
+    |----------------------------------------------------
+    |           view lasers in laserlist.php
+    |            return object
+    |------------------------------------------------------
     */
     public function showLaser() {
 
@@ -31,8 +39,10 @@ class Laser {
     }
 
 
-    /**
-    @ show ledger category in addlaser.php
+    /*
+    !--------------------------------------------------
+    !       show ledger category in addlaser.php
+    !--------------------------------------------------
     */
     public function showCategory()
     {
@@ -46,9 +56,10 @@ class Laser {
     }
 
 
-
-     /**
-    @ show ledger category in printfiles/ledger/ledger_report.php
+    /*
+    ------------------------------------------------------------------
+    | show ledger category in printfiles/ledger/ledger_report.php
+    ------------------------------------------------------------------
     */
     public function showCategoryByID($catid)
     {
@@ -62,10 +73,11 @@ class Laser {
     }
 
 
-
     /*
-    @ add laser data to tbl_laser table
-    @ return boolean
+    |-----------------------------------------------------
+    | add laser data to tbl_laser table
+    | @return boolean
+    |-----------------------------------------------------
     */
     public function addLaser($data) {
 
@@ -89,9 +101,11 @@ class Laser {
     }
 
 
-     /*
-    @ delete laser data from tbl_laser table
-    @ return boolean
+    /*
+    |-----------------------------------------
+    | delete laser data from tbl_laser table
+    | @return boolean
+    |-----------------------------------------
     */
     public function deleteLaser($serial) {
         $serial = $this->helpObj->validAndEscape($serial);
@@ -106,9 +120,11 @@ class Laser {
     }
 
 
-     /*
-    @ select single laser data from tbl_laser table
-    @ return object
+    /*
+    !------------------------------------------------------
+    ! select single laser data from tbl_laser table
+    ! @return object
+    !------------------------------------------------------
     */
     public function getSingleLaserdetails($serial) {
         $product_id = $this->helpObj->validAndEscape($serial);
@@ -118,9 +134,11 @@ class Laser {
     }
 
 
-     /*
-    @ update laser data to tbl_laser table
-    @ return boolean
+    /*
+    !------------------------------------------------------------------------
+    !update laser data to tbl_laser table
+    ! @return boolean
+    !------------------------------------------------------------------------
     */
     public function updateLaser($data) {
 
@@ -149,10 +167,12 @@ class Laser {
     }
 
 
-     /*
-    @ add transaction category 
-    @ param array
-    @ return string
+    /*
+    !------------------------------------------------------------------------
+    ! add transaction category 
+    ! @param array
+    ! @return string
+    !------------------------------------------------------------------------
     */
 
     public function addtranscat($data)
@@ -182,10 +202,12 @@ class Laser {
     }
 
 
-     /*
-    @ update transaction category 
-    @ param array
-    @ return boolean
+    /*
+    !---------------------------------------------
+    ! update transaction category 
+    ! @param array
+    ! @return boolean
+    !---------------------------------------------
     */
 
     public function updatetranscat($data)
@@ -206,10 +228,12 @@ class Laser {
         }
     }
 
-     /*
-    @ delete transaction category 
-    @ param id
-    @ return boolean
+    /*
+    !-------------------------------------------
+    ! delete transaction category 
+    ! @param id
+    ! @return boolean
+    !-------------------------------------------
     */
 
     public function deletetranscat($id)
@@ -227,7 +251,4 @@ class Laser {
         }
     }
 
-        
-
-        
 }

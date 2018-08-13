@@ -11,7 +11,7 @@ class Extra {
 
     public function __construct() {
 
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
         $this->helpObj = new Helper();
     }
 
@@ -22,8 +22,8 @@ class Extra {
     */
     public function showGroup() { 
         $query = 'select * from tbl_group order by groupname ASC';
-        $stmt = $this->dbObj->select($query);
-        $val = '<select class="form-control product_group" name="product_group">';
+        $stmt  = $this->dbObj->select($query);
+        $val   = '<select class="form-control product_group" name="product_group">';
         if ($stmt->num_rows > 0) {
             $val .= '<option>Select</option>';
             while ($r = $stmt->fetch_assoc()) {
@@ -42,8 +42,8 @@ class Extra {
     public function showProductNameList() {
         //$group_id = $this->helpObj->validAndEscape($group_id);
         $query = "SELECT * from tbl_product order by product_name asc";
-        $stmt = $this->dbObj->select($query);
-        $val = '<select class="form-control product_list select2_product" name="product_id[]">';
+        $stmt  = $this->dbObj->select($query);
+        $val   = '<select class="form-control product_list select2_product" name="product_id[]">';
 
         if ($stmt) {
             $val .= '<option>Select</option>';
@@ -67,7 +67,7 @@ class Extra {
     !------------------------------------------------------------------------------------
     */
     public function showSingleProDetails($pro_id) {
-        $q = "select * from tbl_product,tbl_type where tbl_product.product_type = tbl_type.typeid and tbl_product.product_id ='$pro_id'";
+        $q  = "select * from tbl_product,tbl_type where tbl_product.product_type = tbl_type.typeid and tbl_product.product_id ='$pro_id'";
         $st = $this->dbObj->select($q);
         if ($st) {
             return $st->fetch_assoc();
@@ -77,7 +77,6 @@ class Extra {
     }
 
 
-    
     /*
     !------------------------------------------
     !               group product 
@@ -86,7 +85,7 @@ class Extra {
     */
     public function showgrouplist()
     {
-        $q = "select * from tbl_group order by groupid asc";
+        $q  = "select * from tbl_group order by groupid asc";
         $st = $this->dbObj->select($q);
         if ($st) {
             return $st;
@@ -103,7 +102,7 @@ class Extra {
     */
     public function showtypelist()
     {
-        $q = "select * from tbl_type order by typeid asc";
+        $q  = "select * from tbl_type order by typeid asc";
         $st = $this->dbObj->select($q);
         if ($st) {
             return $st;
@@ -123,7 +122,7 @@ class Extra {
     {
 
 
-        $q = "SELECT due FROM tbl_sell WHERE customer_id = '$cus_id' ORDER BY SERIAL ASC LIMIT 2";
+        $q  = "SELECT due FROM tbl_sell WHERE customer_id = '$cus_id' ORDER BY SERIAL ASC LIMIT 2";
         $st = $this->dbObj->select($q);
         $last_due = 0;
         if($st)
@@ -210,14 +209,13 @@ class Extra {
     !       after completing sale at printfiles/sale/printinvoice.php
     !-------------------------------------------------------------------  
     */
-    
     public function sendMessageAfterSale($customer_id,$sell_id,$amount)
     { 
         $query = "select * from tbl_customer where customer_id='$customer_id'";
-        $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
+        $stmt  = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
         if ($stmt) {
            $data =  $stmt->fetch_assoc();
-           $customer_name = $data['customer_name'];
+           $customer_name   = $data['customer_name'];
            $customer_mobile = $data['contact_no'];
         }
 
@@ -232,12 +230,12 @@ class Extra {
         $message = 'Dear '.$customer_name.', your bill  is '.$amount.' for invoice '.$sell_id.'. Current balance is '.$current_balance.' . '.Session::get('company_name');
 
         $token = "77f9a4d2c5ea51913e1cd7624705239c";
-        $url = "http://sms.greenweb.com.bd/api.php";
+        $url   = "http://sms.greenweb.com.bd/api.php";
 
-        $data= array(
+        $data = array(
         'to'=> $customer_mobile,
         'message'=> $message,
-        'token'=>"$token"
+        'token'=> "$token"
         ); // Add parameters in key value
         $ch = curl_init(); // Initialize cURL
         curl_setopt($ch, CURLOPT_URL,$url);
@@ -293,12 +291,12 @@ class Extra {
     */
     public function pageLoad()
     {
-        $time = microtime();
-        $time = explode(' ', $time);
-        $time = $time[1] + $time[0];
-        $start = $time;
-    
-        $time = $time[1] + $time[0];
+        $time   = microtime();
+        $time   = explode(' ', $time);
+        $time   = $time[1] + $time[0];
+        $start  = $time;
+
+        $time   = $time[1] + $time[0];
         $finish = $time;
         $total_time = round(($finish - $start), 4);
         return 'Page generated in '.$total_time.' seconds.';

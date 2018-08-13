@@ -15,6 +15,13 @@ class Sell {
         $this->helpObj = new Helper();
     }
 
+
+    /*
+    !----------------------------------------------------
+    ! Store Temporary Sold Products Before Confirm
+    !   status = 0
+    !----------------------------------------------------
+    */
     public function storeSellProducts($data) {
         $sell_id = $this->helpObj->validAndEscape($data['sell_id']);
         $customer_id = $this->helpObj->validAndEscape($data['customer_id']);
@@ -36,6 +43,12 @@ class Sell {
         }
     }
 
+
+    /*
+    !----------------------------------------------------
+    ! Show Sold Products
+    !----------------------------------------------------
+    */
     public function showSellProducts() {
         $query = "select ts.date,ts.customer_id,ts.previous_balance,ts.sell_id,ts.serial,ts.due,ts.sub_total,ts.dlcharge,ts.discount,ts.vat,ts.payable,ts.paid,ts.due,tc.customer_name from tbl_sell ts JOIN tbl_customer tc on
         ts.customer_id = tc.customer_id order by ts.serial desc";
@@ -48,6 +61,12 @@ class Sell {
         }
     }
 
+
+    /*
+    !----------------------------------------------------
+    !       Delete Single Product
+    !----------------------------------------------------
+    */
     public function deleteSingleProduct($pro_id, $sell_id) {
         $del_query = "delete from tbl_sell_products where product_id='$pro_id' and sell_id='$sell_id' and status='0'";
         $del_st = $this->dbObj->delete($del_query);
@@ -58,7 +77,13 @@ class Sell {
         }
     }
 
-    //for calculation and getting total amount of sell products for a specific customer
+
+    /*
+    !----------------------------------------------------
+    ! for calculation and getting total
+    ! amount of sell products for a specific customer
+    !----------------------------------------------------
+    */
     public function getTotal($data) {
         $customer_id = $this->helpObj->validAndEscape($data['customer_id']);
         $sell_id = $this->helpObj->validAndEscape($data['sell_id']);
@@ -74,7 +99,11 @@ class Sell {
     }
 
 
-    
+    /*
+    !----------------------------------------------------
+    ! Save Sale Invoice and Calculated Data
+    !----------------------------------------------------
+    */
     public function saveSaleInvoice($data) {
         $customer_balance = $this->helpObj->validAndEscape($data['balance']);
         $sell_subtotal = $this->helpObj->validAndEscape($data['sell_subtotal']);
@@ -103,7 +132,11 @@ class Sell {
         }
     }
 
-    //show sales list in viewsales.php
+    /*
+    !----------------------------------------------------
+    !      Show Sales List
+    !----------------------------------------------------
+    */
     public function showSalesList() {
         $st = $this->dbObj->select("SELECT * FROM tbl_sell,tbl_customer WHERE tbl_sell.customer_id = tbl_customer.customer_id order by tbl_sell.serial DESC");
         if ($st) {
@@ -113,7 +146,13 @@ class Sell {
         }
     }
 
-    //delelte sales
+
+    /*
+    !----------------------------------------------------
+    ! Delete Sell. 
+    ! Table = tbl_sell,tbl_sell_products
+    !----------------------------------------------------
+    */
     public function deleteSale($serial, $sell_id) {
         $serial = $this->helpObj->validAndEscape($serial);
         $sell_id = $this->helpObj->validAndEscape($sell_id);
@@ -135,6 +174,11 @@ class Sell {
         }
     }
 
+    /*
+    !-----------------------------------------------------------------
+    ! Show Sold Products by Sell ID
+    !-----------------------------------------------------------------
+    */
     public function showSoldProduct($sell_id) {
         $sell_id = $this->helpObj->validAndEscape($sell_id);
         $query = "SELECT * FROM tbl_sell_products,tbl_sell,tbl_product where tbl_sell_products.sell_id = tbl_sell.sell_id and tbl_sell_products.product_id = tbl_product.product_id AND tbl_sell.sell_id ='$sell_id' and tbl_sell_products.status = '0'  ORDER by tbl_sell_products.serial_no DESC";
@@ -148,6 +192,12 @@ class Sell {
         }
     }
 
+
+    /*
+    !-----------------------------------------------------------------
+    ! get single product details by product id
+    !-----------------------------------------------------------------
+    */
     public function getsingleProduct($product_id) {
         $product_id = $this->helpObj->validAndEscape($product_id);
         $query = "select * from tbl_product where serial='$product_id'";
@@ -155,7 +205,12 @@ class Sell {
         return $sta;
     }
 
-    //get single sale details for editsale.php
+
+    /*
+    !-----------------------------------------------------------------
+    ! get single sale details for editsale.php
+    !-----------------------------------------------------------------
+    */
     public function singleSale($sell_id) {
         $sell_id = $this->helpObj->validAndEscape($sell_id);
         $query = "select * from tbl_sell where sell_id='$sell_id'";
@@ -167,7 +222,11 @@ class Sell {
         }
     }
 
-    //get sold products for showing in editing table in editsale.php
+    /*
+    !-----------------------------------------------------------------
+    ! get sold products for showing in editing table in editsale.php
+    !-----------------------------------------------------------------
+    */
     public function getSellProducts($sell_id) {
         $query = "SELECT * from tbl_sell,tbl_sell_products,tbl_customer,tbl_group,tbl_product,tbl_type WHERE 
                     tbl_sell.sell_id = tbl_sell_products.sell_id and
@@ -185,6 +244,12 @@ class Sell {
         }
     }
 
+
+    /*
+    !----------------------------------------------------
+    ! Show total products for specific sell_id
+    !----------------------------------------------------
+    */
     public function showtotalprobysellid($sell_id)
     {
         $sell_id = $this->helpObj->validAndEscape($sell_id);
@@ -196,7 +261,9 @@ class Sell {
 
 
     /*
-    * show user balance list from tbl_sell, tbl_customer in balancelist.php
+    !-------------------------------------------------------------------------
+    ! show user balance list from tbl_sell, tbl_customer in balancelist.php
+    !-------------------------------------------------------------------------
     */
     public function showbalancelist()
     {
@@ -212,7 +279,11 @@ class Sell {
     }
 
 
-
+    /*
+    !----------------------------------
+    ! Show due list
+    !----------------------------------
+    */
     public function showduelist()
     {
         
@@ -227,8 +298,11 @@ class Sell {
     }
 
 
-
-
+    /*
+    !----------------------------------
+    ! Show Profit list
+    !----------------------------------
+    */
     public function showProfitlist()
     {
          $stmt =  $this->dbObj->link->query("select distinct * from tbl_sell");
@@ -241,6 +315,11 @@ class Sell {
     }
 
 
+    /*
+    !------------------------------------------------
+    ! Show profit for specific invoice(sell_id)
+    !------------------------------------------------
+    */
     public function profit($invoice_id)
     {
         $query = "select tsp.quantity, sum( tsp.unit_price) as 'sale', sum(tsp.purchase_price) as 'purchase' from tbl_sell_products tsp WHERE sell_id='$invoice_id' and status ='1' GROUP by sell_id";
@@ -251,12 +330,14 @@ class Sell {
             $profit = $data['sale'] * $data['quantity'] - $data['purchase'] * $data['quantity'];
             return $profit;
         }
-
     }
 
 
-
-    //show profit by product id
+    /*
+    !----------------------------------
+    ! show profit by product id
+    !----------------------------------
+    */
     public function profitByProduct($invoice_id, $product_id)
     {
         $query = "SELECT
@@ -273,13 +354,14 @@ class Sell {
             $profit = $data['sale'] * $data['quantity'] - $data['purchase'] * $data['quantity'];
             return $profit;
         }
-                    
-
     }
 
 
-
-    //update sales in editsales.php
+    /*
+    !----------------------------------
+    ! update sales in editsales.php
+    !----------------------------------
+    */
     public function updateInvoice($data)
     {
         $sell_id = $this->helpObj->validAndEscape($data['sell_id']);
@@ -295,12 +377,10 @@ class Sell {
          $paid = $this->helpObj->validAndEscape($data['paid']);
         $due = $this->helpObj->validAndEscape($data['due']);
         
-        
         $q = "update tbl_sell set customer_id='$cus_id',sub_total='$sub_total',dlcharge='$dlcharge',discount='$discount',vat='$vat',paid='$paid',payable='$payable',due='$due',updateby='$updateby' where sell_id='$sell_id'";
 
         $stmt =  $this->dbObj->link->query($q) or die($this->dbObj->link->error);
         if ($stmt) {
-
 
             for ($i = 0; $i < count($data['product_id']) ; $i++) {
 
@@ -313,14 +393,9 @@ class Sell {
                $query = "update tbl_sell_products set customer_id='$cus_id',product_id='$pro_id',quantity='$quantity',unit_price='$unit_price',subtotal='$subtotal' where serial_no ='$serial'";
 
                  $stmt =  $this->dbObj->link->query($query) or die($this->dbObj->link->error);
-                
             }
 
             return true;
         }
     }
-
-
-    
-
 }

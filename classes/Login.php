@@ -14,9 +14,10 @@ class Login {
     }
 
 
-    /**
-    @ user login system
-    @ 
+    /*
+    !-------------------------------------
+    !   user login system
+    !-------------------------------------
     */
     public function login($data) {
         $username = $data['username'];
@@ -55,11 +56,11 @@ class Login {
     }
 
 
-
-    /**
-    @ save user as stuff to database
+    /*
+    !----------------------------------------
+    ! save user as stuff to database
+    !----------------------------------------
     */
-
     public function addUser($data)
     {
         $name = $this->helpObj->validAndEscape($data['name']);
@@ -86,20 +87,17 @@ class Login {
                      }
                 }
             }
-
-           
         }
 
         return $msg;
-
-      
     }
 
 
-    /**
-    @ update user as stuff to database
+    /*
+    !-----------------------------------------------------
+    !       update user as stuff to database
+    !-----------------------------------------------------
     */
-
     public function updateUser($data)
     {
         $userid = $this->helpObj->validAndEscape($data['userid']);
@@ -129,14 +127,11 @@ class Login {
     }
 
 
-
-
-
-
-    /**
-    * save accessed missing user
+    /*
+    !---------------------------------------
+    !       save accessed missing user
+    !---------------------------------------
     */
-
     public function saveAttemptUser($data)
     {
         date_default_timezone_set('Asia/Dhaka');
@@ -155,9 +150,11 @@ class Login {
 
 
 
-    /**
-    @show attemp user
-    **/
+    /*
+    !----------------------------------------
+    !           show attemp user
+    !----------------------------------------
+    */
     public function showAttemptUser()
     {
         $query = "select * from tbl_accesslog order by id desc";
@@ -168,10 +165,11 @@ class Login {
     }
 
 
-    /**
-    @ access log saving in database
+    /*
+    !-------------------------------------
+    !   access log saving in database
+    !-------------------------------------
     */
-
     function accessLog($ip,$needs)
     {
         $cSession = curl_init(); 
@@ -196,9 +194,6 @@ class Login {
             return $data->zip;
         }else{
             return null;
-        }
-
-        
+        } 
     }
-
 }

@@ -11,7 +11,7 @@ class Dashboard {
 
     public function __construct() {
 
-        $this->dbObj = new Database();
+        $this->dbObj   = new Database();
         $this->helpObj = new Helper();
 
     }
@@ -26,7 +26,7 @@ class Dashboard {
     {
         date_default_timezone_set('Asia/Dhaka');
         $starting = date('Y-m-d')." 00:00:00";
-        $ending = date('Y-m-d')." 23:59:59";
+        $ending   = date('Y-m-d')." 23:59:59";
 
         $query = "SELECT sum(sub_total) as 'subtotal' from tbl_sell ts where ts.date between '$starting' and '$ending'";
         $st = $this->dbObj->select($query);
@@ -50,10 +50,10 @@ class Dashboard {
     public function TodayMemo()
     {
         $starting = date('Y-m-d')." 00:00:00";
-        $ending = date('Y-m-d')." 23:59:59";
+        $ending   = date('Y-m-d')." 23:59:59";
 
         $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell where date between '$starting' and '$ending'";
-        $st = $this->dbObj->select($query);
+        $st    = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalsell;
         } else {
@@ -69,7 +69,7 @@ class Dashboard {
     public function TotalMemo()
     {
         $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell";
-        $st = $this->dbObj->select($query);
+        $st    = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalsell;
         } else {
@@ -86,7 +86,7 @@ class Dashboard {
     public function totalPurchase()
     {
         $query = "SELECT count(serial) as 'totalinvoice' from tbl_invoice";
-        $st = $this->dbObj->select($query);
+        $st    = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalinvoice;
         } else {
@@ -104,8 +104,8 @@ class Dashboard {
     public function TodayCustomer()
     {
         $starting = date('Y-m-d')." 00:00:00";
-        $ending = date('Y-m-d')." 23:59:59";
-        $query = "SELECT count(serial) as 'totalcustomer' from tbl_customer";
+        $ending   = date('Y-m-d')." 23:59:59";
+        $query    = "SELECT count(serial) as 'totalcustomer' from tbl_customer";
         $st = $this->dbObj->select($query);
         if ($st) {
             return $st->fetch_object()->totalcustomer;
@@ -120,9 +120,8 @@ class Dashboard {
     public function TodayProfit()
     {
         $starting = date('Y-m-d')." 00:00:00";
-        $ending = date('Y-m-d')." 23:59:59";
-        $query = "select sum(profit) as 'profit' from profit where profit.date between '$starting' and '$ending'";
-
+        $ending   = date('Y-m-d')." 23:59:59";
+        $query    = "select sum(profit) as 'profit' from profit where profit.date between '$starting' and '$ending'";
         $stmt =  $this->dbObj->link->query($query);
         $profit = 0;
         if ($stmt) {
@@ -134,7 +133,6 @@ class Dashboard {
                 return 0;
             }
         }
-        
 
     }
 
@@ -143,7 +141,7 @@ class Dashboard {
     {
         
         $query = "select sum(balance) as 'totaldue' from customer_balance";
-        $st = $this->dbObj->link->query($query);
+        $st    = $this->dbObj->link->query($query);
         if ($st) {
             $totaldue = $st->fetch_object()->totaldue;
             if ($totaldue > 0 || $totaldue < 0) {
@@ -161,7 +159,7 @@ class Dashboard {
     {
         
         $query = "select count(product_id) as 'total' from tbl_product";
-        $st = $this->dbObj->link->query($query);
+        $st    = $this->dbObj->link->query($query);
         if ($st) {
             $total = $st->fetch_object()->total;
             if ($total > 0 || $total < 0) {
@@ -181,7 +179,7 @@ class Dashboard {
     {
         
         $query = "select count(customer_id) as 'total' from tbl_customer";
-        $st = $this->dbObj->link->query($query);
+        $st    = $this->dbObj->link->query($query);
         if ($st) {
             $total = $st->fetch_object()->total;
             if ($total > 0 || $total < 0) {
@@ -201,7 +199,7 @@ class Dashboard {
     {
         
         $query = "select count(supplier_id) as 'total' from tbl_supplier";
-        $st = $this->dbObj->link->query($query);
+        $st    = $this->dbObj->link->query($query);
         if ($st) {
             $total = $st->fetch_object()->total;
             if ($total > 0 || $total < 0) {
@@ -213,14 +211,5 @@ class Dashboard {
         }
 
     }
-
-
-
-
-
-
-
-
-
 
 }

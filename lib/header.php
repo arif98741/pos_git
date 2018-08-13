@@ -25,7 +25,7 @@ include_once $path . '/helper/Helper.php';
 
 error_reporting(E_ALL);
 
-$db = new Database();
+$db  = new Database();
 $log = new Login();
 $pro = new Product();
 $sel = new Sell();

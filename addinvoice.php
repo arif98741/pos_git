@@ -31,7 +31,7 @@
                         <div class="form-group">
 
                            
-                                <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $ext->generateInvoiceID(); ?>">
+                            <input class="form-control btn-success" name="sell_id" id="sell_id" type="hidden" value="<?php echo $ext->generateInvoiceID(); ?>">
                             
                             <select name="cus_id" class="form-control select2" id="cus_dropdown_addinvoice">
                                 <option value="" >Select Customer </option>
@@ -109,20 +109,18 @@
                                 
                             </div>
 
-
-
+                        </div>
+                        <div class="col-md-3"> 
+                            <div class="form-group has-success">
+                                <label class="control-label" for="inputSuccess1" >DL</label>
+                                
+                                <input type="number" class="form-control text-right" style="text-align: center;" id="dlcharge" value="0" name="dlcharge" required=""  tabindex="2" />
                             </div>
-                            <div class="col-md-3"> 
-                                <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess1" >DL</label>
-                                    
-                                    <input type="number" class="form-control text-right" style="text-align: center;" id="dlcharge" value="0" name="dlcharge" required=""  tabindex="2" />
-                                </div>
-                                <div class="form-group has-success">
-                                    <label class="control-label" for="inputSuccess1" >PAID</label>
-                                    
-                                    <input type="number" class="form-control text-right" id="paid" name="paid" style="text-align: center;" required="" tabindex="4"/>
-                                </div>
+                            <div class="form-group has-success">
+                                <label class="control-label" for="inputSuccess1" >PAID</label>
+                                
+                                <input type="number" class="form-control text-right" id="paid" name="paid" style="text-align: center;" required="" tabindex="4"/>
+                            </div>
                         </div>
                         
                         <div class="col-md-3"> 
