@@ -57,7 +57,7 @@ if (isset($_POST['sell_id'])) {
         
         $sell_query_st = $db->link->query($sell_query);
 
-       $ext->sendMessageAfterSale($cus_id,$sell_id,$payable); //send to user customer mobile
+        $ext->sendMessageAfterSale($cus_id,$sell_id,$payable); //send to user customer mobile
     }
 
 
@@ -66,6 +66,9 @@ if (isset($_POST['sell_id'])) {
          $company_details = $company_stmt->fetch_object(); 
          
     }    
+
+    header('location: ../../viewsales.php?action=view&sell_id='.$sell_id);
+    exit();
    
 }
 
@@ -298,8 +301,6 @@ if (isset($_POST['sell_id'])) {
                             <th>SERIAL</th>
                             <th>PROUDCT ID</th>
                             <th>PRODUCT NAME</th>
-                            <th>Serial</th>
-                            <th>Warranty Expire</th>
                             <th>QUANTITY</th>
                             <th>PRICE</th>
                             <th>SUBTOTAL</th>
@@ -328,9 +329,8 @@ if (isset($_POST['sell_id'])) {
                                 <tr>   
                                     <td><?php echo $i; ?></td>
                                     <td><?php echo $result['product_id']; ?></td>
-                                    <td><?php echo $result['product_name']; ?></td>
-                                    <td><?php echo $result['product_serial']; ?></td>
-                                    <td><?php echo $help->formatDate($result['warranty_expire'],'d-m-Y'); ?></td>
+                                    <td><?php echo $result['product_name']; ?><br><?php echo $result['product_serial']; ?><br><?php echo $help->formatDate($result['warranty_expire'],'d-m-Y'); ?></td>
+                                    
                                     <td><?php echo $result['quantity']; ?></td>
                                     <td><?php echo  number_format((float)$result['unit_price'], 2, '.', ''); ?></td>
                                     <td><?php echo  number_format((float)$result['subtotal'], 2, '.', ''); ?></td>
