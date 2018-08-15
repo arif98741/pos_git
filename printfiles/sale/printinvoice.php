@@ -64,7 +64,10 @@ if (isset($_POST['sell_id'])) {
     if ($company_stmt) {
          $company_details = $company_stmt->fetch_object(); 
          
-    }    
+    }
+
+
+    header("location: ../../viewsales.php?action=view&sell_id=".$sell_id);    
    
 }
 
