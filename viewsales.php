@@ -922,7 +922,7 @@ if($_GET['sell_id']){
 
 
 
-          <a  href="invoicelist.php" id="backbutton">Sale again</a>
+          <a  href="addinvoice.php" id="backbutton">Sale again</a>
 
 
 
