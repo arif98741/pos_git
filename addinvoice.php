@@ -39,7 +39,7 @@
                                     $cusst = $db->select("select * from tbl_customer order by customer_name asc");
                                     if($cusst){
                                         while ($row = $cusst->fetch_assoc()) { ?>
-                                        <option value="<?php echo ucfirst($row['customer_id']); ?>"><?php echo $row['customer_name']; ?></option>
+                                        <option value="<?php echo ucfirst($row['customer_id']); ?>"><?php echo $row['customer_name']; ?> (<?php echo $row['contact_no']; ?>)</option>
                                         
                                         <?php  }
                                     }
@@ -172,7 +172,7 @@
 
                                         while ($result = $status->fetch_assoc()) {
                                             ?>
-                                      <option productsearhkey="" productgroupid="<?php echo $result['product_group']; ?>" value="<?php echo $result['product_id']; ?>"><?php echo $result['product_name']; ?></option>
+                                      <option productsearhkey="" productgroupid="<?php echo $result['product_group']; ?>" value="<?php echo $result['product_id']; ?>"><?php echo $result['product_name']; ?> (<?php echo $result['product_id']; ?>)</option>
                                       
 
                                   <?php  }} ?>

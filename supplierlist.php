@@ -64,14 +64,19 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                   <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" width="10%">Supplier ID</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending"  width="20%">Supplier Name</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending"  width="10%">Address</th>
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Contact No.</th>
+
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Email</th>
+
+                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Balance</th>
+
+
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
 
                 </tr>
                 </thead>
                 <tbody style="text-align: center;">
                             <?php
-                            $cust_stmt = $db->select("select * from tbl_supplier where updateby='$userid' order by serial desc");
+                            $cust_stmt = $db->select("SELECT ts.*, sum(tst.purchase) as 'purchase' , sum(tst.payment) as 'payment' from tbl_supplier_transaction tst join tbl_supplier ts group by supplier");
                             ?>
                             <?php
                             $i = 0;
@@ -85,8 +90,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                         <td style="text-align: left;"><?php echo $r['address']; ?></td>
                                         <td style="text-align: left;"><?php echo $r['contact_no']; ?></td>
                                         <td style="text-align: left;"><?php echo $r['email']; ?></td>
+                                        <td style="text-align: center;"><?php echo $r['purchase'] - $r['payment']; ?></td>
 
-                                       
 
                                         <td>
                                             <?php if(Session::get('status') == 'admin'): ?>

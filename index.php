@@ -75,7 +75,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3><?php echo $dash->TotalDue(); ?></h3>
+              <h3><?php echo round($dash->TotalDue()); ?></h3>
 
               <p>Total Due</p>
             </div>
