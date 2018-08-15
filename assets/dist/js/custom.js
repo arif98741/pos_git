@@ -8,8 +8,6 @@ $(document).ready(function () {
      //invoice management
 
      //edit invoice calcaluation function in editsales.php
-
-
     $(function () { //invoice management
 
         //for calculating data of addinvoice.php (sale page)
@@ -118,11 +116,8 @@ $(document).ready(function () {
         }
 
         
-
-
         //remove apprend rows
         
-
         //addition of new row in addinvoice table by click
         var addnewrowkey = 1; //for giving unique class
         $('.add_new_invoice_table_row').click(function () {
@@ -285,10 +280,11 @@ $(document).ready(function () {
                 dataType:'json',
                 success: function (data) {
                     //(data);
-                    console.log(data);
+                    //console.log(data);
                     $('#customer_id').val(data.customer_id);
                     $('#address').val(data.address);
                     $('#contact').val(data.contact_no);
+                    $('#paid_limit').val(data.paid_limit);
                     $('#customer_name').val(data.customer_name);
                     $('#totalbalance').val(data.customer_due);
 
@@ -372,7 +368,6 @@ $(document).ready(function () {
                 }
             });
         });
-
         
 
         //add product to temp sales list
@@ -426,6 +421,15 @@ $(document).ready(function () {
                             $('#product_serial').val('');
                             $('#warranty_expire').val('');
 
+                            // paid limit check
+                            var payable     = parseInt($('#payable').val());
+                            var balance     = parseInt($('#totalbalance').val());
+                            var paid_limit  = parseInt($('#paid_limit').val());
+                            
+                            var total_money = payable + balance;
+                            if (total_money > paid_limit) {
+                                alert('Customer Excedded Paid Limit'); 
+                            }
                         }
 
 					},error:function(e)
@@ -557,6 +561,8 @@ $(document).ready(function () {
             }else{
                  $('#due').val(due.toFixed(2));
             }
+
+
 
            
         }

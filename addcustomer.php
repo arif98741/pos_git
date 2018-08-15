@@ -65,6 +65,15 @@
                     </div>
 
                 </div>
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <input  name="paid_limit" class="form-control" type="text" placeholder="Paid Limit"  required="">
+                    </div>
+
+                </div>
+
+                
                 
                 <div class="col-md-4">
                     <div class="form-group">

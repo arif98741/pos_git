@@ -61,6 +61,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="20%">Email</th>
 
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Balance</th>
+
+                  <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Paid Limit</th>
+
+                  
                   <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
 
                 </tr>
@@ -83,6 +87,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                             <?php echo round($r['balance']);   ?>
                                               
                                         </td>
+
+                                        <td>
+                                            <?php echo round($r['paid_limit']);   ?>
+                                              
+                                        </td>
+
+                                        
                                         <?php if(Session::get('status') == 'admin'): ?>
                                         <td>
                                             <a href="<?php echo BASE_URL; ?>viewcustomer.php?action=view&serial=<?php echo $r['serial']; ?>&customer_id=<?php echo $r['customer_id']; ?>"><i class="fa fa-eye" title="view customer information"></i></a>&nbsp;

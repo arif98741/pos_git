@@ -69,13 +69,14 @@ class Customer {
         $email   = $this->helpObj->validAndEscape($data['email']);
 
         $opening_balance = $this->helpObj->validAndEscape($data['opening_balance']);
+        $paid_limit = $this->helpObj->validAndEscape($data['paid_limit']);
         $remark   = $this->helpObj->validAndEscape($data['remark']);
         $date     = date('Y-m-d H:i:s');
         $updateby = Session::get('userid');
         $query = "insert into tbl_customer(
-             customer_id, customer_name, address,contact_no,email,opening_balance,remark,date,updateby)
+             customer_id, customer_name, address,contact_no,email,opening_balance,paid_limit,remark,date,updateby)
             values('$customer_id', '$customer_name', '$address',
-            '$contact_no','$email','$opening_balance','$remark','$date','$updateby')";
+            '$contact_no','$email','$opening_balance','$paid_limit','$remark','$date','$updateby')";
 
         $check = $this->dbObj->select("select * from tbl_customer where customer_id='$customer_id'");
         if($check)
@@ -121,12 +122,13 @@ class Customer {
         $contact_no   = $this->helpObj->validAndEscape($data['contact_no']);
         $email        = $this->helpObj->validAndEscape($data['email']);
         $opening_balance = $this->helpObj->validAndEscape($data['opening_balance']);
+        $paid_limit = $this->helpObj->validAndEscape($data['paid_limit']);
         $remark       = $this->helpObj->validAndEscape($data['remark']);
         $updateby     = Session::get('userid');
         $query = "UPDATE tbl_customer SET
                             customer_name = '$customername', address = '$address',
                             contact_no = '$contact_no',  email = '$email',
-                            opening_balance ='$opening_balance',
+                            opening_balance ='$opening_balance',paid_limit='$paid_limit',
                             remark = '$remark'
                             where updateby='$updateby' and serial='$serial'";
 

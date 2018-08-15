@@ -70,7 +70,7 @@
                 
                 <div class="col-md-4">
                     <div class="form-group">
-                          <input  name="email" class="form-control" type="text" value="<?php echo $result['email']; ?>"  placeholder="Email" required="">
+                          <input  name="email" class="form-control" type="text" value="<?php echo $result['email']; ?>"  placeholder="Email" >
 
                     </div>
 
@@ -78,17 +78,21 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                          <input  name="opening_balance" class="form-control" type="text" placeholder="Opening Balance" value="<?php echo round($result['balance']); ?>"  placeholder="Email" required="">
-
+                          <input  name="opening_balance" class="form-control" type="text" placeholder="Opening Balance" value="<?php echo round($result['balance']); ?>"   required="">
                     </div>
-
                 </div>
 
+                <div class="col-md-4">
+                    <div class="form-group">
+                          <input  name="paid_limit" class="form-control" type="text" value="<?php echo round($result['paid_limit']); ?>"  placeholder="Paid Limit" required="">
+                    </div>
+                </div>
 
                 
+
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input  name="remark" class="form-control" type="text" value="<?php echo $result['remark']; ?>"  placeholder="Remark"  required="">
+                        <input  name="remark" class="form-control" type="text" value="<?php echo $result['remark']; ?>"  placeholder="Remark"  >
                     </div>
 
                 </div>

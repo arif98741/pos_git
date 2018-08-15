@@ -71,7 +71,10 @@
                     <div class="col-md-6"> 
                         <div class="form-group">
                             <input type="" class="form-control" id="contact" placeholder="Contact"/> 
-                            
+
+                            <!-- paid limit to check paid limit-->
+
+                             <input type="hidden" class="form-control" id="paid_limit" placeholder="Paid Limit"/> 
                         </div>
                     </div>
                 </div>

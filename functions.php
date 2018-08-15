@@ -99,12 +99,8 @@ if(isset($_POST['action']) && $_POST['action']=='getCustomerInformation' && isse
         $result['address'] = $data['address'];
         $result['contact_no'] = $data['contact_no'];
         $result['customer_name'] = $data['customer_name'];
-
-        //$balance = $balancestmt['customer_due'];
-
-        //$result['customer_due'] = round($balance);
-        //here  may have some issue in future. need to solve properly.
-    
+        $result['paid_limit'] = $data['paid_limit'];
+        
         echo json_encode($result);
 
     }
