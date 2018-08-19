@@ -4,8 +4,8 @@ include_once $path .'../../classes/Session.php';
 include_once $path."../../classes/DB.php";
 include_once $path."../../classes/Printdata.php";
 Session::checkSession();
-$pri = new Printdata();
-$db = new Database();
+$pri  = new Printdata();
+$db   = new Database();
 $help = new Helper();
 date_default_timezone_set('Asia/Dhaka');
 
@@ -23,7 +23,7 @@ date_default_timezone_set('Asia/Dhaka');
             }
         </script>
         <meta charset="utf-8">
-        <title>Customer Statement Report - <?php echo date('Y-m-d h:i:sA'); ?></title>
+        <title>Customer Statement Report - <?php echo date('d-m-Y h:i:s A'); ?></title>
         <link rel="stylesheet" href="../../assets/dist/css/print.css" type="text/css" media="screen">
         <link rel="stylesheet " href="../../assets/dist/css/print.css">
     </head>
@@ -52,7 +52,7 @@ date_default_timezone_set('Asia/Dhaka');
                         <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="../../<?php echo Session::get('logo'); ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
                         <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
-                                <div class="title-3">Customer Statement Report<br/>Customer Name: <?php echo $customer_data->customer_name; ?><br/>From <?php echo $_POST['starting']; ?> to <?php echo $_POST['ending']; ?></div></td>
+                                <div class="title-3">Customer Statement Report<br/>Customer Name: <?php echo $customer_data->customer_name; ?><br/>From <?php echo $help->formatDate($_POST['starting'], 'd-m-Y'); ?> to <?php echo $help->formatDate($_POST['ending'], 'd-m-Y') ; ?></div></td>
                             
                         </tr>
                 </table>

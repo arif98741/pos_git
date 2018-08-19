@@ -844,21 +844,21 @@ if($_GET['sell_id']){
 
                         </tr>
 
-
-
                         <tr>
-
-
-
                             <td align="right" nowrap="nowrap">Previous Balance</td>
-
-
 
                             <td align="right" nowrap="nowrap"> <?php echo round($invoice_data['previous_balance']); ?></td>
 
+                        </tr>
 
+                         <tr>
+                            <td align="right" nowrap="nowrap">Total</td>
+
+                            <td align="right" nowrap="nowrap"> <?php echo $invoice_data['due'] + round($invoice_data['previous_balance']); ?></td>
 
                         </tr>
+
+
 
 
 
