@@ -3,7 +3,7 @@ $path = realpath(dirname(__DIR__));
 include_once $path .'../../classes/Session.php';
 include_once $path."../../classes/DB.php";
 include_once $path."../../classes/Printdata.php";
-Session::checkSession();
+//Session::checkSession();
 $pri = new Printdata();
 $db = new Database();
 $help = new Helper();

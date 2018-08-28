@@ -67,10 +67,10 @@ if (isset($_GET['product_id'])) {
                 </tr>
                 </thead>
                 <tbody>
-                            <?php
+                      <?php
                             
 
-					$q = "SELECT * FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where tsp.status='1' order by tsp.serial_no asc";           
+					         $q = "SELECT * FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id join tbl_group tg on tp.product_group = tg.groupid where tsp.status='1' order by tsp.serial_no asc";           
                             $st = $db->link->query($q);
 
                             if ($st) {
@@ -82,8 +82,25 @@ if (isset($_GET['product_id'])) {
                                     <td style="text-align: left;"><?php echo $result['groupname']; ?></td>
                                     <td style="text-align: left;"><?php echo $result['product_name']; ?></td>
                                     <td  style="text-align: center;"><?php echo $result['sell_id']; ?></td>
-                                    <td style="text-align: center;"><?php echo $result['product_serial']; ?></td>
-                                    <td><?php echo $help->formatDate($result['warranty_expire'],'d-m-Y'); ?></td>
+                                    <td style="text-align: center;">
+                                      <?php if($result['product_serial'] !== ''){
+                                          echo $result['product_serial'];
+                                        }else{
+                                          echo '-';
+                                        } ?>
+                                      
+                                    </td>
+                                    <td><?php
+                                      if ($result['warranty_expire'] > 1971 ) {
+                                        echo $help->formatDate($result['warranty_expire'],'d-m-Y');
+                                      }else{
+                                        echo '-';
+                                      }
+                                      ?>
+                                       
+
+                                    </td>
+                                     
                                     
 
 	                                </tr>

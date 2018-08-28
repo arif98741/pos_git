@@ -84,7 +84,7 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                          <input  name="paid_limit" class="form-control" type="text" value="<?php echo round($result['paid_limit']); ?>"  placeholder="Paid Limit" required="">
+                          <input  name="paid_limit" class="form-control" type="text" value="<?php echo round($result['paid_limit']); ?>"  placeholder="Due Limit" required="">
                     </div>
                 </div>
 

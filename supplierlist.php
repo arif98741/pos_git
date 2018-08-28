@@ -76,7 +76,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                 </thead>
                 <tbody style="text-align: center;">
                             <?php
-                            $cust_stmt = $db->select("SELECT ts.*, sum(tst.purchase) as 'purchase' , sum(tst.payment) as 'payment' from tbl_supplier_transaction tst join tbl_supplier ts group by supplier");
+                            $cust_stmt = $db->select("SELECT ts.*, sum(tst.purchase) as 'purchase' , sum(tst.payment) as 'payment' from tbl_supplier_transaction tst join tbl_supplier ts group by ts.supplier_id");
+
+                            
                             ?>
                             <?php
                             $i = 0;

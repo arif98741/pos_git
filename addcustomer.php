@@ -68,7 +68,8 @@
 
                 <div class="col-md-4">
                     <div class="form-group">
-                        <input  name="paid_limit" class="form-control" type="text" placeholder="Paid Limit"  required="">
+                        <input  name="paid_limit" class="form-control" type="text" placeholder="Due Limit"  required="">
+                        <!--Paid limit is Due Limit--->
                     </div>
 
                 </div>

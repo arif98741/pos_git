@@ -576,16 +576,7 @@ if($_GET['sell_id']){
 
 
 
-              
-
-
-
             </div>
-
-
-
-
-
 
 
             <div class="products_table">
@@ -616,11 +607,7 @@ if($_GET['sell_id']){
 
                   <?php
 
-
-
                         $update_q = "update tbl_sell_products set status = '1' where sell_id='$sell_id' and
-
-
 
                         customer_id='{$inv_and_cus['customer_id']}'";
 
@@ -632,14 +619,7 @@ if($_GET['sell_id']){
 
                         /*$q = "SELECT * FROM tbl_sell_products, tbl_product,tbl_group,tbl_type WHERE tbl_sell_products.product_id = tbl_product.product_id and tbl_sell_products.customer_id='{$inv_and_cus['customer_id']}' and tbl_group.groupid = tbl_product.product_group and tbl_sell_products.sell_id='$sell_id' AND tbl_product.product_type = tbl_type.typeid and tbl_sell_products.status='1' ORDER by tbl_sell_products.serial_no ASC";*/
 
-
-
                          $q = "SELECT tsp.subtotal,tsp.unit_price,tsp.purchase_price,tsp.product_serial,tsp.warranty_expire,tsp.quantity,tp.product_id,tp.product_name FROM tbl_sell_products tsp join tbl_product tp on tsp.product_id = tp.product_id where tsp.sell_id='$sell_id' and tsp.status='1' order by tsp.serial_no asc";
-
-
-
-
-
 
 
                         $st = $db->link->query($q);
@@ -658,12 +638,7 @@ if($_GET['sell_id']){
 
                   <?php
 
-
-
                                 $i++;
-
-
-
                                 $total += $result['subtotal'];
 
                                 ?>
@@ -676,7 +651,13 @@ if($_GET['sell_id']){
 
                     <td align="left"><?php echo $result['product_name']; ?><br>
 
-                      <?php echo $result['product_serial']; ?><?php echo $help->formatDate($result['warranty_expire'],'d-m-Y'); ?></td>
+                      <?php echo $result['product_serial']; ?> <?php
+                        if ($result['warranty_expire'] > 1971 ) {
+                            echo $help->formatDate($result['warranty_expire'],'d-m-Y');
+                        }
+                        ?>
+
+                   </td>
 
                     <td align="center"><?php echo $result['quantity']; ?></td>
 
@@ -701,21 +682,7 @@ if($_GET['sell_id']){
             <div class="calculation">
 
 
-
-            
-
-
-
-
-
-
-
-                  <table width="100%" cellpadding="0" cellspacing="0" style="text-align: center;">
-
-
-
-
-
+                <table width="100%" cellpadding="0" cellspacing="0" style="text-align: center;">
 
 
                         <?php
@@ -728,19 +695,11 @@ if($_GET['sell_id']){
 
                             if($stmt)
 
-
-
                             {
-
-
 
                                 $invoice_data = $stmt->fetch_assoc();
 
-
-
                             }
-
-
 
                         ?>
 
@@ -759,14 +718,7 @@ if($_GET['sell_id']){
 
 
 
-
-
-
                         </tr>
-
-
-
-
 
 
 
@@ -779,10 +731,6 @@ if($_GET['sell_id']){
 
 
                             <td align="right" nowrap="nowrap"> <?php echo $invoice_data['dlcharge']; ?></td>
-
-
-
-
 
 
 

@@ -381,10 +381,22 @@ $(document).ready(function () {
             var product_serial = $('#product_serial').val();
             var warranty_expire = $('#warranty_expire').val();
 
+            // paid limit check
+            var payable     = parseInt($('#payable').val());
+            var balance     = parseInt($('#totalbalance').val());
+            var paid_limit  = parseInt($('#paid_limit').val());
+            
+            var total_money = payable + balance;
+            /* if (total_money > paid_limit) {
+                 alert('Customer Excedded Paid Limit'); 
+             }*/
+
 			if(cus_id == "" || pro_id == ""){
 				alert("Please Select Both Customer and Product");
 			}else if(quantity == ''){
                 alert("Please Fillup Quantity");
+            }else if(total_money > paid_limit){
+                alert('Due Limit Exceeded');
             }else{
                 showSaleProducts();
 				$.ajax({
@@ -421,15 +433,7 @@ $(document).ready(function () {
                             $('#product_serial').val('');
                             $('#warranty_expire').val('');
 
-                            // paid limit check
-                            var payable     = parseInt($('#payable').val());
-                            var balance     = parseInt($('#totalbalance').val());
-                            var paid_limit  = parseInt($('#paid_limit').val());
                             
-                            var total_money = payable + balance;
-                            if (total_money > paid_limit) {
-                                alert('Customer Excedded Paid Limit'); 
-                            }
                         }
 
 					},error:function(e)
