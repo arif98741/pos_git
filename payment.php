@@ -88,17 +88,7 @@
 
                     </div>
 
-
-
                 </div>
-
-
-
-                
-
-               
-
-                
 
                 <div class="col-md-4">
 
@@ -110,13 +100,7 @@
 
                     </div>
 
-
-
                 </div>
-
-                
-
-                
 
                 <div class="col-md-4">
 
@@ -127,9 +111,6 @@
                         <input name="amount"  class="form-control" type="text" placeholder="Amount"  required="">
 
                     </div>
-
-
-
                 </div>
 
 
@@ -142,25 +123,8 @@
 
                         <input type="text" name="method" class="form-control" value="" placeholder="">
 
-                       
-
-                        
-
                     </div>
-
-
-
                 </div>
-
-
-
-
-
-
-
-
-
-
 
                 <div class="col-md-offset-4 col-md-6 submit-button">
 

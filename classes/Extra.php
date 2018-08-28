@@ -232,13 +232,16 @@ class Extra {
 
         $message = 'Dear '.$customer_name.', your bill  is '.$amount.' for invoice '.$sell_id.'. Current balance is '.$current_balance.". Happy Product";
 
-        $token = "77f9a4d2c5ea51913e1cd7624705239c";
-        $url = "http://sms.greenweb.com.bd/api.php";
+        //$token = "77f9a4d2c5ea51913e1cd7624705239c";
+        //$url = "http://sms.greenweb.com.bd/api.php";
+        
+        $token = "4f95a55a00b11a9433aae48cfb96fe86"; //not have enough balance
+        $url = "http://smscpanel.net/api.php";
 
-        $data= array(
-        'to'=> $customer_mobile,
-        'message'=> $message,
-        'token'=>"$token"
+        $data = array(
+        'to'      => $customer_mobile,
+        'message' => $message,
+        'token'   =>"$token"
         ); // Add parameters in key value
         $ch = curl_init(); // Initialize cURL
         curl_setopt($ch, CURLOPT_URL,$url);
