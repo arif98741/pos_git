@@ -6,7 +6,7 @@
 		echo "Executed in ".number_format($totalScriptTime, 4)." seconds";
        ?>
     </div>
-    <strong>Copyright &copy; 2018 <a href="http://exploreit.com.bd/" target="_blank">explore-it</a>.</strong> All rights
+    <strong>Copyright &copy; 2017 - <?php echo date('Y'); ?> <a href="http://arif98741.github.io/profile" target="_blank">Ariful Islam</a>.</strong> All rights
     reserved.
   </footer>
 
