@@ -43,7 +43,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
         
         <?php if(Session::get('status') == 'admin'): ?>
         
-        <li ><a href="addtranscategory.php">Add Transaction Category</a></li>
+        <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add_new_trans_category">Add New Transaction Category</a></li>
       
        <?php endif; ?>
       </ol>
@@ -85,7 +85,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
                                         <td style="text-align: left;"><?php echo $r['category_type']; ?></td>
                                         <td>
                                             <?php if(Session::get('status') == 'admin'): ?>
-                                            <a href="edittranscat.php?action=edit&id=<?php echo $r['id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>edittranscat.php?action=edit&id=<?php echo $r['id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
                                             <a href="?action=delete&id=<?php echo $r['id']; ?>"><i id="deleterow"   class="fa fa-trash" style="color:red;" title="click to delete" onclick="return confirm('are you sure to delete?')" ></i></a>
                                             <?php else: ?>
                                               -
@@ -115,5 +115,54 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
   </div>
   <!-- /.content-wrapper -->
  <!-- footer -->
+
+
+
+ <!-- add transaction category modal -->
+ <!-- add new transaction(general account) modal -->
+<div class="modal fade" id="add_new_trans_category">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title "><i class="fa fa-plus"></i>&nbsp;Add New Transaction Category</h4>
+      </div>
+      <div class="modal-body">
+         <form action="transcategorylist.php" method="post">
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="transactioncat" class="form-control" type="text" placeholder="Transaction Category Name" required="">
+              </div>
+
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+                <select name="type" id="" class="form-control" required="">
+                  <option value="" disabled="" selected="">Select Transaction Type</option>
+                  <option value="Debit" >Debit</option>
+                  <option value="Credit" >Credit</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="col-md-4 submit-button">
+            <input type="submit" value="Save" name="addtransactioncat" class="btn btn-success">
+                <input type="reset" value="Reset" class="btn btn-warning">
+        </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        
+        
+      </div>
+   </div>
+    <!-- /.modal-content -->
+  </div>
+          <!-- /.modal-dialog -->
+</div> 
 
  <?php include 'lib/footer.php'; ?>

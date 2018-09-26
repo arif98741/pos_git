@@ -41,7 +41,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active"><a href="index.php">Dashboard</a></li>
         <?php if(Session::get('status') == 'admin'): ?>
-        <li class="active"><a href="addsupplier.php">Add New Supplier</a></li>
+        <li class="active"><a type="button" href="#" class="" data-toggle="modal" data-target="#add_new_supplier">Add New Supplier</a></li>
       <?php endif; ?>
       </ol>
     </section>
@@ -97,7 +97,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
 
                                         <td>
                                             <?php if(Session::get('status') == 'admin'): ?>
-                                            <a href="editsupplier.php?action=edit&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
+                                            <a href="<?php echo BASE_URL; ?>editsupplier.php?action=edit&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i class="fa fa-pencil-square-o btn" title="click to edit"></i></a>
                                             <a href="?action=delete&serial=<?php echo $r['serial']; ?>&supplier_id=<?php echo $r['supplier_id']; ?>"><i id="deleterow"   class="fa fa-trash" style="color:red;" title="click to delete" onclick="return confirm('are you sure to delete?')" ></i></a>
                                           <?php else:  ?>
                                           -  
@@ -133,5 +133,86 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete') {
   </div>
   <!-- /.content-wrapper -->
  <!-- footer -->
+   <!-- add new customer modal -->
+<div class="modal fade" id="add_new_supplier">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title "><i class="fa fa-user"></i>&nbsp;Add New Supplier</h4>
+      </div>
+      <div class="modal-body">
+         <form action="supplierlist.php" method="post">
+
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="supplier_id" class="form-control" type="text" placeholder="Supplier ID" required="">
+              </div>
+
+          </div>
+
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="supplier_name" class="form-control" type="text" placeholder="Supplier Name" required="">
+
+              </div>
+
+          </div>
+
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="address" class="form-control" type="text" placeholder="Address" required="">
+
+              </div>
+
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="contact_no" class="form-control" type="text" placeholder="Contact No"  required="">
+              </div>
+
+          </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input name="contact_person" class="form-control" type="text" placeholder="Contact Person"  required="">
+              </div>
+
+          </div>
+
+
+         
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input  name="email" class="form-control" type="email" placeholder="Email" required="">
+
+              </div>
+
+          </div>
+          
+          <div class="col-md-6">
+              <div class="form-group">
+                  <input  name="remark" class="form-control" type="text" placeholder="Remark"  required="">
+              </div>
+
+          </div>
+
+          <div class="col-md-offset-4 col-md-6 submit-buttom">
+              <input type="submit" value="Save supplier" name="addsupplier" class="btn btn-success">
+              <input type="reset" value="Reset" class="btn btn-warning">
+          </div>
+
+          </form>
+      </div>
+      <div class="modal-footer">
+        
+        
+      </div>
+   </div>
+    <!-- /.modal-content -->
+  </div>
+          <!-- /.modal-dialog -->
+</div> 
+
 
  <?php include 'lib/footer.php'; ?>

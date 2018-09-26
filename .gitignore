@@ -6,3 +6,4 @@ tempstock.php
 error_log
 fs
 ls
+package-lock.json

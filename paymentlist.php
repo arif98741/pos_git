@@ -77,7 +77,7 @@ if (isset($_POST['payamount'])) {
                                         <td> <?php echo round($row['discount_amount']);  ?></td>
                                         <td> <?php echo ucfirst($row['method']);  ?></td>
                                         <td>
-                                        <a href="editpayment.php?action=edit&serial=<?php echo $row['serial'] ?>" style="border-radius: 3px;" title="click to view" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
+                                        <a href="<?php echo BASE_URL; ?>editpayment.php?action=edit&serial=<?php echo $row['serial'] ?>" style="border-radius: 3px;" title="click to view" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
                                         
                                     </td>
                                         

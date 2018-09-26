@@ -97,12 +97,90 @@ if (isset($_POST['updatepayment'])) {
                                 <td> <?php echo $row['address'] ?> </td>
                                 <td> <?php echo $row['contact_no'] ?> </td>
                                 <td> <?php echo round( $row['balance']); ?> </td>
-                                <td><a href="payment.php?action=pay&customer_id=<?php echo $row['customer_id']; ?>" class="">Pay</a></td>
+                                <td><a type="button" href="#" class="" data-toggle="modal" data-target="#billpay<?php echo $i; ?>">Pay</a></td>
                              </tr>
-                           <?php   } }else{
 
-                    }
-                    ?>
+                             <div class="modal fade" id="billpay<?php echo $i; ?>">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header bg-primary">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title "><i class="fa fa-money"></i>&nbsp;Bill Payment</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                         <form action="customerlist.php" method="post">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">Customer ID</label>
+
+                                                    <input name="customer_id"  class="form-control" type="text" placeholder="Customer ID"  value="<?php echo $row['customer_id']; ?>"   readonly="">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">Customer Name</label>
+
+                                                 <input name="customer_name"  class="form-control" type="text" placeholder="Customer Name" value="<?php echo $row['customer_name']; ?>" readonly="">
+
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="">Previous Due</label>
+                                                    <input name="previous"  class="form-control" type="text" value="<?php echo round($row['balance']); ?>" placeholder="Previous Balance"  required="">
+
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6">
+                                              <div class="form-group">
+                                                <label for="">Paid Amount</label>
+                                                <input name="amount"  class="form-control" type="text" placeholder="Amount"  required="">
+
+                                              </div>
+                                            </div>
+                                            
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                  <label for="">Discount</label>
+                                                  <input type="text" name="discount" class="form-control" value="" placeholder="">
+                                              </div>
+
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                   <label for="">Payment Method</label>
+                                                   <input type="text" name="method" class="form-control" value="" placeholder="">
+                                                </div>
+
+                                            </div>
+
+
+                                            <div class="col-md-6 submit-button">
+                                              <input type="submit" value="Pay Now" name="payamount" class="btn btn-success">
+                                              <input type="reset" value="Reset" class="btn btn-warning">
+
+                                            </div>
+                                          </form> 
+                                      </div>
+                                      <div class="modal-footer">
+                                        
+                                        
+                                      </div>
+                                   </div>
+                                    <!-- /.modal-content -->
+                                  </div>
+                                          <!-- /.modal-dialog -->
+                                </div> 
+
+
+                 <?php   } }else{ }?>
                </tbody>
 
               
