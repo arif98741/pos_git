@@ -902,7 +902,7 @@ if($_GET['sell_id']){
 
             <center>
 
-            <span style="text-align: center; font-size: 10px;">Developed by: exploreit.com.bd</span></center>
+            <span style="text-align: center; font-size: 10px;">Developed by: Ariful Islam</span></center>
 
 <div class="command_section">
 
