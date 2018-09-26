@@ -82,7 +82,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-             <spa style="font-size: 20px;"><?php echo date('H:iA/d-m-Y'); ?></span>
+             <span style="font-size: 20px;"><?php echo date('H:iA/d-m-Y'); ?></span>
               
             </a>
           
