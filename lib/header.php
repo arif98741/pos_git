@@ -183,6 +183,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="addsupplier.php"><i class="fa fa-list"></i>Add Suppplier </a></li>
             <li><a href="supplierlist.php"><i class="fa fa-list"></i>Supplier List </a></li>
            
           </ul>

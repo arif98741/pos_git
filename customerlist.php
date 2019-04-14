@@ -65,7 +65,7 @@
                      </thead>
                      <tbody style="text-align: center;">
                         <?php
-                           $cust_stmt = $db->select("SELECT * FROM tbl_customer tc JOIN customer_balance cb ON tc.customer_id = cb.customer_id where tc.updateby='$userid' ORDER BY tc.customer_name ASC");
+                           $cust_stmt = $db->select("SELECT * FROM tbl_customer tc ORDER BY tc.customer_name ASC");
                            ?>
                         <?php
                            if ($cust_stmt):

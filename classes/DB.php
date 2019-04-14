@@ -6,7 +6,7 @@ class Database {
     private $username = 'root';
     private $password = '';
     private $host       = 'localhost';
-    private $database   = 'pos_production';
+    private $database   = 'pos_distribute';
 
     
     /*
