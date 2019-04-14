@@ -5,8 +5,8 @@ class Database {
     public $link;
     private $username = 'root';
     private $password = '';
-    private $host = 'localhost';
-    private $database = 'pos_production';
+    private $host       = 'localhost';
+    private $database   = 'pos_production';
 
     
     /*

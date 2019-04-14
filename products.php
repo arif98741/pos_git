@@ -61,7 +61,7 @@
                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Supplier</th>
                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="5%">Unit</th>
                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="15%">Purchase Price</th>
-                           <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Stock Limit</th>
+                           
                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Last Update</th>
                            <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending"  width="10%">Action</th>
                         </tr>
@@ -81,7 +81,6 @@
                            <td  style="text-align: left;"><?php echo $result['supplier_name']; ?></td>
                            <td style="text-align: left;"><?php echo $result['typename']; ?></td>
                            <td><?php echo $result['purchase_price']; ?></td>
-                           <td><?php echo $result['stock_limit']; ?></td>
                            <td><?php echo $help->formatDate($result['last_update'], 'd-m-Y'); ?></td>
                            <td>
                               <?php if(Session::get('status') == 'admin'): ?>

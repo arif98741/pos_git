@@ -142,7 +142,7 @@ class Product {
     public function showProduct() {
         //brand is granted as supplier
 
-        $q = "SELECT tp.product_id,tg.groupname,tp.product_name,ts.supplier_name,tt.typename,tp.purchase_price,tp.stock_limit,tp.last_update,tp.serial FROM tbl_product tp
+        $q = "SELECT tp.product_id,tg.groupname,tp.product_name,ts.supplier_name,tt.typename,tp.purchase_price,tp.last_update,tp.serial FROM tbl_product tp
             JOIN tbl_supplier ts ON
                 tp.product_brand = ts.supplier_id
             JOIN tbl_group tg ON

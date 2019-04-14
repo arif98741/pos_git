@@ -28,11 +28,8 @@ error_reporting(E_ALL);
 $db  = new Database();
 $log = new Login();
 $pro = new Product();
-$sel = new Sell();
 $sup = new Supplier();
 $cus = new Customer();
-$inv = new Invoice();
-$sto = new Stock();
 $las = new Laser();
 $ext = new Extra();
 $help = new Helper();
@@ -147,142 +144,16 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <li><a href="addproduct.php"><i class="fa fa-plus"></i>Add Product</a></li>
             <?php endif; ?>
             <li><a href="products.php"><i class="fa fa-list"></i>Product List</a></li>
-            <?php if(Session::get('status') == 'admin'): ?>
-
-            <li><a href="product_report.php"><i class="fa fa-tag"></i>Products Report</a></li>
-            <?php endif; ?>
-            
+           
           </ul>
         </li>
 
-
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-car"></i> <span>Purchase</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            
-            <li><a href="addpurchase.php"><i class="fa fa-plus"></i>Add Purchase</a></li>
-            <li><a href="purchaselist.php"><i class="fa fa-list"></i>Purchase List</a></li>
-            <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="purchasereport.php"><i class="fa fa-tag"></i>Purchase Report</a></li>
-           <?php endif; ?>
-            
-          </ul>
-        </li>
-        <li class="treeview">
-      
-          <a href="#">
-            <i class="fa fa-handshake-o"></i> <span>Sales</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            
-            <li><a href="addinvoice.php"><i class="fa fa-plus"></i>Sale Product</a></li>
-            <li><a href="invoicelist.php"><i class="fa fa-list"></i>Sales List</a></li>
-
-            <?php if(Session::get('status') == 'admin'): ?>
-
-            <li><a href="profitreport.php"><i class="fa fa-tag"></i>Profit Report</a></li>
-            <li><a href="invoice_report.php"><i class="fa fa-tag"></i>Invoice Report</a></li>
-            <li><a href="sale_report.php"><i class="fa fa-tag"></i>Sales Report</a></li>
-
-           <?php endif; ?>
-            
-          </ul>
-        </li>
-
-        <li class="treeview">
-      
-          <a href="#">
-            <i class="fa fa-handshake-o"></i> <span>Warranty</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            
-            
-
-            <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="warranty_products.php"><i class="fa fa-list"></i>Warranty Products</a></li>
-
-           <?php endif; ?>
-            
-          </ul>
         </li>
 
         
 
-
-
-        <li class="treeview">
-      
-          <a href="#">
-            <i class="fa fa-briefcase"></i> <span>Payment</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            
-            <li><a href="billpay.php"><i class="fa fa-plus"></i>Add Payment</a></li>
-            
-            <?php if(Session::get('status') == 'admin'): ?>
-            
-
-            <li><a href="paymentlist.php"><i class="fa fa-list"></i>Payment Record</a></li>
-            <li><a href="paymentreport.php"><i class="fa fa-tag"></i>Payment Report</a></li>
-
-          <?php endif; ?>
-            
-          </ul>
         </li>
 
-
-        
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-university"></i> <span>Stock</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="stocklist.php"><i class="fa fa-list"></i>Stock List</a></li>
-            <li><a href="stocklimit.php"><i class="fa fa-list"></i>Stock Limit</a></li>
-
-            <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="stock_report.php"><i class="fa fa-tag"></i>Stock Report</a></li>
-           <?php endif; ?>
-
-          </ul>
-        </li>
-
-         <li class="treeview">
-          <a href="#">
-            <i class="fa fa-money"></i> <span>General Account</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            
-            
-            <li><a href="transcategorylist.php"><i class="fa fa-list"></i>Transaction Category</a></li>
-            <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="laserlist.php"><i class="fa fa-list"></i>Transaction List </a></li>
-            <li><a href="laserreport.php"><i class="fa fa-tag"></i>Transaction Report </a></li>
-
-          <?php endif; ?>
-            
-          </ul>
         </li>
 
 
@@ -300,10 +171,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
             <li><a href="customerlist.php"><i class="fa fa-list"></i>Customer List </a></li>
 
-            <?php if(Session::get('status') == 'admin'): ?>
-            <li><a href="customer_statement.php"><i class="fa fa-exchange"></i>Customer Statement </a></li>
-            <li><a href="printfiles/customer/print.php"><i class="fa fa-tag"></i>Customer Report</a></li>
-            <?php endif; ?>
+            
           </ul>
         </li>
 
@@ -316,13 +184,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
           </a>
           <ul class="treeview-menu">
             <li><a href="supplierlist.php"><i class="fa fa-list"></i>Supplier List </a></li>
-            <?php if(Session::get('status') == 'admin'): ?>
-
-            <li><a href="suppliertransaction.php"><i class="fa fa-list"></i>Supplier Transaction</a></li>
-            <li><a href="supplier_transaction_report.php"><i class="fa fa-tag"></i>Supplier Transaction Report</a></li>
-            <li><a href="printfiles/supplier/print.php"><i class="fa fa-tag"></i>Supplier Report</a></li>
-
-          <?php endif; ?>
+           
           </ul>
         </li>
 

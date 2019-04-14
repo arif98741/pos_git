@@ -21,72 +21,8 @@
     <!-- Main content -->
     <section class="content">
       <!-- Small boxes (Stat box) -->
-      
-        
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3><?php echo $dash->TodaySale(); ?></h3>
+ 
 
-              <p>Today Sale</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-money"></i>
-            </div>
-            <a href="invoicelist.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-
-         <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3><?php echo $dash->TodayMemo(); ?></h3>
-
-              <p>Today Memo</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-handshake-o"></i>
-            </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3><?php echo $dash->TotalMemo(); ?> </h3>
-
-              <p> Total Memo</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-handshake-o"></i>
-            </div>
-            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-    <?php if(Session::get('status') == 'admin'): ?>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3><?php echo round($dash->TotalDue()); ?></h3>
-
-              <p>Total Due</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-usd"></i>
-            </div>
-            <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-      <?php endif; ?>
 
         <!-- ./col -->
         
@@ -96,20 +32,7 @@
 
       <!-- row -->
           <div class="row">
-            <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3><?php echo $dash->totalPurchase(); ?></h3>
-
-              <p>Total  Purchase</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-institution"></i>
-            </div>
-            <a href="purchaselist.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
+         
 
 
 
@@ -141,22 +64,7 @@
             <a href="customerlist.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3><?php echo $dash->totalSuppliers(); ?></h3>
-
-              <p>Total  Suppliers</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-truck"></i>
-            </div>
-            <a href="supplierlist.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
+ 
 
         
         <!-- ./col -->
