@@ -8,3 +8,6 @@ fs
 ls
 package-lock.json
 *.zip
+*.doc
+*.docx
+screenhost

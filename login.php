@@ -10,7 +10,7 @@ $log = new Login();
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Explore POS | Log in</title>
+  <title>POSMan | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -65,7 +65,7 @@ $log = new Login();
       </div>
     </form>
     <br>Technical Support | 
-    <a href="http://www.exploreit.com.bd/">exploreit.com.bd</a><br>
+    <a href="http://facebook.com/arifulislammmc007">Ariful Islam</a><br>
 
   </div>
   <!-- /.login-box-body -->

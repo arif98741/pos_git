@@ -39,7 +39,7 @@ class Product {
     !-----------------------------------------------------
     */
     public function showType() { //for showing type in dropdown in addproduct.php
-        $query = "select * from tbl_type where updateby='$this->userid' order by typename ASC";
+        $query = "select * from tbl_type  order by typename ASC";
         $stmt  = $this->dbObj->select($query);
         return $stmt;
     }
@@ -62,7 +62,7 @@ class Product {
     !-----------------------------------------------------
     */
     public function showGroup() { //for showing group in dropdown in addproduct.php
-        $query = "select * from tbl_group where updateby='$this->userid' order by groupname ASC";
+        $query = "select * from tbl_group order by groupname ASC";
         $stmt  = $this->dbObj->select($query);
         return $stmt;
     }

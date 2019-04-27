@@ -387,9 +387,9 @@ $(document).ready(function () {
             var paid_limit  = parseInt($('#paid_limit').val());
             
             var total_money = payable + balance;
-            /* if (total_money > paid_limit) {
-                 alert('Customer Excedded Paid Limit'); 
-             }*/
+             // if (total_money > paid_limit) {
+             //     alert('Customer Excedded Paid Limit'); 
+             // }
 
 			if(cus_id == "" || pro_id == ""){
 				alert("Please Select Both Customer and Product");
@@ -402,7 +402,7 @@ $(document).ready(function () {
 				$.ajax({
 					url: "functions2.php",
                     method: "post",
-					data:{
+					data: {
 					        sell_id: sell_id,
 							cus_id: cus_id,
 							pro_id: pro_id,
@@ -414,11 +414,11 @@ $(document).ready(function () {
 	                        action: "savesaleproduct",
 	                        target: "singleproductsavebeforesale"
 					},
-					success:function(data){
+					success:function(response){
 
-                        if($.trim(data) == "select product first"){
+                        if($.trim(response) == "select product first"){
 					        alert('Please Select Product First');
-                        }else if($.trim(data) == "already added"){
+                        }else if($.trim(response) == "already added"){
                             alert('Product Already Added');
                         }else{
                             showSaleProducts();
@@ -433,7 +433,6 @@ $(document).ready(function () {
                             $('#product_serial').val('');
                             $('#warranty_expire').val('');
 
-                            
                         }
 
 					},error:function(e)
