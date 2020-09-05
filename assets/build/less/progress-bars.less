@@ -7,6 +7,7 @@
 .progress,
 .progress > .progress-bar {
   .box-shadow(none);
+
   &, .progress-bar {
     .border-radius(@progress-bar-border-radius);
   }
@@ -16,6 +17,7 @@
 .progress.sm,
 .progress-sm {
   height: 10px;
+
   &, .progress-bar {
     .border-radius(@progress-bar-sm-border-radius);
   }
@@ -24,6 +26,7 @@
 .progress.xs,
 .progress-xs {
   height: 7px;
+
   &, .progress-bar {
     .border-radius(@progress-bar-xs-border-radius);
   }
@@ -32,6 +35,7 @@
 .progress.xxs,
 .progress-xxs {
   height: 3px;
+
   &, .progress-bar {
     .border-radius(@progress-bar-xs-border-radius);
   }
@@ -44,6 +48,7 @@
   height: 200px;
   display: inline-block;
   margin-right: 10px;
+
   > .progress-bar {
     width: 100%;
     position: absolute;
@@ -60,6 +65,7 @@
   &.progress-xs {
     width: 10px;
   }
+
   &.xxs,
   &.progress-xxs {
     width: 3px;
@@ -71,6 +77,7 @@
   .progress-text {
     font-weight: 600;
   }
+
   .progress-number {
     float: right;
   }

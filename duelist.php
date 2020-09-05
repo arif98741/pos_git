@@ -19,9 +19,6 @@ define('BASE_URL', 'http://pos.explorebillingsuite.com/');
 ?>
 
 
-
-
-
 <!DOCTYPE html>
 
 <html>
@@ -49,7 +46,6 @@ define('BASE_URL', 'http://pos.explorebillingsuite.com/');
 </head>
 
 
-
 <body>
 
 <div class="bt-div">
@@ -65,119 +61,112 @@ define('BASE_URL', 'http://pos.explorebillingsuite.com/');
 ?>
 
 
-
 <div class="wraper">
 
 
+    <table width="100%" border="0" class="header">
 
-        <table width="100%" border="0" class="header">
+        <tr>
 
-            <tr>
+            <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img
+                                src="<?php echo Session::get('logo') ?>" class="img_div" width="60" height="60" alt=""/></span></a>
+            </td>
 
-                <td width="8%" align="left" valign="top"><a href="dashboard.php"><span class="user_panel "><img src="<?php echo Session::get('logo') ?>" class="img_div" width="60" height="60"  alt=""/></span></a></td>
-
-                <td width="68%" height="67" align="left" valign="middle"><div class="title-1"><?php echo Session::get('company_name'); ?></div>
-
-
-
-
-
-                    <div class="title-3">Customer Balance List</div></td>
-
-                <td width="24%" align="right" valign="middle" nowrap="nowrap">
-
-                    <div class="title-2">Total: (<?php echo $pri->TotalProducts("select * from tbl_customer where due > '0'"); ?>)</div>
-
-                </td>
-
-            </tr>
-
-        </table>
-
-        <div class="line-4"></div>
-
-        <div class="line-3"></div>
+            <td width="68%" height="67" align="left" valign="middle">
+                <div class="title-1"><?php echo Session::get('company_name'); ?></div>
 
 
+                <div class="title-3">Customer Balance List</div>
+            </td>
 
-        <table class="TFtable" id="datatable" >
+            <td width="24%" align="right" valign="middle" nowrap="nowrap">
 
-            <thead>
+                <div class="title-2">Total:
+                    (<?php echo $pri->TotalProducts("select * from tbl_customer where due > '0'"); ?>)
+                </div>
 
-                <tr>
+            </td>
 
-                    <th>Serial</th>
+        </tr>
 
-                    <th>Customer ID</th>
+    </table>
 
-                    <th>Customer Name</th>
+    <div class="line-4"></div>
 
-                    <th>Email</th>
-
-                    <th>Adress</th>
-
-                    <th>Contact</th>
-
-                    <th>Balance</th>
+    <div class="line-3"></div>
 
 
+    <table class="TFtable" id="datatable">
+
+        <thead>
+
+        <tr>
+
+            <th>Serial</th>
+
+            <th>Customer ID</th>
+
+            <th>Customer Name</th>
+
+            <th>Email</th>
+
+            <th>Adress</th>
+
+            <th>Contact</th>
+
+            <th>Balance</th>
 
 
+        </tr>
 
-                </tr>
+        </thead>
 
-            </thead>
+        <tbody style="text-align: center">
 
-            <tbody style="text-align: center">
+        <?php
 
-                <?php
-
-                $stmt = $db->link->query("select * from tbl_customer where due > '0' order by customer_name asc");
-
+        $stmt = $db->link->query("select * from tbl_customer where due > '0' order by customer_name asc");
 
 
-                if($stmt){
+        if ($stmt){
 
-                    $i= 0;
+        $i = 0;
 
-                    while ($row = $stmt->fetch_assoc()) {  $i++;?>
-
-
-
-                       <tr>
-
-                            <td> <?php echo $i;   ?></td>
-
-                            <td> <?php echo $row['customer_id']  ?></td>
-
-                            <td> <?php echo $row['customer_name']  ?></td>
-
-                            <td> <?php echo $row['email']  ?></td>
-
-                            <td> <?php echo $row['address'] ?> </td>
-
-                            <td> <?php echo $row['contact_no'] ?> </td>
-
-                            <td> <?php echo round( $row['due']); ?> </td>
-
-               <?php   } }else{
+        while ($row = $stmt->fetch_assoc()) {
+        $i++; ?>
 
 
+        <tr>
 
-                }
+            <td> <?php echo $i; ?></td>
 
-                ?>
+            <td> <?php echo $row['customer_id'] ?></td>
 
-            </tbody>
+            <td> <?php echo $row['customer_name'] ?></td>
+
+            <td> <?php echo $row['email'] ?></td>
+
+            <td> <?php echo $row['address'] ?> </td>
+
+            <td> <?php echo $row['contact_no'] ?> </td>
+
+            <td> <?php echo round($row['due']); ?> </td>
+
+            <?php }
+            } else {
 
 
+            }
 
-        </table>
+            ?>
 
+        </tbody>
+
+
+    </table>
 
 
 </div>
-
 
 
 </body>

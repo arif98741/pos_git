@@ -2,19 +2,20 @@
 include_once 'DB.php';
 include_once 'helper/Helper.php';
 
-class Page {
+class Page
+{
 
     private $dbObj;
     private $helpObj;
     private $msg;
 
-    public function __construct() {
+    public function __construct()
+    {
 
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
         date_default_timezone_set('Asia/Dhaka');
     }
-
 
 
     /*
@@ -26,60 +27,59 @@ class Page {
     {
         $title = $this->helpObj->validAndEscape($data['title']);
         $description = $data['description'];
-        $photo  =  'page' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        $photo = 'page' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
         $date = date('Y-m-d h:i:s');
-       
+
         $query = "insert into page(title,description,photo,date) values('$title','$description','$photo','$date')";
         $stmt = $this->dbObj->link->query($query);
-        if ($stmt) {     
-            move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/page/".$photo);
+        if ($stmt) {
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/page/" . $photo);
             return "<script>alert('Page Added Successful');</script>";
-        }else{
-             return "<script>alert('Page Added Failed');</script>";
+        } else {
+            return "<script>alert('Page Added Failed');</script>";
         }
 
     }
 
 
-
-     /*
-    @ update page  in editnpage.php
-    @ table = page
-    @ action pagelist.php
-    */
+    /*
+   @ update page  in editnpage.php
+   @ table = page
+   @ action pagelist.php
+   */
     function updatePage($data)
     {
 
         $id = $this->helpObj->validAndEscape($data['pageid']);
         $title = $this->helpObj->validAndEscape($data['title']);
         $description = $data['description'];
-        $photo  =  'page' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
-        
+        $photo = 'page' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
-        if (strpos($_FILES["photo"]["tmp_name"],'.tmp') == "" || strpos($_FILES["photo"]["tmp_name"],'.tmp') == null) {
-            
+
+        if (strpos($_FILES["photo"]["tmp_name"], '.tmp') == "" || strpos($_FILES["photo"]["tmp_name"], '.tmp') == null) {
+
             $query = "update page set title ='$title', description = '$description' where id='$id'";
-            $stmt = $this->dbObj->link->query($query); 
+            $stmt = $this->dbObj->link->query($query);
             if ($stmt) {
-                 return "<script>alert('Page Updated Successful');</script>";
-            }else{
+                return "<script>alert('Page Updated Successful');</script>";
+            } else {
                 return "<script>alert('Page Updated Failed');</script>";
             }
-        }else{
-            $chstmt =  $this->dbObj->link->query("select * from page where id ='$id'");
+        } else {
+            $chstmt = $this->dbObj->link->query("select * from page where id ='$id'");
             if ($chstmt) {
                 $data = $chstmt->fetch_assoc();
             }
-             $query = "update page set title ='$title', description = '$description', photo = '$photo' where id='$id'";
+            $query = "update page set title ='$title', description = '$description', photo = '$photo' where id='$id'";
 
-             if (file_exists("../photo/page/".$data['photo'])) {
-                 unlink("../photo/page/".$data['photo']);
-             }
-            $stmt = $this->dbObj->link->query($query); 
+            if (file_exists("../photo/page/" . $data['photo'])) {
+                unlink("../photo/page/" . $data['photo']);
+            }
+            $stmt = $this->dbObj->link->query($query);
             if ($stmt) {
-                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/page/".$photo);
+                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/page/" . $photo);
                 return "<script>alert('Page Updated Successful');</script>";
-            }else{
+            } else {
                 return "<script>alert('Page Updated Failed');</script>";
             }
         }
@@ -98,12 +98,11 @@ class Page {
         if ($stmt) {
 
             return $stmt;
-        }else{
+        } else {
             return false;
         }
 
     }
-
 
 
     /*
@@ -119,40 +118,40 @@ class Page {
         $contact = $this->helpObj->validAndEscape($data['contact']);
         $member_id = $this->helpObj->validAndEscape($data['member_id']);
         $_FILES["photo"]["tmp_name"];
-        $photo  =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        $photo = 'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
-        if (strpos($_FILES["photo"]["tmp_name"],'.tmp') == "" || strpos($_FILES["photo"]["tmp_name"],'.tmp') == null) {
-            
+        if (strpos($_FILES["photo"]["tmp_name"], '.tmp') == "" || strpos($_FILES["photo"]["tmp_name"], '.tmp') == null) {
+
             $query = "update committee set
              name ='$name',
              designation = '$designation',
              address = '$address',
              contact = '$contact' where id='$member_id'";
-            $stmt = $this->dbObj->link->query($query); 
+            $stmt = $this->dbObj->link->query($query);
             if ($stmt) {
-                 return "<script>alert('Member Update Succful');</script>";
-            }else{
+                return "<script>alert('Member Update Succful');</script>";
+            } else {
                 return "<script>alert('Member Update Failed');</script>";
             }
-        }else{
-            $chstmt =  $this->dbObj->link->query("select * from committee where id ='$member_id'");
+        } else {
+            $chstmt = $this->dbObj->link->query("select * from committee where id ='$member_id'");
             if ($chstmt) {
                 $data = $chstmt->fetch_assoc();
             }
-             $query = "update committee set
+            $query = "update committee set
              name ='$name',
              designation = '$designation',
              address = '$address',
              contact = '$contact', photo = '$photo' where id='$member_id'";
 
-             if (file_exists("../photo/committee/".$data['photo'])) {
-                 unlink("../photo/committee/".$data['photo']);
-             }
-            $stmt = $this->dbObj->link->query($query); 
+            if (file_exists("../photo/committee/" . $data['photo'])) {
+                unlink("../photo/committee/" . $data['photo']);
+            }
+            $stmt = $this->dbObj->link->query($query);
             if ($stmt) {
-                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/committee/".$photo);
+                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/committee/" . $photo);
                 return "<script>alert('Member Update Successful');</script>";
-            }else{
+            } else {
                 return "<script>alert('Member Update Failed');</script>";
             }
         }

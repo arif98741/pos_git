@@ -2,14 +2,16 @@
 $path = realpath(dirname(__DIR__));
 include_once 'DB.php';
 include_once 'Session.php';
-include_once $path.'/helper/Helper.php';
+include_once $path . '/helper/Helper.php';
 
-class Product {
+class Product
+{
 
     private $dbObj;
     private $helpObj;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
     }
@@ -21,69 +23,77 @@ class Product {
         return $stmt;
     }
 
-    public function showType() { //for showing type in dropdown in addproduct.php
+    public function showType()
+    { //for showing type in dropdown in addproduct.php
         $query = 'select * from tbl_type order by typename ASC';
         $stmt = $this->dbObj->select($query);
         return $stmt;
     }
 
-    public function showSingleType($typeid) {
+    public function showSingleType($typeid)
+    {
         $tstmt = $this->dbObj->select("select * from tbl_type where typeid='$typeid'");
         $trdata = $tstmt->fetch_assoc();
         return $trdata;
     }
 
-    public function showGroup() { //for showing group in dropdown in addproduct.php
+    public function showGroup()
+    { //for showing group in dropdown in addproduct.php
         $query = 'select * from tbl_group order by groupname ASC';
         $stmt = $this->dbObj->select($query);
         return $stmt;
     }
 
 
-    public function showGroupById($groupid) { //for showing group in dropdown in addproduct.php
+    public function showGroupById($groupid)
+    { //for showing group in dropdown in addproduct.php
         $groupid = $this->helpObj->validAndEscape($groupid);
         $query = "select * from tbl_group where groupid ='$groupid'";
         $stmt = $this->dbObj->select($query);
-        if($stmt){
+        if ($stmt) {
             return $stmt->fetch_assoc();
         }
-        
+
     }
 
 
-
-     public function showBrandById($supplier_id) { //for showing group in dropdown in addproduct.php
+    public function showBrandById($supplier_id)
+    { //for showing group in dropdown in addproduct.php
         $supplier_id = $this->helpObj->validAndEscape($supplier_id);
         $query = "select * from tbl_supplier where supplier_id ='$supplier_id'";
         $stmt = $this->dbObj->select($query);
-        if($stmt){
+        if ($stmt) {
             return $stmt->fetch_assoc();
         }
-        
+
     }
 
-    
-    public function showBrand() { //for showing brand in dropdown in addproduct.php
+
+    public function showBrand()
+    { //for showing brand in dropdown in addproduct.php
         $query = 'select * from tbl_brand order by brandname ASC';
         $stmt = $this->dbObj->select($query);
         return $stmt;
     }
 
-    public function showColor() { //for showing color in dropdown in addproduct.php
+    public function showColor()
+    { //for showing color in dropdown in addproduct.php
         $query = 'select * from tbl_color order by colorname ASC';
         $stmt = $this->dbObj->select($query);
         return $stmt;
     }
 
 
-    public function showSingleGroup($grid) {
+    public function showSingleGroup($grid)
+    {
         $grstmt = $this->dbObj->select("select * from tbl_group where groupid='$grid'");
         $grdata = $grstmt->fetch_assoc();
         return $grdata;
     }
 
 
-    public function showProduct() {
+    public function showProduct()
+    {
         //brand is granted as supplier
 
         $q = "SELECT * FROM tbl_product tp
@@ -101,7 +111,8 @@ class Product {
     }
 
 
-    public function addProduct($data) {
+    public function addProduct($data)
+    {
 
         $product_id = $this->helpObj->validAndEscape($data['product_id']);
         $product_type = $this->helpObj->validAndEscape($data['product_type']);
@@ -125,14 +136,14 @@ class Product {
             $status = $this->dbObj->insert($query);
             if ($status) {
                 return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";
-                ;
             } else {
                 return "<p class='alert alert-danger fadeout'>Failed To Insert Product<p>";
             }
         }
     }
 
-    public function deleteProduct($product_id) {
+    public function deleteProduct($product_id)
+    {
         $serial = $this->helpObj->validAndEscape($product_id);
 
         $query = "DELETE from tbl_product where product_id ='$product_id'";
@@ -144,14 +155,16 @@ class Product {
         }
     }
 
-    public function getsingleProduct($product_id) {
+    public function getsingleProduct($product_id)
+    {
         $product_id = $this->helpObj->validAndEscape($product_id);
         $query = "select * from tbl_product where product_id='$product_id'";
         $sta = $this->dbObj->select($query);
         return $sta;
     }
 
-    public function updateProduct($data) {
+    public function updateProduct($data)
+    {
 
         $product_id = $this->helpObj->validAndEscape($data['product_id']);
         $product_type = $this->helpObj->validAndEscape($data['product_type']);
@@ -186,5 +199,4 @@ class Product {
     }
 
 
-    
 }

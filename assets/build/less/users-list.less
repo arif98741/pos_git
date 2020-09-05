@@ -4,16 +4,19 @@
  */
 .users-list {
   &:extend(.list-unstyled);
+
   > li {
     width: 25%;
     float: left;
     padding: 10px;
     text-align: center;
+
     img {
       .border-radius(50%);
       max-width: 100%;
       height: auto;
     }
+
     > a:hover {
       &,
       .users-list-name {

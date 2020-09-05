@@ -5,15 +5,15 @@ $(document).ready(function () {
     //Add New Row To Table for Purchase(Invoice)
     // addpurchase.php
     //Purchase Management System
-     //invoice management
+    //invoice management
 
-     //edit invoice calcaluation function in editsales.php
+    //edit invoice calcaluation function in editsales.php
 
 
     $(function () { //invoice management
 
         //for calculating data of addinvoice.php (sale page)
-     
+
 
         //Add Purchase Page
         $("#supplier_dropdown").change(function () {
@@ -33,7 +33,7 @@ $(document).ready(function () {
                     $("#address").val(response[2]);
                     $("#contact").val(response[3]);
                 }, error: function (error_data) {
-                   // console.log(error_data);
+                    // console.log(error_data);
                 }
             });
         });
@@ -44,8 +44,7 @@ $(document).ready(function () {
             var date = $("#date_input").val();
             var supplier = $("#supplier").val();
 
-            if (invoice_no != '' && date != '' && supplier != 'select')
-            {
+            if (invoice_no != '' && date != '' && supplier != 'select') {
                 $.ajax({
                     url: 'functions.php',
                     method: 'GET',
@@ -63,7 +62,7 @@ $(document).ready(function () {
         }
 
         function addnewrow(addnewrowkey) {
-            
+
             /*
             var groups = '';
             $.ajax({
@@ -88,7 +87,7 @@ $(document).ready(function () {
                     action: 'getproducts'
                 }, success: function (d) {
                     products = d;
-                    
+
                 }, error: function (e) {
                     alert(e);
                 }, async: false
@@ -98,18 +97,18 @@ $(document).ready(function () {
             var row = '<tr style="text-align:center;">'
                 //+ '<td width="10%">' '' + '</td>'
                 //+ '<td width="10%">' + '<select class="form-control selectpicker"><option>Abc</option</select><option>Def</option</select>' + '</td>'
-                + '<td width="10%">' + products  + '</td>'
+                + '<td width="10%">' + products + '</td>'
                 // + '<td width="10%">' + '<b class="product_name"></b>' + '</td>'
-                + '<td width="10%">' + '<b class="product_type product_type'+addnewrowkey+'"></b>' + '</td>'
-                + '<td width="8%">' + '<input type="number" name="quantity[]" class="form-control quantity quantity'+addnewrowkey+'" required >' + '</td>'
-                + '<td width="8%">' + '<input type="text" name="purchase[]" class="form-control purchase  purchase'+addnewrowkey+'" required >' + '</td>'
+                + '<td width="10%">' + '<b class="product_type product_type' + addnewrowkey + '"></b>' + '</td>'
+                + '<td width="8%">' + '<input type="number" name="quantity[]" class="form-control quantity quantity' + addnewrowkey + '" required >' + '</td>'
+                + '<td width="8%">' + '<input type="text" name="purchase[]" class="form-control purchase  purchase' + addnewrowkey + '" required >' + '</td>'
                 + '<td width="6%">' + '<input type="hidden" name="subtotalforsave[]" class="form-control subtotalforsave"><b class="subtotal">0</b> ' + '</td>'
                 + '<td width="4%"><i class="fa fa-trash purchase_delete_btn" style="cursor:pointer;"><i></td>'
                 + '</tr>';
 
             $('#inv_detail').append(row);
 
-            $('#invoice_form_table tr td i').click(function() {
+            $('#invoice_form_table tr td i').click(function () {
                 $(this).parent().parent().remove();
                 wholetotal();
 
@@ -117,11 +116,9 @@ $(document).ready(function () {
 
         }
 
-        
-
 
         //remove apprend rows
-        
+
 
         //addition of new row in addinvoice table by click
         var addnewrowkey = 1; //for giving unique class
@@ -182,12 +179,12 @@ $(document).ready(function () {
 
             var d = getSingleProDetails();
             console.log()
-           
+
             var t = $(this).parent().parent().parent();
-            t.find('.product_id'+uniqueclassname).val(d['product_id']);
-            t.find('.product_type'+uniqueclassname).html(d['typename']);
-            t.find('.purchase'+uniqueclassname).val(d['purchase_price']);
-            t.find('.sale_price'+uniqueclassname).val(d['sale_price']);
+            t.find('.product_id' + uniqueclassname).val(d['product_id']);
+            t.find('.product_type' + uniqueclassname).html(d['typename']);
+            t.find('.purchase' + uniqueclassname).val(d['purchase_price']);
+            t.find('.sale_price' + uniqueclassname).val(d['sale_price']);
 
 
             function getSingleProDetails() {
@@ -203,7 +200,7 @@ $(document).ready(function () {
                     success: function (d) {
                         details = d;
                     }, error: function (e) {
-                       // console.log(e);
+                        // console.log(e);
                     }, async: false
                 });
                 return details;
@@ -219,7 +216,7 @@ $(document).ready(function () {
             var quantity = tr.find('.quantity').val() - 0;
             var purchase = tr.find('.purchase').val() - 0;
             var subtotal = quantity * purchase;
-            
+
             tr.find('.subtotal').html(subtotal.toFixed(2));
             tr.find('.subtotalforsave').val(subtotal); //for saving data to the server
             //tr.find('.total').html(subtotal);
@@ -268,29 +265,29 @@ $(document).ready(function () {
             $('.wholetotal').html(total);
             $('#subtotal').val(total.toFixed(2)); // in editsales.php
             $('#grandtotal').val(total.toFixed(2)); // in editsales.php
-            
-            
+
+
         }
     });
-    
+
 
     ///function for sale(invoice) management system in addinvoice.php
-    $(function(){
-		
-		//getting single customer data for addinvoice.php(sale)
-		$('#cus_dropdown_addinvoice').change(function(){
-            
-			var cid = $(this).val();
-			$.ajax({
+    $(function () {
+
+        //getting single customer data for addinvoice.php(sale)
+        $('#cus_dropdown_addinvoice').change(function () {
+
+            var cid = $(this).val();
+            $.ajax({
                 url: "functions.php",
                 method: 'post',
                 data: {
                     page: 'addinvoice',
-                    target:'sale',
+                    target: 'sale',
                     action: 'getCustomerInformation',
                     cid: cid
                 },
-                dataType:'json',
+                dataType: 'json',
                 success: function (data) {
                     //(data);
                     console.log(data);
@@ -304,11 +301,11 @@ $(document).ready(function () {
                     //console.log(e);
                 }
             });
-			
-			
-		});
 
-		/*//get products for a single group by selecting product group
+
+        });
+
+        /*//get products for a single group by selecting product group
         $('#product_group_dropdown_add_sale').change(function(){
             var gid = $(this).val();
             $.ajax({
@@ -359,8 +356,8 @@ $(document).ready(function () {
 
         var x = 0;
         //search product details by id in addinvoice.php
-        $('#product_id').keyup(function(event) {
-            let  product_id = $(this).val();
+        $('#product_id').keyup(function (event) {
+            let product_id = $(this).val();
             $.ajax({
                 url: "functions.php",
                 method: 'post',
@@ -369,12 +366,12 @@ $(document).ready(function () {
                     aim: 'getsingleprodetails',
                     action: 'singleprodetails',
                     product_id: product_id
-                },dataType:'json',
+                }, dataType: 'json',
                 success: function (data) {
-                  //console.log(data);
-                  $('#product_group_list_dropdown_add_sale').html("<option>"+data.product_name+"</option>");
-                  $('#sale_price').val(data.sale_price);
-                  $('#purchase_price').val(data.purchase_price);
+                    //console.log(data);
+                    $('#product_group_list_dropdown_add_sale').html("<option>" + data.product_name + "</option>");
+                    $('#sale_price').val(data.sale_price);
+                    $('#purchase_price').val(data.purchase_price);
                 }, error: function (e) {
                     console.log(e);
                 }
@@ -383,7 +380,7 @@ $(document).ready(function () {
 
 
         //add product to temp sales list
-        $('#add_invo_pro_btn').click(function(){
+        $('#add_invo_pro_btn').click(function () {
             var cus_id = $('#cus_dropdown_addinvoice').val();
             var sell_id = $('#sell_id').val();
             var pro_id = $('#product_id').val();
@@ -392,49 +389,48 @@ $(document).ready(function () {
             var purchase_price = $('#purchase_price').val();
             var purchase_price = $('#purchase_price').val();
 
-			if(cus_id == "" || pro_id == ""){
-				alert("Please Select Both Customer and Product");
-			}else if(quantity == ''){
+            if (cus_id == "" || pro_id == "") {
+                alert("Please Select Both Customer and Product");
+            } else if (quantity == '') {
                 alert("Please Fillup Quantity");
-            }else{
+            } else {
                 showSaleProducts();
-				$.ajax({
-					url: "functions2.php",
+                $.ajax({
+                    url: "functions2.php",
                     method: "post",
-					data:{
-					        sell_id: sell_id,
-							cus_id: cus_id,
-							pro_id: pro_id,
-                            quantity: quantity,
-                            sale_price: sale_price,
-	                        purchase_price: purchase_price,
-	                        action: "savesaleproduct",
-	                        target: "singleproductsavebeforesale"
-					},
-					success:function(data){
+                    data: {
+                        sell_id: sell_id,
+                        cus_id: cus_id,
+                        pro_id: pro_id,
+                        quantity: quantity,
+                        sale_price: sale_price,
+                        purchase_price: purchase_price,
+                        action: "savesaleproduct",
+                        target: "singleproductsavebeforesale"
+                    },
+                    success: function (data) {
 
-                        if($.trim(data) == "select product first"){
-					        alert('Please Select Product First');
-                        }else if($.trim(data) == "already added"){
+                        if ($.trim(data) == "select product first") {
+                            alert('Please Select Product First');
+                        } else if ($.trim(data) == "already added") {
                             alert('Product Already Added');
-                        }else{
+                        } else {
                             showSaleProducts();
                             showSaleSubTotal();
                             calculation();
 
-                            $('#reset_inv_product_group').attr("selected","");
+                            $('#reset_inv_product_group').attr("selected", "");
                             var r = '<option selected="">Select Product</option>';
                             $('#product_group_list_dropdown_add_sale').html(r);
                             $('#sale_price').val('');
                             $('#product_quantity').val('');
                         }
 
-					},error:function(e)
-					{
-						alert(e);
-					}
-				});
-			}
+                    }, error: function (e) {
+                        alert(e);
+                    }
+                });
+            }
         });
 
         //show sale products before complete sale
@@ -460,7 +456,7 @@ $(document).ready(function () {
                 }
             });
         }
-        
+
         function showSaleSubTotal() {
             var sell_id = $('#sell_id').val();
             var cus_id = $('#cus_dropdown_addinvoice').val();
@@ -469,8 +465,8 @@ $(document).ready(function () {
                 url: "functions2.php",
                 method: "post",
                 data: {
-                    sell_id : sell_id,
-                    cus_id : cus_id,
+                    sell_id: sell_id,
+                    cus_id: cus_id,
                     action: "showSaleSubTotal",
                     target: "showsalesubtotal"
                 },
@@ -483,43 +479,42 @@ $(document).ready(function () {
         }
 
         //update individual data for addited product
-       $("#inv_product_table").delegate(".delete_sale_product","click",function () {
+        $("#inv_product_table").delegate(".delete_sale_product", "click", function () {
             var invoice_id = $(this).attr('invoice_id');
             var cus_id = $(this).attr('cus_id');
             var pro_id = $(this).attr('product_id');
-           $.ajax({
-               url: "functions2.php",
-               method: "post",
-               data: {
-                   invoice_id: invoice_id,
-                   cus_id: cus_id,
-                   pro_id: pro_id,
-                   action: "deleltesinglesaleproduct",
-                   target: "deletesaleproduct"
-               },
-               success: function (data) {
-                   showSaleProducts();
-                   showSaleSubTotal();
-               }, error: function (e) {
+            $.ajax({
+                url: "functions2.php",
+                method: "post",
+                data: {
+                    invoice_id: invoice_id,
+                    cus_id: cus_id,
+                    pro_id: pro_id,
+                    action: "deleltesinglesaleproduct",
+                    target: "deletesaleproduct"
+                },
+                success: function (data) {
+                    showSaleProducts();
+                    showSaleSubTotal();
+                }, error: function (e) {
 
-               }
-           });
-       });
+                }
+            });
+        });
 
         //$('#calculation_table').delegate("#discount, #vat, #dlcharge, #paid","keyup",function () {
 
-          //calculation();
-      // });
+        //calculation();
+        // });
 
 
-        $("#discount, #vat, #dlcharge, #paid").keyup(function() {
-           calculation();
+        $("#discount, #vat, #dlcharge, #paid").keyup(function () {
+            calculation();
         });
 
 
-
         //for calculating data of addinvoice.php (sale page)
-        function calculation(){
+        function calculation() {
 
             var subtotal = parseFloat($('#subtotal').val());
             var balance = parseFloat($('#totalbalance').val());
@@ -528,7 +523,7 @@ $(document).ready(function () {
             var paid = parseFloat($('#paid').val());
             var payable = 0;
 
-            var vat = (formvat/100)*subtotal;
+            var vat = (formvat / 100) * subtotal;
             $('#realvat').val(vat.toFixed(2));
 
             var withvat = vat + subtotal;
@@ -536,76 +531,73 @@ $(document).ready(function () {
             var dlcharge = parseInt($('#dlcharge').val());
             $('#dlchargeresult').html(grandtotal);
 
-            grandtotal  = grandtotal + dlcharge;
-            
+            grandtotal = grandtotal + dlcharge;
+
             var payable = grandtotal;
-            var due = $('#payable').val() -  paid;
+            var due = $('#payable').val() - paid;
 
             if (isNaN(payable)) {
                 $('#payable').val(0)
-            }else{
+            } else {
                 $('#payable').val(payable.toFixed(2));
             }
 
             if (isNaN(grandtotal)) {
                 $('#grandtotal').val(0);
-            }else{
+            } else {
                 $('#grandtotal').val(grandtotal.toFixed(2));
             }
 
             if (isNaN(due)) {
                 $('#due').val("");
-            }else{
-                 $('#due').val(due.toFixed(2));
+            } else {
+                $('#due').val(due.toFixed(2));
             }
 
-           
+
         }
 
     });
 
 
-    $(function(){
+    $(function () {
         let pre_due = parseInt($('#previous_due_amount').val());
-       
 
-        if(pre_due == 0 || pre_due == ""){
-             $('#paid_action_btn').attr({
-                 disabled: ''
-             });
-         }else{
-            $('#paid_action_btn').click(function(event) {
+
+        if (pre_due == 0 || pre_due == "") {
+            $('#paid_action_btn').attr({
+                disabled: ''
+            });
+        } else {
+            $('#paid_action_btn').click(function (event) {
                 let paid_amount = parseInt($('#paid_amount').val());
                 let cus_id = $('#cus_account_id').val();
-                if(paid_amount == 0 || paid_amount == ""){
+                if (paid_amount == 0 || paid_amount == "") {
                     alert('Please fill up amount field');
-                }else{
+                } else {
                     $.ajax({
                         url: 'functions2.php',
                         method: 'post',
-                        data : {
-                            action : 'paycustomerdue',
-                            cus_id : cus_id,
-                            paid_amount : paid_amount
-                        },dataType:'json',
-                        success: function(d)
-                        {
+                        data: {
+                            action: 'paycustomerdue',
+                            cus_id: cus_id,
+                            paid_amount: paid_amount
+                        }, dataType: 'json',
+                        success: function (d) {
                             alert('Payment Updated Successfully');
                             $('#exampleModal').modal('toggle');
                             $('#paid_amount').val('');
-                            $('#current_due').html(d.update_amount+" TK");
+                            $('#current_due').html(d.update_amount + " TK");
 
-                        },error:function(e)
-                        {
+                        }, error: function (e) {
                             console.log(e);
                         }
                     });
                 }
             });
 
-         }
+        }
     });
-
 
 
 });

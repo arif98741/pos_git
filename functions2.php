@@ -15,7 +15,7 @@ $help = new Helper();
 
 //sale management
 //insert selling products ony be one to tbl_sell_products table for per customer
-if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='singleproductsavebeforesale'){
+if (isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] == 'singleproductsavebeforesale') {
     $sell_id = $help->validAndEscape($_POST['sell_id']);
     $cus_id = $help->validAndEscape($_POST['cus_id']);
     $pro_id = $help->validAndEscape($_POST['pro_id']);
@@ -24,16 +24,16 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sin
     $purchase_price = $help->validAndEscape($_POST['purchase_price']);
     $sub_total = $quantity * $sale_price;
     $check = $db->select("select * from tbl_sell_products WHERE product_id ='$pro_id' and sell_id ='$sell_id' and customer_id ='$cus_id'");
-    if($pro_id == '0' || $pro_id == null){
+    if ($pro_id == '0' || $pro_id == null) {
         echo "select product first";
-    }elseif($check){
+    } elseif ($check) {
         echo "already added";
-    }else{
+    } else {
         $stmt = $db->insert("insert into tbl_sell_products(sell_id, customer_id, product_id, quantity, unit_price,purchase_price,subtotal) VALUES ('$sell_id','$cus_id','$pro_id','$quantity','$sale_price','$purchase_price','$sub_total')");
-        if ($stmt){
+        if ($stmt) {
             echo "added";
-        }else{
-            echo "not".mysqli_error($db->link);
+        } else {
+            echo "not" . mysqli_error($db->link);
         }
 
     }
@@ -41,7 +41,7 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sin
 
 
 //show selling products before payment to webpage
-if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='showallsaleproductsbeforesave'){
+if (isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] == 'showallsaleproductsbeforesave') {
     $sell_id = $help->validAndEscape($_POST['sell_id']);
     $cus_id = $help->validAndEscape($_POST['cus_id']);
 
@@ -61,18 +61,18 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sho
                 <th width=\"15%\">Action</th>
             </tr>";
     $i = $total = 0;
-    if($check){
-        while ($row = $check->fetch_assoc()){
+    if ($check) {
+        while ($row = $check->fetch_assoc()) {
             $total += $row['subtotal'];
             $val .= "<tr>
-                        <td>".++$i."</td>
-                        <td>".$row['product_id']."</td>
-                        <td>".$row['product_name']."</td>
-                        <td style='text-align:center;'>".$row['unit_price']."</td>
-                        <td>".$row['quantity']." </td>
-                        <td>".$row['subtotal']."</td>
+                        <td>" . ++$i . "</td>
+                        <td>" . $row['product_id'] . "</td>
+                        <td>" . $row['product_name'] . "</td>
+                        <td style='text-align:center;'>" . $row['unit_price'] . "</td>
+                        <td>" . $row['quantity'] . " </td>
+                        <td>" . $row['subtotal'] . "</td>
                        <td>
-                            <i class=\"fa fa-trash delete_sale_product\" title=\"click to remove from sales list\" style=\"cursor: pointer\" invoice_id='".$row['sell_id']."' cus_id='".$row['customer_id']."' product_id='".$row['product_id']."'></i>
+                            <i class=\"fa fa-trash delete_sale_product\" title=\"click to remove from sales list\" style=\"cursor: pointer\" invoice_id='" . $row['sell_id'] . "' cus_id='" . $row['customer_id'] . "' product_id='" . $row['product_id'] . "'></i>
                         </td> 
                     </tr>";
         }
@@ -82,62 +82,59 @@ if(isset($_POST['action']) && isset($_POST['target']) && $_POST['target'] =='sho
 }
 
 //for showing sale products subtotal
-if (isset($_POST['target']) && $_POST['target']=='showsalesubtotal'){
+if (isset($_POST['target']) && $_POST['target'] == 'showsalesubtotal') {
     $sell_id = $_POST['sell_id'];
     $cus_id = $_POST['cus_id'];
     $stmt = $db->select("select * from tbl_sell_products WHERE customer_id = '$cus_id' AND sell_id = '$sell_id' and status ='0'");
-   if($stmt)
-   {
-       $count = 0;
-       while ($row = $stmt->fetch_assoc())
-       {
-           $count += $row['subtotal'];
-       }
-       echo $count;
-   }else{
-       echo 0;
-   }
+    if ($stmt) {
+        $count = 0;
+        while ($row = $stmt->fetch_assoc()) {
+            $count += $row['subtotal'];
+        }
+        echo $count;
+    } else {
+        echo 0;
+    }
 }
 
 //delete single sale product from addinvoice.php(sell)
-if (isset($_POST['invoice_id']) && isset($_POST['target']) && $_POST['target']=='deletesaleproduct'){
+if (isset($_POST['invoice_id']) && isset($_POST['target']) && $_POST['target'] == 'deletesaleproduct') {
     $sell_id = $_POST['invoice_id'];
     $cus_id = $_POST['cus_id'];
     $pro_id = $_POST['pro_id'];
     $stmt = $db->delete("delete from tbl_sell_products WHERE sell_id='$sell_id' AND product_id='$pro_id' AND customer_id='$cus_id'");
-    if($stmt)
-    {
+    if ($stmt) {
         echo "success";
     }
 }
 
 
 if (isset($_POST['action']) && $_POST['action'] == 'paycustomerdue') {
-  $cus_id = $help->validAndEscape($_POST['cus_id']);
-  $paid_amount = $help->validAndEscape($_POST['paid_amount']);
+    $cus_id = $help->validAndEscape($_POST['cus_id']);
+    $paid_amount = $help->validAndEscape($_POST['paid_amount']);
 
-  $message = array();
+    $message = array();
 
-  $stmt = $db->link->query("select due from tbl_customer where customer_id='$cus_id'");
-  if($stmt){
-    $data = $stmt->fetch_assoc();
-    $present = $data['due']- $paid_amount;
-    $stmt = $db->link->query("update tbl_customer set due ='$present' where customer_id='$cus_id'");
+    $stmt = $db->link->query("select due from tbl_customer where customer_id='$cus_id'");
+    if ($stmt) {
+        $data = $stmt->fetch_assoc();
+        $present = $data['due'] - $paid_amount;
+        $stmt = $db->link->query("update tbl_customer set due ='$present' where customer_id='$cus_id'");
 
-    $message['message'] = "Payment Updated Successfully";
-    $stmt1 = $db->link->query("select due from tbl_customer where customer_id='$cus_id'");
+        $message['message'] = "Payment Updated Successfully";
+        $stmt1 = $db->link->query("select due from tbl_customer where customer_id='$cus_id'");
 
-    if($stmt1){
-      $data = $stmt1->fetch_assoc();
-      $message['update_amount'] = round($data['due']);
-      $message['cus_id'] = $cus_id;
-      $message['status'] = 1;
-      echo json_encode($message);
+        if ($stmt1) {
+            $data = $stmt1->fetch_assoc();
+            $message['update_amount'] = round($data['due']);
+            $message['cus_id'] = $cus_id;
+            $message['status'] = 1;
+            echo json_encode($message);
+        }
+    } else {
+        $message['message'] = "Failed To Update Payment";
+        json_encode($message);
     }
-  }else{
-    $message['message'] = "Failed To Update Payment";
-    json_encode($message);
-  }
- 
-  
+
+
 }

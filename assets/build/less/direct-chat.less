@@ -9,6 +9,7 @@
     overflow-x: hidden;
     padding: 0;
   }
+
   &.chat-pane-open {
     .direct-chat-contacts {
       .translate(0, 0);
@@ -65,13 +66,16 @@
     border-width: 5px;
     margin-top: -5px;
   }
+
   &:before {
     border-width: 6px;
     margin-top: -6px;
   }
+
   .right & {
     margin-right: 50px;
     margin-left: 0;
+
     &:after,
     &:before {
       right: auto;
@@ -87,6 +91,7 @@
   float: left;
   width: 40px;
   height: 40px;
+
   .right & {
     float: right;
   }
@@ -128,11 +133,13 @@
 //Contacts list -- for displaying contacts in direct chat contacts pane
 .contacts-list {
   &:extend(.list-unstyled);
+
   > li {
     .clearfix();
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding: 10px;
     margin: 0;
+
     &:last-of-type {
       border-bottom: none;
     }

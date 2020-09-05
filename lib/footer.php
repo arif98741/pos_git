@@ -1,16 +1,16 @@
- <footer class="main-footer">
+<footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <?php 
-      $endScriptTime=microtime(TRUE);
-		$totalScriptTime=$endScriptTime-$startScriptTime;
-		echo "Executed in ".number_format($totalScriptTime, 4)." seconds";
-       ?>
+        <?php
+        $endScriptTime = microtime(TRUE);
+        $totalScriptTime = $endScriptTime - $startScriptTime;
+        echo "Executed in " . number_format($totalScriptTime, 4) . " seconds";
+        ?>
     </div>
     <strong>Copyright &copy; 2018 <a href="http://exploreit.com.bd/" target="_blank">explore-it</a>.</strong> All rights
     reserved.
-  </footer>
+</footer>
 
-  <div class="control-sidebar-bg"></div>
+<div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 <?php include "lib/js/scripts.php"; //scripts file put at lib/js/scripts/js  ?>

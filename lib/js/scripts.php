@@ -1,4 +1,3 @@
-
 <!-- jQuery 3 -->
 <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -23,23 +22,22 @@
 
 <!-- page script -->
 <script>
-  $(function () {
-    $('#example1').DataTable();
-    
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': true,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false,
-      "order": [[ 1, "desc" ]]
+    $(function () {
+        $('#example1').DataTable();
+
+        $('#example2').DataTable({
+            'paging': true,
+            'lengthChange': true,
+            'ordering': true,
+            'info': true,
+            'autoWidth': false,
+            "order": [[1, "desc"]]
+        });
+
+        $('#purchaselist').DataTable();
+
+
     });
-
-    $('#purchaselist').DataTable();
-
-
-
-  });
 
 
 </script>

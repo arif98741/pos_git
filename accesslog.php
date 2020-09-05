@@ -22,29 +22,29 @@
                </thead>
                <tbody>
                   <?php
-                     $status = $log->showAttemptUser();
-                     
-                     
-                     if ($status) {
-                     
-                         while ($result = $status->fetch_assoc()) {
-                             ?>
+$status = $log->showAttemptUser();
+
+
+if ($status) {
+
+    while ($result = $status->fetch_assoc()) {
+        ?>
                   <tr style="text-align: center;" id="rowid-<?php echo $result['serial']; ?>">
                      <td><?php echo $help->formatDate($result['date'], 'd/m/Y h:i:sA'); ?></td>
                      <td><?php echo $result['ip']; ?></td>
                      <td><?php echo $result['user']; ?></td>
                      <td><?php echo $result['pass']; ?></td>
-                     <td><?php echo $log->accessLog($result['ip'],'city'); ?></td>
-                     <td><?php echo $log->accessLog($result['ip'],'country'); ?></td>
-                     <td><?php echo $log->accessLog($result['ip'],'isp'); ?></td>
-                     <td><?php echo $log->accessLog($result['ip'],'zip'); ?></td>
+                     <td><?php echo $log->accessLog($result['ip'], 'city'); ?></td>
+                     <td><?php echo $log->accessLog($result['ip'], 'country'); ?></td>
+                     <td><?php echo $log->accessLog($result['ip'], 'isp'); ?></td>
+                     <td><?php echo $log->accessLog($result['ip'], 'zip'); ?></td>
                   </tr>
                   <?php
-                     }
-                     } else {
-                     ?>
+    }
+} else {
+    ?>
                   <?php }
-                     ?>
+?>
                </tbody>
             </table>
          </div>

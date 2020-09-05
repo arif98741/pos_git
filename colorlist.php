@@ -1,10 +1,10 @@
 <?php include 'lib/header.php'; ?>
 <?php
 //update Color
-if ( isset($_POST['updatecolor'])) {
-    
-    $colorid = mysqli_real_escape_string($db->link,$_POST['colorid']);
-    $colorname = mysqli_real_escape_string($db->link,$_POST['colorname']);
+if (isset($_POST['updatecolor'])) {
+
+    $colorid = mysqli_real_escape_string($db->link, $_POST['colorid']);
+    $colorname = mysqli_real_escape_string($db->link, $_POST['colorname']);
 
     $stmt = $db->link->query("update tbl_color set colorname ='$colorname' where colorid ='$colorid'");
     if ($stmt) {
@@ -15,11 +15,11 @@ if ( isset($_POST['updatecolor'])) {
 }
 
 //delete Color
-if (isset($_GET['action']) && $_GET['action']=='delete') {
+if (isset($_GET['action']) && $_GET['action'] == 'delete') {
     $colorid = mysqli_real_escape_string($db->link, $_GET['colorid']);
-    if($db->link->query("delete from tbl_color where colorid='$colorid'")){
+    if ($db->link->query("delete from tbl_color where colorid='$colorid'")) {
         echo "<script>alert('Color Deleted Successfully');</script>";
-    }else{
+    } else {
         echo "<script>alert('Color Deleted Failed!');</script>";
     }
 }
@@ -56,11 +56,17 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
                                     <td><?php echo $i; ?></td>
                                     <td style="text-align: left;"><?php echo ucfirst($result['colorname']); ?></td>
                                     <td><?php echo $result['colorid']; ?></td>
-                                    
+
                                     <td>
-                                        <a href="editcolor.php?action=view&colorid=<?php echo $result['colorid'] ?>" style="border-radius: 3px;" title="click to view" ></a>
-                                        <a href="editcolor.php?action=edit&colorid=<?php echo $result['colorid'] ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
-                                        <a href="?action=delete&colorid=<?php echo $result['colorid'] ?>" style="border-radius: 3px;" title="click to delete" onclick="return confirm('are you sure to delete?')" ><i class="lnr lnr-trash"></i></a>
+                                        <a href="editcolor.php?action=view&colorid=<?php echo $result['colorid'] ?>"
+                                           style="border-radius: 3px;" title="click to view"></a>
+                                        <a href="editcolor.php?action=edit&colorid=<?php echo $result['colorid'] ?>"
+                                           style="border-radius: 3px;" title="click to edit"><i
+                                                    class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
+                                        <a href="?action=delete&colorid=<?php echo $result['colorid'] ?>"
+                                           style="border-radius: 3px;" title="click to delete"
+                                           onclick="return confirm('are you sure to delete?')"><i
+                                                    class="lnr lnr-trash"></i></a>
                                     </td>
                                 </tr>
 

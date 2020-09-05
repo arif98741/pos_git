@@ -33,15 +33,18 @@
   display: block;
   margin: 10px 0;
   text-align: center;
+
   &.margin-bottom {
     margin-bottom: 25px;
   }
+
   > .description-header {
     margin: 0;
     padding: 0;
     font-weight: 600;
     font-size: 16px;
   }
+
   > .description-text {
     text-transform: uppercase;
   }
@@ -161,59 +164,59 @@
 }
 
 .bg-red-active {
-  background-color: darken(@red , 6%) !important;
+  background-color: darken(@red, 6%) !important;
 }
 
 .bg-yellow-active {
-  background-color: darken(@yellow , 6%) !important;
+  background-color: darken(@yellow, 6%) !important;
 }
 
 .bg-aqua-active {
-  background-color: darken(@aqua , 6%) !important;
+  background-color: darken(@aqua, 6%) !important;
 }
 
 .bg-blue-active {
-  background-color: darken(@blue , 10%) !important;
+  background-color: darken(@blue, 10%) !important;
 }
 
 .bg-light-blue-active {
-  background-color: darken(@light-blue , 6%) !important;
+  background-color: darken(@light-blue, 6%) !important;
 }
 
 .bg-green-active {
-  background-color: darken(@green , 5%) !important;
+  background-color: darken(@green, 5%) !important;
 }
 
 .bg-navy-active {
-  background-color: darken(@navy , 2%) !important;
+  background-color: darken(@navy, 2%) !important;
 }
 
 .bg-teal-active {
-  background-color: darken(@teal , 5%) !important;
+  background-color: darken(@teal, 5%) !important;
 }
 
 .bg-olive-active {
-  background-color: darken(@olive , 5%) !important;
+  background-color: darken(@olive, 5%) !important;
 }
 
 .bg-lime-active {
-  background-color: darken(@lime , 5%) !important;
+  background-color: darken(@lime, 5%) !important;
 }
 
 .bg-orange-active {
-  background-color: darken(@orange , 5%) !important;
+  background-color: darken(@orange, 5%) !important;
 }
 
 .bg-fuchsia-active {
-  background-color: darken(@fuchsia , 5%) !important;
+  background-color: darken(@fuchsia, 5%) !important;
 }
 
 .bg-purple-active {
-  background-color: darken(@purple , 5%) !important;
+  background-color: darken(@purple, 5%) !important;
 }
 
 .bg-maroon-active {
-  background-color: darken(@maroon , 3%) !important;
+  background-color: darken(@maroon, 3%) !important;
 }
 
 //Disabled!
@@ -288,6 +291,7 @@
 
 .link-muted {
   color: darken(@gray-lte, 30%);
+
   &:hover,
   &:focus {
     color: darken(@gray-lte, 40%);
@@ -296,6 +300,7 @@
 
 .link-black {
   color: #666;
+
   &:hover,
   &:focus {
     color: #999;
@@ -452,6 +457,7 @@
   > a {
     padding: 4px;
     color: #777;
+
     &:hover {
       color: #222;
     }
@@ -466,34 +472,41 @@
 //User block
 .user-block {
   .clearfix();
+
   img {
     width: 40px;
     height: 40px;
     float: left;
   }
+
   .username,
   .description,
   .comment {
     display: block;
     margin-left: 50px;
   }
+
   .username {
     font-size: 16px;
     font-weight: 600;
   }
+
   .description {
     color: #999;
     font-size: 13px;
   }
+
   &.user-block-sm {
     img {
       &:extend(.img-sm);
     }
+
     .username,
     .description,
     .comment {
       margin-left: 40px;
     }
+
     .username {
       font-size: 14px;
     }
@@ -510,6 +523,7 @@
 .img-sm {
   width: 30px !important;
   height: 30px !important;
+
   + .img-push {
     margin-left: 40px;
   }
@@ -518,6 +532,7 @@
 .img-md {
   width: 60px;
   height: 60px;
+
   + .img-push {
     margin-left: 70px;
   }
@@ -526,6 +541,7 @@
 .img-lg {
   width: 100px;
   height: 100px;
+
   + .img-push {
     margin-left: 110px;
   }
@@ -555,12 +571,15 @@
     height: auto;
     float: left;
   }
+
   .attachment-pushed {
     margin-left: 110px;
   }
+
   .attachment-heading {
     margin: 0;
   }
+
   .attachment-text {
     color: #555;
   }
@@ -589,6 +608,7 @@
 
 .full-opacity-hover {
   .opacity(.65);
+
   &:hover {
     .opacity(1);
   }
@@ -599,6 +619,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+
   svg,
   canvas {
     width: 100% !important;

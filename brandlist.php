@@ -2,10 +2,10 @@
 <?php
 
 //update brand
-if ( isset($_POST['updatebrand'])) {
-    
-    $brandid = mysqli_real_escape_string($db->link,$_POST['brandid']);
-    $brandname = mysqli_real_escape_string($db->link,$_POST['brandname']);
+if (isset($_POST['updatebrand'])) {
+
+    $brandid = mysqli_real_escape_string($db->link, $_POST['brandid']);
+    $brandname = mysqli_real_escape_string($db->link, $_POST['brandname']);
 
     $stmt = $db->link->query("update tbl_brand set brandname ='$brandname' where brandid ='$brandid'");
     if ($stmt) {
@@ -16,11 +16,11 @@ if ( isset($_POST['updatebrand'])) {
 }
 
 //delete brand
-if (isset($_GET['action']) && $_GET['action']=='delete') {
+if (isset($_GET['action']) && $_GET['action'] == 'delete') {
     $brandid = mysqli_real_escape_string($db->link, $_GET['brandid']);
-    if($db->link->query("delete from tbl_brand where brandid='$brandid'")){
+    if ($db->link->query("delete from tbl_brand where brandid='$brandid'")) {
         echo "<script>alert('Brand Deleted Successfully');</script>";
-    }else{
+    } else {
         echo "<script>alert('Brand Deleted Failed!');</script>";
     }
 }
@@ -58,9 +58,15 @@ if (isset($_GET['action']) && $_GET['action']=='delete') {
                                     <td style="text-align: left;"><?php echo $result['brandname']; ?></td>
                                     <td><?php echo $result['brandid']; ?></td>
                                     <td>
-                                        <a href="editbrand.php?action=view&brandid=<?php echo $result['brandid'] ?>" style="border-radius: 3px;" title="click to view" ></a>
-                                        <a href="editbrand.php?action=edit&brandid=<?php echo $result['brandid'] ?>" style="border-radius: 3px;" title="click to edit" ><i class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
-                                        <a href="?action=delete&brandid=<?php echo $result['brandid'] ?>" style="border-radius: 3px;" title="click to delete" onclick="return confirm('are you sure to delete?')" ><i class="lnr lnr-trash"></i></a>
+                                        <a href="editbrand.php?action=view&brandid=<?php echo $result['brandid'] ?>"
+                                           style="border-radius: 3px;" title="click to view"></a>
+                                        <a href="editbrand.php?action=edit&brandid=<?php echo $result['brandid'] ?>"
+                                           style="border-radius: 3px;" title="click to edit"><i
+                                                    class="fa fa-pencil-square-o"></i>&nbsp;&nbsp;</a>
+                                        <a href="?action=delete&brandid=<?php echo $result['brandid'] ?>"
+                                           style="border-radius: 3px;" title="click to delete"
+                                           onclick="return confirm('are you sure to delete?')"><i
+                                                    class="lnr lnr-trash"></i></a>
                                     </td>
                                 </tr>
 

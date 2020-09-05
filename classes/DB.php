@@ -1,21 +1,23 @@
 <?php
 
-class Database {
+class Database
+{
 
     public $link;
     private $username = 'root';
     private $password = '';
     private $host = 'localhost';
-    private $database = 'aladin_pos';
+    private $database = 'rizan_inventory';
 
-    
+
     /*
     !-----------------------------------------------------
     !      initial load at the time of creating object
     !      no return job
     !----------------------------------------------------
     */
-    function __construct() {
+    function __construct()
+    {
         $this->link = $this->connection();
     }
 
@@ -26,7 +28,8 @@ class Database {
     !      return as connection object
     !----------------------------------------------------
     */
-    public function connection() {
+    public function connection()
+    {
         $link = new mysqli($this->host, $this->username, $this->password, $this->database);
         if (!$link) {
             return die('Connection Failed');
@@ -35,26 +38,26 @@ class Database {
         }
     }
 
-    
+
     /*
     !-----------------------------------------------------
     !      select data from database
     !      return as object
     !----------------------------------------------------
     */
-    public function select($query) {
-        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
-        if($stmt)
-        {
+    public function select($query)
+    {
+        $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
+        if ($stmt) {
             if ($stmt->num_rows > 0) {
                 return $stmt;
             } else {
                 return false;
             }
         }
-        
+
     }
-    
+
 
     /*
     !-----------------------------------------------------
@@ -62,7 +65,8 @@ class Database {
     !      return as associative array
     !----------------------------------------------------
     */
-    public function selectFetchAssoc($query) {
+    public function selectFetchAssoc($query)
+    {
         $stmt = $this->link->query($query);
         if ($stmt->num_rows > 0) {
             return $stmt->fetch_assoc();
@@ -78,8 +82,9 @@ class Database {
     !      @ return true/false
     !----------------------------------------------------
     */
-    public function insert($query) {
-        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
+    public function insert($query)
+    {
+        $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
         if ($stmt) {
             return $stmt;
         } else {
@@ -95,8 +100,9 @@ class Database {
     !      @ true/false
     !----------------------------------------------------
     */
-    public function update($query) {
-        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;
+    public function update($query)
+    {
+        $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
         if ($stmt) {
             return true;
         } else {
@@ -104,7 +110,7 @@ class Database {
         }
     }
 
-  
+
     /*
     !-----------------------------------------------------
     !      delete data from database
@@ -112,8 +118,9 @@ class Database {
     !      @ return boolean
     !----------------------------------------------------
     */
-    public function delete($query) {
-        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
+    public function delete($query)
+    {
+        $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
         if ($stmt) {
             return true;
         } else {
@@ -128,8 +135,9 @@ class Database {
     !      return as number
     !----------------------------------------------------
     */
-    public function rowCount($query) {
-        $stmt = $this->link->query($query) or die($this->link->error). " error at line number ".__LINE__;;
+    public function rowCount($query)
+    {
+        $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
         if ($stmt->num_rows > 0) {
             return $stmt->num_rows;
         } else {

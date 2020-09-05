@@ -2,13 +2,15 @@
 include_once 'DB.php';
 include_once 'helper/Helper.php';
 
-class News {
+class News
+{
 
     private $dbObj;
     private $helpObj;
     private $msg;
 
-    public function __construct() {
+    public function __construct()
+    {
 
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
@@ -24,60 +26,59 @@ class News {
     {
         $title = $this->helpObj->validAndEscape($data['title']);
         $description = $data['description'];
-        $photo  =  'news' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        $photo = 'news' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
         $date = date('Y-m-d h:i:s');
-       
+
         $query = "insert into news(title,description,photo,date) values('$title','$description','$photo','$date')";
-        $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
-        if ($stmt) {     
-            move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/news/".$photo);
+        $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error) . " " . __LINE__;
+        if ($stmt) {
+            move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/news/" . $photo);
             return "<script>alert('News Added Successful');</script>";
-        }else{
-             return "<script>alert('News Added Failed');</script>";
+        } else {
+            return "<script>alert('News Added Failed');</script>";
         }
 
     }
 
 
-
-     /*
-    @ update news  in editnews.php
-    @ table = news
-    @ action newslist.php
-    */
+    /*
+   @ update news  in editnews.php
+   @ table = news
+   @ action newslist.php
+   */
     function updateNews($data)
     {
 
         $id = $this->helpObj->validAndEscape($data['newsid']);
         $title = $this->helpObj->validAndEscape($data['title']);
         $description = $data['description'];
-        $photo  =  'news' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
-        
+        $photo = 'news' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
-        if (strpos($_FILES["photo"]["tmp_name"],'.tmp') == "" || strpos($_FILES["photo"]["tmp_name"],'.tmp') == null) {
-            
+
+        if (strpos($_FILES["photo"]["tmp_name"], '.tmp') == "" || strpos($_FILES["photo"]["tmp_name"], '.tmp') == null) {
+
             $query = "update news set title ='$title', description = '$description' where id='$id'";
-            $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
+            $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error) . " " . __LINE__;
             if ($stmt) {
-                 return "<script>alert('News Updated Successful');</script>";
-            }else{
+                return "<script>alert('News Updated Successful');</script>";
+            } else {
                 return "<script>alert('News Updated Failed');</script>";
             }
-        }else{
-            $chstmt =  $this->dbObj->link->query("select * from news where id ='$id'") or die($this->dbObj->link->error)." ".__LINE__;
+        } else {
+            $chstmt = $this->dbObj->link->query("select * from news where id ='$id'") or die($this->dbObj->link->error) . " " . __LINE__;
             if ($chstmt) {
                 $data = $chstmt->fetch_assoc();
             }
-             $query = "update news set title ='$title', description = '$description', photo = '$photo' where id='$id'";
+            $query = "update news set title ='$title', description = '$description', photo = '$photo' where id='$id'";
 
-             if (file_exists("../photo/news/".$data['photo'])) {
-                 unlink("../photo/news/".$data['photo']);
-             }
-            $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." ".__LINE__;
+            if (file_exists("../photo/news/" . $data['photo'])) {
+                unlink("../photo/news/" . $data['photo']);
+            }
+            $stmt = $this->dbObj->link->query($query) or die($this->dbObj->link->error) . " " . __LINE__;
             if ($stmt) {
-                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/news/".$photo);
+                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/news/" . $photo);
                 return "<script>alert('News Updated Successful');</script>";
-            }else{
+            } else {
                 return "<script>alert('News Updated Failed');</script>";
             }
         }
@@ -96,12 +97,11 @@ class News {
         if ($stmt) {
 
             return $stmt;
-        }else{
+        } else {
             return false;
         }
 
     }
-
 
 
     /*
@@ -117,40 +117,40 @@ class News {
         $contact = $this->helpObj->validAndEscape($data['contact']);
         $member_id = $this->helpObj->validAndEscape($data['member_id']);
         $_FILES["photo"]["tmp_name"];
-        $photo  =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
+        $photo = 'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
-        if (strpos($_FILES["photo"]["tmp_name"],'.tmp') == "" || strpos($_FILES["photo"]["tmp_name"],'.tmp') == null) {
-            
+        if (strpos($_FILES["photo"]["tmp_name"], '.tmp') == "" || strpos($_FILES["photo"]["tmp_name"], '.tmp') == null) {
+
             $query = "update committee set
              name ='$name',
              designation = '$designation',
              address = '$address',
              contact = '$contact' where id='$member_id'";
-            $stmt = $this->dbObj->link->query($query); 
+            $stmt = $this->dbObj->link->query($query);
             if ($stmt) {
-                 return "<script>alert('Member Update Succful');</script>";
-            }else{
+                return "<script>alert('Member Update Succful');</script>";
+            } else {
                 return "<script>alert('Member Update Failed');</script>";
             }
-        }else{
-            $chstmt =  $this->dbObj->link->query("select * from committee where id ='$member_id'");
+        } else {
+            $chstmt = $this->dbObj->link->query("select * from committee where id ='$member_id'");
             if ($chstmt) {
                 $data = $chstmt->fetch_assoc();
             }
-             $query = "update committee set
+            $query = "update committee set
              name ='$name',
              designation = '$designation',
              address = '$address',
              contact = '$contact', photo = '$photo' where id='$member_id'";
 
-             if (file_exists("../photo/committee/".$data['photo'])) {
-                 unlink("../photo/committee/".$data['photo']);
-             }
-            $stmt = $this->dbObj->link->query($query); 
+            if (file_exists("../photo/committee/" . $data['photo'])) {
+                unlink("../photo/committee/" . $data['photo']);
+            }
+            $stmt = $this->dbObj->link->query($query);
             if ($stmt) {
-                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/committee/".$photo);
+                move_uploaded_file($_FILES["photo"]["tmp_name"], "../photo/committee/" . $photo);
                 return "<script>alert('Member Update Successful');</script>";
-            }else{
+            } else {
                 return "<script>alert('Member Update Failed');</script>";
             }
         }

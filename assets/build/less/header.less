@@ -15,30 +15,37 @@
     border: none;
     min-height: @navbar-height;
     border-radius: 0;
+
     .layout-top-nav & {
       margin-left: 0;
     }
   }
+
   //Navbar search text input
   #navbar-search-input.form-control {
     background: rgba(255, 255, 255, .2);
     border-color: transparent;
+
     &:focus,
     &:active {
       border-color: rgba(0, 0, 0, .1);
       background: rgba(255, 255, 255, .9);
     }
+
     &::-moz-placeholder {
       color: #ccc;
       opacity: 1;
     }
+
     &:-ms-input-placeholder {
       color: #ccc;
     }
+
     &::-webkit-input-placeholder {
       color: #ccc;
     }
   }
+
   //Navbar Right Menu
   .navbar-custom-menu,
   .navbar-right {
@@ -50,6 +57,7 @@
       }
     }
   }
+
   .navbar-right {
     @media (max-width: @screen-header-collapse) {
       float: none;
@@ -63,6 +71,7 @@
       }
     }
   }
+
   //Navbar toggle button
   .sidebar-toggle {
     float: left;
@@ -71,20 +80,25 @@
     padding: @navbar-padding-vertical @navbar-padding-horizontal;
     //Add the fontawesome bars icon
     font-family: fontAwesome;
+
     &:before {
       content: "\f0c9";
     }
+
     &:hover {
       color: #fff;
     }
+
     &:focus,
     &:active {
       background: transparent;
     }
   }
+
   .sidebar-toggle .icon-bar {
     display: none;
   }
+
   //Navbar User Menu
   .navbar .nav > li.user > a {
     > .fa,
@@ -125,10 +139,12 @@
       //should be visibile when sidebar isn't collapsed
       display: block;
     }
+
     .logo-mini {
       display: none;
     }
   }
+
   //Navbar Brand. Alternative logo with layout-top-nav
   .navbar-brand {
     color: #fff;
@@ -143,6 +159,7 @@
   > h1 {
     margin: 0;
     font-size: 24px;
+
     > small {
       font-size: 15px;
       display: inline-block;
@@ -162,14 +179,17 @@
     top: 15px;
     right: 10px;
     .border-radius(2px);
+
     > li > a {
       color: #444;
       text-decoration: none;
       display: inline-block;
+
       > .fa, > .glyphicon, > .ion {
         margin-right: 5px;
       }
     }
+
     > li + li:before {
       content: '>\00a0';
     }
@@ -184,6 +204,7 @@
       float: none;
       background: @gray-lte;
       padding-left: 10px;
+
       li:before {
         color: darken(@gray-lte, 20%);
       }
@@ -221,14 +242,17 @@
 @media (max-width: @screen-header-collapse) {
   .main-header {
     position: relative;
+
     .logo,
     .navbar {
       width: 100%;
       float: none;
     }
+
     .navbar {
       margin: 0;
     }
+
     .navbar-custom-menu {
       float: right;
     }

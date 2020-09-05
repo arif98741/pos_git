@@ -31,6 +31,7 @@
   > .tab-content {
     padding: 10px 15px;
   }
+
   // Open state with slide over content effect
   &.control-sidebar-open {
     &,
@@ -46,6 +47,7 @@
   .control-sidebar {
     right: 0;
   }
+
   @media (min-width: @screen-sm) {
     .content-wrapper,
     .right-side,
@@ -75,6 +77,7 @@
         border-left-width: 0;
       }
     }
+
     > a {
       .border-radius(0);
 
@@ -86,10 +89,12 @@
         border-left: 1px solid transparent;
         border-bottom: 1px solid transparent;
       }
+
       .icon {
         font-size: 16px;
       }
     }
+
     // Active state
     &.active {
       > a {
@@ -104,6 +109,7 @@
       }
     }
   }
+
   // Remove responsiveness on small screens
   @media (max-width: @screen-sm) {
     display: table;
@@ -133,14 +139,17 @@
   list-style: none;
   padding: 0;
   margin: 0 -15px;
+
   > li > a {
     .clearfix();
     display: block;
     padding: 10px 15px;
+
     > .control-sidebar-subheading {
       margin-top: 0;
     }
   }
+
   .menu-icon {
     float: left;
     width: 35px;
@@ -149,17 +158,21 @@
     text-align: center;
     line-height: 35px;
   }
+
   .menu-info {
     margin-left: 45px;
     margin-top: 3px;
+
     > .control-sidebar-subheading {
       margin: 0;
     }
+
     > p {
       margin: 0;
       font-size: 11px;
     }
   }
+
   .progress {
     margin: 0;
   }
@@ -173,9 +186,11 @@
   + .control-sidebar-bg {
     background: @sidebar-dark-bg;
   }
+
   //  Sidebar tabs
   .nav-tabs.control-sidebar-tabs {
     border-bottom: darken(@sidebar-dark-bg, 3%);
+
     > li {
       > a {
         background: darken(@sidebar-dark-bg, 5%);
@@ -187,15 +202,18 @@
           border-left-color: darken(@sidebar-dark-bg, 7%);
           border-bottom-color: darken(@sidebar-dark-bg, 7%);
         }
+
         &:hover,
         &:focus,
         &:active {
           background: darken(@sidebar-dark-bg, 3%);
         }
+
         &:hover {
           color: #fff;
         }
       }
+
       // Active state
       &.active {
         > a {
@@ -210,11 +228,13 @@
       }
     }
   }
+
   // Heading & subheading
   .control-sidebar-heading,
   .control-sidebar-subheading {
     color: #fff;
   }
+
   // Sidebar list
   .control-sidebar-menu {
     > li {
@@ -222,6 +242,7 @@
         &:hover {
           background: @sidebar-dark-hover-bg;
         }
+
         .menu-info {
           > p {
             color: @sidebar-dark-color;
@@ -241,9 +262,11 @@
     background: @sidebar-light-bg;
     border-left: 1px solid @gray-lte;
   }
+
   //  Sidebar tabs
   .nav-tabs.control-sidebar-tabs {
     border-bottom: @gray-lte;
+
     > li {
       > a {
         background: darken(@sidebar-light-bg, 5%);
@@ -255,12 +278,14 @@
           border-left-color: @gray-lte;
           border-bottom-color: @gray-lte;
         }
+
         &:hover,
         &:focus,
         &:active {
           background: darken(@sidebar-light-bg, 3%);
         }
       }
+
       // Active state
       &.active {
         > a {
@@ -275,19 +300,23 @@
       }
     }
   }
+
   // Heading & subheading
   .control-sidebar-heading,
   .control-sidebar-subheading {
     color: #111;
   }
+
   // Sidebar list
   .control-sidebar-menu {
     margin-left: -14px;
+
     > li {
       > a {
         &:hover {
           background: @sidebar-light-hover-bg;
         }
+
         .menu-info {
           > p {
             color: lighten(@sidebar-light-color, 10%);

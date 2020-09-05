@@ -7,18 +7,22 @@
 .dropdown-menu {
   box-shadow: none;
   border-color: #eee;
+
   > li > a {
     color: #777;
   }
+
   > li > a > .glyphicon,
   > li > a > .fa,
   > li > a > .ion {
     margin-right: 10px;
   }
+
   > li > a:hover {
     background-color: lighten(@gray-lte, 5%);
     color: #333;
   }
+
   > .divider {
     background-color: #eee;
   }
@@ -33,12 +37,14 @@
     > li {
       position: relative;
     }
+
     width: 280px;
     //Remove padding and margins
     padding: 0 0 0 0;
     margin: 0;
     top: 100%;
   }
+
   //Define header class
   > .dropdown-menu > li.header {
     .border-radius(4px; 4px; 0; 0);
@@ -76,6 +82,7 @@
     padding: 0;
     list-style: none;
     overflow-x: hidden;
+
     > li > a {
       display: block;
       white-space: nowrap; /* Prevent text from breaking */
@@ -124,6 +131,7 @@
         width: 40px;
         height: 40px;
       }
+
       // Message heading
       > h4 {
         padding: 0;
@@ -187,6 +195,7 @@
     > .user-body {
       .border-bottom-radius(4px);
     }
+
     // Header menu
     > li.user-header {
       height: 175px;
@@ -201,6 +210,7 @@
         border-color: transparent;
         border-color: rgba(255, 255, 255, 0.2);
       }
+
       > p {
         z-index: 5;
         color: #fff;
@@ -208,6 +218,7 @@
         font-size: 17px;
         //text-shadow: 2px 2px 3px #333333;
         margin-top: 10px;
+
         > small {
           display: block;
           font-size: 12px;
@@ -221,6 +232,7 @@
       border-bottom: 1px solid #f4f4f4;
       border-top: 1px solid #dddddd;
       .clearfix();
+
       a {
         color: #444 !important;
         @media (max-width: @screen-sm-max) {
@@ -235,8 +247,10 @@
       background-color: #f9f9f9;
       padding: 10px;
       .clearfix();
+
       .btn-default {
         color: #666666;
+
         &:hover {
           @media (max-width: @screen-sm-max) {
             background-color: #f9f9f9;
@@ -245,6 +259,7 @@
       }
     }
   }
+
   .user-image {
     float: left;
     width: 25px;
@@ -325,6 +340,7 @@
 .navbar-custom-menu > .navbar-nav {
   > li {
     position: relative;
+
     > .dropdown-menu {
       position: absolute;
       right: 0;
@@ -336,8 +352,10 @@
 @media (max-width: @screen-sm-max) {
   .navbar-custom-menu > .navbar-nav {
     float: right;
+
     > li {
       position: static;
+
       > .dropdown-menu {
         position: absolute;
         right: 5%;

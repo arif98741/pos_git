@@ -3,16 +3,32 @@
 
     // custom scrollbar
 
-    $("html").niceScroll({styler: "fb", cursorcolor: "#27cce4", cursorwidth: '5', cursorborderradius: '10px', background: '#424f63', spacebarenabled: false, cursorborder: '0', zindex: '1000'});
+    $("html").niceScroll({
+        styler: "fb",
+        cursorcolor: "#27cce4",
+        cursorwidth: '5',
+        cursorborderradius: '10px',
+        background: '#424f63',
+        spacebarenabled: false,
+        cursorborder: '0',
+        zindex: '1000'
+    });
 
-    $(".left-side").niceScroll({styler: "fb", cursorcolor: "#27cce4", cursorwidth: '3', cursorborderradius: '10px', background: '#424f63', spacebarenabled: false, cursorborder: '0'});
+    $(".left-side").niceScroll({
+        styler: "fb",
+        cursorcolor: "#27cce4",
+        cursorwidth: '3',
+        cursorborderradius: '10px',
+        background: '#424f63',
+        spacebarenabled: false,
+        cursorborder: '0'
+    });
 
 
     $(".left-side").getNiceScroll();
     if ($('body').hasClass('left-side-collapsed')) {
         $(".left-side").getNiceScroll().hide();
     }
-
 
 
     // Toggle Left Menu
@@ -138,7 +154,6 @@ $(document).ready(function () {
 });
 
 
-
 /************** Search ****************/
 $(function () {
     var button = $('#loginButton');
@@ -160,6 +175,6 @@ $(function () {
     });
 });
 
-function initMap(){
-    
+function initMap() {
+
 }
