@@ -1,8 +1,4 @@
 <?php
-$path = realpath(dirname(__DIR__));
-include_once 'DB.php';
-include_once 'Session.php';
-include_once $path . '/helper/Helper.php';
 
 class Product
 {
@@ -113,7 +109,6 @@ class Product
 
     public function addProduct($data)
     {
-
         $product_id = $this->helpObj->validAndEscape($data['product_id']);
         $product_type = $this->helpObj->validAndEscape($data['product_type']);
         $product_group = $this->helpObj->validAndEscape($data['product_group']);

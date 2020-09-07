@@ -3,47 +3,7 @@ ob_start();
 $startScriptTime = microtime(TRUE);
 date_default_timezone_set('Asia/Dhaka');
 define("BASE_URL", 'http://localhost/pos_git/');
-
-//case control
-header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
-
-
-$path = realpath(dirname(__DIR__));
-include_once $path . '/classes/Session.php';
-Session::checkSession();
-
-function __autoload($class)
-{
-    $filepath = realpath(dirname(__DIR__));
-    include_once $filepath . '/classes/' . $class . '.php';
-}
-
-include_once $path . '/helper/Helper.php';
-
-error_reporting(E_ALL);
-
-$db = new Database();
-$log = new Login();
-$pro = new Product();
-$sel = new Sell();
-$sup = new Supplier();
-$cus = new Customer();
-$inv = new Invoice();
-$sto = new Stock();
-$las = new Laser();
-$ext = new Extra();
-$help = new Helper();
-
-
-if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    session_destroy();
-    echo "<script>window.location = 'login.php';</script>";
-}
-
+require 'header-part.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +26,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b><i class="fa fa-ist"></i></b></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>pos</b> explore</span>
+            <span class="logo-lg">Rizan Inventory</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -79,14 +39,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
                     <li class="dropdown messages-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="label label-success">4</span>
-                        </a>
+
                         <ul class="dropdown-menu">
-                            <li class="header">You have 4 messages</li>
+
                             <li>
-                                <!-- inner menu: contains the actual data -->
+
                                 <ul class="menu">
                                     <li><!-- start message -->
                                         <a href="#">
@@ -94,11 +51,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                                 <img src="<?php echo Session::get('logo'); ?>" class="img-circle"
                                                      alt="User Image">
                                             </div>
-                                            <h4>
-                                                Support Team
-                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                            </h4>
-                                            <p>Why not buy a new awesome theme?</p>
+
+
                                         </a>
                                     </li>
                                     <!-- end message -->
@@ -106,67 +60,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
                                 </ul>
                             </li>
-                            <li class="footer"><a href="#">See All Messages</a></li>
+
                         </ul>
                     </li>
-                    <!-- Notifications: style can be found in dropdown.less -->
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 10 notifications</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                        </a>
-                                    </li>
 
-
-                                </ul>
-                            </li>
-                            <li class="footer"><a href="#">View all</a></li>
-                        </ul>
-                    </li>
-                    <!-- Tasks: style can be found in dropdown.less -->
-                    <li class="dropdown tasks-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-flag-o"></i>
-                            <span class="label label-danger">9</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="header">You have 9 tasks</li>
-                            <li>
-                                <!-- inner menu: contains the actual data -->
-                                <ul class="menu">
-                                    <li><!-- Task item -->
-                                        <a href="#">
-                                            <h3>
-                                                Design some buttons
-                                                <small class="pull-right">20%</small>
-                                            </h3>
-                                            <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
-                                                     role="progressbar"
-                                                     aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">20% Complete</span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-
-                                    <!-- end task item -->
-                                </ul>
-                            </li>
-                            <li class="footer">
-                                <a href="#">View all tasks</a>
-                            </li>
-                        </ul>
-                    </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -1,4 +1,6 @@
 <?php
+$path = realpath(dirname(__DIR__));
+require $path . '/vendor/autoload.php';
 
 class Database
 {
@@ -9,7 +11,6 @@ class Database
     private $host = 'localhost';
     private $database = 'rizan_inventory';
 
-
     /*
     !-----------------------------------------------------
     !      initial load at the time of creating object
@@ -19,6 +20,8 @@ class Database
     function __construct()
     {
         $this->link = $this->connection();
+
+
     }
 
 

@@ -1,5 +1,5 @@
 <?php
-include_once 'classes/DB.php';
+include_once 'classes/Database.php';
 include_once 'classes/Supplier.php';
 include_once 'classes/Invoice.php';
 include_once 'classes/Extra.php';
@@ -135,6 +135,4 @@ if (isset($_POST['action']) && $_POST['action'] == 'paycustomerdue') {
         $message['message'] = "Failed To Update Payment";
         json_encode($message);
     }
-
-
 }

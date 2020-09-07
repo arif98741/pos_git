@@ -4,3 +4,4 @@ node_modules/
 test.php
 tempstock.php
 error_log
+/vendor/

@@ -1,6 +1,4 @@
 <?php
-include_once 'DB.php';
-include_once 'helper/Helper.php';
 
 class News
 {

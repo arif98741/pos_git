@@ -1,6 +1,6 @@
 <?php
 $path = realpath(dirname(__DIR__));
-include_once "../../classes/DB.php";
+include_once "../../classes/Database.php";
 include_once "../../classes/Session.php";
 include_once "../../classes/Printdata.php";
 include_once "../../helper/Helper.php";

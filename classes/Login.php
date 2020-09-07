@@ -1,6 +1,6 @@
 <?php
-include_once 'Session.php';
-include_once 'helper/Helper.php';
+//include_once 'Session.php';
+//include_once 'helper/Helper.php';
 
 class Login
 {

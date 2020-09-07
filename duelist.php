@@ -6,7 +6,7 @@ include_once 'classes/Session.php';
 
 include_once "classes/Printdata.php";
 
-include_once "classes/DB.php";
+include_once "classes/Database.php";
 
 Session::checkSession();
 

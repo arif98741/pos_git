@@ -1,0 +1,13 @@
+{
+    "name": "admin/pos_git",
+    "authors": [
+        {
+            "name": "Ariful Islam",
+            "email": "arif98741@gmail.com"
+        }
+    ],
+    "require": {
+        "filp/whoops": "^2.7",
+        "symfony/var-dumper": "^5.1"
+    }
+}
