@@ -53,7 +53,6 @@ class Product
         if ($stmt) {
             return $stmt->fetch_assoc();
         }
-
     }
 
 
@@ -65,7 +64,6 @@ class Product
         if ($stmt) {
             return $stmt->fetch_assoc();
         }
-
     }
 
 
@@ -113,20 +111,27 @@ class Product
 
     public function addProduct($data)
     {
-
         $product_id = $this->helpObj->validAndEscape($data['product_id']);
-        $product_type = $this->helpObj->validAndEscape($data['product_type']);
-        $product_group = $this->helpObj->validAndEscape($data['product_group']);
         $product_name = $this->helpObj->validAndEscape($data['product_name']);
-        $product_brand = $this->helpObj->validAndEscape($data['product_brand']);
+        $sku = $this->helpObj->validAndEscape($data['sku']);
+        $retail_price = $this->helpObj->validAndEscape($data['retail_price']);
         $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
-        $purchase_price = $this->helpObj->validAndEscape($data['purchase_price']);
-        $piece_in_a_carton = $this->helpObj->validAndEscape($data['piece_in_a_carton']);
-        $u_id = $_SESSION['userid'];
-        $query = "insert into tbl_product
-                (product_id,product_type,product_group,product_name,product_brand,sale_price,purchase_price,piece_in_a_carton,updateby)
-   
-          values('$product_id','$product_type','$product_group','$product_name','$product_brand','$sale_price','$purchase_price','$piece_in_a_carton','$u_id')";
+        $whole_price = $this->helpObj->validAndEscape($data['whole_price']);
+        $brand_name = $this->helpObj->validAndEscape($data['brand_name']);
+        $category_name = $this->helpObj->validAndEscape($data['category_name']);
+        $stock = $this->helpObj->validAndEscape($data['stock']);
+        $size = $this->helpObj->validAndEscape($data['size']);
+        $query = "insert into tbl_product(
+                product_id,
+                product_name,
+                sku,
+                retail_price,
+                sale_price,
+                whole_price,
+                brand_name,
+                category_name,
+                stock,
+                size) values('$product_id','$product_name','$sku','$retail_price','$sale_price','$whole_price','$brand_name','$category_name','$stock','$size')";
 
         $check = $this->dbObj->select("select * from tbl_product where product_id='$product_id'");
 
@@ -197,6 +202,4 @@ class Product
             return false;
         }
     }
-
-
 }
