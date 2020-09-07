@@ -1,8 +1,5 @@
 <?php
-$path = realpath(dirname(__DIR__));
-include_once 'DB.php';
-include_once 'Session.php';
-include_once $path . '/helper/Helper.php';
+
 
 class Laser
 {

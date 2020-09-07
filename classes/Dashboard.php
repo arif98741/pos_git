@@ -1,7 +1,7 @@
 <?php
 $path = realpath(dirname(__DIR__));
 
-include_once 'DB.php';
+include_once 'Database.php';
 include_once $path . '/helper/Helper.php';
 
 class Dashboard

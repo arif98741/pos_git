@@ -1,5 +1,5 @@
 <?php
-include_once 'DB.php';
+include_once 'Database.php';
 include_once 'helper/Helper.php';
 
 class Manage

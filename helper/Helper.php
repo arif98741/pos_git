@@ -1,6 +1,4 @@
 <?php
-$path = realpath(dirname(__DIR__));
-include_once $path.'/classes/DB.php';
 
 class Helper {
 

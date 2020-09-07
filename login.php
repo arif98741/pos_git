@@ -1,9 +1,12 @@
 <?php
 ob_start();
-include 'classes/Session.php';
+include_once 'helper/Helper.php';
+include_once 'classes/Database.php';
 include_once 'classes/Login.php';
+include 'classes/Session.php';
 Session::checkLogin();
 $log = new Login();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,13 +31,12 @@ $log = new Login();
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
 <body class="hold-transition login-page">
@@ -82,13 +84,13 @@ $log = new Login();
     <!-- iCheck -->
     <script src="assets/plugins/iCheck/icheck.min.js"></script>
     <script>
-    $(function() {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
+        $(function() {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' /* optional */
+            });
         });
-    });
     </script>
 </body>
 

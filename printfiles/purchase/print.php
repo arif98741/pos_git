@@ -2,7 +2,7 @@
 
 $path = realpath(dirname(__DIR__));
 include_once $path . '/product/print.php';
-include_once "../../classes/DB.php";
+include_once "../../classes/Database.php";
 include_once "../../classes/Printdata.php";
 include_once $path."/classes/Invoice.php";
 $pri = new Printdata();

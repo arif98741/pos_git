@@ -3,7 +3,7 @@ session_start();
 date_default_timezone_set('Asia/Dhaka');
 $sell_id = $_GET['sell_id'];
 $path = realpath(dirname(__DIR__));
-include_once 'classes/DB.php';
+include_once 'classes/Database.php';
 include_once  'classes/Extra.php';
 include  'classes/Session.php';
 include_once  'helper/Helper.php';
