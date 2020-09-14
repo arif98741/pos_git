@@ -62,7 +62,7 @@
                     <select name="product_id" id="" class="form-control">
                       <option value="">Select Product</option>
                       <?php
-                            $status = $pro->showallproducts();
+                            $status = $pro->showAllProducts();
                             while ($result = $status->fetch_assoc()) {
                                 ?>
                             <option value="<?php echo $result['product_id']; ?>"><?php echo $result['product_name']; ?></option>

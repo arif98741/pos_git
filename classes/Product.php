@@ -12,7 +12,107 @@ class Product
         $this->helpObj = new Helper();
     }
 
-    public function showallproducts()
+    public function addProduct($data)
+    {
+        $product_id = $this->helpObj->validAndEscape($data['product_id']);
+        $product_name = $this->helpObj->validAndEscape($data['product_name']);
+        $sku = $this->helpObj->validAndEscape($data['sku']);
+        $retail_price = $this->helpObj->validAndEscape($data['retail_price']);
+        $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
+        $whole_price = $this->helpObj->validAndEscape($data['whole_price']);
+        $brand_name = $this->helpObj->validAndEscape($data['brand_name']);
+        $category_name = $this->helpObj->validAndEscape($data['category_name']);
+        $stock = $this->helpObj->validAndEscape($data['stock']);
+        $size = $this->helpObj->validAndEscape($data['size']);
+        $query = "insert into tbl_product(
+                product_id,
+                product_name,
+                sku,
+                retail_price,
+                sale_price,
+                whole_price,
+                brand_name,
+                category_name,
+                stock,
+                size) values('$product_id','$product_name','$sku','$retail_price','$sale_price','$whole_price','$brand_name','$category_name','$stock','$size')";
+
+        $check = $this->dbObj->select("select * from tbl_product where product_id='$product_id'");
+
+        if ($check) {
+            return "<p class='alert alert-danger fadeout'>Product Already Exist<p>";
+        } else {
+            $status = $this->dbObj->insert($query);
+            if ($status) {
+                return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";
+            } else {
+                return "<p class='alert alert-danger fadeout'>Failed To Insert Product<p>";
+            }
+        }
+    }
+
+    /**
+     * Upload File Using Csv File.
+     */
+    public function bulkProductUpload($data)
+    {
+
+        $name = $_FILES['file']['name'];
+        $explode = explode('.', $name);
+        $fileName = $_FILES["file"]["tmp_name"];
+        $fileType = end($explode);
+        if ($fileType != 'csv') {
+            return "<p class='alert alert-danger fadeout'>File is not supported<p>";
+
+        } else if ($_FILES["file"]["size"] > 0) {
+
+            $file = fopen($fileName, "r");
+            $i = 0;
+            while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
+                if ($column[0] == 'post_title') {
+                    continue;
+                } else {
+                    $product_name = $column[0];
+                    $sku = $column[1];
+                    $stock = $column[2];
+                    $retail_price = $column[3];
+                    $sale_price = $column[4];
+                    if (empty($sale_price)) {
+                        $sale_price = 0;
+                    }
+                    // $whole_price = (empty($column[5])) ? NULL : $column[5];
+                    $whole_price = 0;
+                    $url = $column[7];
+                    // $low_stock = (empty($column[8])) ? NULL : $column[8];
+                    $low_stock = 1;
+                    $category_name = $this->helpObj->getCategoryFromString($column[11]);
+                    $brand_name = $column[12];
+                    $sql = "insert into tbl_product(
+                        product_name,
+                        sku,
+                        retail_price,
+                        sale_price,
+                        whole_price,
+                        brand_name,
+                        category_name,
+                        stock,
+                        low_stock,
+                        url) values('$product_name','$sku','$retail_price','$sale_price','$whole_price','$brand_name','$category_name','$stock','$low_stock','$url')";
+
+                    $this->dbObj->insert($sql);
+                }
+            }
+
+        } else {
+            return "<p class='alert alert-danger fadeout'>File size should be greater than 1KB<p>";
+
+        }
+    }
+
+    /**
+     * show product list
+     * @return bool|mysqli_result
+     */
+    public function showAllProducts()
     {
         $query = 'select * from tbl_product order by serial ASC';
         $stmt = $this->dbObj->select($query);
@@ -26,6 +126,11 @@ class Product
         return $stmt;
     }
 
+    /**
+     * Show single Product Type
+     * @param $typeid
+     * @return array|null
+     */
     public function showSingleType($typeid)
     {
         $tstmt = $this->dbObj->select("select * from tbl_type where typeid='$typeid'");
@@ -102,45 +207,6 @@ class Product
             DESC";
         $stmt = $this->dbObj->select($q);
         return $stmt;
-    }
-
-
-    public function addProduct($data)
-    {
-        $product_id = $this->helpObj->validAndEscape($data['product_id']);
-        $product_name = $this->helpObj->validAndEscape($data['product_name']);
-        $sku = $this->helpObj->validAndEscape($data['sku']);
-        $retail_price = $this->helpObj->validAndEscape($data['retail_price']);
-        $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
-        $whole_price = $this->helpObj->validAndEscape($data['whole_price']);
-        $brand_name = $this->helpObj->validAndEscape($data['brand_name']);
-        $category_name = $this->helpObj->validAndEscape($data['category_name']);
-        $stock = $this->helpObj->validAndEscape($data['stock']);
-        $size = $this->helpObj->validAndEscape($data['size']);
-        $query = "insert into tbl_product(
-                product_id,
-                product_name,
-                sku,
-                retail_price,
-                sale_price,
-                whole_price,
-                brand_name,
-                category_name,
-                stock,
-                size) values('$product_id','$product_name','$sku','$retail_price','$sale_price','$whole_price','$brand_name','$category_name','$stock','$size')";
-
-        $check = $this->dbObj->select("select * from tbl_product where product_id='$product_id'");
-
-        if ($check) {
-            return "<p class='alert alert-danger fadeout'>Product Already Exist<p>";
-        } else {
-            $status = $this->dbObj->insert($query);
-            if ($status) {
-                return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";
-            } else {
-                return "<p class='alert alert-danger fadeout'>Failed To Insert Product<p>";
-            }
-        }
     }
 
     public function deleteProduct($product_id)
