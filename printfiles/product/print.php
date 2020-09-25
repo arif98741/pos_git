@@ -6,7 +6,6 @@ include_once "../../classes/Printdata.php";
 $pri = new Printdata();
 $db = new Database();
 Session::checkSession();
-date_default_timezone_set('Asia/Dhaka');
 ?>
 
 

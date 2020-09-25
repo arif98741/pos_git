@@ -19,10 +19,7 @@ $dash = new Dashboard();
 
         <!-- Main content -->
         <section class="content">
-            <!-- Small boxes (Stat box) -->
 
-
-            <!-- ./col -->
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
                 <div class="small-box bg-green">
@@ -77,8 +74,7 @@ $dash = new Dashboard();
                     <div class="icon">
                         <i class="fa fa-list"></i>
                     </div>
-                    <a href="export-as-all-products.php" class="small-box-footer">Download Now&nbsp;&nbsp;<i
-                                class="fa fa-download"></i></a>
+                    <a href="#" class="small-box-footer">More Info</i></a>
                 </div>
             </div>
 
@@ -92,10 +88,9 @@ $dash = new Dashboard();
                         <p>Out of stock Products</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-university"></i>
+                        <i class="fa fa-list"></i>
                     </div>
-                    <a href="export-as-csv-out-of-stock.php" class="small-box-footer">Download Now&nbsp;&nbsp;<i
-                                class="fa fa-download"></i></a>
+                    <a href="#" class="small-box-footer">More Info</a>
                 </div>
             </div>
 
@@ -108,14 +103,32 @@ $dash = new Dashboard();
                         <p>Low stock Products</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-university"></i>
+                        <i class="fa fa-list"></i>
                     </div>
-                    <a href="export-as-csv-low-stock.php" class="small-box-footer">Download Now&nbsp;&nbsp;<i
-                                class="fa fa-download"></i></a>
+                    <a href="#" class="small-box-footer">More Info</a>
                 </div>
             </div>
-
+            <div class="col-lg-6">
+                <h3>Date: <?php echo date('d-m-Y'); ?></h3>
+                <h3>Time: <?php echo date('h:i:sA'); ?></h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12">
+                <h3> For downloading several csv files please click on below links
+                </h3>
+            </div>
+            <div class="col-lg-6">
+                <ul class="list-group">
+                    <li class="list-group-item"><a href="<?php echo BASE_URL; ?>export-as-all-products.php"
+                                                   class="btn btn-link text-green"><i class="fa fa-download"></i>&nbsp;&nbsp;All Products - CSV</a></li>
+                    <li class="list-group-item"><a href="<?php echo BASE_URL; ?>export-as-csv-out-of-stock.php"
+                                                   class="btn btn-link text-green"><i class="fa fa-download"></i>&nbsp;&nbsp;Out of Stock Products - CSV</a></li>
+                    <li class="list-group-item"><a href="<?php echo BASE_URL; ?>export-as-csv-low-stock.php"
+                                                   class="btn btn-link text-green"><i class="fa fa-download"></i>&nbsp;&nbsp;Low of Stock Products - CSV</a></li>
+                </ul>
+            </div>
     </div>
+
     <!-- /.content-wrapper -->
     <!-- footer -->
 <?php include 'lib/footer.php'; ?>

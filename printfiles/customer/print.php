@@ -8,7 +8,6 @@ if (isset($_SESSION['status']) && $_SESSION['status'] !== 'admin') {
     header("location: ../../index.php");
 } 
 $pri = new Printdata();
-date_default_timezone_set('Asia/Dhaka');
 ?>
 
 

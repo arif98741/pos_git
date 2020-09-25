@@ -57,9 +57,6 @@ class Customer
     */
     public function insertCustomer($data)
     {
-
-        date_default_timezone_set('Asia/Dhaka');
-
         $customer_id = $this->helpObj->validAndEscape($data['customer_id']);
         $customer_name = $this->helpObj->validAndEscape($data['customer_name']);
         $address = $this->helpObj->validAndEscape($data['address']);

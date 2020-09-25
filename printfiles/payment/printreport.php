@@ -8,7 +8,6 @@ $pri = new Printdata();
 $db = new Database();
 $help = new Helper();
 
-date_default_timezone_set('Asia/Dhaka');
 ?>
 
 

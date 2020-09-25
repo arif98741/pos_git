@@ -1,6 +1,5 @@
 <?php
 session_start();
-date_default_timezone_set('Asia/Dhaka');
 $sell_id = '';
 $path = realpath(dirname(__DIR__));
 include_once $path . '/../classes/Database.php';
