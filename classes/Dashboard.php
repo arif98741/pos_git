@@ -18,6 +18,17 @@ class Dashboard
 
     }
 
+    /*
+    !--------------------------------------
+    !            Total Product
+    !-------------------------------------
+    */
+    public function totalProducts()
+    {
+        $query = "SELECT count(serial)  as 'total' from tbl_product";
+        $st = $this->dbObj->select($query);
+        return $st->fetch_row()[0];
+    }
 
     /*
     !--------------------------------------
@@ -170,23 +181,6 @@ class Dashboard
 
     }
 
-    // Total Products
-    public function totalProducts()
-    {
-
-        $query = "select count(product_id) as 'total' from tbl_product";
-        $st = $this->dbObj->link->query($query);
-        if ($st) {
-            $total = $st->fetch_object()->total;
-            if ($total > 0 || $total < 0) {
-
-                return $total;
-            } else {
-                return 0;
-            }
-        }
-
-    }
 
 
     // Total Customer

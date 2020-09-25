@@ -109,6 +109,32 @@ class Helper
         return ltrim($string, ',');
     }
 
+
+    /**
+     * Generate CSV File From String
+     * @param $sqlQuery
+     * @param $fileName
+     * @param $columns
+     */
+    public function generateCSV($sqlQuery, $fileName, $columns)
+    {
+        $status = $this->dbObj->select($sqlQuery);
+        $data = array();
+        if ($status->num_rows > 0) {
+            while ($row = $status->fetch_assoc()) {
+                $data[] = $row;
+            }
+        }
+        header('Content-Type: text/csv; charset=utf-8');
+        header('Content-Disposition: attachment; filename=' . $fileName);
+        $output = fopen('php://output', 'w');
+        fputcsv($output, $columns);
+        if (count($data) > 0) {
+            foreach ($data as $row) {
+                fputcsv($output, $row);
+            }
+        }
+    }
 }
 
 ?>
