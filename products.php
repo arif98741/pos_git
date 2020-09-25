@@ -54,22 +54,22 @@ if (isset($_GET['product_id'], $_GET['action']) && $_GET['action'] == 'del') {
                                    aria-describedby="example2_info">
                                 <thead>
                                 <tr role="row">
-                                    <th width="25%">Product Name
+                                    <th width="20%">Product Name
                                     </th>
                                     <th class="sorting" width="10%">SKU
                                     </th>
 
                                     <th class="sorting" width="10%">Retail Price
                                     </th>
-                                    <th class="sorting" width="25%">Sale Price
+                                    <th class="sorting" width="10%">Sale Price
                                     </th>
 
-                                    <th class="sorting" width="40%">Category
+                                    <th class="sorting" width="25%">Category
                                     </th>
 
                                     <th class="sorting" width="10%">Stock
                                     </th>
-                                    <th class="sorting" width="20%">Action
+                                    <th class="sorting" width="15%">Action
                                     </th>
                                 </tr>
                                 </thead>
@@ -95,10 +95,14 @@ if (isset($_GET['product_id'], $_GET['action']) && $_GET['action'] == 'del') {
                                                 <a href="<?php echo BASE_URL; ?>editproduct.php?product_id=<?php echo $result['serial']; ?>&action=edit"
                                                    style="border-radius: 3px;" title="click to edit"><i
                                                             class="fa fa-pencil-square-o btn"></i></a>
+
+                                                <a href="<?php echo $result['url']; ?>"
+                                                   title="click to delete"<i class="fa fa-link btn"></i></a>
                                                 <a href="?action=del&serial=<?php echo $result['serial']; ?>&product_id=<?php echo $result['product_id']; ?>"
                                                    title="click to delete"
                                                    onclick="return confirm('are you sure to delete?')"><i
                                                             class="fa fa-trash-o btn"></i></a>
+
 
 
                                             </td>
@@ -129,6 +133,25 @@ if (isset($_GET['product_id'], $_GET['action']) && $_GET['action'] == 'del') {
     </div>
     <!-- /.content-wrapper -->
     <!-- footer -->
+    <style>
+        table#example2 {
+            border: .5px solid #000 !important;
+            border-collapse: collapse;
+            font-size: 16px !important;
+        }
+
+        table#example2 tr, table#example2 th, table#example2 td {
+            border: .5px solid #000 !important;
+            text-align: center !important;
+        }
+
+        table#example2 td:nth-child(1),
+        table#example2 td:nth-child(5),
+        {
+            text-align: left !important;
+        }
+
+    </style>
 <?php
 //unset session
 

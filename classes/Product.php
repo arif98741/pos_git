@@ -274,6 +274,34 @@ class Product
     }
 
     /**
+     * Export All Products
+     * Generate as CSV
+     */
+    public function allProductCSV()
+    {
+        $sql = 'select * from tbl_product ';
+        $csvColumn = [
+            'Serial',
+            'Product_id',
+            'Product_name',
+            'Sku',
+            'Retail Price',
+            'Sale Price',
+            'Whole Price',
+            'Brand Name',
+            'Category Name',
+            'Stock',
+            'Low Stock',
+            'Size',
+            'Color',
+            'Url',
+            'Created At',
+            'Updated At',
+        ];
+        $this->helpObj->generateCSV($sql, 'Product-' . date('d-m-Y h-i-sa') . '.csv', $csvColumn);
+    }
+
+    /**
      * Export Stock Out Product
      * Generate as CSV
      */
@@ -298,7 +326,7 @@ class Product
             'Created At',
             'Updated At',
         ];
-        $this->helpObj->generateCSV($sql, 'Out of Stock Product.csv', $csvColumn);
+        $this->helpObj->generateCSV($sql, 'Out of Stock Product ' . date('d-m-Y h-i-sa') . '.csv', $csvColumn);
     }
 
     /**
@@ -326,6 +354,6 @@ class Product
             'Created At',
             'Updated At',
         ];
-        $this->helpObj->generateCSV($sql, 'Low Stock Product.csv', $csvColumn);
+        $this->helpObj->generateCSV($sql, 'Low Stock Product ' . date('d-m-Y h-i-sa') . '.csv', $csvColumn);
     }
 }

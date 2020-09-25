@@ -66,6 +66,21 @@ $dash = new Dashboard();
                                 class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-gray">
+                    <div class="inner">
+                        <h3><?php echo $dash->totalProducts(); ?></h3>
+
+                        <p>Total Products</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-list"></i>
+                    </div>
+                    <a href="export-as-all-products.php" class="small-box-footer">Download Now&nbsp;&nbsp;<i
+                                class="fa fa-download"></i></a>
+                </div>
+            </div>
 
 
             <div class="col-lg-3 col-xs-6">
