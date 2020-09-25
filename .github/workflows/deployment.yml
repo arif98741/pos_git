@@ -1,0 +1,18 @@
+on:
+  push:
+    branches: [ rizan_deploy ]
+name: Rizan Web Site Deployment
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 2
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.0
+        with:
+          ftp-server: ftp://ftp.treatlover.com/public_html/new
+          ftp-username: ${{ secrets.TREATLOVER_USERNAME }}
+          ftp-password: ${{ secrets.TREATLOVER_PASSWORD }}
