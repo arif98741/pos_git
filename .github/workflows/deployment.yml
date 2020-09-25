@@ -1,7 +1,7 @@
 on:
   push:
     branches: [ rizan_deploy ]
-name: Rizan Web Site Deployment
+name: Rizan Inventory Deployment
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
