@@ -13,6 +13,6 @@ jobs:
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@3.1.0
         with:
-          ftp-server: ftp://ftp.treatlover.com/public_html/new
+          ftp-server: ftp://ftp.treatlover.com/public_html/inventory
           ftp-username: ${{ secrets.TREATLOVER_USERNAME }}
           ftp-password: ${{ secrets.TREATLOVER_PASSWORD }}
