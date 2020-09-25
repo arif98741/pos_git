@@ -3,8 +3,6 @@
 $dash = new Dashboard();
 
 ?>
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -29,9 +27,37 @@ $dash = new Dashboard();
                 <!-- small box -->
                 <div class="small-box bg-green">
                     <div class="inner">
-                        <h3><?php echo $dash->TodaySale(); ?></h3>
-
-                        <p>Today Sale</p>
+                        <h3><?php echo $dash->totalWholeSale(); ?></h3>
+                        <p>Stock Wholesale</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i
+                                class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo $dash->totalRetailStockPrice(); ?></h3>
+                        <p>Stock Retail</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-money"></i>
+                    </div>
+                    <a href="invoicelist.php" class="small-box-footer">More info <i
+                                class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h3><?php echo $dash->totalSaleStockPrice(); ?></h3>
+                        <p>Stock Sale</p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-money"></i>
@@ -44,31 +70,33 @@ $dash = new Dashboard();
 
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-aqua">
+                <div class="small-box bg-red">
                     <div class="inner">
-                        <h3><?php echo $dash->TodayMemo(); ?></h3>
+                        <h3><?php echo $dash->outOfStockProductTotal(); ?></h3>
 
-                        <p>Today Memo</p>
+                        <p>Out of stock Products</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-handshake-o"></i>
+                        <i class="fa fa-university"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="export-as-csv-out-of-stock.php" class="small-box-footer">Download Now&nbsp;&nbsp;<i
+                                class="fa fa-download"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-xs-6">
                 <!-- small box -->
-                <div class="small-box bg-green">
+                <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3><?php echo $dash->TotalMemo(); ?> </h3>
+                        <h3><?php echo $dash->lowStockProductTotal(); ?></h3>
 
-                        <p> Total Memo</p>
+                        <p>Low stock Products</p>
                     </div>
                     <div class="icon">
-                        <i class="fa fa-handshake-o"></i>
+                        <i class="fa fa-university"></i>
                     </div>
-                    <a href="#" class="small-box-footer"><i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="export-as-csv-low-stock.php" class="small-box-footer">Download Now&nbsp;&nbsp;<i
+                                class="fa fa-download"></i></a>
                 </div>
             </div>
 

@@ -1,11 +1,10 @@
 <?php include 'lib/header.php'; ?>
 <?php
 if (isset($_POST['bulkupload'])) {
-    $pro->bulkProductUpload($_REQUEST);
+    $pro->bulkProductUpload();
 }
-if (Session::get('status') !== 'admin') {
-    header("Location: index.php");
-} ?>
+
+?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -20,6 +19,12 @@ if (Session::get('status') !== 'admin') {
 
         <!-- Main content -->
         <section class="content">
+            <?php
+            if (Session::keyExist('success')) {
+                echo Session::get('success');
+
+            }
+            ?>
 
             <div class="col-sm-12">
                 <div class="box">

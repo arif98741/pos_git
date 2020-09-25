@@ -21,46 +21,63 @@ class Dashboard
 
     /*
     !--------------------------------------
-    !               Today's Sale
+    !            Total Whole Sale
     !-------------------------------------
     */
-    public function TodaySale()
+    public function totalWholeSale()
     {
-        date_default_timezone_set('Asia/Dhaka');
-        $starting = date('Y-m-d') . " 00:00:00";
-        $ending = date('Y-m-d') . " 23:59:59";
-
-        $query = "SELECT sum(sub_total) as 'subtotal' from tbl_sell ts where ts.date between '$starting' and '$ending'";
+        $query = "SELECT sum(whole_price * stock)  as 'total' from tbl_product where stock > 0 ";
         $st = $this->dbObj->select($query);
-        if ($st) {
-            $subtotal = $st->fetch_object()->subtotal;
-            if ($subtotal > 0) {
+        return $st->fetch_row()[0];
+    }
 
-                return number_format((float)$subtotal, 2, '.', '');
-            } else {
-                return 0;
-            }
-        }
+    /*
+   !--------------------------------------
+   !            Total Whole Sale
+   !-------------------------------------
+   */
+    public function totalRetailStockPrice()
+    {
+        $query = "SELECT sum(retail_price * stock) as 'total' from tbl_product where stock > 0";
+        $st = $this->dbObj->select($query);
+        return $st->fetch_row()[0];
+    }
+
+    /*
+     !--------------------------------------
+     !            Total Whole Sale
+     !-------------------------------------
+     */
+    public function totalSaleStockPrice()
+    {
+        $query = "SELECT sum(sale_price * stock)  as 'total' from tbl_product where stock > 0";
+        $st = $this->dbObj->select($query);
+        return $st->fetch_row()[0];
     }
 
 
     /*
     !--------------------------------------
-    !               Today Sales Amout
+    !           Count out of stock Product
     !-------------------------------------
     */
-    public function TodayMemo()
+    public function outOfStockProductTotal()
     {
-        $starting = date('Y-m-d') . " 00:00:00";
-        $ending = date('Y-m-d') . " 23:59:59";
-
-        $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell where date between '$starting' and '$ending'";
+        $query = "select count(serial) as total from tbl_product where stock=0";
         $st = $this->dbObj->select($query);
-        if ($st) {
-            return $st->fetch_object()->totalsell;
-        } else {
-            return 0;
-        }
+        return $st->fetch_row()[0];
+    }
+
+    /*
+     !--------------------------------------
+     !           Count of low stock Product
+     !-------------------------------------
+     */
+    public function lowStockProductTotal()
+    {
+        $query = "select count(serial) as total from tbl_product where low_stock=1";
+        $st = $this->dbObj->select($query);
+        return $st->fetch_row()[0];
     }
 
     /*

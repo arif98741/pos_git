@@ -22,12 +22,7 @@
                     <form action="products.php" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <input name="product_id" class="form-control" type="text"
-                                            placeholder="Product ID" required="">
-                                    </div>
-                                </div>
+
 
                                 <div class="col-md-4">
                                     <div class="form-group">

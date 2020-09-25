@@ -19,9 +19,7 @@ class Session
 
     public static function init()
     {
-
         session_start();
-
     }
 
     public static function get($key)
@@ -39,6 +37,21 @@ class Session
         header('Location: login.php');
     }
 
+    /**
+     * Unset Session if Exist
+     * @param $key
+     * @return void
+     */
+    public static function unsetSession($key)
+    {
+        if (array_key_exists($key, $_SESSION)) {
+            unset($_SESSION[$key]);
+        }
+    }
+
+    /**
+     * Check Login Status
+     */
     public static function checkLogin()
     {
         self::init();
@@ -46,6 +59,23 @@ class Session
             header('Location: index.php');
         }
     }
+
+
+    /**
+     * Check Session key existance
+     * @param $key
+     * @return bool
+     */
+    public static function keyExist($key)
+    {
+        if (array_key_exists($key, $_SESSION)) {
+            return true;
+        } else {
+
+            return false;
+        }
+    }
+
 
 }
 

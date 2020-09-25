@@ -6,15 +6,22 @@ class Product
     private $dbObj;
     private $helpObj;
 
+
+    /**
+     * Product constructor.
+     */
     public function __construct()
     {
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
     }
 
+    /**
+     * @param $data
+     * @return string
+     */
     public function addProduct($data)
     {
-        $product_id = $this->helpObj->validAndEscape($data['product_id']);
         $product_name = $this->helpObj->validAndEscape($data['product_name']);
         $sku = $this->helpObj->validAndEscape($data['sku']);
         $retail_price = $this->helpObj->validAndEscape($data['retail_price']);
@@ -25,7 +32,6 @@ class Product
         $stock = $this->helpObj->validAndEscape($data['stock']);
         $size = $this->helpObj->validAndEscape($data['size']);
         $query = "insert into tbl_product(
-                product_id,
                 product_name,
                 sku,
                 retail_price,
@@ -34,28 +40,24 @@ class Product
                 brand_name,
                 category_name,
                 stock,
-                size) values('$product_id','$product_name','$sku','$retail_price','$sale_price','$whole_price','$brand_name','$category_name','$stock','$size')";
+                size) values('$product_name','$sku','$retail_price','$sale_price','$whole_price','$brand_name','$category_name','$stock','$size')";
 
-        $check = $this->dbObj->select("select * from tbl_product where product_id='$product_id'");
-
-        if ($check) {
-            return "<p class='alert alert-danger fadeout'>Product Already Exist<p>";
+        $status = $this->dbObj->insert($query);
+        if ($status) {
+            return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";
         } else {
-            $status = $this->dbObj->insert($query);
-            if ($status) {
-                return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";
-            } else {
-                return "<p class='alert alert-danger fadeout'>Failed To Insert Product<p>";
-            }
+            return "<p class='alert alert-danger fadeout'>Failed To Insert Product<p>";
         }
+
     }
 
     /**
      * Upload File Using Csv File.
+     * @return string
      */
-    public function bulkProductUpload($data)
+    public function bulkProductUpload()
     {
-
+        ini_set('max_execution_time', 300); // 300 (seconds) = 5 Minutes
         $name = $_FILES['file']['name'];
         $explode = explode('.', $name);
         $fileName = $_FILES["file"]["tmp_name"];
@@ -67,25 +69,24 @@ class Product
 
             $file = fopen($fileName, "r");
             $i = 0;
+            $flagStatus = 1;
             while (($column = fgetcsv($file, 10000, ",")) !== FALSE) {
                 if ($column[0] == 'post_title') {
                     continue;
                 } else {
-                    $product_name = $column[0];
+                    $product_name = str_replace("'", "''", $column[0]);
                     $sku = $column[1];
                     $stock = $column[2];
-                    $retail_price = $column[3];
-                    $sale_price = $column[4];
+                    $retail_price = (!is_numeric($column[3]) || empty($column[3])) ? 0 : $column[3];
+                    $sale_price = (!is_numeric($column[4]) || empty($column[4])) ? 0 : $column[4];
                     if (empty($sale_price)) {
                         $sale_price = 0;
                     }
-                    // $whole_price = (empty($column[5])) ? NULL : $column[5];
-                    $whole_price = 0;
+                    $whole_price = (!is_numeric($column[5]) || empty($column[5])) ? 0 : $column[5];
                     $url = $column[7];
-                    // $low_stock = (empty($column[8])) ? NULL : $column[8];
-                    $low_stock = 1;
+                    $low_stock = (empty($column[8])) ? 0 : $column[8];
                     $category_name = $this->helpObj->getCategoryFromString($column[11]);
-                    $brand_name = $column[12];
+                    $brand_name = str_replace("'", "''", $column[14]);
                     $sql = "insert into tbl_product(
                         product_name,
                         sku,
@@ -98,13 +99,25 @@ class Product
                         low_stock,
                         url) values('$product_name','$sku','$retail_price','$sale_price','$whole_price','$brand_name','$category_name','$stock','$low_stock','$url')";
 
-                    $this->dbObj->insert($sql);
+                    $status = $this->dbObj->insert($sql);
+                    if ($status == false) {
+                        $flagStatus = 0;
+                        break;
+                    } else {
+                        $i++;
+                    }
                 }
             }
+            if ($flagStatus === false) {
+                Session::set('error', "<p class='alert alert-danger fadeout'>File size should be greater than 1KB<p>");
+            } else {
+                Session::set('success', "<p class='alert alert-success fadeout'>Inserted " . $i . "products successfully<p>");
+            }
 
+            header('location: addproduct-using-file.php');
+            exit;
         } else {
             return "<p class='alert alert-danger fadeout'>File size should be greater than 1KB<p>";
-
         }
     }
 
@@ -183,85 +196,136 @@ class Product
     }
 
 
-    public function showSingleGroup($grid)
+    /**
+     * Show Product
+     * @param string $order
+     * @param string $orderBy
+     * @return bool|mysqli_result
+     */
+    public function showProduct($order = 'ASC', $orderBy = 'serial')
     {
-        $grstmt = $this->dbObj->select("select * from tbl_group where groupid='$grid'");
-        $grdata = $grstmt->fetch_assoc();
-        return $grdata;
+        $q = "SELECT * FROM tbl_product  tp ORDER BY " . $orderBy . "  " . $order;
+        return $this->dbObj->select($q);
     }
 
 
-    public function showProduct()
+    /**
+     * Delete Single Product
+     * @param $serial
+     * @return bool
+     */
+    public function deleteProduct($serial)
     {
-        //brand is granted as supplier
-
-        $q = "SELECT * FROM tbl_product tp
-            JOIN tbl_supplier ts ON
-                tp.product_brand = ts.supplier_id
-            JOIN tbl_group tg ON
-                tp.product_group = tg.groupid
-            JOIN tbl_type tt ON
-                tp.product_type = tt.typeid
-            ORDER BY
-                tp.serial
-            DESC";
-        $stmt = $this->dbObj->select($q);
-        return $stmt;
-    }
-
-    public function deleteProduct($product_id)
-    {
-        $serial = $this->helpObj->validAndEscape($product_id);
-
-        $query = "DELETE from tbl_product where product_id ='$product_id'";
-        $sta = $this->dbObj->delete($query);
-        if ($sta) {
-            return true;
+        $serial = $this->helpObj->validAndEscape($serial);
+        $query = "DELETE from tbl_product where serial ='$serial'";
+        if ($this->dbObj->delete($query)) {
+            return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";
         } else {
-            return false;
+            return "<p class='alert alert-danger fadeout'>Failed To Insert Product<p>";
         }
     }
 
     public function getsingleProduct($product_id)
     {
         $product_id = $this->helpObj->validAndEscape($product_id);
-        $query = "select * from tbl_product where product_id='$product_id'";
-        $sta = $this->dbObj->select($query);
-        return $sta;
+        $query = "select * from tbl_product where serial='$product_id'";
+        return $this->dbObj->select($query);
     }
 
+    /**
+     * Update Single Product
+     * @param $data
+     */
     public function updateProduct($data)
     {
-
-        $product_id = $this->helpObj->validAndEscape($data['product_id']);
-        $product_type = $this->helpObj->validAndEscape($data['product_type']);
-        $product_group = $this->helpObj->validAndEscape($data['product_group']);
+        $serial = $this->helpObj->validAndEscape($data['serial']);
         $product_name = $this->helpObj->validAndEscape($data['product_name']);
-        $product_brand = $this->helpObj->validAndEscape($data['product_brand']);
+        $sku = $this->helpObj->validAndEscape($data['sku']);
+        $retail_price = $this->helpObj->validAndEscape($data['retail_price']);
         $sale_price = $this->helpObj->validAndEscape($data['sale_price']);
-        $purchase_price = $this->helpObj->validAndEscape($data['purchase_price']);
-        $piece_in_a_carton = $this->helpObj->validAndEscape($data['piece_in_a_carton']);
-        $u_id = $_SESSION['userid'];
+        $whole_price = $this->helpObj->validAndEscape($data['whole_price']);
+        $brand_name = $this->helpObj->validAndEscape($data['brand_name']);
+        $category_name = $this->helpObj->validAndEscape($data['category_name']);
+        $stock = $this->helpObj->validAndEscape($data['stock']);
+        $size = $this->helpObj->validAndEscape($data['size']);
         $last_update = date('current_timestamp'); //set default time at Asia/Dhaka on header.php
 
         $query = "UPDATE tbl_product
                             SET
-                            product_type = '$product_type',    
-                            product_group = '$product_group',    
                             product_name = '$product_name',    
-                            product_brand = '$product_brand',
+                            sku = '$sku',
                             sale_price = '$sale_price',
-                            purchase_price = '$purchase_price',    
-                            piece_in_a_carton = '$piece_in_a_carton',   
-                            last_update   ='$last_update',
-                            updateby ='$u_id'    
-                            where product_id='$product_id' ";
+                            retail_price = '$retail_price$',    
+                            whole_price = '$whole_price',   
+                            brand_name   ='$brand_name',
+                            category_name   ='$category_name',
+                            stock   ='$stock',
+                            size   ='$size',
+                            last_update ='$last_update'
+                            where product_id='$serial' ";
 
-        $sta = $this->dbObj->update($query);
-        if ($sta) {
-            return true;
+        if ($this->dbObj->update($query)) {
+            Session::set('success', "<p class='alert alert-success fadeout'>Product Updated Successfully<p>");
         } else {
-            return false;
+            Session::set('error', "<p class='alert alert-danger fadeout'>Failed to update product<p>");
         }
+        header('location: products.php');
+        exit;
+    }
+
+    /**
+     * Export Stock Out Product
+     * Generate as CSV
+     */
+    public function outOfStockProductCSV()
+    {
+        $sql = 'select * from tbl_product where stock=0';
+        $csvColumn = [
+            'Serial',
+            'Product_id',
+            'Product_name',
+            'Sku',
+            'Retail Price',
+            'Sale Price',
+            'Whole Price',
+            'Brand Name',
+            'Category Name',
+            'Stock',
+            'Low Stock',
+            'Size',
+            'Color',
+            'Url',
+            'Created At',
+            'Updated At',
+        ];
+        $this->helpObj->generateCSV($sql, 'Out of Stock Product.csv', $csvColumn);
+    }
+
+    /**
+     * Export Stock Out Product
+     * Generate as CSV
+     */
+    public function lowStockProductCSV()
+    {
+        $sql = 'select * from tbl_product where low_stock=1';
+        $csvColumn = [
+            'Serial',
+            'Product_id',
+            'Product_name',
+            'Sku',
+            'Retail Price',
+            'Sale Price',
+            'Whole Price',
+            'Brand Name',
+            'Category Name',
+            'Stock',
+            'Low Stock',
+            'Size',
+            'Color',
+            'Url',
+            'Created At',
+            'Updated At',
+        ];
+        $this->helpObj->generateCSV($sql, 'Low Stock Product.csv', $csvColumn);
     }
 }
