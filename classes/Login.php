@@ -63,7 +63,6 @@ class Login
 
     public function saveAttemptUser($data)
     {
-        date_default_timezone_set('Asia/Dhaka');
         $ip = $_SERVER['REMOTE_ADDR'];
         $username = $this->helpObj->validAndEscape($data['username']);
         $password = $this->helpObj->validAndEscape($data['password']);

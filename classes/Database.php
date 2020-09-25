@@ -1,15 +1,16 @@
 <?php
 $path = realpath(dirname(__DIR__));
 require $path . '/vendor/autoload.php';
+require $path . '/config/config.php';
 
 class Database
 {
 
     public $link;
-    private $username = 'root';
-    private $password = '';
-    private $host = 'localhost';
-    private $database = 'rizan_inventory';
+    private $username = USERNAME;
+    private $password = PASSWORD;
+    private $host = HOST;
+    private $database = DATABASE;
 
     /*
     !-----------------------------------------------------

@@ -11,7 +11,6 @@ class Page
 
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
-        date_default_timezone_set('Asia/Dhaka');
     }
 
 

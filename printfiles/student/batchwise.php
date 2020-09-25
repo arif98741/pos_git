@@ -6,7 +6,6 @@ include_once $path."../../helper/Helper.php";
 Session::checkSession();
 $db = new Database();
 $help = new Helper();
-date_default_timezone_set('Asia/Dhaka');
 
 ?>
 <?php if (Session::get('status') !== 'admin') {

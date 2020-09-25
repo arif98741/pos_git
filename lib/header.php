@@ -1,7 +1,6 @@
 <?php
 ob_start();
 $startScriptTime = microtime(TRUE);
-date_default_timezone_set('Asia/Dhaka');
 define("BASE_URL", 'http://localhost/pos_git/');
 require 'header-part.php';
 ?>

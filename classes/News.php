@@ -7,12 +7,14 @@ class News
     private $helpObj;
     private $msg;
 
+    /**
+     * News constructor.
+     */
     public function __construct()
     {
 
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
-        date_default_timezone_set('Asia/Dhaka');
     }
 
     /*

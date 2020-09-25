@@ -35,11 +35,13 @@ if (isset($_POST['bulkupload'])) {
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <input name="file" class="form-control" type="file" required="">
+                                        <a href="<?php echo BASE_URL; ?>uploads/files/Product Upload Format.csv" class="btn btn-link">Click Here to Download CSV Format</a>
                                         </div>
                                     </div>
 
 
                                     <div class="col-md-12 submit-buttom">
+
 
                                         <input type="submit" value="Save Product" name="bulkupload"
                                                class="btn btn-success">

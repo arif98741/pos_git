@@ -141,7 +141,6 @@ class Supplier
      * */
     public function addSupplierTransaction($data)
     {
-        date_default_timezone_set('Asia/Dhaka');
 
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
         $purchase = $this->helpObj->validAndEscape($data['purchase']);
@@ -167,7 +166,6 @@ class Supplier
     * */
     public function updateSupplierTransaction($data)
     {
-        date_default_timezone_set('Asia/Dhaka');
         $suppliertransid = $this->helpObj->validAndEscape($data['suppliertransid']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
         $purchase = $this->helpObj->validAndEscape($data['purchase']);
