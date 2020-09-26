@@ -1,4 +1,13 @@
 <?php
+/*
+ * Copyright (c) 9/26/20, 1:56 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
+
 $path = realpath(dirname(__DIR__));
 include_once 'DB.php';
 include_once $path.'/helper/Helper.php';
@@ -227,8 +236,6 @@ class Extra {
            
              
         }
-
-        /*$message = 'Dear '.$customer_name.', your payment '.$amount.'tk for invoice '.$sell_id.' has successfully recieved. Your current balance is '.$current_balance.'-----------------'.Session::get('company_name'); */
 
         $message = 'Dear '.$customer_name.', your bill  is '.$amount.' for invoice '.$sell_id.'. Current balance is '.$current_balance.". Happy Product";
 

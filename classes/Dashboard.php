@@ -1,4 +1,13 @@
 <?php
+/*
+ * Copyright (c) 9/26/20, 1:54 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
+
 $path = realpath(dirname(__DIR__));
 
 include_once 'DB.php';
@@ -44,7 +53,7 @@ class Dashboard {
 
     /*
     !--------------------------------------
-    !               Today Sales Amout
+    !               Today Sales Amount
     !-------------------------------------
     */
     public function TodayMemo()
@@ -63,7 +72,7 @@ class Dashboard {
 
     /*
     !----------------------------------
-    !           Total Sales Amout
+    !           Total Sales Amount
     !----------------------------------
     */
     public function TotalMemo()
@@ -93,12 +102,6 @@ class Dashboard {
             return 0;
         } 
     }
-
-
-
-
-
-
 
     // Total Customer
     public function TodayCustomer()

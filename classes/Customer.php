@@ -8,7 +8,6 @@ class Customer {
 
     private $dbObj;
     private $helpObj;
-    private $msg;
 
     public function __construct() {
 
@@ -63,7 +62,6 @@ class Customer {
         $customer_name = $this->helpObj->validAndEscape($data['customer_name']);
         $address = $this->helpObj->validAndEscape($data['address']);
         $contact_no = $this->helpObj->validAndEscape($data['contact_no']);
-        //$contact_person = $this->helpObj->validAndEscape($data['contact_person']);
         $email = $this->helpObj->validAndEscape($data['email']);
 
         $opening_balance = $this->helpObj->validAndEscape($data['opening_balance']);
@@ -78,16 +76,14 @@ class Customer {
         $check = $this->dbObj->select("select * from tbl_customer where customer_id='$customer_id'");
         if($check)
         {
-            $this->msg = "<script>alert('Customer Already Exist. Try with Different ID');</script>";
-            return $this->msg;
+            return "<script>alert('Customer Already Exist. Try with Different ID');</script>";
         }else{
             $sta = $this->dbObj->insert($query);
             if ($sta) {
-                $this->msg = "<script>alert('Customer Added Successfully');</script>";
-                return $this->msg;
+                return "<script>alert('Customer Added Successfully');</script>";
             } else {
-                $this->msg = "<script>alert('Error! Customer Added failed');</script>";
-                return $this->msg;
+                $msg = "<script>alert('Error! Customer Added failed');</script>";
+                return $msg;
             }
         }
 
@@ -102,8 +98,7 @@ class Customer {
     public function singleCustomer($customerid) {
         $customerid = $this->helpObj->validAndEscape($customerid);
         $query = "select * from tbl_customer where customer_id='$customerid'";
-        $sta = $this->dbObj->select($query);
-        return $sta;
+        return $this->dbObj->select($query);
     }
 
     /*
@@ -113,7 +108,7 @@ class Customer {
     */
     public function updateCustomer($data) {
         $serial = $this->helpObj->validAndEscape($data['serial']);
-        $customerid = $this->helpObj->validAndEscape($data['customer_id']);
+        $this->helpObj->validAndEscape($data['customer_id']);
         $customername = $this->helpObj->validAndEscape($data['customer_name']);
         $address = $this->helpObj->validAndEscape($data['address']);
         $contact_no = $this->helpObj->validAndEscape($data['contact_no']);
@@ -207,8 +202,8 @@ class Customer {
         curl_setopt($ch, CURLOPT_URL,$url);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $smsresult = curl_exec($ch); //execute statement to send sms
-        return $smsresult;
+        //execute statement to send sms
+        return curl_exec($ch);
     }
 
 

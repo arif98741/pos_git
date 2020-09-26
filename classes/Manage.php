@@ -1,4 +1,13 @@
 <?php
+/*
+ * Copyright (c) 9/26/20, 2:01 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
+
 include_once 'DB.php';
 include_once 'helper/Helper.php';
 
@@ -18,7 +27,6 @@ class Manage {
     /*
      * showing applicant list in applicationlist.php 
      * */
-
     public function addRegistant($data) {
         $fullname = $this->helpObj->validAndEscape($data['fullname']);
         $dob = $this->helpObj->validAndEscape($data['dob']);
@@ -31,9 +39,7 @@ class Manage {
         $occupation = $this->helpObj->validAndEscape($data['occupation']);
         $fam_member_name = $this->helpObj->validAndEscape($data['fam_member_name']);
         $relation = $this->helpObj->validAndEscape($data['relation']);
-
         $photo  =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
-        $msg = '';
 
         $checkstmt = $this->dbObj->link->query("SELECT * from registration where email ='$email' or contact='$contact'");
         if ($checkstmt) {
@@ -61,8 +67,6 @@ class Manage {
                 }
             }
         }
-
-        
     }
 
 
@@ -176,8 +180,6 @@ class Manage {
                 }
             }
         }
-
-
         
     }
 
@@ -218,8 +220,6 @@ class Manage {
 
     }
 
-
-
     /*
     @ add committee  in addcommiteemeber.php
     @ table = committee
@@ -233,9 +233,9 @@ class Manage {
         $contact = $this->helpObj->validAndEscape($data['contact']);
         $photo  =  'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
-        $chstmt =  $this->dbObj->link->query("select * from committee where contact ='$contact'");
-        if ($chstmt) {
-            if ($row = $chstmt->num_rows > 0) {
+        $checkStatement =  $this->dbObj->link->query("select * from committee where contact ='$contact'");
+        if ($checkStatement) {
+            if ($row = ($checkStatement->num_rows > 0)) {
                  return "<script>alert('Member Already Exist');</script>";
             }else{
                 $query = "insert into committee (name,designation,address,contact,photo) values('$name','$designation','$address','$contact','$photo')";
@@ -283,9 +283,9 @@ class Manage {
                 return "<script>alert('Member Update Failed');</script>";
             }
         }else{
-            $chstmt =  $this->dbObj->link->query("select * from committee where id ='$member_id'");
-            if ($chstmt) {
-                $data = $chstmt->fetch_assoc();
+            $checkStatement =  $this->dbObj->link->query("select * from committee where id ='$member_id'");
+            if ($checkStatement) {
+                $data = $checkStatement->fetch_assoc();
             }
              $query = "update committee set
              name ='$name',
@@ -326,15 +326,5 @@ class Manage {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
 
 }

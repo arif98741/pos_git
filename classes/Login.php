@@ -1,4 +1,13 @@
 <?php
+/*
+ * Copyright (c) 9/26/20, 1:59 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
+
 include_once 'Session.php';
 include_once 'helper/Helper.php';
 
@@ -15,9 +24,10 @@ class Login {
 
 
     /**
-    @ user login system
-    @ 
-    */
+     * user login system
+     * @param $data
+     * @return string
+     */
     public function login($data) {
         $username = $data['username'];
         $password = $data['password'];
@@ -42,19 +52,16 @@ class Login {
                 Session::set('logo', $data['logo']);
                 Session::set('status', $data['status']);
 
-                //echo "<script>window.location='index.php'</script>"; //redirecting to home page(index.php)
                 header("Location: index.php");
             } else {
                 $this->saveAttemptUser(array(
                     'username' => $username,
                     'password' => $data['password']
                 ));
-                return $message = "<p class='' id='message'><i class='fa fa-times'></i>&nbsp;Username or Password Not Matched</p>";
+                return "<p class='' id='message'><i class='fa fa-times'></i>&nbsp;Username or Password Not Matched</p>";
             }
         }
     }
-
-
 
     /**
     @ save user as stuff to database
@@ -91,8 +98,6 @@ class Login {
         }
 
         return $msg;
-
-      
     }
 
 
@@ -128,11 +133,6 @@ class Login {
         return $msg;
     }
 
-
-
-
-
-
     /**
     * save accessed missing user
     */
@@ -153,10 +153,8 @@ class Login {
         }
     }
 
-
-
     /**
-    @show attemp user
+    @show attempt user
     **/
     public function showAttemptUser()
     {
@@ -184,7 +182,6 @@ class Login {
         curl_close($cSession);
 
         $data =  json_decode($result);
-      //  echo $data;
 
         if($needs == 'city'){
             return $data->city;
