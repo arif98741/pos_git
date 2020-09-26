@@ -1,13 +1,14 @@
 <?php
 $path = realpath(dirname(__DIR__));
 require $path . '/vendor/autoload.php';
-
+/*
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 
 $whoops = new Run;
 $whoops->pushHandler(new PrettyPageHandler);
 $whoops->register();
+*/
 
 spl_autoload_register(function ($class) {
     $filepath = realpath(dirname(__DIR__));
