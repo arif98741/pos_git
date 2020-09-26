@@ -106,15 +106,16 @@ require 'header-part.php';
 
             <!-- /.search form -->
             <!-- sidebar menu: : style can be found in sidebar.less -->
+
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="treeview">
+                <li class="treeview menu-open">
                     <a href="#">
                         <i class="fa fa-database"></i> <span>Products</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                     </a>
-                    <ul class="treeview-menu">
+                    <ul class="treeview-menu" style="display: block">
                         <li><a href="addproduct.php"><i class="fa fa-plus"></i>Add Product</a></li>
                         <li><a href="addproduct-using-file.php"><i class="fa fa-plus"></i>Bulk Product Upload</a></li>
 
