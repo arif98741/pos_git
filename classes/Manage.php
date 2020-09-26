@@ -18,7 +18,7 @@ class Manage
 
 
     /*
-     * showing applicant list in applicationlist.php 
+     * showing applicant list in applicationlist.php
      * */
 
     public function addRegistant($data)
@@ -107,7 +107,7 @@ class Manage
         return $key;
     }
 
-    //update confirmation mail 
+    //update confirmation mail
 
     function confirmMail($email, $confirm_code)
     {
@@ -312,7 +312,6 @@ class Manage
 
 
     }
-
 
     /*
     @ show committee member in viewcommimtee.php

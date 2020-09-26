@@ -1,7 +1,17 @@
 <?php
+
+/*
+ * Copyright (c) 9/26/20, 1:55 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
 $path = realpath(dirname(__DIR__));
 require $path . '/vendor/autoload.php';
 require $path . '/config/config.php';
+
 
 class Database
 {
@@ -18,11 +28,10 @@ class Database
     !      no return job
     !----------------------------------------------------
     */
-    function __construct()
+    public function __construct()
+
     {
         $this->link = $this->connection();
-
-
     }
 
 
@@ -52,6 +61,7 @@ class Database
     public function select($query)
     {
         $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
+
         if ($stmt) {
             if ($stmt->num_rows > 0) {
                 return $stmt;
@@ -125,13 +135,13 @@ class Database
     public function delete($query)
     {
         $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
+
         if ($stmt) {
             return true;
         } else {
             return false;
         }
     }
-
 
     /*
     !-----------------------------------------------------
@@ -142,6 +152,7 @@ class Database
     public function rowCount($query)
     {
         $stmt = $this->link->query($query) or die($this->link->error) . " error at line number " . __LINE__;
+
         if ($stmt->num_rows > 0) {
             return $stmt->num_rows;
         } else {
