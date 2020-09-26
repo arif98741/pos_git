@@ -7,7 +7,11 @@
         ?>
     </div>
 
-    <strong>Copyright &copy; 2018-<?php echo date('Y'); ?> <a href="https://github.com/arif98741/" target="_blank">Ariful Islam</a>.</strong> All Rights Reserved.
+    <p>&copy; 2018 - <?php echo date('Y'); ?> <a href="https://github.com/arif98741/" target="_blank">Ariful
+            Islam</a>, All Rights Reserved |
+        Version: <strong>V4.0.0</strong> | Access IP: <strong><?php echo $_SERVER['REMOTE_ADDR']; ?></strong>
+    </p>
+
 
 </footer>
 
