@@ -1,5 +1,13 @@
 <?php
 
+/*
+ * Copyright (c) 9/26/20, 1:58 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
 
 class Laser
 {
@@ -114,8 +122,7 @@ class Laser
     {
         $product_id = $this->helpObj->validAndEscape($serial);
         $query = "select * from tbl_laser where serial='$serial'";
-        $sta = $this->dbObj->select($query);
-        return $sta;
+        return $this->dbObj->select($query);
     }
 
 
@@ -127,14 +134,12 @@ class Laser
     {
 
         $category = $this->helpObj->validAndEscape($data['category']);
-        //$donor = $this->helpObj->validAndEscape($data['donor']);
-        //$receiver = $this->helpObj->validAndEscape($data['receiver']);
         $debit = $this->helpObj->validAndEscape($data['debit']);
         $credit = $this->helpObj->validAndEscape($data['credit']);
         $description = $this->helpObj->validAndEscape($data['description']);
         $laserid = $this->helpObj->validAndEscape($data['laserid']);
         $updateby = $_SESSION['userid'];
-        $date = $this->helpObj->validAndEscape($data['date']);
+        $this->helpObj->validAndEscape($data['date']);
 
         $query = "UPDATE tbl_laser SET
                             category = '$category',debit = '$debit',
@@ -165,7 +170,9 @@ class Laser
 
         $check = $status = $this->dbObj->link->query("select * from tbl_transactioncat where category_name='$transactioncat'") or die($this->dbObj->link->error) . " at line number " . __LINE__;
         if ($check) {
-            if ($row = $check->num_rows > 0) {
+
+            if ($row = ($check->num_rows > 0)) {
+
                 return "<script>alert('Transaction Category Already Exist');</script>";
             } else {
                 $query = "insert into tbl_transactioncat(category_name,category_type,last_update) values('$transactioncat','$type','$date')";
@@ -228,6 +235,5 @@ class Laser
             return false;
         }
     }
-
 
 }

@@ -1,4 +1,12 @@
 <?php
+/*
+ * Copyright (c) 9/26/20, 1:59 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
 //include_once 'Session.php';
 //include_once 'helper/Helper.php';
 
@@ -14,7 +22,6 @@ class Login
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
     }
-
 
     /**
      * @ user login system
@@ -192,5 +199,4 @@ class Login
 
 
     }
-
 }

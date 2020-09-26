@@ -1,4 +1,12 @@
 <?php
+/*
+ * Copyright (c) 9/26/20, 1:57 PM. This file is created and maintained by Ariful Islam.
+ * This is the private  property of mine. If you want to use this for personal use this is ok.
+ * But for commercial use you must have to contact with me for further process. Here is my contact details..
+ * Github: https://github.com/arif98741
+ * Twitter: https://twitter.com/arif98741
+ * Email: arif98741@gmail.com
+ */
 
 class Invoice
 {
@@ -67,14 +75,13 @@ class Invoice
     public function saveInvoice($data)
     {
 
-
         $inv_no1 = $this->helpObj->validAndEscape($data['invoice_no']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
         $date = $this->helpObj->validAndEscape($data['date']);
 
         $quantity = $purchase = $subtotal = $total = 0;
         //for counting total data from a invoice form
-        for ($i = 0; $i < count($data['quantity']); $i++) {
+        for ($i = 0, $iMax = count($data['quantity']); $i < $iMax; $i++) {
             $quantity += $data['quantity'][$i];
             $purchase += $data['purchase'][$i];
             $subtotal += $data['subtotalforsave'][$i];
@@ -88,7 +95,7 @@ class Invoice
         } else {
 
             //insert product is tbl_invoice_products
-            for ($j = 0; $j < count($data['quantity']); $j++) {
+            for ($j = 0, $jMax = count($data['quantity']); $j < $jMax; $j++) {
 
                 $pid = $data['product_id'][$j];
                 $q = $data['quantity'][$j];
