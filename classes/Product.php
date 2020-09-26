@@ -263,7 +263,7 @@ class Product
                             stock   ='$stock',
                             size   ='$size',
                             last_update ='$last_update'
-                            where product_id='$serial' ";
+                            where serial='$serial' ";
 
         if ($this->dbObj->update($query)) {
             Session::set('success', "<p class='alert alert-success fadeout'>Product Updated Successfully<p>");

@@ -9,8 +9,8 @@
     <?php
     echo date_default_timezone_get();
     ?>
-    <strong>Copyright &copy; 2018 <a href="http://exploreit.com.bd/" target="_blank">explore-it</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2018-<?php echo date('Y'); ?> <a href="https://github.com/arif98741/" target="_blank">Ariful Islam</a>.</strong> All Rights Reserved.
+
 </footer>
 
 <div class="control-sidebar-bg"></div>
