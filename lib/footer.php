@@ -6,9 +6,7 @@
         echo "Executed in " . number_format($totalScriptTime, 4) . " seconds";
         ?>
     </div>
-    <?php
-    echo date_default_timezone_get();
-    ?>
+
     <strong>Copyright &copy; 2018-<?php echo date('Y'); ?> <a href="https://github.com/arif98741/" target="_blank">Ariful Islam</a>.</strong> All Rights Reserved.
 
 </footer>
