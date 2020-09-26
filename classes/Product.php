@@ -3,6 +3,7 @@
 class Product
 {
 
+
     private $dbObj;
     private $helpObj;
 
