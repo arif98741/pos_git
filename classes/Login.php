@@ -171,7 +171,7 @@ class Login
      * @ access log saving in database
      */
 
-    function accessLog($ip, $needs)
+    public function accessLog($ip, $needs)
     {
         $cSession = curl_init();
         curl_setopt($cSession, CURLOPT_URL, "http://ip-api.com/json/" . $ip);
