@@ -1,7 +1,7 @@
 <?php
 ob_start();
 $startScriptTime = microtime(TRUE);
-define("BASE_URL", 'http://localhost/pos_git/');
+define("BASE_URL", 'https://treatlover.com/inventory/');
 require 'header-part.php';
 ?>
 <!DOCTYPE html>
