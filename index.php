@@ -28,7 +28,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3><?php echo $dash->TodaySale(); ?></h3>
+              <h3><?php echo $dash->todaySale(); ?></h3>
 
               <p>Today Sale</p>
             </div>
@@ -44,7 +44,7 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3><?php echo $dash->TodayMemo(); ?></h3>
+              <h3><?php echo $dash->todayMemo(); ?></h3>
 
               <p>Today Memo</p>
             </div>
@@ -59,7 +59,7 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3><?php echo $dash->TotalMemo(); ?> </h3>
+              <h3><?php echo $dash->totalMemo(); ?> </h3>
 
               <p> Total Memo</p>
             </div>

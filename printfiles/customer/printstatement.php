@@ -78,7 +78,7 @@ date_default_timezone_set('Asia/Dhaka');
         <tbody>
         <?php
 
-        $stmt = $db->link->query("SELECT cb.* FROM customer_balancesheet cb JOIN tbl_customer tc on cb.Customer = tc.customer_id where cb.Customer = '$customer_id' and cb.date between '$starting' and '$ending' order by cb.date asc") or die($db->link->error) . __LINE__;;
+        $stmt = $db->link->query("SELECT cb.* FROM customer_balancesheet cb JOIN tbl_customer tc on cb.Customer = tc.customer_id where cb.Customer = '$customer_id' and cb.date between '$starting' and '$ending' order by cb.date asc") or die($db->link->error) . __LINE__;
         if ($stmt) {
             $i = $debit = $credit = 0;
 

@@ -129,13 +129,12 @@ class Product
           values('$product_id','$product_type','$product_group','$product_name','$product_brand','$sale_price','$purchase_price','$piece_in_a_carton','$u_id')";
 
         $check = $this->dbObj->select("select * from tbl_product where product_id='$product_id'");
-
         if ($check) {
             return "<p class='alert alert-danger fadeout'>Product Already Exist<p>";
         } else {
             $status = $this->dbObj->insert($query);
             if ($status) {
-                return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";;
+                return "<p class='alert alert-success fadeout'>Product Insert Successful<p>";
             } else {
                 return "<p class='alert alert-danger fadeout'>Failed To Insert Product<p>";
             }

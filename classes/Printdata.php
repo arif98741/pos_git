@@ -575,14 +575,7 @@ class Printdata
 
     public function SellReportForsales($starting, $ending)
     {
-
-        $starting = $starting;
-        $ending = $ending;
-
-
         $stmt = $this->dbObj->select("SELECT ts.date,ts.sell_id,tp.product_id,tp.product_name,tsp.unit_price as 'sale_price',tsp.quantity FROM tbl_sell ts join tbl_sell_products tsp on ts.sell_id = tsp.sell_id JOIN tbl_product tp on tsp.product_id = tp.product_id where ts.date between '$starting' and '$ending' order by ts.date asc");
-
-
         $total = 0;
         if ($stmt) {
             $i = 0;

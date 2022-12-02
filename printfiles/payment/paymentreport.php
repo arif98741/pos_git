@@ -74,7 +74,7 @@ date_default_timezone_set('Asia/Dhaka');
             $stmt = $db->link->query("SELECT * from ledger  join registration on ledger.registant_id = registration.id where ledger.date between '$starting' and '$ending'");
 
             if ($stmt) {
-                $i = $total = 0;;
+                $i = $total = 0;
 
                 while ($row = $stmt->fetch_assoc()) {
                     $i++;

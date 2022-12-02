@@ -75,8 +75,6 @@ class Extra
         $st = $this->dbObj->select($q);
         if ($st) {
             return $st->fetch_assoc();
-        } else {
-
         }
     }
 
@@ -124,8 +122,6 @@ class Extra
     */
     public function lastInvoicedue($cus_id)
     {
-
-
         $q = "SELECT due FROM tbl_sell WHERE customer_id = '$cus_id' ORDER BY SERIAL ASC LIMIT 2";
         $st = $this->dbObj->select($q);
         $last_due = 0;
@@ -190,8 +186,8 @@ class Extra
 
     /*
     !-----------------------------------------------------------------------
-    !    quantiy Maintainer function
-    !    this will identify wheather the quantity is grater than one or not
+    !    quantity Maintainer function
+    !    this will identify whether the quantity is grater than one or not
     !-----------------------------------------------------------------------
     */
     public function quantityMaintainer($quantity, $unit)
@@ -222,19 +218,16 @@ class Extra
             $customer_mobile = $data['contact_no'];
         }
 
-        $balstmt = $this->dbObj->link->query("select * from customer_balance where customer_id='$customer_id'") or die($this->dbObj->link->error) . " " . __LINE__;
-        if ($balstmt) {
-            $balarray = $balstmt->fetch_assoc();
-            $current_balance = number_format((float)$balarray['balance'], 2, '.', '');
+        $balanceStatement = $this->dbObj->link->query("select * from customer_balance where customer_id='$customer_id'") or die($this->dbObj->link->error) . " " . __LINE__;
+        if ($balanceStatement) {
+            $balanceArray = $balanceStatement->fetch_assoc();
+            $current_balance = number_format((float)$balanceArray['balance'], 2, '.', '');
 
 
         }
 
-        /*$message = 'Dear '.$customer_name.', your payment '.$amount.'tk for invoice '.$sell_id.' has successfully recieved. Your current balance is '.$current_balance.'-----------------'.Session::get('company_name'); */
-
         $message = 'Dear ' . $customer_name . ', your bill  is ' . $amount . ' for invoice ' . $sell_id . '. Current balance is ' . $current_balance . ". Happy Product";
-
-        $token = "77f9a4d2c5ea51913e1cd7624705239c";
+        $token = "77f9a4d2c5ea51913e1cd76XXXXXXXXXX";
         $url = "http://sms.greenweb.com.bd/api.php";
 
         $data = array(
@@ -246,8 +239,8 @@ class Extra
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $smsresult = curl_exec($ch); //execute statement to send sms
-        return $smsresult;
+        //execute statement to send sms
+        return curl_exec($ch);
     }
 
 
@@ -304,7 +297,5 @@ class Extra
         $finish = $time;
         $total_time = round(($finish - $start), 4);
         return 'Page generated in ' . $total_time . ' seconds.';
-
     }
-
 }

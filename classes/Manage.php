@@ -4,14 +4,11 @@ include_once 'helper/Helper.php';
 
 class Manage
 {
-
     private $dbObj;
     private $helpObj;
-    private $msg;
 
     public function __construct()
     {
-
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
     }
@@ -36,7 +33,6 @@ class Manage
         $relation = $this->helpObj->validAndEscape($data['relation']);
 
         $photo = 'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
-        $msg = '';
 
         $checkstmt = $this->dbObj->link->query("SELECT * from registration where email ='$email' or contact='$contact'");
         if ($checkstmt) {
@@ -84,8 +80,6 @@ class Manage
                 $status = $this->confirmMail($email, $confirm_code); //send confirmation mail to user
                 if ($status) {
                     return true;
-                } else {
-                    false;
                 }
             }
         }

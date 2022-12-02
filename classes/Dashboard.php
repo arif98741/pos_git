@@ -6,15 +6,11 @@ include_once $path . '/helper/Helper.php';
 
 class Dashboard
 {
-
     private $dbObj;
-    private $helpObj;
 
     public function __construct()
     {
-
         $this->dbObj = new Database();
-        $this->helpObj = new Helper();
 
     }
 
@@ -24,7 +20,7 @@ class Dashboard
     !               Today's Sale
     !-------------------------------------
     */
-    public function TodaySale()
+    public function todaySale()
     {
         date_default_timezone_set('Asia/Dhaka');
         $starting = date('Y-m-d') . " 00:00:00";
@@ -49,7 +45,7 @@ class Dashboard
     !               Today Sales Amonut
     !-------------------------------------
     */
-    public function TodayMemo()
+    public function todayMemo()
     {
         $starting = date('Y-m-d') . " 00:00:00";
         $ending = date('Y-m-d') . " 23:59:59";
@@ -68,7 +64,7 @@ class Dashboard
     !           Total Sales Amount
     !----------------------------------
     */
-    public function TotalMemo()
+    public function totalMemo()
     {
         $query = "SELECT count(sell_id) as 'totalsell' from tbl_sell";
         $st = $this->dbObj->select($query);
@@ -98,7 +94,7 @@ class Dashboard
 
 
     // Total Customer
-    public function TodayCustomer()
+    public function todayCustomer()
     {
         $query = "SELECT count(serial) as 'totalcustomer' from tbl_customer";
         $st = $this->dbObj->select($query);
@@ -111,15 +107,17 @@ class Dashboard
     }
 
 
-    // Total Profit
-    public function TodayProfit()
+    /**
+     * Total Profit
+     * @return int|string|void
+     */
+    public function todayProfile()
     {
         $starting = date('Y-m-d') . " 00:00:00";
         $ending = date('Y-m-d') . " 23:59:59";
         $query = "select sum(profit) as 'profit' from profit where profit.date between '$starting' and '$ending'";
 
         $stmt = $this->dbObj->link->query($query);
-        $profit = 0;
         if ($stmt) {
             $data = $stmt->fetch_assoc();
             $profit = $data['profit'];
@@ -129,7 +127,6 @@ class Dashboard
                 return 0;
             }
         }
-
 
     }
 

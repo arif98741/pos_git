@@ -137,7 +137,7 @@ class Login
                 $msg = "<script>alert('Stuff Update Failed');</script>";
             }
         } else {
-            $stmt = $this->dbObj->update("update tbl_user set name='$name',email='$email' where userid='$userid'") or die($this->dbObj->link->error) . " error at line number " . __LINE__;;
+            $stmt = $this->dbObj->update("update tbl_user set name='$name',email='$email' where userid='$userid'") or die($this->dbObj->link->error) . " error at line number " . __LINE__;
             if ($stmt) {
                 $msg = "<script>alert('Stuff Updated Successfully');</script>";
             } else {

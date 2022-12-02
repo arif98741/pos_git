@@ -117,7 +117,6 @@ class Page
         $address = $this->helpObj->validAndEscape($data['address']);
         $contact = $this->helpObj->validAndEscape($data['contact']);
         $member_id = $this->helpObj->validAndEscape($data['member_id']);
-        $_FILES["photo"]["tmp_name"];
         $photo = 'photo' . date('Y-m-d-H-i-s') . '_' . uniqid() . '.jpg';
 
         if (strpos($_FILES["photo"]["tmp_name"], '.tmp') == "" || strpos($_FILES["photo"]["tmp_name"], '.tmp') == null) {
@@ -155,9 +154,5 @@ class Page
                 return "<script>alert('Member Update Failed');</script>";
             }
         }
-
-
     }
-
-
 }

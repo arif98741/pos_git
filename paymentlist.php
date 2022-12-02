@@ -11,7 +11,7 @@ if (isset($_POST['payamount'])) {
     $date = date('Y-m-d h:i:s');
     $after_pay = $previous- $amount;
     $stmt = $db->link->query("insert into payment(customer_id,amount,date) values('$customer_id','$amount','$date')") or die($db->link->error).__LINE__;
-    $stmt = $db->link->query("update tbl_customer set due ='$after_pay' where customer_id ='$customer_id'") or die($db->link->error).__LINE__;;
+    $stmt = $db->link->query("update tbl_customer set due ='$after_pay' where customer_id ='$customer_id'") or die($db->link->error).__LINE__;
 
     
     if ($stmt) {
