@@ -5,7 +5,8 @@ include_once 'DB.php';
 include_once 'Session.php';
 include_once $path . '/helper/Helper.php';
 
-class Invoice {
+class Invoice
+{
 
     private $dbObj;
     private $helpObj;
@@ -16,7 +17,8 @@ class Invoice {
     !      no return job
     !----------------------------------------------------
     */
-    public function __construct() {
+    public function __construct()
+    {
 
         $this->dbObj = new Database();
         $this->helpObj = new Helper();
@@ -28,7 +30,8 @@ class Invoice {
     !           showing invoice list in the table     
     !-------------------------------------------------
     */
-    public function showInvoices() {
+    public function showInvoices()
+    {
         $query = "select * from tbl_invoice ti JOIN tbl_supplier ts on ti.supplier_id = ts.supplier_id order by ti.serial desc ";
         $st = $this->dbObj->select($query);
         if ($st) {
@@ -38,13 +41,14 @@ class Invoice {
         }
     }
 
-   
+
     /*
     !--------------------------------------------------------------------
     !           show product in invoice form by specific product id     
     !-------------------------------------------------------------------
     */
-    public function showProductByID($product_id) {
+    public function showProductByID($product_id)
+    {
         $query = "select * from tbl_product where product_id='$product_id'";
         $st = $this->dbObj->select($query);
         if ($st) {
@@ -58,21 +62,22 @@ class Invoice {
         }
     }
 
-   
+
     /*
     !----------------------------------------------------------
-    !       save invoice data from addpurchase 
+    !       save invoice data from purchase
     !       used table tbl_invoice, tbl_invoice_products     
     !---------------------------------------------------------
     */
-    public function saveInvoice($data) {
+    public function saveInvoice($data)
+    {
 
 
         $inv_no1 = $this->helpObj->validAndEscape($data['invoice_no']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
         $date = $this->helpObj->validAndEscape($data['date']);
 
-        $quantity  = $purchase = $subtotal = $total = 0;
+        $quantity = $purchase = $subtotal = $total = 0;
         //for counting total data from a invoice form
         for ($i = 0; $i < count($data['quantity']); $i++) {
             $quantity += $data['quantity'][$i];
@@ -100,7 +105,7 @@ class Invoice {
             }
 
             $totalInvoice_query = "insert into tbl_invoice(invoice_number,supplier_id,quantity,purchase,subtotal,total,date)"
-                    . "values('$inv_no1','$supplier_id','$quantity','$purchase','$subtotal','$total','$date')";
+                . "values('$inv_no1','$supplier_id','$quantity','$purchase','$subtotal','$total','$date')";
             $stmt = $this->dbObj->insert($totalInvoice_query);
             if ($stmt) {
                 return "<p class='alert alert-success fadeout'>Data Insert Successful<p>";
@@ -110,14 +115,15 @@ class Invoice {
         }
     }
 
-    
+
     /*
     !----------------------------------------------------------
     !                Update Invoice Data from 
     !                   editvoice.php     
     !---------------------------------------------------------
     */
-    public function updateInvoice($data) {
+    public function updateInvoice($data)
+    {
 
         $inv_no = $this->helpObj->validAndEscape($data['invoice_number']);
         $supplier_id = $this->helpObj->validAndEscape($data['supplier_id']);
@@ -132,7 +138,7 @@ class Invoice {
             //for counting total data from a invoice form
             for ($i = 0; $i < count($data['quantity']); $i++) {
                 $quantity += $data['quantity'][$i];
-                
+
                 $purchase += $data['purchase'][$i];
                 $subtotal += $data['subtotalforsave'][$i];
                 $total = $total + $data['subtotalforsave'][$i];
@@ -141,10 +147,10 @@ class Invoice {
             $inv_serial = $inv_data['serial'];
             $update_by = Session::get('userid');
             $updateInvoice_query = "update tbl_invoice set invoice_number='$inv_no',"
-                    . "supplier_id='$supplier_id',quantity='$quantity',"
-                    . "purchase='$purchase',"
-                    . "total='$total',date='$date',updateby='$update_by'"
-                    . "where serial = '$inv_serial'";
+                . "supplier_id='$supplier_id',quantity='$quantity',"
+                . "purchase='$purchase',"
+                . "total='$total',date='$date',updateby='$update_by'"
+                . "where serial = '$inv_serial'";
             $stmt = $this->dbObj->update($updateInvoice_query);
             if ($stmt) {
                 for ($j = 0; $j <= count($data['quantity']) - 1; $j++) {
@@ -153,10 +159,10 @@ class Invoice {
                     $q = $data['quantity'][$j];
                     $pur = $data['purchase'][$j];
                     $subt = $data['subtotalforsave'][$j];
-                    
+
                     $query = "update tbl_invoice_products set product_id='$pid', quantity = '$q',purchase='$pur',subtotal='$subt' where serial_no='$serial_no'";
 
-                    $stmt1 = $this->dbObj->link->query($query) or die($this->dbObj->link->error)." at line no ".__LINE__;
+                    $stmt1 = $this->dbObj->link->query($query) or die($this->dbObj->link->error) . " at line no " . __LINE__;
                 }
                 if ($stmt1) {
                     return "<p class='alert alert-success fadeout'>Invoice Updated Successful<p>";
@@ -172,7 +178,8 @@ class Invoice {
     !        get single invoice data for editpurchase.php  
     !---------------------------------------------------------
     */
-    public function singleInvoice($inv_no) {
+    public function singleInvoice($inv_no)
+    {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
         $q = "select * from tbl_invoice where invoice_number ='$inv_no'";
         $st = $this->dbObj->select($q);
@@ -186,7 +193,8 @@ class Invoice {
     !        get all products for an invoice  
     !---------------------------------------------------------
     */
-    public function getInvoiceProducts($inv_no) {
+    public function getInvoiceProducts($inv_no)
+    {
         $inv_no = $this->helpObj->validAndEscape($inv_no);
         $q = "select * from tbl_invoice_products tip ,tbl_product tp where tip.invoice_id ='$inv_no' and tp.product_id = tip.product_id order by tip.product_id";
         $st = $this->dbObj->select($q);
@@ -202,24 +210,25 @@ class Invoice {
     !        delete invoice and invoice products  
     !---------------------------------------------------------
     */
-    public function deleteInvoice($serial, $invoice_id) {
+    public function deleteInvoice($serial, $invoice_id)
+    {
         $serial = $this->helpObj->validAndEscape($serial);
         $invoice_id = $this->helpObj->validAndEscape($invoice_id);
 
         $delquery = "delete from tbl_invoice where invoice_number='$invoice_id'";
         $st = $this->dbObj->delete($delquery); //delete invoice 
         if ($st) {
-            
+
             $in_pro_query = "delete from tbl_invoice_products where invoice_id='$invoice_id'";
             $in_pro_st = $this->dbObj->delete($in_pro_query); //delete invoice products
             if ($in_pro_st) {
-                 return true;
-             }else{
+                return true;
+            } else {
                 return false;
-             }
-             
-        }else {
-             return false;
+            }
+
+        } else {
+            return false;
         }
 
     }
