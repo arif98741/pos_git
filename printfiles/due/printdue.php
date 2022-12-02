@@ -41,7 +41,7 @@ $sel = new Sell();
                                                                                                             alt=""/></span></a>
             </td>
             <td width="68%" height="67" align="left" valign="middle">
-                <div class="title-1">explore Point of Sales</div>
+                <div class="title-1">Point of Sales</div>
 
 
                 <div class="title-3">All Products List Report</div>

@@ -47,7 +47,7 @@ $help = new Helper();
                                                                                                                 alt=""/></span></a>
                 </td>
                 <td width="68%" height="67" align="left" valign="middle">
-                    <div class="title-1">explore Point of Sales</div>
+                    <div class="title-1">Point of Sales</div>
 
                     <div class="title-3">All Purchase Report</div>
                 </td>
@@ -91,7 +91,7 @@ $help = new Helper();
                                                                                                                 alt=""/></span></a>
                 </td>
                 <td width="68%" height="67" align="left" valign="middle">
-                    <div class="title-1">explore Point of Sales</div>
+                    <div class="title-1">Point of Sales</div>
 
                     <div class="title-3">Purchase Report by Group -
                         <?php $g = $db->selectFetchAssoc("select * from tbl_group WHERE groupid = '{$_POST["product_group"]}'");
@@ -165,7 +165,7 @@ $help = new Helper();
                                                                                                                 alt=""/></span></a>
                 </td>
                 <td width="68%" height="67" align="left" valign="middle">
-                    <div class="title-1">explore Point of Sales</div>
+                    <div class="title-1">Point of Sales</div>
 
                     <div class="title-3">Purchase Report by Brand -
                         <?php $b = $db->selectFetchAssoc("select * from tbl_brand WHERE brandid = '{$_POST["product_brand"]}'");
