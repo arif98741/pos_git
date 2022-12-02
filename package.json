@@ -21,6 +21,6 @@
   "homepage": "https://github.com/arif98741/pos_git#readme",
   "dependencies": {
     "admin-lte": "^3.0.0-alpha.2",
-    "jquery": "^3.3.1"
+    "jquery": "^3.5.0"
   }
 }
